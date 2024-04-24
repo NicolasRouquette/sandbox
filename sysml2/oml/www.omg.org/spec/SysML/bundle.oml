@@ -1,0 +1,4 @@
+vocabulary bundle <https://www.omg.org/spec/SysML/bundle#> as sysml-bundle {
+
+	includes <https://www.omg.org/spec/SysML/20230201#>
+}
