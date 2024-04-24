@@ -1,0 +1,4 @@
+vocabulary bundle <http://d3fend.mitre.org/ontologies/d3fend.owl-bundle#> as gufo-bundle {
+	
+	includes <http://d3fend.mitre.org/ontologies/d3fend.owl#>
+}
