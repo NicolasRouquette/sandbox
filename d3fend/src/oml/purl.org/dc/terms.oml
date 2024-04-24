@@ -1,0 +1,8 @@
+vocabulary <http://purl.org/dc/terms/> as dcterms {
+
+	annotation property ^description
+
+	annotation property license
+
+	annotation property title
+}
