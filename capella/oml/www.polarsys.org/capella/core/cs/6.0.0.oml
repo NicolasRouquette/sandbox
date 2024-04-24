@@ -1,0 +1,893 @@
+vocabulary <http://www.polarsys.org/capella/core/cs/6.0.0#> as core.data.cs {
+
+	extends <http://www.polarsys.org/capella/core/core/6.0.0#> as core.data.capellacore
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.polarsys.org/capella/core/fa/6.0.0#> as core.data.fa
+
+	extends <http://www.polarsys.org/capella/core/requirement/6.0.0#> as core.data.requirement
+
+	extends <http://www.polarsys.org/capella/core/common/6.0.0#> as core.data.capellacommon
+
+	extends <http://www.polarsys.org/capella/core/information/6.0.0#> as core.data.information
+
+	extends <http://www.polarsys.org/capella/core/information/communication/6.0.0#> as core.data.information.communication
+
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	extends <http://www.polarsys.org/capella/common/core/6.0.0#> as common.data.core
+
+	extends <http://www.polarsys.org/capella/core/epbs/6.0.0#> as core.data.epbs
+
+	@rdfs:label "BlockArchitecturePkg"
+	aspect BlockArchitecturePkg < core.data.capellacore:ModellingArchitecturePkg
+
+	@rdfs:label "BlockArchitecture"
+	aspect BlockArchitecture < core.data.fa:AbstractFunctionalArchitecture
+
+	@rdfs:label "ownedRequirementPkgs"
+	relation BlockArchitecture_ownedRequirementPkgs [
+		from BlockArchitecture
+		to core.data.requirement:RequirementsPkg
+	]
+
+	@rdfs:label "ownedAbstractCapabilityPkg"
+	relation BlockArchitecture_ownedAbstractCapabilityPkg [
+		from BlockArchitecture
+		to core.data.capellacommon:AbstractCapabilityPkg
+		functional
+	]
+
+	@rdfs:label "ownedInterfacePkg"
+	relation BlockArchitecture_ownedInterfacePkg [
+		from BlockArchitecture
+		to InterfacePkg
+		functional
+	]
+
+	@rdfs:label "ownedDataPkg"
+	relation BlockArchitecture_ownedDataPkg [
+		from BlockArchitecture
+		to core.data.information:DataPkg
+		functional
+	]
+
+	@rdfs:label "provisionedArchitectureAllocations"
+	relation BlockArchitecture_provisionedArchitectureAllocations [
+		from BlockArchitecture
+		to ArchitectureAllocation
+		@rdfs:label "allocatingArchitecture"
+		reverse ArchitectureAllocation_allocatingArchitecture
+		inverse functional
+	]
+
+	@rdfs:label "provisioningArchitectureAllocations"
+	relation BlockArchitecture_provisioningArchitectureAllocations [
+		from BlockArchitecture
+		to ArchitectureAllocation
+		@rdfs:label "allocatedArchitecture"
+		reverse ArchitectureAllocation_allocatedArchitecture
+		inverse functional
+	]
+
+	@rdfs:label "allocatedArchitectures"
+	relation BlockArchitecture_allocatedArchitectures [
+		from BlockArchitecture
+		to BlockArchitecture
+	]
+
+	@rdfs:label "allocatingArchitectures"
+	relation BlockArchitecture_allocatingArchitectures [
+		from BlockArchitecture
+		to BlockArchitecture
+	]
+
+	@rdfs:label "system"
+	relation BlockArchitecture_system [
+		from BlockArchitecture
+		to Component
+		functional
+	]
+
+	@rdfs:label "Block"
+	aspect Block < core.data.capellacore:ModellingBlock, core.data.fa:AbstractFunctionalBlock
+
+	@rdfs:label "ownedAbstractCapabilityPkg"
+	relation Block_ownedAbstractCapabilityPkg [
+		from Block
+		to core.data.capellacommon:AbstractCapabilityPkg
+		functional
+	]
+
+	@rdfs:label "ownedInterfacePkg"
+	relation Block_ownedInterfacePkg [
+		from Block
+		to InterfacePkg
+		functional
+	]
+
+	@rdfs:label "ownedDataPkg"
+	relation Block_ownedDataPkg [
+		from Block
+		to core.data.information:DataPkg
+		functional
+	]
+
+	@rdfs:label "ownedStateMachines"
+	relation Block_ownedStateMachines [
+		from Block
+		to core.data.capellacommon:StateMachine
+	]
+
+	@rdfs:label "ComponentArchitecture"
+	aspect ComponentArchitecture < BlockArchitecture
+
+	@rdfs:label "Component"
+	aspect Component < Block, core.data.capellacore:Classifier, InterfaceAllocator, core.data.information.communication:CommunicationLinkExchanger [
+		restricts Component_actor to exactly 1
+		restricts Component_human to exactly 1
+	]
+
+	@rdfs:label "actor"
+	scalar property Component_actor [
+		domain Component
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "human"
+	scalar property Component_human [
+		domain Component
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "ownedInterfaceUses"
+	relation Component_ownedInterfaceUses [
+		from Component
+		to InterfaceUse
+	]
+
+	@rdfs:label "usedInterfaceLinks"
+	relation Component_usedInterfaceLinks [
+		from Component
+		to InterfaceUse
+		@rdfs:label "interfaceUser"
+		reverse InterfaceUse_interfaceUser
+		inverse functional
+	]
+
+	@rdfs:label "usedInterfaces"
+	relation Component_usedInterfaces [
+		from Component
+		to Interface
+		@rdfs:label "userComponents"
+		reverse Interface_userComponents
+	]
+
+	@rdfs:label "ownedInterfaceImplementations"
+	relation Component_ownedInterfaceImplementations [
+		from Component
+		to InterfaceImplementation
+	]
+
+	@rdfs:label "implementedInterfaceLinks"
+	relation Component_implementedInterfaceLinks [
+		from Component
+		to InterfaceImplementation
+		@rdfs:label "interfaceImplementor"
+		reverse InterfaceImplementation_interfaceImplementor
+		inverse functional
+	]
+
+	@rdfs:label "implementedInterfaces"
+	relation Component_implementedInterfaces [
+		from Component
+		to Interface
+		@rdfs:label "implementorComponents"
+		reverse Interface_implementorComponents
+	]
+
+	@rdfs:label "ownedComponentRealizations"
+	relation Component_ownedComponentRealizations [
+		from Component
+		to ComponentRealization
+	]
+
+	@rdfs:label "realizedComponents"
+	relation Component_realizedComponents [
+		from Component
+		to Component
+	]
+
+	@rdfs:label "realizingComponents"
+	relation Component_realizingComponents [
+		from Component
+		to Component
+	]
+
+	@rdfs:label "providedInterfaces"
+	relation Component_providedInterfaces [
+		from Component
+		to Interface
+	]
+
+	@rdfs:label "requiredInterfaces"
+	relation Component_requiredInterfaces [
+		from Component
+		to Interface
+	]
+
+	@rdfs:label "containedComponentPorts"
+	relation Component_containedComponentPorts [
+		from Component
+		to core.data.fa:ComponentPort
+	]
+
+	@rdfs:label "containedParts"
+	relation Component_containedParts [
+		from Component
+		to Part
+	]
+
+	@rdfs:label "containedPhysicalPorts"
+	relation Component_containedPhysicalPorts [
+		from Component
+		to PhysicalPort
+	]
+
+	@rdfs:label "ownedPhysicalPath"
+	relation Component_ownedPhysicalPath [
+		from Component
+		to PhysicalPath
+	]
+
+	@rdfs:label "ownedPhysicalLinks"
+	relation Component_ownedPhysicalLinks [
+		from Component
+		to PhysicalLink
+	]
+
+	@rdfs:label "ownedPhysicalLinkCategories"
+	relation Component_ownedPhysicalLinkCategories [
+		from Component
+		to PhysicalLinkCategory
+	]
+
+	@rdfs:label "representingParts"
+	relation Component_representingParts [
+		from Component
+		to Part
+	]
+
+	@rdfs:label "Part"
+	concept Part < core.data.information:AbstractInstance, common.data.core:InformationsExchanger, DeployableElement, DeploymentTarget, AbstractPathInvolvedElement
+
+	@rdfs:label "providedInterfaces"
+	relation Part_providedInterfaces [
+		from Part
+		to Interface
+	]
+
+	@rdfs:label "requiredInterfaces"
+	relation Part_requiredInterfaces [
+		from Part
+		to Interface
+	]
+
+	@rdfs:label "ownedDeploymentLinks"
+	relation Part_ownedDeploymentLinks [
+		from Part
+		to AbstractDeploymentLink
+	]
+
+	@rdfs:label "deployedParts"
+	relation Part_deployedParts [
+		from Part
+		to Part
+	]
+
+	@rdfs:label "deployingParts"
+	relation Part_deployingParts [
+		from Part
+		to Part
+	]
+
+	@rdfs:label "ownedAbstractType"
+	relation Part_ownedAbstractType [
+		from Part
+		to common.data.core:AbstractType
+		functional
+	]
+
+	@rdfs:label "ArchitectureAllocation"
+	aspect ArchitectureAllocation < core.data.capellacore:Allocation [
+		restricts ArchitectureAllocation_allocatingArchitecture to exactly 1
+		restricts ArchitectureAllocation_allocatedArchitecture to exactly 1
+	]
+
+	@rdfs:label "ComponentRealization"
+	concept ComponentRealization < core.data.capellacore:Allocation
+
+	@rdfs:label "realizedComponent"
+	relation ComponentRealization_realizedComponent [
+		from ComponentRealization
+		to Component
+		functional
+	]
+
+	@rdfs:label "realizingComponent"
+	relation ComponentRealization_realizingComponent [
+		from ComponentRealization
+		to Component
+		functional
+	]
+
+	@rdfs:label "InterfacePkg"
+	concept InterfacePkg < core.data.information.communication:MessageReferencePkg, core.data.capellacore:AbstractDependenciesPkg, core.data.capellacore:AbstractExchangeItemPkg
+
+	@rdfs:label "ownedInterfaces"
+	relation InterfacePkg_ownedInterfaces [
+		from InterfacePkg
+		to Interface
+	]
+
+	@rdfs:label "ownedInterfacePkgs"
+	relation InterfacePkg_ownedInterfacePkgs [
+		from InterfacePkg
+		to InterfacePkg
+	]
+
+	@rdfs:label "Interface"
+	concept Interface < core.data.capellacore:GeneralClass, InterfaceAllocator
+
+	@rdfs:label "mechanism"
+	scalar property Interface_mechanism [
+		domain Interface
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "structural"
+	scalar property Interface_structural [
+		domain Interface
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "interfaceImplementations"
+	relation Interface_interfaceImplementations [
+		from Interface
+		to InterfaceImplementation
+	]
+
+	@rdfs:label "interfaceUses"
+	relation Interface_interfaceUses [
+		from Interface
+		to InterfaceUse
+	]
+
+	@rdfs:label "provisioningInterfaceAllocations"
+	relation Interface_provisioningInterfaceAllocations [
+		from Interface
+		to InterfaceAllocation
+		@rdfs:label "allocatedInterface"
+		reverse InterfaceAllocation_allocatedInterface
+		inverse functional
+	]
+
+	@rdfs:label "allocatingInterfaces"
+	relation Interface_allocatingInterfaces [
+		from Interface
+		to Interface
+	]
+
+	@rdfs:label "allocatingComponents"
+	relation Interface_allocatingComponents [
+		from Interface
+		to Component
+	]
+
+	@rdfs:label "exchangeItems"
+	relation Interface_exchangeItems [
+		from Interface
+		to core.data.information:ExchangeItem
+	]
+
+	@rdfs:label "ownedExchangeItemAllocations"
+	relation Interface_ownedExchangeItemAllocations [
+		from Interface
+		to ExchangeItemAllocation
+	]
+
+	@rdfs:label "requiringComponents"
+	relation Interface_requiringComponents [
+		from Interface
+		to Component
+	]
+
+	@rdfs:label "requiringComponentPorts"
+	relation Interface_requiringComponentPorts [
+		from Interface
+		to core.data.fa:ComponentPort
+	]
+
+	@rdfs:label "providingComponents"
+	relation Interface_providingComponents [
+		from Interface
+		to Component
+	]
+
+	@rdfs:label "providingComponentPorts"
+	relation Interface_providingComponentPorts [
+		from Interface
+		to core.data.fa:ComponentPort
+	]
+
+	@rdfs:label "realizingLogicalInterfaces"
+	relation Interface_realizingLogicalInterfaces [
+		from Interface
+		to Interface
+	]
+
+	@rdfs:label "realizedContextInterfaces"
+	relation Interface_realizedContextInterfaces [
+		from Interface
+		to Interface
+	]
+
+	@rdfs:label "realizingPhysicalInterfaces"
+	relation Interface_realizingPhysicalInterfaces [
+		from Interface
+		to Interface
+	]
+
+	@rdfs:label "realizedLogicalInterfaces"
+	relation Interface_realizedLogicalInterfaces [
+		from Interface
+		to Interface
+	]
+
+	@rdfs:label "InterfaceImplementation"
+	concept InterfaceImplementation < core.data.capellacore:Relationship [
+		restricts InterfaceImplementation_interfaceImplementor to exactly 1
+		restricts InterfaceImplementation_implementedInterface to exactly 1
+	]
+
+	@rdfs:label "implementedInterface"
+	relation InterfaceImplementation_implementedInterface [
+		from InterfaceImplementation
+		to Interface
+		functional
+	]
+
+	@rdfs:label "InterfaceUse"
+	concept InterfaceUse < core.data.capellacore:Relationship [
+		restricts InterfaceUse_interfaceUser to exactly 1
+		restricts InterfaceUse_usedInterface to exactly 1
+	]
+
+	@rdfs:label "usedInterface"
+	relation InterfaceUse_usedInterface [
+		from InterfaceUse
+		to Interface
+		functional
+	]
+
+	@rdfs:label "ProvidedInterfaceLink"
+	aspect ProvidedInterfaceLink < core.data.capellacore:Relationship [
+		restricts ProvidedInterfaceLink_interface to exactly 1
+	]
+
+	@rdfs:label "interface"
+	relation ProvidedInterfaceLink_interface [
+		from ProvidedInterfaceLink
+		to Interface
+		functional
+	]
+
+	@rdfs:label "RequiredInterfaceLink"
+	aspect RequiredInterfaceLink < core.data.capellacore:Relationship [
+		restricts RequiredInterfaceLink_interface to exactly 1
+	]
+
+	@rdfs:label "interface"
+	relation RequiredInterfaceLink_interface [
+		from RequiredInterfaceLink
+		to Interface
+		functional
+	]
+
+	@rdfs:label "InterfaceAllocation"
+	aspect InterfaceAllocation < core.data.capellacore:Allocation [
+		restricts InterfaceAllocation_allocatedInterface to exactly 1
+		restricts InterfaceAllocation_allocatingInterfaceAllocator to exactly 1
+	]
+
+	@rdfs:label "provisionedInterfaceAllocations"
+	relation InterfaceAllocator_provisionedInterfaceAllocations [
+		from InterfaceAllocator
+		to InterfaceAllocation
+		@rdfs:label "allocatingInterfaceAllocator"
+		reverse InterfaceAllocation_allocatingInterfaceAllocator
+		inverse functional
+	]
+
+	@rdfs:label "InterfaceAllocator"
+	aspect InterfaceAllocator < core.data.capellacore:CapellaElement
+
+	@rdfs:label "ownedInterfaceAllocations"
+	relation InterfaceAllocator_ownedInterfaceAllocations [
+		from InterfaceAllocator
+		to InterfaceAllocation
+	]
+
+	@rdfs:label "allocatedInterfaces"
+	relation InterfaceAllocator_allocatedInterfaces [
+		from InterfaceAllocator
+		to Interface
+	]
+
+	@rdfs:label "ExchangeItemAllocation"
+	concept ExchangeItemAllocation < core.data.capellacore:Relationship, core.data.information:AbstractEventOperation, common.data.core:FinalizableElement
+
+	@rdfs:label "sendProtocol"
+	scalar property ExchangeItemAllocation_sendProtocol [
+		domain ExchangeItemAllocation
+		range core.data.information.communication:CommunicationLinkProtocol
+		functional
+	]
+
+	@rdfs:label "receiveProtocol"
+	scalar property ExchangeItemAllocation_receiveProtocol [
+		domain ExchangeItemAllocation
+		range core.data.information.communication:CommunicationLinkProtocol
+		functional
+	]
+
+	@rdfs:label "allocatedItem"
+	relation ExchangeItemAllocation_allocatedItem [
+		from ExchangeItemAllocation
+		to core.data.information:ExchangeItem
+		functional
+	]
+
+	@rdfs:label "allocatingInterface"
+	relation ExchangeItemAllocation_allocatingInterface [
+		from ExchangeItemAllocation
+		to Interface
+		functional
+	]
+
+	@rdfs:label "DeployableElement"
+	aspect DeployableElement < core.data.capellacore:NamedElement
+
+	@rdfs:label "deployingLinks"
+	relation DeployableElement_deployingLinks [
+		from DeployableElement
+		to AbstractDeploymentLink
+	]
+
+	@rdfs:label "DeploymentTarget"
+	aspect DeploymentTarget < core.data.capellacore:NamedElement
+
+	@rdfs:label "deploymentLinks"
+	relation DeploymentTarget_deploymentLinks [
+		from DeploymentTarget
+		to AbstractDeploymentLink
+	]
+
+	@rdfs:label "AbstractDeploymentLink"
+	aspect AbstractDeploymentLink < core.data.capellacore:Relationship [
+		restricts AbstractDeploymentLink_deployedElement to exactly 1
+		restricts AbstractDeploymentLink_location to exactly 1
+	]
+
+	@rdfs:label "deployedElement"
+	relation AbstractDeploymentLink_deployedElement [
+		from AbstractDeploymentLink
+		to DeployableElement
+		functional
+	]
+
+	@rdfs:label "location"
+	relation AbstractDeploymentLink_location [
+		from AbstractDeploymentLink
+		to DeploymentTarget
+		functional
+	]
+
+	@rdfs:label "AbstractPathInvolvedElement"
+	aspect AbstractPathInvolvedElement < core.data.capellacore:InvolvedElement
+
+	@rdfs:label "AbstractPhysicalArtifact"
+	aspect AbstractPhysicalArtifact < core.data.capellacore:CapellaElement
+
+	@rdfs:label "allocatorConfigurationItems"
+	relation AbstractPhysicalArtifact_allocatorConfigurationItems [
+		from AbstractPhysicalArtifact
+		to core.data.epbs:ConfigurationItem
+		@rdfs:label "allocatedPhysicalArtifacts"
+		reverse ConfigurationItem_allocatedPhysicalArtifacts
+	]
+
+	@rdfs:label "AbstractPhysicalLinkEnd"
+	aspect AbstractPhysicalLinkEnd < core.data.capellacore:CapellaElement
+
+	@rdfs:label "involvedLinks"
+	relation AbstractPhysicalLinkEnd_involvedLinks [
+		from AbstractPhysicalLinkEnd
+		to PhysicalLink
+	]
+
+	@rdfs:label "AbstractPhysicalPathLink"
+	aspect AbstractPhysicalPathLink < core.data.fa:ComponentExchangeAllocator
+
+	@rdfs:label "PhysicalLink"
+	concept PhysicalLink < AbstractPhysicalPathLink, AbstractPhysicalArtifact, AbstractPathInvolvedElement [
+		restricts PhysicalLink_linkEnds to exactly 2
+	]
+
+	@rdfs:label "linkEnds"
+	relation PhysicalLink_linkEnds [
+		from PhysicalLink
+		to AbstractPhysicalLinkEnd
+	]
+
+	@rdfs:label "ownedComponentExchangeFunctionalExchangeAllocations"
+	relation PhysicalLink_ownedComponentExchangeFunctionalExchangeAllocations [
+		from PhysicalLink
+		to core.data.fa:ComponentExchangeFunctionalExchangeAllocation
+	]
+
+	@rdfs:label "ownedPhysicalLinkEnds"
+	relation PhysicalLink_ownedPhysicalLinkEnds [
+		from PhysicalLink
+		to PhysicalLinkEnd
+	]
+
+	@rdfs:label "ownedPhysicalLinkRealizations"
+	relation PhysicalLink_ownedPhysicalLinkRealizations [
+		from PhysicalLink
+		to PhysicalLinkRealization
+	]
+
+	@rdfs:label "categories"
+	relation PhysicalLink_categories [
+		from PhysicalLink
+		to PhysicalLinkCategory
+	]
+
+	@rdfs:label "sourcePhysicalPort"
+	relation PhysicalLink_sourcePhysicalPort [
+		from PhysicalLink
+		to PhysicalPort
+		functional
+	]
+
+	@rdfs:label "targetPhysicalPort"
+	relation PhysicalLink_targetPhysicalPort [
+		from PhysicalLink
+		to PhysicalPort
+		functional
+	]
+
+	@rdfs:label "realizedPhysicalLinks"
+	relation PhysicalLink_realizedPhysicalLinks [
+		from PhysicalLink
+		to PhysicalLink
+	]
+
+	@rdfs:label "realizingPhysicalLinks"
+	relation PhysicalLink_realizingPhysicalLinks [
+		from PhysicalLink
+		to PhysicalLink
+	]
+
+	@rdfs:label "PhysicalLinkCategory"
+	concept PhysicalLinkCategory < core.data.capellacore:NamedElement
+
+	@rdfs:label "links"
+	relation PhysicalLinkCategory_links [
+		from PhysicalLinkCategory
+		to PhysicalLink
+	]
+
+	@rdfs:label "PhysicalLinkEnd"
+	concept PhysicalLinkEnd < AbstractPhysicalLinkEnd
+
+	@rdfs:label "port"
+	relation PhysicalLinkEnd_port [
+		from PhysicalLinkEnd
+		to PhysicalPort
+		functional
+	]
+
+	@rdfs:label "part"
+	relation PhysicalLinkEnd_part [
+		from PhysicalLinkEnd
+		to Part
+		functional
+	]
+
+	@rdfs:label "PhysicalLinkRealization"
+	concept PhysicalLinkRealization < core.data.capellacore:Allocation
+
+	@rdfs:label "PhysicalPath"
+	concept PhysicalPath < core.data.capellacore:NamedElement, core.data.fa:ComponentExchangeAllocator, AbstractPathInvolvedElement, core.data.capellacore:InvolverElement
+
+	@rdfs:label "involvedLinks"
+	@rdfs:comment "@deprecated : 'involvedLinks' shall not be used anymore"
+	relation PhysicalPath_involvedLinks [
+		from PhysicalPath
+		to AbstractPhysicalPathLink
+	]
+
+	@rdfs:label "ownedPhysicalPathInvolvements"
+	relation PhysicalPath_ownedPhysicalPathInvolvements [
+		from PhysicalPath
+		to PhysicalPathInvolvement
+	]
+
+	@rdfs:label "firstPhysicalPathInvolvements"
+	relation PhysicalPath_firstPhysicalPathInvolvements [
+		from PhysicalPath
+		to PhysicalPathInvolvement
+	]
+
+	@rdfs:label "ownedPhysicalPathRealizations"
+	relation PhysicalPath_ownedPhysicalPathRealizations [
+		from PhysicalPath
+		to PhysicalPathRealization
+	]
+
+	@rdfs:label "realizedPhysicalPaths"
+	relation PhysicalPath_realizedPhysicalPaths [
+		from PhysicalPath
+		to PhysicalPath
+	]
+
+	@rdfs:label "realizingPhysicalPaths"
+	relation PhysicalPath_realizingPhysicalPaths [
+		from PhysicalPath
+		to PhysicalPath
+	]
+
+	@rdfs:label "PhysicalPathInvolvement"
+	concept PhysicalPathInvolvement < core.data.capellacore:Involvement
+
+	@rdfs:label "nextInvolvements"
+	relation PhysicalPathInvolvement_nextInvolvements [
+		from PhysicalPathInvolvement
+		to PhysicalPathInvolvement
+	]
+
+	@rdfs:label "previousInvolvements"
+	relation PhysicalPathInvolvement_previousInvolvements [
+		from PhysicalPathInvolvement
+		to PhysicalPathInvolvement
+	]
+
+	@rdfs:label "involvedElement"
+	relation PhysicalPathInvolvement_involvedElement [
+		from PhysicalPathInvolvement
+		to AbstractPathInvolvedElement
+		functional
+	]
+
+	@rdfs:label "involvedComponent"
+	relation PhysicalPathInvolvement_involvedComponent [
+		from PhysicalPathInvolvement
+		to Component
+		functional
+	]
+
+	@rdfs:label "PhysicalPathReference"
+	concept PhysicalPathReference < PhysicalPathInvolvement
+
+	@rdfs:label "referencedPhysicalPath"
+	relation PhysicalPathReference_referencedPhysicalPath [
+		from PhysicalPathReference
+		to PhysicalPath
+		functional
+	]
+
+	@rdfs:label "PhysicalPathRealization"
+	concept PhysicalPathRealization < core.data.capellacore:Allocation
+
+	@rdfs:label "PhysicalPort"
+	concept PhysicalPort < core.data.information:Port, AbstractPhysicalArtifact, common.data.core:InformationsExchanger, AbstractPhysicalLinkEnd, core.data.information:Property
+
+	@rdfs:label "ownedComponentPortAllocations"
+	relation PhysicalPort_ownedComponentPortAllocations [
+		from PhysicalPort
+		to core.data.fa:ComponentPortAllocation
+	]
+
+	@rdfs:label "ownedPhysicalPortRealizations"
+	relation PhysicalPort_ownedPhysicalPortRealizations [
+		from PhysicalPort
+		to PhysicalPortRealization
+	]
+
+	@rdfs:label "allocatedComponentPorts"
+	relation PhysicalPort_allocatedComponentPorts [
+		from PhysicalPort
+		to core.data.fa:ComponentPort
+		@rdfs:label "allocatingPhysicalPorts"
+		reverse ComponentPort_allocatingPhysicalPorts
+	]
+
+	@rdfs:label "realizedPhysicalPorts"
+	relation PhysicalPort_realizedPhysicalPorts [
+		from PhysicalPort
+		to PhysicalPort
+	]
+
+	@rdfs:label "realizingPhysicalPorts"
+	relation PhysicalPort_realizingPhysicalPorts [
+		from PhysicalPort
+		to PhysicalPort
+	]
+
+	@rdfs:label "PhysicalPortRealization"
+	concept PhysicalPortRealization < core.data.capellacore:Allocation
+
+	@rdfs:label "ComponentPkg"
+	aspect ComponentPkg < core.data.capellacore:Structure
+
+	@rdfs:label "ownedParts"
+	relation ComponentPkg_ownedParts [
+		from ComponentPkg
+		to Part
+	]
+
+	@rdfs:label "ownedComponentExchanges"
+	relation ComponentPkg_ownedComponentExchanges [
+		from ComponentPkg
+		to core.data.fa:ComponentExchange
+	]
+
+	@rdfs:label "ownedComponentExchangeCategories"
+	relation ComponentPkg_ownedComponentExchangeCategories [
+		from ComponentPkg
+		to core.data.fa:ComponentExchangeCategory
+	]
+
+	@rdfs:label "ownedFunctionalLinks"
+	relation ComponentPkg_ownedFunctionalLinks [
+		from ComponentPkg
+		to core.data.fa:ExchangeLink
+	]
+
+	@rdfs:label "ownedFunctionalAllocations"
+	relation ComponentPkg_ownedFunctionalAllocations [
+		from ComponentPkg
+		to core.data.fa:ComponentFunctionalAllocation
+	]
+
+	@rdfs:label "ownedComponentExchangeRealizations"
+	relation ComponentPkg_ownedComponentExchangeRealizations [
+		from ComponentPkg
+		to core.data.fa:ComponentExchangeRealization
+	]
+
+	@rdfs:label "ownedPhysicalLinks"
+	relation ComponentPkg_ownedPhysicalLinks [
+		from ComponentPkg
+		to PhysicalLink
+	]
+
+	@rdfs:label "ownedPhysicalLinkCategories"
+	relation ComponentPkg_ownedPhysicalLinkCategories [
+		from ComponentPkg
+		to PhysicalLinkCategory
+	]
+
+	@rdfs:label "ownedStateMachines"
+	relation ComponentPkg_ownedStateMachines [
+		from ComponentPkg
+		to core.data.capellacommon:StateMachine
+	]
+}

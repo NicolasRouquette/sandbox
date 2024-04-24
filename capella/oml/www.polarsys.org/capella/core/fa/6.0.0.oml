@@ -1,0 +1,1121 @@
+vocabulary <http://www.polarsys.org/capella/core/fa/6.0.0#> as core.data.fa {
+
+	extends <http://www.polarsys.org/capella/core/core/6.0.0#> as core.data.capellacore
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.polarsys.org/capella/common/activity/6.0.0#> as common.data.activity
+
+	extends <http://www.polarsys.org/capella/core/common/6.0.0#> as core.data.capellacommon
+
+	extends <http://www.polarsys.org/capella/core/ctx/6.0.0#> as core.data.ctx
+
+	extends <http://www.polarsys.org/capella/core/la/6.0.0#> as core.data.la
+
+	extends <http://www.polarsys.org/capella/core/information/6.0.0#> as core.data.information
+
+	extends <http://www.polarsys.org/capella/common/behavior/6.0.0#> as common.data.behavior
+
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	extends <http://www.polarsys.org/capella/core/cs/6.0.0#> as core.data.cs
+
+	extends <http://www.polarsys.org/capella/common/core/6.0.0#> as common.data.core
+
+	@rdfs:label "AbstractFunctionalArchitecture"
+	aspect AbstractFunctionalArchitecture < core.data.capellacore:ModellingArchitecture
+
+	@rdfs:label "ownedFunctionPkg"
+	relation AbstractFunctionalArchitecture_ownedFunctionPkg [
+		from AbstractFunctionalArchitecture
+		to FunctionPkg
+		functional
+	]
+
+	@rdfs:label "ownedComponentExchanges"
+	relation AbstractFunctionalArchitecture_ownedComponentExchanges [
+		from AbstractFunctionalArchitecture
+		to ComponentExchange
+	]
+
+	@rdfs:label "ownedComponentExchangeCategories"
+	relation AbstractFunctionalArchitecture_ownedComponentExchangeCategories [
+		from AbstractFunctionalArchitecture
+		to ComponentExchangeCategory
+	]
+
+	@rdfs:label "ownedFunctionalLinks"
+	relation AbstractFunctionalArchitecture_ownedFunctionalLinks [
+		from AbstractFunctionalArchitecture
+		to ExchangeLink
+	]
+
+	@rdfs:label "ownedFunctionalAllocations"
+	relation AbstractFunctionalArchitecture_ownedFunctionalAllocations [
+		from AbstractFunctionalArchitecture
+		to ComponentFunctionalAllocation
+	]
+
+	@rdfs:label "ownedComponentExchangeRealizations"
+	relation AbstractFunctionalArchitecture_ownedComponentExchangeRealizations [
+		from AbstractFunctionalArchitecture
+		to ComponentExchangeRealization
+	]
+
+	@rdfs:label "AbstractFunctionalBlock"
+	aspect AbstractFunctionalBlock < core.data.capellacore:ModellingBlock
+
+	@rdfs:label "ownedFunctionalAllocation"
+	relation AbstractFunctionalBlock_ownedFunctionalAllocation [
+		from AbstractFunctionalBlock
+		to ComponentFunctionalAllocation
+	]
+
+	@rdfs:label "ownedComponentExchanges"
+	relation AbstractFunctionalBlock_ownedComponentExchanges [
+		from AbstractFunctionalBlock
+		to ComponentExchange
+	]
+
+	@rdfs:label "ownedComponentExchangeCategories"
+	relation AbstractFunctionalBlock_ownedComponentExchangeCategories [
+		from AbstractFunctionalBlock
+		to ComponentExchangeCategory
+	]
+
+	@rdfs:label "functionalAllocations"
+	relation AbstractFunctionalBlock_functionalAllocations [
+		from AbstractFunctionalBlock
+		to ComponentFunctionalAllocation
+		@rdfs:label "block"
+		reverse ComponentFunctionalAllocation_block
+		inverse functional
+	]
+
+	@rdfs:label "allocatedFunctions"
+	relation AbstractFunctionalBlock_allocatedFunctions [
+		from AbstractFunctionalBlock
+		to AbstractFunction
+		@rdfs:label "allocationBlocks"
+		reverse AbstractFunction_allocationBlocks
+	]
+
+	@rdfs:label "inExchangeLinks"
+	relation AbstractFunctionalBlock_inExchangeLinks [
+		from AbstractFunctionalBlock
+		to ExchangeLink
+	]
+
+	@rdfs:label "outExchangeLinks"
+	relation AbstractFunctionalBlock_outExchangeLinks [
+		from AbstractFunctionalBlock
+		to ExchangeLink
+	]
+
+	@rdfs:label "FunctionPkg"
+	aspect FunctionPkg < core.data.capellacore:Structure
+
+	@rdfs:label "ownedFunctionalLinks"
+	relation FunctionPkg_ownedFunctionalLinks [
+		from FunctionPkg
+		to ExchangeLink
+	]
+
+	@rdfs:label "ownedExchanges"
+	relation FunctionPkg_ownedExchanges [
+		from FunctionPkg
+		to FunctionalExchangeSpecification
+	]
+
+	@rdfs:label "ownedExchangeSpecificationRealizations"
+	relation FunctionPkg_ownedExchangeSpecificationRealizations [
+		from FunctionPkg
+		to ExchangeSpecificationRealization
+	]
+
+	@rdfs:label "ownedCategories"
+	relation FunctionPkg_ownedCategories [
+		from FunctionPkg
+		to ExchangeCategory
+	]
+
+	@rdfs:label "ownedFunctionSpecifications"
+	relation FunctionPkg_ownedFunctionSpecifications [
+		from FunctionPkg
+		to FunctionSpecification
+	]
+
+	@rdfs:label "FunctionSpecification"
+	concept FunctionSpecification < core.data.capellacore:Namespace, common.data.activity:AbstractActivity
+
+	@rdfs:label "inExchangeLinks"
+	relation FunctionSpecification_inExchangeLinks [
+		from FunctionSpecification
+		to ExchangeLink
+	]
+
+	@rdfs:label "outExchangeLinks"
+	relation FunctionSpecification_outExchangeLinks [
+		from FunctionSpecification
+		to ExchangeLink
+	]
+
+	@rdfs:label "ownedFunctionPorts"
+	relation FunctionSpecification_ownedFunctionPorts [
+		from FunctionSpecification
+		to FunctionPort
+	]
+
+	@rdfs:label "subFunctionSpecifications"
+	relation FunctionSpecification_subFunctionSpecifications [
+		from FunctionSpecification
+		to FunctionSpecification
+	]
+
+	@rdfs:label "ExchangeCategory"
+	concept ExchangeCategory < core.data.capellacore:NamedElement
+
+	@rdfs:label "exchanges"
+	relation ExchangeCategory_exchanges [
+		from ExchangeCategory
+		to FunctionalExchange
+	]
+
+	@rdfs:label "ExchangeLink"
+	concept ExchangeLink < core.data.capellacore:NamedRelationship
+
+	@rdfs:label "exchanges"
+	relation ExchangeLink_exchanges [
+		from ExchangeLink
+		to ExchangeSpecification
+	]
+
+	@rdfs:label "exchangeContainmentLinks"
+	relation ExchangeLink_exchangeContainmentLinks [
+		from ExchangeLink
+		to ExchangeContainment
+		@rdfs:label "link"
+		reverse ExchangeContainment_link
+		inverse functional
+	]
+
+	@rdfs:label "ownedExchangeContainments"
+	relation ExchangeLink_ownedExchangeContainments [
+		from ExchangeLink
+		to ExchangeContainment
+	]
+
+	@rdfs:label "sources"
+	relation ExchangeLink_sources [
+		from ExchangeLink
+		to FunctionSpecification
+	]
+
+	@rdfs:label "destinations"
+	relation ExchangeLink_destinations [
+		from ExchangeLink
+		to FunctionSpecification
+	]
+
+	@rdfs:label "ExchangeContainment"
+	concept ExchangeContainment < core.data.capellacore:Relationship [
+		restricts ExchangeContainment_link to exactly 1
+		restricts ExchangeContainment_exchange to exactly 1
+	]
+
+	@rdfs:label "exchange"
+	relation ExchangeContainment_exchange [
+		from ExchangeContainment
+		to ExchangeSpecification
+		@rdfs:label "link"
+		reverse ExchangeSpecification_link
+		functional
+	]
+
+	@rdfs:label "ExchangeSpecification"
+	aspect ExchangeSpecification < core.data.capellacore:NamedElement, common.data.activity:ActivityExchange
+
+	@rdfs:label "containingLink"
+	relation ExchangeSpecification_containingLink [
+		from ExchangeSpecification
+		to ExchangeLink
+		functional
+	]
+
+	@rdfs:label "outgoingExchangeSpecificationRealizations"
+	relation ExchangeSpecification_outgoingExchangeSpecificationRealizations [
+		from ExchangeSpecification
+		to ExchangeSpecificationRealization
+		@rdfs:label "realizingExchangeSpecification"
+		reverse ExchangeSpecificationRealization_realizingExchangeSpecification
+		inverse functional
+	]
+
+	@rdfs:label "incomingExchangeSpecificationRealizations"
+	relation ExchangeSpecification_incomingExchangeSpecificationRealizations [
+		from ExchangeSpecification
+		to ExchangeSpecificationRealization
+		@rdfs:label "realizedExchangeSpecification"
+		reverse ExchangeSpecificationRealization_realizedExchangeSpecification
+		inverse functional
+	]
+
+	@rdfs:label "FunctionalExchangeSpecification"
+	concept FunctionalExchangeSpecification < ExchangeSpecification
+
+	@rdfs:label "functionalExchanges"
+	relation FunctionalExchangeSpecification_functionalExchanges [
+		from FunctionalExchangeSpecification
+		to FunctionalExchange
+	]
+
+	@rdfs:label "FunctionalChain"
+	concept FunctionalChain < core.data.capellacore:NamedElement, core.data.capellacore:InvolverElement, core.data.capellacore:InvolvedElement
+
+	@rdfs:label "kind"
+	scalar property FunctionalChain_kind [
+		domain FunctionalChain
+		range FunctionalChainKind
+		functional
+	]
+
+	@rdfs:label "ownedFunctionalChainInvolvements"
+	relation FunctionalChain_ownedFunctionalChainInvolvements [
+		from FunctionalChain
+		to FunctionalChainInvolvement
+	]
+
+	@rdfs:label "ownedFunctionalChainRealizations"
+	relation FunctionalChain_ownedFunctionalChainRealizations [
+		from FunctionalChain
+		to FunctionalChainRealization
+	]
+
+	@rdfs:label "involvedFunctionalChainInvolvements"
+	relation FunctionalChain_involvedFunctionalChainInvolvements [
+		from FunctionalChain
+		to FunctionalChainInvolvement
+	]
+
+	@rdfs:label "involvedFunctions"
+	relation FunctionalChain_involvedFunctions [
+		from FunctionalChain
+		to AbstractFunction
+		@rdfs:label "involvingFunctionalChains"
+		reverse AbstractFunction_involvingFunctionalChains
+	]
+
+	@rdfs:label "involvedFunctionalExchanges"
+	relation FunctionalChain_involvedFunctionalExchanges [
+		from FunctionalChain
+		to FunctionalExchange
+		@rdfs:label "involvingFunctionalChains"
+		reverse FunctionalExchange_involvingFunctionalChains
+	]
+
+	@rdfs:label "involvedElements"
+	relation FunctionalChain_involvedElements [
+		from FunctionalChain
+		to core.data.capellacore:InvolvedElement
+	]
+
+	@rdfs:label "enactedFunctions"
+	relation FunctionalChain_enactedFunctions [
+		from FunctionalChain
+		to AbstractFunction
+	]
+
+	@rdfs:label "enactedFunctionalBlocks"
+	relation FunctionalChain_enactedFunctionalBlocks [
+		from FunctionalChain
+		to AbstractFunctionalBlock
+	]
+
+	@rdfs:label "availableInStates"
+	relation FunctionalChain_availableInStates [
+		from FunctionalChain
+		to core.data.capellacommon:State
+	]
+
+	@rdfs:label "firstFunctionalChainInvolvements"
+	relation FunctionalChain_firstFunctionalChainInvolvements [
+		from FunctionalChain
+		to FunctionalChainInvolvement
+	]
+
+	@rdfs:label "involvingCapabilities"
+	relation FunctionalChain_involvingCapabilities [
+		from FunctionalChain
+		to core.data.ctx:Capability
+	]
+
+	@rdfs:label "involvingCapabilityRealizations"
+	relation FunctionalChain_involvingCapabilityRealizations [
+		from FunctionalChain
+		to core.data.la:CapabilityRealization
+	]
+
+	@rdfs:label "realizedFunctionalChains"
+	relation FunctionalChain_realizedFunctionalChains [
+		from FunctionalChain
+		to FunctionalChain
+	]
+
+	@rdfs:label "realizingFunctionalChains"
+	relation FunctionalChain_realizingFunctionalChains [
+		from FunctionalChain
+		to FunctionalChain
+	]
+
+	@rdfs:label "preCondition"
+	relation FunctionalChain_preCondition [
+		from FunctionalChain
+		to core.data.capellacore:Constraint
+		functional
+	]
+
+	@rdfs:label "postCondition"
+	relation FunctionalChain_postCondition [
+		from FunctionalChain
+		to core.data.capellacore:Constraint
+		functional
+	]
+
+	@rdfs:label "ownedSequenceNodes"
+	relation FunctionalChain_ownedSequenceNodes [
+		from FunctionalChain
+		to ControlNode
+	]
+
+	@rdfs:label "ownedSequenceLinks"
+	relation FunctionalChain_ownedSequenceLinks [
+		from FunctionalChain
+		to SequenceLink
+	]
+
+	@rdfs:label "FunctionalChainKind"
+	scalar FunctionalChainKind [
+		oneOf "SIMPLE", "COMPOSITE", "FRAGMENT"
+	]
+
+	@rdfs:label "AbstractFunctionalChainContainer"
+	aspect AbstractFunctionalChainContainer < core.data.capellacore:CapellaElement
+
+	@rdfs:label "ownedFunctionalChains"
+	relation AbstractFunctionalChainContainer_ownedFunctionalChains [
+		from AbstractFunctionalChainContainer
+		to FunctionalChain
+	]
+
+	@rdfs:label "FunctionalChainInvolvement"
+	aspect FunctionalChainInvolvement < core.data.capellacore:Involvement
+
+	@rdfs:label "nextFunctionalChainInvolvements"
+	relation FunctionalChainInvolvement_nextFunctionalChainInvolvements [
+		from FunctionalChainInvolvement
+		to FunctionalChainInvolvement
+	]
+
+	@rdfs:label "previousFunctionalChainInvolvements"
+	relation FunctionalChainInvolvement_previousFunctionalChainInvolvements [
+		from FunctionalChainInvolvement
+		to FunctionalChainInvolvement
+	]
+
+	@rdfs:label "involvedElement"
+	relation FunctionalChainInvolvement_involvedElement [
+		from FunctionalChainInvolvement
+		to core.data.capellacore:InvolvedElement
+		functional
+	]
+
+	@rdfs:label "FunctionalChainReference"
+	concept FunctionalChainReference < FunctionalChainInvolvement
+
+	@rdfs:label "referencedFunctionalChain"
+	relation FunctionalChainReference_referencedFunctionalChain [
+		from FunctionalChainReference
+		to FunctionalChain
+		functional
+	]
+
+	@rdfs:label "FunctionInputPort"
+	concept FunctionInputPort < FunctionPort, common.data.activity:InputPin
+
+	@rdfs:label "incomingExchangeItems"
+	relation FunctionInputPort_incomingExchangeItems [
+		from FunctionInputPort
+		to core.data.information:ExchangeItem
+	]
+
+	@rdfs:label "incomingFunctionalExchanges"
+	relation FunctionInputPort_incomingFunctionalExchanges [
+		from FunctionInputPort
+		to FunctionalExchange
+	]
+
+	@rdfs:label "FunctionOutputPort"
+	concept FunctionOutputPort < FunctionPort, common.data.activity:OutputPin
+
+	@rdfs:label "outgoingExchangeItems"
+	relation FunctionOutputPort_outgoingExchangeItems [
+		from FunctionOutputPort
+		to core.data.information:ExchangeItem
+	]
+
+	@rdfs:label "outgoingFunctionalExchanges"
+	relation FunctionOutputPort_outgoingFunctionalExchanges [
+		from FunctionOutputPort
+		to FunctionalExchange
+	]
+
+	@rdfs:label "AbstractFunctionAllocation"
+	aspect AbstractFunctionAllocation < core.data.capellacore:Allocation
+
+	@rdfs:label "ComponentFunctionalAllocation"
+	concept ComponentFunctionalAllocation < AbstractFunctionAllocation [
+		restricts ComponentFunctionalAllocation_block to exactly 1
+		restricts ComponentFunctionalAllocation_function to exactly 1
+	]
+
+	@rdfs:label "componentFunctionalAllocations"
+	relation AbstractFunction_componentFunctionalAllocations [
+		from AbstractFunction
+		to ComponentFunctionalAllocation
+		@rdfs:label "function"
+		reverse ComponentFunctionalAllocation_function
+		inverse functional
+	]
+
+	@rdfs:label "FunctionalChainRealization"
+	concept FunctionalChainRealization < core.data.capellacore:Allocation
+
+	@rdfs:label "ExchangeSpecificationRealization"
+	aspect ExchangeSpecificationRealization < core.data.capellacore:Allocation [
+		restricts ExchangeSpecificationRealization_realizingExchangeSpecification to exactly 1
+		restricts ExchangeSpecificationRealization_realizedExchangeSpecification to exactly 1
+	]
+
+	@rdfs:label "FunctionalExchangeRealization"
+	concept FunctionalExchangeRealization < core.data.capellacore:Allocation [
+		restricts FunctionalExchangeRealization_realizedFunctionalExchange to exactly 1
+		restricts FunctionalExchangeRealization_realizingFunctionalExchange to exactly 1
+	]
+
+	@rdfs:label "incomingFunctionalExchangeRealizations"
+	relation FunctionalExchange_incomingFunctionalExchangeRealizations [
+		from FunctionalExchange
+		to FunctionalExchangeRealization
+		@rdfs:label "realizedFunctionalExchange"
+		reverse FunctionalExchangeRealization_realizedFunctionalExchange
+		inverse functional
+	]
+
+	@rdfs:label "outgoingFunctionalExchangeRealizations"
+	relation FunctionalExchange_outgoingFunctionalExchangeRealizations [
+		from FunctionalExchange
+		to FunctionalExchangeRealization
+		@rdfs:label "realizingFunctionalExchange"
+		reverse FunctionalExchangeRealization_realizingFunctionalExchange
+		inverse functional
+	]
+
+	@rdfs:label "FunctionRealization"
+	concept FunctionRealization < AbstractFunctionAllocation [
+		restricts FunctionRealization_allocatedFunction to exactly 1
+		restricts FunctionRealization_allocatingFunction to exactly 1
+	]
+
+	@rdfs:label "inFunctionRealizations"
+	relation AbstractFunction_inFunctionRealizations [
+		from AbstractFunction
+		to FunctionRealization
+		@rdfs:label "allocatedFunction"
+		reverse FunctionRealization_allocatedFunction
+		inverse functional
+	]
+
+	@rdfs:label "outFunctionRealizations"
+	relation AbstractFunction_outFunctionRealizations [
+		from AbstractFunction
+		to FunctionRealization
+		@rdfs:label "allocatingFunction"
+		reverse FunctionRealization_allocatingFunction
+		inverse functional
+	]
+
+	@rdfs:label "FunctionalExchange"
+	concept FunctionalExchange < core.data.capellacore:NamedElement, core.data.capellacore:Relationship, core.data.capellacore:InvolvedElement, common.data.activity:ObjectFlow, common.data.behavior:AbstractEvent, core.data.information:AbstractEventOperation
+
+	@rdfs:label "exchangeSpecifications"
+	relation FunctionalExchange_exchangeSpecifications [
+		from FunctionalExchange
+		to FunctionalExchangeSpecification
+	]
+
+	@rdfs:label "exchangedItems"
+	relation FunctionalExchange_exchangedItems [
+		from FunctionalExchange
+		to core.data.information:ExchangeItem
+	]
+
+	@rdfs:label "allocatingComponentExchanges"
+	relation FunctionalExchange_allocatingComponentExchanges [
+		from FunctionalExchange
+		to ComponentExchange
+		@rdfs:label "allocatedFunctionalExchanges"
+		reverse ComponentExchange_allocatedFunctionalExchanges
+	]
+
+	@rdfs:label "incomingComponentExchangeFunctionalExchangeRealizations"
+	relation FunctionalExchange_incomingComponentExchangeFunctionalExchangeRealizations [
+		from FunctionalExchange
+		to ComponentExchangeFunctionalExchangeAllocation
+		@rdfs:label "allocatedFunctionalExchange"
+		reverse ComponentExchangeFunctionalExchangeAllocation_allocatedFunctionalExchange
+		inverse functional
+	]
+
+	@rdfs:label "categories"
+	relation FunctionalExchange_categories [
+		from FunctionalExchange
+		to ExchangeCategory
+	]
+
+	@rdfs:label "ownedFunctionalExchangeRealizations"
+	relation FunctionalExchange_ownedFunctionalExchangeRealizations [
+		from FunctionalExchange
+		to FunctionalExchangeRealization
+	]
+
+	@rdfs:label "sourceFunctionOutputPort"
+	relation FunctionalExchange_sourceFunctionOutputPort [
+		from FunctionalExchange
+		to FunctionOutputPort
+		functional
+	]
+
+	@rdfs:label "targetFunctionInputPort"
+	relation FunctionalExchange_targetFunctionInputPort [
+		from FunctionalExchange
+		to FunctionInputPort
+		functional
+	]
+
+	@rdfs:label "realizedFunctionalExchanges"
+	relation FunctionalExchange_realizedFunctionalExchanges [
+		from FunctionalExchange
+		to FunctionalExchange
+		@rdfs:label "realizingFunctionalExchanges"
+		reverse FunctionalExchange_realizingFunctionalExchanges
+	]
+
+	@rdfs:label "AbstractFunction"
+	concept AbstractFunction < core.data.capellacore:Namespace, core.data.capellacore:InvolvedElement, core.data.information:AbstractInstance, AbstractFunctionalChainContainer, common.data.activity:CallBehaviorAction, common.data.behavior:AbstractEvent
+
+	@rdfs:label "kind"
+	scalar property AbstractFunction_kind [
+		domain AbstractFunction
+		range FunctionKind
+		functional
+	]
+
+	@rdfs:label "condition"
+	scalar property AbstractFunction_condition [
+		domain AbstractFunction
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "ownedFunctions"
+	relation AbstractFunction_ownedFunctions [
+		from AbstractFunction
+		to AbstractFunction
+	]
+
+	@rdfs:label "ownedFunctionRealizations"
+	relation AbstractFunction_ownedFunctionRealizations [
+		from AbstractFunction
+		to FunctionRealization
+	]
+
+	@rdfs:label "ownedFunctionalExchanges"
+	relation AbstractFunction_ownedFunctionalExchanges [
+		from AbstractFunction
+		to FunctionalExchange
+	]
+
+	@rdfs:label "subFunctions"
+	relation AbstractFunction_subFunctions [
+		from AbstractFunction
+		to AbstractFunction
+	]
+
+	@rdfs:label "availableInStates"
+	relation AbstractFunction_availableInStates [
+		from AbstractFunction
+		to core.data.capellacommon:State
+	]
+
+	@rdfs:label "involvingCapabilities"
+	relation AbstractFunction_involvingCapabilities [
+		from AbstractFunction
+		to core.data.ctx:Capability
+	]
+
+	@rdfs:label "involvingCapabilityRealizations"
+	relation AbstractFunction_involvingCapabilityRealizations [
+		from AbstractFunction
+		to core.data.la:CapabilityRealization
+	]
+
+	@rdfs:label "linkedStateMachine"
+	relation AbstractFunction_linkedStateMachine [
+		from AbstractFunction
+		to core.data.capellacommon:StateMachine
+		functional
+	]
+
+	@rdfs:label "linkedFunctionSpecification"
+	relation AbstractFunction_linkedFunctionSpecification [
+		from AbstractFunction
+		to FunctionSpecification
+		functional
+	]
+
+	@rdfs:label "FunctionKind"
+	scalar FunctionKind [
+		oneOf "FUNCTION", "DUPLICATE", "GATHER", "SELECT", "SPLIT", "ROUTE"
+	]
+
+	@rdfs:label "FunctionPort"
+	aspect FunctionPort < core.data.information:Port, core.data.capellacore:TypedElement, common.data.behavior:AbstractEvent
+
+	@rdfs:label "representedComponentPort"
+	@rdfs:comment "@deprecated : 'representedComponentPort' shall not be used anymore"
+	relation FunctionPort_representedComponentPort [
+		from FunctionPort
+		to ComponentPort
+		functional
+	]
+
+	@rdfs:label "allocatorComponentPorts"
+	relation FunctionPort_allocatorComponentPorts [
+		from FunctionPort
+		to ComponentPort
+		@rdfs:label "allocatedFunctionPorts"
+		reverse ComponentPort_allocatedFunctionPorts
+	]
+
+	@rdfs:label "realizedFunctionPorts"
+	relation FunctionPort_realizedFunctionPorts [
+		from FunctionPort
+		to FunctionPort
+	]
+
+	@rdfs:label "realizingFunctionPorts"
+	relation FunctionPort_realizingFunctionPorts [
+		from FunctionPort
+		to FunctionPort
+	]
+
+	@rdfs:label "ComponentExchangeKind"
+	scalar ComponentExchangeKind [
+		oneOf "UNSET", "DELEGATION", "ASSEMBLY", "FLOW"
+	]
+
+	@rdfs:label "ComponentPortKind"
+	scalar ComponentPortKind [
+		oneOf "STANDARD", "FLOW"
+	]
+
+	@rdfs:label "OrientationPortKind"
+	scalar OrientationPortKind [
+		oneOf "UNSET", "IN", "OUT", "INOUT"
+	]
+
+	@rdfs:label "ComponentExchange"
+	concept ComponentExchange < common.data.behavior:AbstractEvent, core.data.information:AbstractEventOperation, core.data.capellacore:NamedElement, ExchangeSpecification
+
+	@rdfs:label "kind"
+	scalar property ComponentExchange_kind [
+		domain ComponentExchange
+		range ComponentExchangeKind
+		functional
+	]
+
+	@rdfs:label "oriented"
+	scalar property ComponentExchange_oriented [
+		domain ComponentExchange
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "incomingComponentExchangeRealizations"
+	relation ComponentExchange_incomingComponentExchangeRealizations [
+		from ComponentExchange
+		to ComponentExchangeRealization
+		@rdfs:label "allocatedComponentExchange"
+		reverse ComponentExchangeRealization_allocatedComponentExchange
+		inverse functional
+	]
+
+	@rdfs:label "outgoingComponentExchangeRealizations"
+	relation ComponentExchange_outgoingComponentExchangeRealizations [
+		from ComponentExchange
+		to ComponentExchangeRealization
+		@rdfs:label "allocatingComponentExchange"
+		reverse ComponentExchangeRealization_allocatingComponentExchange
+		inverse functional
+	]
+
+	@rdfs:label "outgoingComponentExchangeFunctionalExchangeAllocations"
+	relation ComponentExchange_outgoingComponentExchangeFunctionalExchangeAllocations [
+		from ComponentExchange
+		to ComponentExchangeFunctionalExchangeAllocation
+		@rdfs:label "allocatingComponentExchange"
+		reverse ComponentExchangeFunctionalExchangeAllocation_allocatingComponentExchange
+		inverse functional
+	]
+
+	@rdfs:label "ownedComponentExchangeFunctionalExchangeAllocations"
+	relation ComponentExchange_ownedComponentExchangeFunctionalExchangeAllocations [
+		from ComponentExchange
+		to ComponentExchangeFunctionalExchangeAllocation
+	]
+
+	@rdfs:label "ownedComponentExchangeRealizations"
+	relation ComponentExchange_ownedComponentExchangeRealizations [
+		from ComponentExchange
+		to ComponentExchangeRealization
+	]
+
+	@rdfs:label "ownedComponentExchangeEnds"
+	relation ComponentExchange_ownedComponentExchangeEnds [
+		from ComponentExchange
+		to ComponentExchangeEnd
+	]
+
+	@rdfs:label "sourcePort"
+	relation ComponentExchange_sourcePort [
+		from ComponentExchange
+		to core.data.information:Port
+		functional
+	]
+
+	@rdfs:label "sourcePart"
+	relation ComponentExchange_sourcePart [
+		from ComponentExchange
+		to core.data.cs:Part
+		functional
+	]
+
+	@rdfs:label "targetPort"
+	relation ComponentExchange_targetPort [
+		from ComponentExchange
+		to core.data.information:Port
+		functional
+	]
+
+	@rdfs:label "targetPart"
+	relation ComponentExchange_targetPart [
+		from ComponentExchange
+		to core.data.cs:Part
+		functional
+	]
+
+	@rdfs:label "categories"
+	relation ComponentExchange_categories [
+		from ComponentExchange
+		to ComponentExchangeCategory
+	]
+
+	@rdfs:label "allocatorPhysicalLinks"
+	relation ComponentExchange_allocatorPhysicalLinks [
+		from ComponentExchange
+		to core.data.cs:PhysicalLink
+	]
+
+	@rdfs:label "realizedComponentExchanges"
+	relation ComponentExchange_realizedComponentExchanges [
+		from ComponentExchange
+		to ComponentExchange
+		@rdfs:label "realizingComponentExchanges"
+		reverse ComponentExchange_realizingComponentExchanges
+	]
+
+	@rdfs:label "ComponentExchangeAllocation"
+	concept ComponentExchangeAllocation < core.data.capellacore:Allocation [
+		restricts ComponentExchangeAllocation_componentExchangeAllocated to exactly 1
+		restricts ComponentExchangeAllocation_componentExchangeAllocator to exactly 1
+	]
+
+	@rdfs:label "componentExchangeAllocated"
+	relation ComponentExchangeAllocation_componentExchangeAllocated [
+		from ComponentExchangeAllocation
+		to ComponentExchange
+		functional
+	]
+
+	@rdfs:label "componentExchangeAllocator"
+	relation ComponentExchangeAllocation_componentExchangeAllocator [
+		from ComponentExchangeAllocation
+		to ComponentExchangeAllocator
+		functional
+	]
+
+	@rdfs:label "ComponentExchangeAllocator"
+	aspect ComponentExchangeAllocator < core.data.capellacore:NamedElement
+
+	@rdfs:label "ownedComponentExchangeAllocations"
+	relation ComponentExchangeAllocator_ownedComponentExchangeAllocations [
+		from ComponentExchangeAllocator
+		to ComponentExchangeAllocation
+	]
+
+	@rdfs:label "allocatedComponentExchanges"
+	relation ComponentExchangeAllocator_allocatedComponentExchanges [
+		from ComponentExchangeAllocator
+		to ComponentExchange
+	]
+
+	@rdfs:label "ComponentExchangeCategory"
+	concept ComponentExchangeCategory < core.data.capellacore:NamedElement
+
+	@rdfs:label "exchanges"
+	relation ComponentExchangeCategory_exchanges [
+		from ComponentExchangeCategory
+		to ComponentExchange
+	]
+
+	@rdfs:label "ComponentExchangeEnd"
+	concept ComponentExchangeEnd < common.data.core:InformationsExchanger, core.data.capellacore:CapellaElement
+
+	@rdfs:label "port"
+	relation ComponentExchangeEnd_port [
+		from ComponentExchangeEnd
+		to core.data.information:Port
+		functional
+	]
+
+	@rdfs:label "part"
+	relation ComponentExchangeEnd_part [
+		from ComponentExchangeEnd
+		to core.data.cs:Part
+		functional
+	]
+
+	@rdfs:label "ComponentExchangeFunctionalExchangeAllocation"
+	concept ComponentExchangeFunctionalExchangeAllocation < AbstractFunctionAllocation [
+		restricts ComponentExchangeFunctionalExchangeAllocation_allocatedFunctionalExchange to exactly 1
+		restricts ComponentExchangeFunctionalExchangeAllocation_allocatingComponentExchange to exactly 1
+	]
+
+	@rdfs:label "ComponentExchangeRealization"
+	concept ComponentExchangeRealization < ExchangeSpecificationRealization [
+		restricts ComponentExchangeRealization_allocatedComponentExchange to exactly 1
+		restricts ComponentExchangeRealization_allocatingComponentExchange to exactly 1
+	]
+
+	@rdfs:label "ComponentPort"
+	concept ComponentPort < core.data.information:Port, common.data.core:InformationsExchanger, core.data.information:Property
+
+	@rdfs:label "orientation"
+	scalar property ComponentPort_orientation [
+		domain ComponentPort
+		range OrientationPortKind
+		functional
+	]
+
+	@rdfs:label "kind"
+	scalar property ComponentPort_kind [
+		domain ComponentPort
+		range ComponentPortKind
+		functional
+	]
+
+	@rdfs:label "componentExchanges"
+	relation ComponentPort_componentExchanges [
+		from ComponentPort
+		to ComponentExchange
+	]
+
+	@rdfs:label "delegatedComponentPorts"
+	relation ComponentPort_delegatedComponentPorts [
+		from ComponentPort
+		to ComponentPort
+		@rdfs:label "delegatingComponentPorts"
+		reverse ComponentPort_delegatingComponentPorts
+	]
+
+	@rdfs:label "allocatingPhysicalPorts"
+	relation ComponentPort_allocatingPhysicalPorts [
+		from ComponentPort
+		to core.data.cs:PhysicalPort
+		@rdfs:label "allocatedComponentPorts"
+		reverse PhysicalPort_allocatedComponentPorts
+	]
+
+	@rdfs:label "realizedComponentPorts"
+	relation ComponentPort_realizedComponentPorts [
+		from ComponentPort
+		to ComponentPort
+		@rdfs:label "realizingComponentPorts"
+		reverse ComponentPort_realizingComponentPorts
+	]
+
+	@rdfs:label "ComponentPortAllocation"
+	concept ComponentPortAllocation < core.data.capellacore:Allocation
+
+	@rdfs:label "ownedComponentPortAllocationEnds"
+	relation ComponentPortAllocation_ownedComponentPortAllocationEnds [
+		from ComponentPortAllocation
+		to ComponentPortAllocationEnd
+	]
+
+	@rdfs:label "allocatedPort"
+	relation ComponentPortAllocation_allocatedPort [
+		from ComponentPortAllocation
+		to core.data.information:Port
+		functional
+	]
+
+	@rdfs:label "allocatingPort"
+	relation ComponentPortAllocation_allocatingPort [
+		from ComponentPortAllocation
+		to core.data.information:Port
+		functional
+	]
+
+	@rdfs:label "ComponentPortAllocationEnd"
+	concept ComponentPortAllocationEnd < core.data.capellacore:CapellaElement
+
+	@rdfs:label "port"
+	relation ComponentPortAllocationEnd_port [
+		from ComponentPortAllocationEnd
+		to core.data.information:Port
+		functional
+	]
+
+	@rdfs:label "part"
+	relation ComponentPortAllocationEnd_part [
+		from ComponentPortAllocationEnd
+		to core.data.cs:Part
+		functional
+	]
+
+	@rdfs:label "owningComponentPortAllocation"
+	relation ComponentPortAllocationEnd_owningComponentPortAllocation [
+		from ComponentPortAllocationEnd
+		to ComponentPortAllocation
+		functional
+	]
+
+	@rdfs:label "FunctionalChainInvolvementLink"
+	concept FunctionalChainInvolvementLink < FunctionalChainInvolvement, ReferenceHierarchyContext
+
+	@rdfs:label "exchangeContext"
+	relation FunctionalChainInvolvementLink_exchangeContext [
+		from FunctionalChainInvolvementLink
+		to core.data.capellacore:Constraint
+		functional
+	]
+
+	@rdfs:label "exchangedItems"
+	relation FunctionalChainInvolvementLink_exchangedItems [
+		from FunctionalChainInvolvementLink
+		to core.data.information:ExchangeItem
+	]
+
+	@rdfs:label "source"
+	relation FunctionalChainInvolvementLink_source [
+		from FunctionalChainInvolvementLink
+		to FunctionalChainInvolvementFunction
+		functional
+	]
+
+	@rdfs:label "target"
+	relation FunctionalChainInvolvementLink_target [
+		from FunctionalChainInvolvementLink
+		to FunctionalChainInvolvementFunction
+		functional
+	]
+
+	@rdfs:label "SequenceLink"
+	concept SequenceLink < core.data.capellacore:CapellaElement, ReferenceHierarchyContext
+
+	@rdfs:label "condition"
+	relation SequenceLink_condition [
+		from SequenceLink
+		to core.data.capellacore:Constraint
+		functional
+	]
+
+	@rdfs:label "links"
+	relation SequenceLink_links [
+		from SequenceLink
+		to FunctionalChainInvolvementLink
+	]
+
+	@rdfs:label "source"
+	relation SequenceLink_source [
+		from SequenceLink
+		to SequenceLinkEnd
+		functional
+	]
+
+	@rdfs:label "target"
+	relation SequenceLink_target [
+		from SequenceLink
+		to SequenceLinkEnd
+		functional
+	]
+
+	@rdfs:label "SequenceLinkEnd"
+	aspect SequenceLinkEnd < core.data.capellacore:CapellaElement
+
+	@rdfs:label "FunctionalChainInvolvementFunction"
+	concept FunctionalChainInvolvementFunction < FunctionalChainInvolvement, SequenceLinkEnd
+
+	@rdfs:label "outgoingInvolvementLinks"
+	relation FunctionalChainInvolvementFunction_outgoingInvolvementLinks [
+		from FunctionalChainInvolvementFunction
+		to FunctionalChainInvolvementLink
+	]
+
+	@rdfs:label "incomingInvolvementLinks"
+	relation FunctionalChainInvolvementFunction_incomingInvolvementLinks [
+		from FunctionalChainInvolvementFunction
+		to FunctionalChainInvolvementLink
+	]
+
+	@rdfs:label "ControlNode"
+	concept ControlNode < SequenceLinkEnd
+
+	@rdfs:label "kind"
+	scalar property ControlNode_kind [
+		domain ControlNode
+		range ControlNodeKind
+		functional
+	]
+
+	@rdfs:label "ControlNodeKind"
+	scalar ControlNodeKind [
+		oneOf "OR", "AND", "ITERATE"
+	]
+
+	@rdfs:label "ReferenceHierarchyContext"
+	aspect ReferenceHierarchyContext
+
+	@rdfs:label "sourceReferenceHierarchy"
+	relation ReferenceHierarchyContext_sourceReferenceHierarchy [
+		from ReferenceHierarchyContext
+		to FunctionalChainReference
+	]
+
+	@rdfs:label "targetReferenceHierarchy"
+	relation ReferenceHierarchyContext_targetReferenceHierarchy [
+		from ReferenceHierarchyContext
+		to FunctionalChainReference
+	]
+}

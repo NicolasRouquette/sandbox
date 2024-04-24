@@ -1,0 +1,178 @@
+vocabulary <http://www.polarsys.org/capella/core/information/communication/6.0.0#> as core.data.information.communication {
+
+	extends <http://www.polarsys.org/capella/core/core/6.0.0#> as core.data.capellacore
+
+	extends <http://www.polarsys.org/capella/core/information/datavalue/6.0.0#> as core.data.information.datavalue
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.polarsys.org/capella/core/common/6.0.0#> as core.data.capellacommon
+
+	extends <http://www.polarsys.org/capella/core/information/6.0.0#> as core.data.information
+
+	extends <http://www.polarsys.org/capella/common/behavior/6.0.0#> as common.data.behavior
+
+	@rdfs:label "CommunicationItem"
+	aspect CommunicationItem < core.data.capellacore:Classifier, core.data.information.datavalue:DataValueContainer
+
+	@rdfs:label "visibility"
+	scalar property CommunicationItem_visibility [
+		domain CommunicationItem
+		range core.data.capellacore:VisibilityKind
+		functional
+	]
+
+	@rdfs:label "ownedStateMachines"
+	relation CommunicationItem_ownedStateMachines [
+		from CommunicationItem
+		to core.data.capellacommon:StateMachine
+	]
+
+	@rdfs:label "properties"
+	relation CommunicationItem_properties [
+		from CommunicationItem
+		to core.data.information:Property
+	]
+
+	@rdfs:label "Exception"
+	concept Exception < CommunicationItem
+
+	@rdfs:label "Message"
+	concept Message < CommunicationItem
+
+	@rdfs:label "MessageReference"
+	concept MessageReference < core.data.capellacore:Relationship [
+		restricts MessageReference_message to exactly 1
+	]
+
+	@rdfs:label "message"
+	relation MessageReference_message [
+		from MessageReference
+		to Message
+		functional
+	]
+
+	@rdfs:label "MessageReferencePkg"
+	aspect MessageReferencePkg < core.data.capellacore:Structure
+
+	@rdfs:label "ownedMessageReferences"
+	relation MessageReferencePkg_ownedMessageReferences [
+		from MessageReferencePkg
+		to MessageReference
+	]
+
+	@rdfs:label "Signal"
+	concept Signal < CommunicationItem, common.data.behavior:AbstractSignal
+
+	@rdfs:label "signalInstances"
+	relation Signal_signalInstances [
+		from Signal
+		to SignalInstance
+	]
+
+	@rdfs:label "SignalInstance"
+	concept SignalInstance < core.data.information:AbstractInstance
+
+	@rdfs:label "CommunicationLinkKind"
+	scalar CommunicationLinkKind [
+		oneOf "UNSET", "PRODUCE", "CONSUME", "SEND", "RECEIVE", "CALL", "EXECUTE", "WRITE", "ACCESS", "ACQUIRE", "TRANSMIT"
+	]
+
+	@rdfs:label "CommunicationLinkProtocol"
+	scalar CommunicationLinkProtocol [
+		oneOf "UNSET", "UNICAST", "MULTICAST", "BROADCAST", "SYNCHRONOUS", "ASYNCHRONOUS", "READ", "ACCEPT"
+	]
+
+	@rdfs:label "CommunicationLink"
+	concept CommunicationLink < core.data.capellacore:CapellaElement
+
+	@rdfs:label "kind"
+	scalar property CommunicationLink_kind [
+		domain CommunicationLink
+		range CommunicationLinkKind
+		functional
+	]
+
+	@rdfs:label "protocol"
+	scalar property CommunicationLink_protocol [
+		domain CommunicationLink
+		range CommunicationLinkProtocol
+		functional
+	]
+
+	@rdfs:label "exchangeItem"
+	relation CommunicationLink_exchangeItem [
+		from CommunicationLink
+		to core.data.information:ExchangeItem
+		functional
+	]
+
+	@rdfs:label "CommunicationLinkExchanger"
+	aspect CommunicationLinkExchanger
+
+	@rdfs:label "ownedCommunicationLinks"
+	relation CommunicationLinkExchanger_ownedCommunicationLinks [
+		from CommunicationLinkExchanger
+		to CommunicationLink
+	]
+
+	@rdfs:label "produce"
+	relation CommunicationLinkExchanger_produce [
+		from CommunicationLinkExchanger
+		to CommunicationLink
+	]
+
+	@rdfs:label "consume"
+	relation CommunicationLinkExchanger_consume [
+		from CommunicationLinkExchanger
+		to CommunicationLink
+	]
+
+	@rdfs:label "send"
+	relation CommunicationLinkExchanger_send [
+		from CommunicationLinkExchanger
+		to CommunicationLink
+	]
+
+	@rdfs:label "receive"
+	relation CommunicationLinkExchanger_receive [
+		from CommunicationLinkExchanger
+		to CommunicationLink
+	]
+
+	@rdfs:label "call"
+	relation CommunicationLinkExchanger_call [
+		from CommunicationLinkExchanger
+		to CommunicationLink
+	]
+
+	@rdfs:label "execute"
+	relation CommunicationLinkExchanger_execute [
+		from CommunicationLinkExchanger
+		to CommunicationLink
+	]
+
+	@rdfs:label "write"
+	relation CommunicationLinkExchanger_write [
+		from CommunicationLinkExchanger
+		to CommunicationLink
+	]
+
+	@rdfs:label "access"
+	relation CommunicationLinkExchanger_access [
+		from CommunicationLinkExchanger
+		to CommunicationLink
+	]
+
+	@rdfs:label "acquire"
+	relation CommunicationLinkExchanger_acquire [
+		from CommunicationLinkExchanger
+		to CommunicationLink
+	]
+
+	@rdfs:label "transmit"
+	relation CommunicationLinkExchanger_transmit [
+		from CommunicationLinkExchanger
+		to CommunicationLink
+	]
+}

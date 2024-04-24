@@ -1,0 +1,148 @@
+vocabulary <http://www.polarsys.org/capella/core/epbs/6.0.0#> as core.data.epbs {
+
+	extends <http://www.polarsys.org/capella/core/cs/6.0.0#> as core.data.cs
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.polarsys.org/capella/core/la/6.0.0#> as core.data.la
+
+	extends <http://www.polarsys.org/capella/core/pa/6.0.0#> as core.data.pa
+
+	extends <http://www.polarsys.org/capella/core/common/6.0.0#> as core.data.capellacommon
+
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	extends <http://www.polarsys.org/capella/core/core/6.0.0#> as core.data.capellacore
+
+	@rdfs:label "EPBSArchitecturePkg"
+	concept EPBSArchitecturePkg < core.data.cs:BlockArchitecturePkg
+
+	@rdfs:label "ownedEPBSArchitectures"
+	relation EPBSArchitecturePkg_ownedEPBSArchitectures [
+		from EPBSArchitecturePkg
+		to EPBSArchitecture
+	]
+
+	@rdfs:label "EPBSArchitecture"
+	concept EPBSArchitecture < core.data.cs:ComponentArchitecture
+
+	@rdfs:label "ownedConfigurationItemPkg"
+	relation EPBSArchitecture_ownedConfigurationItemPkg [
+		from EPBSArchitecture
+		to ConfigurationItemPkg
+		functional
+	]
+
+	@rdfs:label "containedCapabilityRealizationPkg"
+	relation EPBSArchitecture_containedCapabilityRealizationPkg [
+		from EPBSArchitecture
+		to core.data.la:CapabilityRealizationPkg
+		functional
+	]
+
+	@rdfs:label "ownedPhysicalArchitectureRealizations"
+	relation EPBSArchitecture_ownedPhysicalArchitectureRealizations [
+		from EPBSArchitecture
+		to PhysicalArchitectureRealization
+	]
+
+	@rdfs:label "allocatedPhysicalArchitectureRealizations"
+	relation EPBSArchitecture_allocatedPhysicalArchitectureRealizations [
+		from EPBSArchitecture
+		to PhysicalArchitectureRealization
+	]
+
+	@rdfs:label "allocatedPhysicalArchitectures"
+	relation EPBSArchitecture_allocatedPhysicalArchitectures [
+		from EPBSArchitecture
+		to core.data.pa:PhysicalArchitecture
+		@rdfs:label "allocatingEpbsArchitectures"
+		reverse PhysicalArchitecture_allocatingEpbsArchitectures
+	]
+
+	@rdfs:label "ConfigurationItemPkg"
+	concept ConfigurationItemPkg < core.data.cs:ComponentPkg
+
+	@rdfs:label "ownedConfigurationItems"
+	relation ConfigurationItemPkg_ownedConfigurationItems [
+		from ConfigurationItemPkg
+		to ConfigurationItem
+	]
+
+	@rdfs:label "ownedConfigurationItemPkgs"
+	relation ConfigurationItemPkg_ownedConfigurationItemPkgs [
+		from ConfigurationItemPkg
+		to ConfigurationItemPkg
+	]
+
+	@rdfs:label "ConfigurationItem"
+	concept ConfigurationItem < core.data.capellacommon:CapabilityRealizationInvolvedElement, core.data.cs:Component
+
+	@rdfs:label "itemIdentifier"
+	scalar property ConfigurationItem_itemIdentifier [
+		domain ConfigurationItem
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "kind"
+	scalar property ConfigurationItem_kind [
+		domain ConfigurationItem
+		range ConfigurationItemKind
+		functional
+	]
+
+	@rdfs:label "ownedConfigurationItems"
+	relation ConfigurationItem_ownedConfigurationItems [
+		from ConfigurationItem
+		to ConfigurationItem
+	]
+
+	@rdfs:label "ownedConfigurationItemPkgs"
+	relation ConfigurationItem_ownedConfigurationItemPkgs [
+		from ConfigurationItem
+		to ConfigurationItemPkg
+	]
+
+	@rdfs:label "ownedPhysicalArtifactRealizations"
+	relation ConfigurationItem_ownedPhysicalArtifactRealizations [
+		from ConfigurationItem
+		to PhysicalArtifactRealization
+	]
+
+	@rdfs:label "allocatedPhysicalArtifacts"
+	relation ConfigurationItem_allocatedPhysicalArtifacts [
+		from ConfigurationItem
+		to core.data.cs:AbstractPhysicalArtifact
+		@rdfs:label "allocatorConfigurationItems"
+		reverse AbstractPhysicalArtifact_allocatorConfigurationItems
+	]
+
+	@rdfs:label "ConfigurationItemKind"
+	scalar ConfigurationItemKind [
+		oneOf "Unset", "COTSCI", "CSCI", "HWCI", "InterfaceCI", "NDICI", "PrimeItemCI", "SystemCI"
+	]
+
+	@rdfs:label "PhysicalArchitectureRealization"
+	concept PhysicalArchitectureRealization < core.data.cs:ArchitectureAllocation
+
+	@rdfs:label "PhysicalArtifactRealization"
+	concept PhysicalArtifactRealization < core.data.capellacore:Allocation [
+		restricts PhysicalArtifactRealization_realizedPhysicalArtifact to exactly 1
+		restricts PhysicalArtifactRealization_realizingConfigurationItem to exactly 1
+	]
+
+	@rdfs:label "realizedPhysicalArtifact"
+	relation PhysicalArtifactRealization_realizedPhysicalArtifact [
+		from PhysicalArtifactRealization
+		to core.data.cs:AbstractPhysicalArtifact
+		functional
+	]
+
+	@rdfs:label "realizingConfigurationItem"
+	relation PhysicalArtifactRealization_realizingConfigurationItem [
+		from PhysicalArtifactRealization
+		to ConfigurationItem
+		functional
+	]
+}

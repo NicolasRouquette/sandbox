@@ -1,0 +1,226 @@
+vocabulary <http://www.polarsys.org/capella/core/information/datatype/6.0.0#> as core.data.information.datatype {
+
+	extends <http://www.polarsys.org/capella/core/core/6.0.0#> as core.data.capellacore
+
+	extends <http://www.polarsys.org/capella/core/information/datavalue/6.0.0#> as core.data.information.datavalue
+
+	extends <http://www.polarsys.org/capella/common/core/6.0.0#> as common.data.core
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	extends <http://www.polarsys.org/capella/core/information/6.0.0#> as core.data.information
+
+	@rdfs:label "DataType"
+	aspect DataType < core.data.capellacore:GeneralizableElement, core.data.information.datavalue:DataValueContainer, common.data.core:FinalizableElement
+
+	@rdfs:label "discrete"
+	scalar property DataType_discrete [
+		domain DataType
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "minInclusive"
+	scalar property DataType_minInclusive [
+		domain DataType
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "maxInclusive"
+	scalar property DataType_maxInclusive [
+		domain DataType
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "pattern"
+	scalar property DataType_pattern [
+		domain DataType
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "visibility"
+	scalar property DataType_visibility [
+		domain DataType
+		range core.data.capellacore:VisibilityKind
+		functional
+	]
+
+	@rdfs:label "defaultValue"
+	relation DataType_defaultValue [
+		from DataType
+		to core.data.information.datavalue:DataValue
+		functional
+	]
+
+	@rdfs:label "nullValue"
+	relation DataType_nullValue [
+		from DataType
+		to core.data.information.datavalue:DataValue
+		functional
+	]
+
+	@rdfs:label "ownedInformationRealizations"
+	relation DataType_ownedInformationRealizations [
+		from DataType
+		to core.data.information:InformationRealization
+	]
+
+	@rdfs:label "realizedDataTypes"
+	relation DataType_realizedDataTypes [
+		from DataType
+		to DataType
+		@rdfs:label "realizingDataTypes"
+		reverse DataType_realizingDataTypes
+	]
+
+	@rdfs:label "BooleanType"
+	concept BooleanType < DataType [
+		restricts BooleanType_ownedLiterals to max 2
+	]
+
+	@rdfs:label "ownedLiterals"
+	relation BooleanType_ownedLiterals [
+		from BooleanType
+		to core.data.information.datavalue:LiteralBooleanValue
+	]
+
+	@rdfs:label "ownedDefaultValue"
+	relation BooleanType_ownedDefaultValue [
+		from BooleanType
+		to core.data.information.datavalue:AbstractBooleanValue
+		functional
+	]
+
+	@rdfs:label "Enumeration"
+	concept Enumeration < DataType
+
+	@rdfs:label "ownedLiterals"
+	relation Enumeration_ownedLiterals [
+		from Enumeration
+		to core.data.information.datavalue:EnumerationLiteral
+	]
+
+	@rdfs:label "ownedDefaultValue"
+	relation Enumeration_ownedDefaultValue [
+		from Enumeration
+		to core.data.information.datavalue:AbstractEnumerationValue
+		functional
+	]
+
+	@rdfs:label "ownedNullValue"
+	relation Enumeration_ownedNullValue [
+		from Enumeration
+		to core.data.information.datavalue:AbstractEnumerationValue
+		functional
+	]
+
+	@rdfs:label "ownedMinValue"
+	relation Enumeration_ownedMinValue [
+		from Enumeration
+		to core.data.information.datavalue:AbstractEnumerationValue
+		functional
+	]
+
+	@rdfs:label "ownedMaxValue"
+	relation Enumeration_ownedMaxValue [
+		from Enumeration
+		to core.data.information.datavalue:AbstractEnumerationValue
+		functional
+	]
+
+	@rdfs:label "domainType"
+	relation Enumeration_domainType [
+		from Enumeration
+		to DataType
+		functional
+	]
+
+	@rdfs:label "StringType"
+	concept StringType < DataType
+
+	@rdfs:label "ownedDefaultValue"
+	relation StringType_ownedDefaultValue [
+		from StringType
+		to core.data.information.datavalue:AbstractStringValue
+		functional
+	]
+
+	@rdfs:label "ownedNullValue"
+	relation StringType_ownedNullValue [
+		from StringType
+		to core.data.information.datavalue:AbstractStringValue
+		functional
+	]
+
+	@rdfs:label "ownedMinLength"
+	relation StringType_ownedMinLength [
+		from StringType
+		to core.data.information.datavalue:NumericValue
+		functional
+	]
+
+	@rdfs:label "ownedMaxLength"
+	relation StringType_ownedMaxLength [
+		from StringType
+		to core.data.information.datavalue:NumericValue
+		functional
+	]
+
+	@rdfs:label "NumericType"
+	concept NumericType < DataType
+
+	@rdfs:label "kind"
+	scalar property NumericType_kind [
+		domain NumericType
+		range NumericTypeKind
+		functional
+	]
+
+	@rdfs:label "ownedDefaultValue"
+	relation NumericType_ownedDefaultValue [
+		from NumericType
+		to core.data.information.datavalue:NumericValue
+		functional
+	]
+
+	@rdfs:label "ownedNullValue"
+	relation NumericType_ownedNullValue [
+		from NumericType
+		to core.data.information.datavalue:NumericValue
+		functional
+	]
+
+	@rdfs:label "ownedMinValue"
+	relation NumericType_ownedMinValue [
+		from NumericType
+		to core.data.information.datavalue:NumericValue
+		functional
+	]
+
+	@rdfs:label "ownedMaxValue"
+	relation NumericType_ownedMaxValue [
+		from NumericType
+		to core.data.information.datavalue:NumericValue
+		functional
+	]
+
+	@rdfs:label "PhysicalQuantity"
+	concept PhysicalQuantity < NumericType
+
+	@rdfs:label "unit"
+	relation PhysicalQuantity_unit [
+		from PhysicalQuantity
+		to core.data.information:Unit
+		functional
+	]
+
+	@rdfs:label "NumericTypeKind"
+	scalar NumericTypeKind [
+		oneOf "INTEGER", "FLOAT"
+	]
+}

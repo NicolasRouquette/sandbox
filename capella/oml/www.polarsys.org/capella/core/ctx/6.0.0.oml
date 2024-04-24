@@ -1,0 +1,409 @@
+vocabulary <http://www.polarsys.org/capella/core/ctx/6.0.0#> as core.data.ctx {
+
+	extends <http://www.polarsys.org/capella/core/cs/6.0.0#> as core.data.cs
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.polarsys.org/capella/core/oa/6.0.0#> as core.data.oa
+
+	extends <http://www.polarsys.org/capella/core/la/6.0.0#> as core.data.la
+
+	extends <http://www.polarsys.org/capella/core/fa/6.0.0#> as core.data.fa
+
+	extends <http://www.polarsys.org/capella/core/core/6.0.0#> as core.data.capellacore
+
+	extends <http://www.polarsys.org/capella/core/interaction/6.0.0#> as core.data.interaction
+
+	extends <http://www.polarsys.org/capella/core/common/6.0.0#> as core.data.capellacommon
+
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	@rdfs:label "SystemAnalysis"
+	concept SystemAnalysis < core.data.cs:ComponentArchitecture
+
+	@rdfs:label "ownedSystemComponentPkg"
+	relation SystemAnalysis_ownedSystemComponentPkg [
+		from SystemAnalysis
+		to SystemComponentPkg
+		functional
+	]
+
+	@rdfs:label "ownedMissionPkg"
+	relation SystemAnalysis_ownedMissionPkg [
+		from SystemAnalysis
+		to MissionPkg
+		functional
+	]
+
+	@rdfs:label "containedCapabilityPkg"
+	relation SystemAnalysis_containedCapabilityPkg [
+		from SystemAnalysis
+		to CapabilityPkg
+		functional
+	]
+
+	@rdfs:label "containedSystemFunctionPkg"
+	relation SystemAnalysis_containedSystemFunctionPkg [
+		from SystemAnalysis
+		to SystemFunctionPkg
+		functional
+	]
+
+	@rdfs:label "ownedOperationalAnalysisRealizations"
+	relation SystemAnalysis_ownedOperationalAnalysisRealizations [
+		from SystemAnalysis
+		to OperationalAnalysisRealization
+	]
+
+	@rdfs:label "allocatedOperationalAnalysisRealizations"
+	relation SystemAnalysis_allocatedOperationalAnalysisRealizations [
+		from SystemAnalysis
+		to OperationalAnalysisRealization
+	]
+
+	@rdfs:label "allocatedOperationalAnalyses"
+	relation SystemAnalysis_allocatedOperationalAnalyses [
+		from SystemAnalysis
+		to core.data.oa:OperationalAnalysis
+		@rdfs:label "allocatingSystemAnalyses"
+		reverse OperationalAnalysis_allocatingSystemAnalyses
+	]
+
+	@rdfs:label "allocatingLogicalArchitectures"
+	relation SystemAnalysis_allocatingLogicalArchitectures [
+		from SystemAnalysis
+		to core.data.la:LogicalArchitecture
+		@rdfs:label "allocatedSystemAnalyses"
+		reverse LogicalArchitecture_allocatedSystemAnalyses
+	]
+
+	@rdfs:label "SystemFunction"
+	concept SystemFunction < core.data.fa:AbstractFunction
+
+	@rdfs:label "ownedSystemFunctionPkgs"
+	relation SystemFunction_ownedSystemFunctionPkgs [
+		from SystemFunction
+		to SystemFunctionPkg
+	]
+
+	@rdfs:label "allocatingSystemComponents"
+	relation SystemFunction_allocatingSystemComponents [
+		from SystemFunction
+		to SystemComponent
+	]
+
+	@rdfs:label "realizedOperationalActivities"
+	relation SystemFunction_realizedOperationalActivities [
+		from SystemFunction
+		to core.data.oa:OperationalActivity
+		@rdfs:label "realizingSystemFunctions"
+		reverse OperationalActivity_realizingSystemFunctions
+	]
+
+	@rdfs:label "realizingLogicalFunctions"
+	relation SystemFunction_realizingLogicalFunctions [
+		from SystemFunction
+		to core.data.la:LogicalFunction
+		@rdfs:label "realizedSystemFunctions"
+		reverse LogicalFunction_realizedSystemFunctions
+	]
+
+	@rdfs:label "containedSystemFunctions"
+	relation SystemFunction_containedSystemFunctions [
+		from SystemFunction
+		to SystemFunction
+	]
+
+	@rdfs:label "childrenSystemFunctions"
+	relation SystemFunction_childrenSystemFunctions [
+		from SystemFunction
+		to SystemFunction
+	]
+
+	@rdfs:label "SystemFunctionPkg"
+	concept SystemFunctionPkg < core.data.fa:FunctionPkg
+
+	@rdfs:label "ownedSystemFunctions"
+	relation SystemFunctionPkg_ownedSystemFunctions [
+		from SystemFunctionPkg
+		to SystemFunction
+	]
+
+	@rdfs:label "ownedSystemFunctionPkgs"
+	relation SystemFunctionPkg_ownedSystemFunctionPkgs [
+		from SystemFunctionPkg
+		to SystemFunctionPkg
+	]
+
+	@rdfs:label "SystemCommunicationHook"
+	concept SystemCommunicationHook < core.data.capellacore:NamedElement
+
+	@rdfs:label "communication"
+	relation SystemCommunicationHook_communication [
+		from SystemCommunicationHook
+		to SystemCommunication
+		functional
+	]
+
+	@rdfs:label "type"
+	relation SystemCommunicationHook_type [
+		from SystemCommunicationHook
+		to core.data.cs:Component
+		functional
+	]
+
+	@rdfs:label "SystemCommunication"
+	concept SystemCommunication < core.data.capellacore:Relationship [
+		restricts SystemCommunication_ends to exactly 2
+	]
+
+	@rdfs:label "ends"
+	relation SystemCommunication_ends [
+		from SystemCommunication
+		to SystemCommunicationHook
+	]
+
+	@rdfs:label "CapabilityInvolvement"
+	concept CapabilityInvolvement < core.data.capellacore:Involvement [
+		restricts CapabilityInvolvement_systemComponent to exactly 1
+		restricts CapabilityInvolvement_capability to exactly 1
+	]
+
+	@rdfs:label "systemComponent"
+	relation CapabilityInvolvement_systemComponent [
+		from CapabilityInvolvement
+		to SystemComponent
+		functional
+	]
+
+	@rdfs:label "capability"
+	relation CapabilityInvolvement_capability [
+		from CapabilityInvolvement
+		to Capability
+		functional
+	]
+
+	@rdfs:label "MissionInvolvement"
+	concept MissionInvolvement < core.data.capellacore:Involvement [
+		restricts MissionInvolvement_systemComponent to exactly 1
+		restricts MissionInvolvement_mission to exactly 1
+	]
+
+	@rdfs:label "systemComponent"
+	relation MissionInvolvement_systemComponent [
+		from MissionInvolvement
+		to SystemComponent
+		functional
+	]
+
+	@rdfs:label "mission"
+	relation MissionInvolvement_mission [
+		from MissionInvolvement
+		to Mission
+		functional
+	]
+
+	@rdfs:label "Mission"
+	concept Mission < core.data.capellacore:NamedElement, core.data.capellacore:InvolverElement
+
+	@rdfs:label "ownedMissionInvolvements"
+	relation Mission_ownedMissionInvolvements [
+		from Mission
+		to MissionInvolvement
+	]
+
+	@rdfs:label "involvedSystemComponents"
+	relation Mission_involvedSystemComponents [
+		from Mission
+		to SystemComponent
+	]
+
+	@rdfs:label "ownedCapabilityExploitations"
+	relation Mission_ownedCapabilityExploitations [
+		from Mission
+		to CapabilityExploitation
+	]
+
+	@rdfs:label "exploitedCapabilities"
+	relation Mission_exploitedCapabilities [
+		from Mission
+		to Capability
+		@rdfs:label "purposeMissions"
+		reverse Capability_purposeMissions
+	]
+
+	@rdfs:label "MissionPkg"
+	concept MissionPkg < core.data.capellacore:Structure
+
+	@rdfs:label "ownedMissionPkgs"
+	relation MissionPkg_ownedMissionPkgs [
+		from MissionPkg
+		to MissionPkg
+	]
+
+	@rdfs:label "ownedMissions"
+	relation MissionPkg_ownedMissions [
+		from MissionPkg
+		to Mission
+	]
+
+	@rdfs:label "Capability"
+	concept Capability < core.data.interaction:AbstractCapability
+
+	@rdfs:label "ownedCapabilityInvolvements"
+	relation Capability_ownedCapabilityInvolvements [
+		from Capability
+		to CapabilityInvolvement
+	]
+
+	@rdfs:label "involvedSystemComponents"
+	relation Capability_involvedSystemComponents [
+		from Capability
+		to SystemComponent
+	]
+
+	@rdfs:label "purposes"
+	relation Capability_purposes [
+		from Capability
+		to CapabilityExploitation
+	]
+
+	@rdfs:label "realizedOperationalCapabilities"
+	relation Capability_realizedOperationalCapabilities [
+		from Capability
+		to core.data.oa:OperationalCapability
+		@rdfs:label "realizingCapabilities"
+		reverse OperationalCapability_realizingCapabilities
+	]
+
+	@rdfs:label "realizingCapabilityRealizations"
+	relation Capability_realizingCapabilityRealizations [
+		from Capability
+		to core.data.la:CapabilityRealization
+		@rdfs:label "realizedCapabilities"
+		reverse CapabilityRealization_realizedCapabilities
+	]
+
+	@rdfs:label "CapabilityExploitation"
+	concept CapabilityExploitation < core.data.capellacore:Relationship [
+		restricts CapabilityExploitation_mission to exactly 1
+		restricts CapabilityExploitation_capability to exactly 1
+	]
+
+	@rdfs:label "mission"
+	relation CapabilityExploitation_mission [
+		from CapabilityExploitation
+		to Mission
+		functional
+	]
+
+	@rdfs:label "capability"
+	relation CapabilityExploitation_capability [
+		from CapabilityExploitation
+		to Capability
+		functional
+	]
+
+	@rdfs:label "CapabilityPkg"
+	concept CapabilityPkg < core.data.capellacommon:AbstractCapabilityPkg
+
+	@rdfs:label "ownedCapabilities"
+	relation CapabilityPkg_ownedCapabilities [
+		from CapabilityPkg
+		to Capability
+	]
+
+	@rdfs:label "ownedCapabilityPkgs"
+	relation CapabilityPkg_ownedCapabilityPkgs [
+		from CapabilityPkg
+		to CapabilityPkg
+	]
+
+	@rdfs:label "OperationalAnalysisRealization"
+	concept OperationalAnalysisRealization < core.data.cs:ArchitectureAllocation
+
+	@rdfs:label "SystemComponentPkg"
+	concept SystemComponentPkg < core.data.cs:ComponentPkg
+
+	@rdfs:label "ownedSystemComponents"
+	relation SystemComponentPkg_ownedSystemComponents [
+		from SystemComponentPkg
+		to SystemComponent
+	]
+
+	@rdfs:label "ownedSystemComponentPkgs"
+	relation SystemComponentPkg_ownedSystemComponentPkgs [
+		from SystemComponentPkg
+		to SystemComponentPkg
+	]
+
+	@rdfs:label "SystemComponent"
+	concept SystemComponent < core.data.cs:Component, core.data.capellacore:InvolvedElement
+
+	@rdfs:label "ownedSystemComponents"
+	relation SystemComponent_ownedSystemComponents [
+		from SystemComponent
+		to SystemComponent
+	]
+
+	@rdfs:label "ownedSystemComponentPkgs"
+	relation SystemComponent_ownedSystemComponentPkgs [
+		from SystemComponent
+		to SystemComponentPkg
+	]
+
+	@rdfs:label "dataComponent"
+	scalar property SystemComponent_dataComponent [
+		domain SystemComponent
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "dataType"
+	relation SystemComponent_dataType [
+		from SystemComponent
+		to core.data.capellacore:Classifier
+	]
+
+	@rdfs:label "involvingCapabilities"
+	relation SystemComponent_involvingCapabilities [
+		from SystemComponent
+		to Capability
+	]
+
+	@rdfs:label "capabilityInvolvements"
+	relation SystemComponent_capabilityInvolvements [
+		from SystemComponent
+		to CapabilityInvolvement
+	]
+
+	@rdfs:label "involvingMissions"
+	relation SystemComponent_involvingMissions [
+		from SystemComponent
+		to Mission
+	]
+
+	@rdfs:label "missionInvolvements"
+	relation SystemComponent_missionInvolvements [
+		from SystemComponent
+		to MissionInvolvement
+	]
+
+	@rdfs:label "realizedEntities"
+	relation SystemComponent_realizedEntities [
+		from SystemComponent
+		to core.data.oa:Entity
+	]
+
+	@rdfs:label "realizingLogicalComponents"
+	relation SystemComponent_realizingLogicalComponents [
+		from SystemComponent
+		to core.data.la:LogicalComponent
+	]
+
+	@rdfs:label "allocatedSystemFunctions"
+	relation SystemComponent_allocatedSystemFunctions [
+		from SystemComponent
+		to SystemFunction
+	]
+}

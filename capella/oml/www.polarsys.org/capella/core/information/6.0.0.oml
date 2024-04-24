@@ -1,0 +1,764 @@
+vocabulary <http://www.polarsys.org/capella/core/information/6.0.0#> as core.data.information {
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.polarsys.org/capella/core/interaction/6.0.0#> as core.data.interaction
+
+	extends <http://www.polarsys.org/capella/core/core/6.0.0#> as core.data.capellacore
+
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	extends <http://www.polarsys.org/capella/core/common/6.0.0#> as core.data.capellacommon
+
+	extends <http://www.polarsys.org/capella/core/information/datavalue/6.0.0#> as core.data.information.datavalue
+
+	extends <http://www.polarsys.org/capella/common/core/6.0.0#> as common.data.core
+
+	extends <http://www.polarsys.org/capella/core/information/datatype/6.0.0#> as core.data.information.datatype
+
+	extends <http://www.polarsys.org/capella/core/information/communication/6.0.0#> as core.data.information.communication
+
+	extends <http://www.polarsys.org/capella/common/behavior/6.0.0#> as common.data.behavior
+
+	extends <http://www.polarsys.org/capella/core/cs/6.0.0#> as core.data.cs
+
+	@rdfs:label "AbstractInstance"
+	concept AbstractInstance < Property
+
+	@rdfs:label "representingInstanceRoles"
+	relation AbstractInstance_representingInstanceRoles [
+		from AbstractInstance
+		to core.data.interaction:InstanceRole
+	]
+
+	@rdfs:label "AggregationKind"
+	scalar AggregationKind [
+		oneOf "UNSET", "ASSOCIATION", "AGGREGATION", "COMPOSITION"
+	]
+
+	@rdfs:label "AssociationPkg"
+	aspect AssociationPkg < core.data.capellacore:Structure
+
+	@rdfs:label "visibility"
+	scalar property AssociationPkg_visibility [
+		domain AssociationPkg
+		range core.data.capellacore:VisibilityKind
+		functional
+	]
+
+	@rdfs:label "ownedAssociations"
+	relation AssociationPkg_ownedAssociations [
+		from AssociationPkg
+		to Association
+	]
+
+	@rdfs:label "Association"
+	concept Association < core.data.capellacore:NamedRelationship [
+		restricts Association_ownedMembers to max 2
+		restricts Association_navigableMembers to max 2
+	]
+
+	@rdfs:label "ownedMembers"
+	relation Association_ownedMembers [
+		from Association
+		to Property
+	]
+
+	@rdfs:label "navigableMembers"
+	relation Association_navigableMembers [
+		from Association
+		to Property
+	]
+
+	@rdfs:label "Class"
+	concept Class < core.data.capellacore:GeneralClass
+
+	@rdfs:label "isPrimitive"
+	scalar property Class_isPrimitive [
+		domain Class
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "keyParts"
+	relation Class_keyParts [
+		from Class
+		to KeyPart
+	]
+
+	@rdfs:label "ownedStateMachines"
+	relation Class_ownedStateMachines [
+		from Class
+		to core.data.capellacommon:StateMachine
+	]
+
+	@rdfs:label "ownedDataValues"
+	relation Class_ownedDataValues [
+		from Class
+		to core.data.information.datavalue:DataValue
+	]
+
+	@rdfs:label "ownedInformationRealizations"
+	relation Class_ownedInformationRealizations [
+		from Class
+		to InformationRealization
+	]
+
+	@rdfs:label "realizedClasses"
+	relation Class_realizedClasses [
+		from Class
+		to Class
+		@rdfs:label "realizingClasses"
+		reverse Class_realizingClasses
+	]
+
+	@rdfs:label "Collection"
+	concept Collection < core.data.capellacore:Classifier, MultiplicityElement, core.data.information.datavalue:DataValueContainer, common.data.core:FinalizableElement
+
+	@rdfs:label "isPrimitive"
+	scalar property Collection_isPrimitive [
+		domain Collection
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "visibility"
+	scalar property Collection_visibility [
+		domain Collection
+		range core.data.capellacore:VisibilityKind
+		functional
+	]
+
+	@rdfs:label "kind"
+	scalar property Collection_kind [
+		domain Collection
+		range CollectionKind
+		functional
+	]
+
+	@rdfs:label "aggregationKind"
+	scalar property Collection_aggregationKind [
+		domain Collection
+		range AggregationKind
+		functional
+	]
+
+	@rdfs:label "type"
+	relation Collection_type [
+		from Collection
+		to core.data.capellacore:Type
+		functional
+	]
+
+	@rdfs:label "index"
+	relation Collection_index [
+		from Collection
+		to core.data.information.datatype:DataType
+	]
+
+	@rdfs:label "containedOperations"
+	relation Collection_containedOperations [
+		from Collection
+		to Operation
+	]
+
+	@rdfs:label "AbstractCollectionValue"
+	aspect AbstractCollectionValue < core.data.information.datavalue:DataValue
+
+	@rdfs:label "CollectionValue"
+	concept CollectionValue < AbstractCollectionValue
+
+	@rdfs:label "ownedElements"
+	relation CollectionValue_ownedElements [
+		from CollectionValue
+		to core.data.information.datavalue:DataValue
+	]
+
+	@rdfs:label "ownedDefaultElement"
+	relation CollectionValue_ownedDefaultElement [
+		from CollectionValue
+		to core.data.information.datavalue:DataValue
+		functional
+	]
+
+	@rdfs:label "CollectionValueReference"
+	concept CollectionValueReference < AbstractCollectionValue
+
+	@rdfs:label "referencedValue"
+	relation CollectionValueReference_referencedValue [
+		from CollectionValueReference
+		to AbstractCollectionValue
+		functional
+	]
+
+	@rdfs:label "referencedProperty"
+	relation CollectionValueReference_referencedProperty [
+		from CollectionValueReference
+		to Property
+		functional
+	]
+
+	@rdfs:label "DataPkg"
+	concept DataPkg < core.data.capellacore:AbstractDependenciesPkg, core.data.capellacore:AbstractExchangeItemPkg, AssociationPkg, core.data.information.datavalue:DataValueContainer, core.data.information.communication:MessageReferencePkg
+
+	@rdfs:label "ownedDataPkgs"
+	relation DataPkg_ownedDataPkgs [
+		from DataPkg
+		to DataPkg
+	]
+
+	@rdfs:label "ownedClasses"
+	relation DataPkg_ownedClasses [
+		from DataPkg
+		to Class
+	]
+
+	@rdfs:label "ownedKeyParts"
+	relation DataPkg_ownedKeyParts [
+		from DataPkg
+		to KeyPart
+	]
+
+	@rdfs:label "ownedCollections"
+	relation DataPkg_ownedCollections [
+		from DataPkg
+		to Collection
+	]
+
+	@rdfs:label "ownedUnits"
+	relation DataPkg_ownedUnits [
+		from DataPkg
+		to Unit
+	]
+
+	@rdfs:label "ownedDataTypes"
+	relation DataPkg_ownedDataTypes [
+		from DataPkg
+		to core.data.information.datatype:DataType
+	]
+
+	@rdfs:label "ownedSignals"
+	relation DataPkg_ownedSignals [
+		from DataPkg
+		to core.data.information.communication:Signal
+	]
+
+	@rdfs:label "ownedMessages"
+	relation DataPkg_ownedMessages [
+		from DataPkg
+		to core.data.information.communication:Message
+	]
+
+	@rdfs:label "ownedExceptions"
+	relation DataPkg_ownedExceptions [
+		from DataPkg
+		to core.data.information.communication:Exception
+	]
+
+	@rdfs:label "ownedStateEvents"
+	relation DataPkg_ownedStateEvents [
+		from DataPkg
+		to core.data.capellacommon:StateEvent
+	]
+
+	@rdfs:label "DomainElement"
+	concept DomainElement < Class
+
+	@rdfs:label "KeyPart"
+	concept KeyPart < core.data.capellacore:Relationship [
+		restricts KeyPart_property to exactly 1
+	]
+
+	@rdfs:label "property"
+	relation KeyPart_property [
+		from KeyPart
+		to Property
+		functional
+	]
+
+	@rdfs:label "MultiplicityElement"
+	aspect MultiplicityElement < core.data.capellacore:CapellaElement
+
+	@rdfs:label "ordered"
+	scalar property MultiplicityElement_ordered [
+		domain MultiplicityElement
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "unique"
+	scalar property MultiplicityElement_unique [
+		domain MultiplicityElement
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "minInclusive"
+	scalar property MultiplicityElement_minInclusive [
+		domain MultiplicityElement
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "maxInclusive"
+	scalar property MultiplicityElement_maxInclusive [
+		domain MultiplicityElement
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "ownedDefaultValue"
+	relation MultiplicityElement_ownedDefaultValue [
+		from MultiplicityElement
+		to core.data.information.datavalue:DataValue
+		functional
+	]
+
+	@rdfs:label "ownedMinValue"
+	relation MultiplicityElement_ownedMinValue [
+		from MultiplicityElement
+		to core.data.information.datavalue:DataValue
+		functional
+	]
+
+	@rdfs:label "ownedMaxValue"
+	relation MultiplicityElement_ownedMaxValue [
+		from MultiplicityElement
+		to core.data.information.datavalue:DataValue
+		functional
+	]
+
+	@rdfs:label "ownedNullValue"
+	relation MultiplicityElement_ownedNullValue [
+		from MultiplicityElement
+		to core.data.information.datavalue:DataValue
+		functional
+	]
+
+	@rdfs:label "ownedMinCard"
+	relation MultiplicityElement_ownedMinCard [
+		from MultiplicityElement
+		to core.data.information.datavalue:NumericValue
+		functional
+	]
+
+	@rdfs:label "ownedMinLength"
+	relation MultiplicityElement_ownedMinLength [
+		from MultiplicityElement
+		to core.data.information.datavalue:NumericValue
+		functional
+	]
+
+	@rdfs:label "ownedMaxCard"
+	relation MultiplicityElement_ownedMaxCard [
+		from MultiplicityElement
+		to core.data.information.datavalue:NumericValue
+		functional
+	]
+
+	@rdfs:label "ownedMaxLength"
+	relation MultiplicityElement_ownedMaxLength [
+		from MultiplicityElement
+		to core.data.information.datavalue:NumericValue
+		functional
+	]
+
+	@rdfs:label "Operation"
+	aspect Operation < core.data.capellacore:Feature, common.data.behavior:AbstractEvent, AbstractEventOperation
+
+	@rdfs:label "ownedParameters"
+	relation Operation_ownedParameters [
+		from Operation
+		to Parameter
+	]
+
+	@rdfs:label "allocatingOperations"
+	relation Operation_allocatingOperations [
+		from Operation
+		to Operation
+		@rdfs:label "allocatedOperations"
+		reverse Operation_allocatedOperations
+	]
+
+	@rdfs:label "ownedOperationAllocation"
+	relation Operation_ownedOperationAllocation [
+		from Operation
+		to OperationAllocation
+	]
+
+	@rdfs:label "ownedExchangeItemRealizations"
+	relation Operation_ownedExchangeItemRealizations [
+		from Operation
+		to ExchangeItemRealization
+	]
+
+	@rdfs:label "realizedExchangeItems"
+	relation Operation_realizedExchangeItems [
+		from Operation
+		to ExchangeItem
+		@rdfs:label "realizingOperations"
+		reverse ExchangeItem_realizingOperations
+	]
+
+	@rdfs:label "OperationAllocation"
+	concept OperationAllocation < core.data.capellacore:Allocation [
+		restricts OperationAllocation_allocatedOperation to exactly 1
+		restricts OperationAllocation_allocatingOperation to exactly 1
+	]
+
+	@rdfs:label "allocatedOperation"
+	relation OperationAllocation_allocatedOperation [
+		from OperationAllocation
+		to Operation
+		functional
+	]
+
+	@rdfs:label "allocatingOperation"
+	relation OperationAllocation_allocatingOperation [
+		from OperationAllocation
+		to Operation
+		functional
+	]
+
+	@rdfs:label "Parameter"
+	concept Parameter < core.data.capellacore:TypedElement, MultiplicityElement, common.data.core:AbstractParameter
+
+	@rdfs:label "direction"
+	scalar property Parameter_direction [
+		domain Parameter
+		range ParameterDirection
+		functional
+	]
+
+	@rdfs:label "passingMode"
+	scalar property Parameter_passingMode [
+		domain Parameter
+		range PassingMode
+		functional
+	]
+
+	@rdfs:label "ParameterDirection"
+	scalar ParameterDirection [
+		oneOf "IN", "OUT", "INOUT", "RETURN", "EXCEPTION", "UNSET"
+	]
+
+	@rdfs:label "PassingMode"
+	scalar PassingMode [
+		oneOf "UNSET", "BY_REF", "BY_VALUE"
+	]
+
+	@rdfs:label "Property"
+	concept Property < core.data.capellacore:Feature, core.data.capellacore:TypedElement, MultiplicityElement, common.data.core:FinalizableElement
+
+	@rdfs:label "aggregationKind"
+	scalar property Property_aggregationKind [
+		domain Property
+		range AggregationKind
+		functional
+	]
+
+	@rdfs:label "isDerived"
+	scalar property Property_isDerived [
+		domain Property
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "isReadOnly"
+	scalar property Property_isReadOnly [
+		domain Property
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "isPartOfKey"
+	scalar property Property_isPartOfKey [
+		domain Property
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "association"
+	relation Property_association [
+		from Property
+		to Association
+		functional
+	]
+
+	@rdfs:label "SynchronismKind"
+	scalar SynchronismKind [
+		oneOf "UNSET", "SYNCHRONOUS", "ASYNCHRONOUS"
+	]
+
+	@rdfs:label "Service"
+	concept Service < Operation
+
+	@rdfs:label "synchronismKind"
+	scalar property Service_synchronismKind [
+		domain Service
+		range SynchronismKind
+		functional
+	]
+
+	@rdfs:label "thrownExceptions"
+	relation Service_thrownExceptions [
+		from Service
+		to core.data.information.communication:Exception
+	]
+
+	@rdfs:label "messages"
+	relation Service_messages [
+		from Service
+		to core.data.information.communication:Message
+	]
+
+	@rdfs:label "messageReferences"
+	relation Service_messageReferences [
+		from Service
+		to core.data.information.communication:MessageReference
+	]
+
+	@rdfs:label "Union"
+	concept Union < Class
+
+	@rdfs:label "kind"
+	scalar property Union_kind [
+		domain Union
+		range UnionKind
+		functional
+	]
+
+	@rdfs:label "discriminant"
+	relation Union_discriminant [
+		from Union
+		to UnionProperty
+		functional
+	]
+
+	@rdfs:label "defaultProperty"
+	relation Union_defaultProperty [
+		from Union
+		to UnionProperty
+		functional
+	]
+
+	@rdfs:label "containedUnionProperties"
+	relation Union_containedUnionProperties [
+		from Union
+		to UnionProperty
+	]
+
+	@rdfs:label "UnionKind"
+	scalar UnionKind [
+		oneOf "UNION", "VARIANT"
+	]
+
+	@rdfs:label "UnionProperty"
+	concept UnionProperty < Property
+
+	@rdfs:label "qualifier"
+	relation UnionProperty_qualifier [
+		from UnionProperty
+		to core.data.information.datavalue:DataValue
+	]
+
+	@rdfs:label "Unit"
+	concept Unit < core.data.capellacore:NamedElement
+
+	@rdfs:label "Port"
+	aspect Port < core.data.capellacore:NamedElement
+
+	@rdfs:label "incomingPortRealizations"
+	relation Port_incomingPortRealizations [
+		from Port
+		to PortRealization
+		@rdfs:label "realizedPort"
+		reverse PortRealization_realizedPort
+		inverse functional
+	]
+
+	@rdfs:label "outgoingPortRealizations"
+	relation Port_outgoingPortRealizations [
+		from Port
+		to PortRealization
+		@rdfs:label "realizingPort"
+		reverse PortRealization_realizingPort
+		inverse functional
+	]
+
+	@rdfs:label "ownedProtocols"
+	relation Port_ownedProtocols [
+		from Port
+		to core.data.capellacommon:StateMachine
+	]
+
+	@rdfs:label "incomingPortAllocations"
+	relation Port_incomingPortAllocations [
+		from Port
+		to PortAllocation
+		@rdfs:label "allocatedPort"
+		reverse PortAllocation_allocatedPort
+	]
+
+	@rdfs:label "outgoingPortAllocations"
+	relation Port_outgoingPortAllocations [
+		from Port
+		to PortAllocation
+		@rdfs:label "allocatingPort"
+		reverse PortAllocation_allocatingPort
+	]
+
+	@rdfs:label "providedInterfaces"
+	relation Port_providedInterfaces [
+		from Port
+		to core.data.cs:Interface
+	]
+
+	@rdfs:label "requiredInterfaces"
+	relation Port_requiredInterfaces [
+		from Port
+		to core.data.cs:Interface
+	]
+
+	@rdfs:label "ownedPortRealizations"
+	relation Port_ownedPortRealizations [
+		from Port
+		to PortRealization
+	]
+
+	@rdfs:label "ownedPortAllocations"
+	relation Port_ownedPortAllocations [
+		from Port
+		to PortAllocation
+	]
+
+	@rdfs:label "PortRealization"
+	concept PortRealization < core.data.capellacore:Allocation [
+		restricts PortRealization_realizedPort to exactly 1
+		restricts PortRealization_realizingPort to exactly 1
+	]
+
+	@rdfs:label "PortAllocation"
+	concept PortAllocation < core.data.capellacore:Allocation
+
+	@rdfs:label "ExchangeItem"
+	concept ExchangeItem < common.data.core:AbstractExchangeItem, common.data.behavior:AbstractEvent, common.data.behavior:AbstractSignal, common.data.core:FinalizableElement, core.data.capellacore:GeneralizableElement [
+		restricts ExchangeItem_exchangeMechanism to exactly 1
+	]
+
+	@rdfs:label "exchangeMechanism"
+	scalar property ExchangeItem_exchangeMechanism [
+		domain ExchangeItem
+		range ExchangeMechanism
+		functional
+	]
+
+	@rdfs:label "ownedElements"
+	relation ExchangeItem_ownedElements [
+		from ExchangeItem
+		to ExchangeItemElement
+	]
+
+	@rdfs:label "ownedInformationRealizations"
+	relation ExchangeItem_ownedInformationRealizations [
+		from ExchangeItem
+		to InformationRealization
+	]
+
+	@rdfs:label "ownedExchangeItemInstances"
+	relation ExchangeItem_ownedExchangeItemInstances [
+		from ExchangeItem
+		to ExchangeItemInstance
+	]
+
+	@rdfs:label "allocatorInterfaces"
+	relation ExchangeItem_allocatorInterfaces [
+		from ExchangeItem
+		to core.data.cs:Interface
+	]
+
+	@rdfs:label "realizedExchangeItems"
+	relation ExchangeItem_realizedExchangeItems [
+		from ExchangeItem
+		to ExchangeItem
+		@rdfs:label "realizingExchangeItems"
+		reverse ExchangeItem_realizingExchangeItems
+	]
+
+	@rdfs:label "ExchangeItemElement"
+	concept ExchangeItemElement < core.data.capellacore:NamedElement, MultiplicityElement, core.data.capellacore:TypedElement
+
+	@rdfs:label "kind"
+	scalar property ExchangeItemElement_kind [
+		domain ExchangeItemElement
+		range ElementKind
+		functional
+	]
+
+	@rdfs:label "direction"
+	scalar property ExchangeItemElement_direction [
+		domain ExchangeItemElement
+		range ParameterDirection
+		functional
+	]
+
+	@rdfs:label "composite"
+	scalar property ExchangeItemElement_composite [
+		domain ExchangeItemElement
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "referencedProperties"
+	relation ExchangeItemElement_referencedProperties [
+		from ExchangeItemElement
+		to Property
+	]
+
+	@rdfs:label "ExchangeItemInstance"
+	concept ExchangeItemInstance < AbstractInstance
+
+	@rdfs:label "InformationRealization"
+	concept InformationRealization < core.data.capellacore:Allocation
+
+	@rdfs:label "ExchangeMechanism"
+	scalar ExchangeMechanism [
+		oneOf "UNSET", "FLOW", "OPERATION", "EVENT", "SHARED_DATA"
+	]
+
+	@rdfs:label "ElementKind"
+	scalar ElementKind [
+		oneOf "TYPE", "MEMBER"
+	]
+
+	@rdfs:label "CollectionKind"
+	scalar CollectionKind [
+		oneOf "ARRAY", "SEQUENCE"
+	]
+
+	@rdfs:label "ExchangeItemRealization"
+	concept ExchangeItemRealization < core.data.capellacore:Allocation
+
+	@rdfs:label "realizedItem"
+	relation ExchangeItemRealization_realizedItem [
+		from ExchangeItemRealization
+		to common.data.core:AbstractExchangeItem
+		functional
+	]
+
+	@rdfs:label "realizingOperation"
+	relation ExchangeItemRealization_realizingOperation [
+		from ExchangeItemRealization
+		to Operation
+		functional
+	]
+
+	@rdfs:label "AbstractEventOperation"
+	aspect AbstractEventOperation < core.data.capellacore:NamedElement
+
+	@rdfs:label "invokingSequenceMessages"
+	relation AbstractEventOperation_invokingSequenceMessages [
+		from AbstractEventOperation
+		to core.data.interaction:SequenceMessage
+	]
+}

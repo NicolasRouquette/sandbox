@@ -1,0 +1,260 @@
+vocabulary <http://www.polarsys.org/capella/core/pa/6.0.0#> as core.data.pa {
+
+	extends <http://www.polarsys.org/capella/core/cs/6.0.0#> as core.data.cs
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.polarsys.org/capella/core/la/6.0.0#> as core.data.la
+
+	extends <http://www.polarsys.org/capella/core/epbs/6.0.0#> as core.data.epbs
+
+	extends <http://www.polarsys.org/capella/core/fa/6.0.0#> as core.data.fa
+
+	extends <http://www.polarsys.org/capella/core/common/6.0.0#> as core.data.capellacommon
+
+	extends <http://www.polarsys.org/capella/core/information/6.0.0#> as core.data.information
+
+	@rdfs:label "PhysicalArchitecturePkg"
+	concept PhysicalArchitecturePkg < core.data.cs:BlockArchitecturePkg
+
+	@rdfs:label "ownedPhysicalArchitecturePkgs"
+	relation PhysicalArchitecturePkg_ownedPhysicalArchitecturePkgs [
+		from PhysicalArchitecturePkg
+		to PhysicalArchitecturePkg
+	]
+
+	@rdfs:label "ownedPhysicalArchitectures"
+	relation PhysicalArchitecturePkg_ownedPhysicalArchitectures [
+		from PhysicalArchitecturePkg
+		to PhysicalArchitecture
+	]
+
+	@rdfs:label "PhysicalArchitecture"
+	concept PhysicalArchitecture < core.data.cs:ComponentArchitecture
+
+	@rdfs:label "ownedPhysicalComponentPkg"
+	relation PhysicalArchitecture_ownedPhysicalComponentPkg [
+		from PhysicalArchitecture
+		to PhysicalComponentPkg
+		functional
+	]
+
+	@rdfs:label "containedCapabilityRealizationPkg"
+	relation PhysicalArchitecture_containedCapabilityRealizationPkg [
+		from PhysicalArchitecture
+		to core.data.la:CapabilityRealizationPkg
+		functional
+	]
+
+	@rdfs:label "containedPhysicalFunctionPkg"
+	relation PhysicalArchitecture_containedPhysicalFunctionPkg [
+		from PhysicalArchitecture
+		to PhysicalFunctionPkg
+		functional
+	]
+
+	@rdfs:label "ownedDeployments"
+	relation PhysicalArchitecture_ownedDeployments [
+		from PhysicalArchitecture
+		to core.data.cs:AbstractDeploymentLink
+	]
+
+	@rdfs:label "ownedLogicalArchitectureRealizations"
+	relation PhysicalArchitecture_ownedLogicalArchitectureRealizations [
+		from PhysicalArchitecture
+		to LogicalArchitectureRealization
+	]
+
+	@rdfs:label "allocatedLogicalArchitectureRealizations"
+	relation PhysicalArchitecture_allocatedLogicalArchitectureRealizations [
+		from PhysicalArchitecture
+		to LogicalArchitectureRealization
+	]
+
+	@rdfs:label "allocatedLogicalArchitectures"
+	relation PhysicalArchitecture_allocatedLogicalArchitectures [
+		from PhysicalArchitecture
+		to core.data.la:LogicalArchitecture
+		@rdfs:label "allocatingPhysicalArchitectures"
+		reverse LogicalArchitecture_allocatingPhysicalArchitectures
+	]
+
+	@rdfs:label "allocatingEpbsArchitectures"
+	relation PhysicalArchitecture_allocatingEpbsArchitectures [
+		from PhysicalArchitecture
+		to core.data.epbs:EPBSArchitecture
+		@rdfs:label "allocatedPhysicalArchitectures"
+		reverse EPBSArchitecture_allocatedPhysicalArchitectures
+	]
+
+	@rdfs:label "PhysicalFunction"
+	concept PhysicalFunction < core.data.fa:AbstractFunction
+
+	@rdfs:label "ownedPhysicalFunctionPkgs"
+	relation PhysicalFunction_ownedPhysicalFunctionPkgs [
+		from PhysicalFunction
+		to PhysicalFunctionPkg
+	]
+
+	@rdfs:label "allocatingPhysicalComponents"
+	relation PhysicalFunction_allocatingPhysicalComponents [
+		from PhysicalFunction
+		to PhysicalComponent
+		@rdfs:label "allocatedPhysicalFunctions"
+		reverse PhysicalComponent_allocatedPhysicalFunctions
+	]
+
+	@rdfs:label "realizedLogicalFunctions"
+	relation PhysicalFunction_realizedLogicalFunctions [
+		from PhysicalFunction
+		to core.data.la:LogicalFunction
+		@rdfs:label "realizingPhysicalFunctions"
+		reverse LogicalFunction_realizingPhysicalFunctions
+	]
+
+	@rdfs:label "containedPhysicalFunctions"
+	relation PhysicalFunction_containedPhysicalFunctions [
+		from PhysicalFunction
+		to PhysicalFunction
+	]
+
+	@rdfs:label "childrenPhysicalFunctions"
+	relation PhysicalFunction_childrenPhysicalFunctions [
+		from PhysicalFunction
+		to PhysicalFunction
+	]
+
+	@rdfs:label "PhysicalFunctionPkg"
+	concept PhysicalFunctionPkg < core.data.fa:FunctionPkg
+
+	@rdfs:label "ownedPhysicalFunctions"
+	relation PhysicalFunctionPkg_ownedPhysicalFunctions [
+		from PhysicalFunctionPkg
+		to PhysicalFunction
+	]
+
+	@rdfs:label "ownedPhysicalFunctionPkgs"
+	relation PhysicalFunctionPkg_ownedPhysicalFunctionPkgs [
+		from PhysicalFunctionPkg
+		to PhysicalFunctionPkg
+	]
+
+	@rdfs:label "PhysicalComponent"
+	concept PhysicalComponent < core.data.cs:AbstractPhysicalArtifact, core.data.cs:Component, core.data.capellacommon:CapabilityRealizationInvolvedElement, core.data.cs:DeployableElement, core.data.cs:DeploymentTarget
+
+	@rdfs:label "kind"
+	scalar property PhysicalComponent_kind [
+		domain PhysicalComponent
+		range PhysicalComponentKind
+		functional
+	]
+
+	@rdfs:label "nature"
+	scalar property PhysicalComponent_nature [
+		domain PhysicalComponent
+		range PhysicalComponentNature
+		functional
+	]
+
+	@rdfs:label "ownedDeploymentLinks"
+	relation PhysicalComponent_ownedDeploymentLinks [
+		from PhysicalComponent
+		to core.data.cs:AbstractDeploymentLink
+	]
+
+	@rdfs:label "ownedPhysicalComponents"
+	relation PhysicalComponent_ownedPhysicalComponents [
+		from PhysicalComponent
+		to PhysicalComponent
+	]
+
+	@rdfs:label "ownedPhysicalComponentPkgs"
+	relation PhysicalComponent_ownedPhysicalComponentPkgs [
+		from PhysicalComponent
+		to PhysicalComponentPkg
+	]
+
+	@rdfs:label "logicalInterfaceRealizations"
+	relation PhysicalComponent_logicalInterfaceRealizations [
+		from PhysicalComponent
+		to LogicalInterfaceRealization
+	]
+
+	@rdfs:label "subPhysicalComponents"
+	relation PhysicalComponent_subPhysicalComponents [
+		from PhysicalComponent
+		to PhysicalComponent
+	]
+
+	@rdfs:label "realizedLogicalComponents"
+	relation PhysicalComponent_realizedLogicalComponents [
+		from PhysicalComponent
+		to core.data.la:LogicalComponent
+		@rdfs:label "realizingPhysicalComponents"
+		reverse LogicalComponent_realizingPhysicalComponents
+	]
+
+	@rdfs:label "deployedPhysicalComponents"
+	relation PhysicalComponent_deployedPhysicalComponents [
+		from PhysicalComponent
+		to PhysicalComponent
+	]
+
+	@rdfs:label "deployingPhysicalComponents"
+	relation PhysicalComponent_deployingPhysicalComponents [
+		from PhysicalComponent
+		to PhysicalComponent
+	]
+
+	@rdfs:label "PhysicalComponentPkg"
+	concept PhysicalComponentPkg < core.data.cs:ComponentPkg, core.data.information:AssociationPkg
+
+	@rdfs:label "ownedPhysicalComponents"
+	relation PhysicalComponentPkg_ownedPhysicalComponents [
+		from PhysicalComponentPkg
+		to PhysicalComponent
+	]
+
+	@rdfs:label "ownedPhysicalComponentPkgs"
+	relation PhysicalComponentPkg_ownedPhysicalComponentPkgs [
+		from PhysicalComponentPkg
+		to PhysicalComponentPkg
+	]
+
+	@rdfs:label "ownedKeyParts"
+	relation PhysicalComponentPkg_ownedKeyParts [
+		from PhysicalComponentPkg
+		to core.data.information:KeyPart
+	]
+
+	@rdfs:label "ownedDeployments"
+	relation PhysicalComponentPkg_ownedDeployments [
+		from PhysicalComponentPkg
+		to core.data.cs:AbstractDeploymentLink
+	]
+
+	@rdfs:label "PhysicalNode"
+	concept PhysicalNode < PhysicalComponent
+
+	@rdfs:label "subPhysicalNodes"
+	relation PhysicalNode_subPhysicalNodes [
+		from PhysicalNode
+		to PhysicalNode
+	]
+
+	@rdfs:label "PhysicalComponentKind"
+	scalar PhysicalComponentKind [
+		oneOf "UNSET", "HARDWARE", "HARDWARE_COMPUTER", "SOFTWARE", "SOFTWARE_DEPLOYMENT_UNIT", "SOFTWARE_EXECUTION_UNIT", "SOFTWARE_APPLICATION", "FIRMWARE", "PERSON", "FACILITIES", "DATA", "MATERIALS", "SERVICES", "PROCESSES"
+	]
+
+	@rdfs:label "LogicalArchitectureRealization"
+	concept LogicalArchitectureRealization < core.data.cs:ArchitectureAllocation
+
+	@rdfs:label "LogicalInterfaceRealization"
+	concept LogicalInterfaceRealization < core.data.cs:InterfaceAllocation
+
+	@rdfs:label "PhysicalComponentNature"
+	scalar PhysicalComponentNature [
+		oneOf "UNSET", "BEHAVIOR", "NODE"
+	]
+}

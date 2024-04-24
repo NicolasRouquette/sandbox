@@ -1,0 +1,626 @@
+vocabulary <http://www.polarsys.org/capella/core/oa/6.0.0#> as core.data.oa {
+
+	extends <http://www.polarsys.org/capella/core/cs/6.0.0#> as core.data.cs
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.polarsys.org/capella/core/ctx/6.0.0#> as core.data.ctx
+
+	extends <http://www.polarsys.org/capella/core/core/6.0.0#> as core.data.capellacore
+
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	extends <http://www.polarsys.org/capella/core/fa/6.0.0#> as core.data.fa
+
+	extends <http://www.polarsys.org/capella/common/activity/6.0.0#> as common.data.activity
+
+	extends <http://www.polarsys.org/capella/core/common/6.0.0#> as core.data.capellacommon
+
+	extends <http://www.polarsys.org/capella/core/interaction/6.0.0#> as core.data.interaction
+
+	extends <http://www.polarsys.org/capella/core/information/6.0.0#> as core.data.information
+
+	extends <http://www.polarsys.org/capella/common/core/6.0.0#> as common.data.core
+
+	@rdfs:label "OperationalAnalysis"
+	concept OperationalAnalysis < core.data.cs:BlockArchitecture
+
+	@rdfs:label "ownedRolePkg"
+	relation OperationalAnalysis_ownedRolePkg [
+		from OperationalAnalysis
+		to RolePkg
+		functional
+	]
+
+	@rdfs:label "ownedEntityPkg"
+	relation OperationalAnalysis_ownedEntityPkg [
+		from OperationalAnalysis
+		to EntityPkg
+		functional
+	]
+
+	@rdfs:label "ownedConceptPkg"
+	relation OperationalAnalysis_ownedConceptPkg [
+		from OperationalAnalysis
+		to ConceptPkg
+		functional
+	]
+
+	@rdfs:label "containedOperationalCapabilityPkg"
+	relation OperationalAnalysis_containedOperationalCapabilityPkg [
+		from OperationalAnalysis
+		to OperationalCapabilityPkg
+		functional
+	]
+
+	@rdfs:label "containedOperationalActivityPkg"
+	relation OperationalAnalysis_containedOperationalActivityPkg [
+		from OperationalAnalysis
+		to OperationalActivityPkg
+		functional
+	]
+
+	@rdfs:label "allocatingSystemAnalyses"
+	relation OperationalAnalysis_allocatingSystemAnalyses [
+		from OperationalAnalysis
+		to core.data.ctx:SystemAnalysis
+		@rdfs:label "allocatedOperationalAnalyses"
+		reverse SystemAnalysis_allocatedOperationalAnalyses
+	]
+
+	@rdfs:label "OperationalScenario"
+	aspect OperationalScenario < core.data.capellacore:NamedElement [
+		restricts OperationalScenario_context to exactly 1
+		restricts OperationalScenario_objective to exactly 1
+	]
+
+	@rdfs:label "context"
+	scalar property OperationalScenario_context [
+		domain OperationalScenario
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "objective"
+	scalar property OperationalScenario_objective [
+		domain OperationalScenario
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "OperationalActivityPkg"
+	concept OperationalActivityPkg < core.data.fa:FunctionPkg
+
+	@rdfs:label "ownedOperationalActivities"
+	relation OperationalActivityPkg_ownedOperationalActivities [
+		from OperationalActivityPkg
+		to OperationalActivity
+	]
+
+	@rdfs:label "ownedOperationalActivityPkgs"
+	relation OperationalActivityPkg_ownedOperationalActivityPkgs [
+		from OperationalActivityPkg
+		to OperationalActivityPkg
+	]
+
+	@rdfs:label "OperationalActivity"
+	concept OperationalActivity < core.data.fa:AbstractFunction
+
+	@rdfs:label "ownedOperationalActivityPkgs"
+	relation OperationalActivity_ownedOperationalActivityPkgs [
+		from OperationalActivity
+		to OperationalActivityPkg
+	]
+
+	@rdfs:label "activityAllocations"
+	relation OperationalActivity_activityAllocations [
+		from OperationalActivity
+		to ActivityAllocation
+		@rdfs:label "activity"
+		reverse ActivityAllocation_activity
+		inverse functional
+	]
+
+	@rdfs:label "ownedSwimlanes"
+	relation OperationalActivity_ownedSwimlanes [
+		from OperationalActivity
+		to Swimlane
+	]
+
+	@rdfs:label "ownedProcess"
+	relation OperationalActivity_ownedProcess [
+		from OperationalActivity
+		to OperationalProcess
+	]
+
+	@rdfs:label "allocatorEntities"
+	relation OperationalActivity_allocatorEntities [
+		from OperationalActivity
+		to Entity
+		@rdfs:label "allocatedOperationalActivities"
+		reverse Entity_allocatedOperationalActivities
+	]
+
+	@rdfs:label "realizingSystemFunctions"
+	relation OperationalActivity_realizingSystemFunctions [
+		from OperationalActivity
+		to core.data.ctx:SystemFunction
+		@rdfs:label "realizedOperationalActivities"
+		reverse SystemFunction_realizedOperationalActivities
+	]
+
+	@rdfs:label "allocatingRoles"
+	relation OperationalActivity_allocatingRoles [
+		from OperationalActivity
+		to Role
+	]
+
+	@rdfs:label "containedOperationalActivities"
+	relation OperationalActivity_containedOperationalActivities [
+		from OperationalActivity
+		to OperationalActivity
+	]
+
+	@rdfs:label "childrenOperationalActivities"
+	relation OperationalActivity_childrenOperationalActivities [
+		from OperationalActivity
+		to OperationalActivity
+	]
+
+	@rdfs:label "OperationalProcess"
+	concept OperationalProcess < core.data.fa:FunctionalChain
+
+	@rdfs:label "involvingOperationalCapabilities"
+	relation OperationalProcess_involvingOperationalCapabilities [
+		from OperationalProcess
+		to OperationalCapability
+	]
+
+	@rdfs:label "Swimlane"
+	concept Swimlane < core.data.capellacore:NamedElement, common.data.activity:ActivityPartition
+
+	@rdfs:label "representedEntity"
+	relation Swimlane_representedEntity [
+		from Swimlane
+		to Entity
+		functional
+	]
+
+	@rdfs:label "OperationalCapabilityPkg"
+	concept OperationalCapabilityPkg < core.data.capellacommon:AbstractCapabilityPkg
+
+	@rdfs:label "ownedOperationalCapabilities"
+	relation OperationalCapabilityPkg_ownedOperationalCapabilities [
+		from OperationalCapabilityPkg
+		to OperationalCapability
+	]
+
+	@rdfs:label "ownedOperationalCapabilityPkgs"
+	relation OperationalCapabilityPkg_ownedOperationalCapabilityPkgs [
+		from OperationalCapabilityPkg
+		to OperationalCapabilityPkg
+	]
+
+	@rdfs:label "ownedCapabilityConfigurations"
+	relation OperationalCapabilityPkg_ownedCapabilityConfigurations [
+		from OperationalCapabilityPkg
+		to CapabilityConfiguration
+	]
+
+	@rdfs:label "ownedConceptCompliances"
+	relation OperationalCapabilityPkg_ownedConceptCompliances [
+		from OperationalCapabilityPkg
+		to ConceptCompliance
+	]
+
+	@rdfs:label "OperationalCapability"
+	concept OperationalCapability < core.data.interaction:AbstractCapability, core.data.capellacore:Namespace
+
+	@rdfs:label "compliances"
+	relation OperationalCapability_compliances [
+		from OperationalCapability
+		to ConceptCompliance
+	]
+
+	@rdfs:label "configurations"
+	relation OperationalCapability_configurations [
+		from OperationalCapability
+		to CapabilityConfiguration
+	]
+
+	@rdfs:label "ownedEntityOperationalCapabilityInvolvements"
+	relation OperationalCapability_ownedEntityOperationalCapabilityInvolvements [
+		from OperationalCapability
+		to EntityOperationalCapabilityInvolvement
+	]
+
+	@rdfs:label "realizingCapabilities"
+	relation OperationalCapability_realizingCapabilities [
+		from OperationalCapability
+		to core.data.ctx:Capability
+		@rdfs:label "realizedOperationalCapabilities"
+		reverse Capability_realizedOperationalCapabilities
+	]
+
+	@rdfs:label "involvedEntities"
+	relation OperationalCapability_involvedEntities [
+		from OperationalCapability
+		to Entity
+	]
+
+	@rdfs:label "ActivityAllocation"
+	concept ActivityAllocation < core.data.capellacore:Allocation [
+		restricts ActivityAllocation_activity to exactly 1
+		restricts ActivityAllocation_role to exactly 1
+	]
+
+	@rdfs:label "activityAllocations"
+	relation Role_activityAllocations [
+		from Role
+		to ActivityAllocation
+		@rdfs:label "role"
+		reverse ActivityAllocation_role
+		inverse functional
+	]
+
+	@rdfs:label "RolePkg"
+	concept RolePkg < core.data.capellacore:Structure
+
+	@rdfs:label "ownedRolePkgs"
+	relation RolePkg_ownedRolePkgs [
+		from RolePkg
+		to RolePkg
+	]
+
+	@rdfs:label "ownedRoles"
+	relation RolePkg_ownedRoles [
+		from RolePkg
+		to Role
+	]
+
+	@rdfs:label "Role"
+	concept Role < core.data.information:AbstractInstance
+
+	@rdfs:label "ownedRoleAssemblyUsages"
+	relation Role_ownedRoleAssemblyUsages [
+		from Role
+		to RoleAssemblyUsage
+	]
+
+	@rdfs:label "ownedActivityAllocations"
+	relation Role_ownedActivityAllocations [
+		from Role
+		to ActivityAllocation
+	]
+
+	@rdfs:label "roleAllocations"
+	relation Role_roleAllocations [
+		from Role
+		to RoleAllocation
+		@rdfs:label "role"
+		reverse RoleAllocation_role
+		inverse functional
+	]
+
+	@rdfs:label "allocatingEntities"
+	relation Role_allocatingEntities [
+		from Role
+		to Entity
+	]
+
+	@rdfs:label "allocatedOperationalActivities"
+	relation Role_allocatedOperationalActivities [
+		from Role
+		to OperationalActivity
+	]
+
+	@rdfs:label "RoleAssemblyUsage"
+	concept RoleAssemblyUsage < core.data.capellacore:NamedElement
+
+	@rdfs:label "child"
+	relation RoleAssemblyUsage_child [
+		from RoleAssemblyUsage
+		to Role
+		functional
+	]
+
+	@rdfs:label "RoleAllocation"
+	concept RoleAllocation < core.data.capellacore:Allocation [
+		restricts RoleAllocation_role to exactly 1
+		restricts RoleAllocation_entity to exactly 1
+	]
+
+	@rdfs:label "roleAllocations"
+	relation Entity_roleAllocations [
+		from Entity
+		to RoleAllocation
+		@rdfs:label "entity"
+		reverse RoleAllocation_entity
+		inverse functional
+	]
+
+	@rdfs:label "EntityPkg"
+	concept EntityPkg < core.data.cs:ComponentPkg
+
+	@rdfs:label "ownedEntities"
+	relation EntityPkg_ownedEntities [
+		from EntityPkg
+		to Entity
+	]
+
+	@rdfs:label "ownedEntityPkgs"
+	relation EntityPkg_ownedEntityPkgs [
+		from EntityPkg
+		to EntityPkg
+	]
+
+	@rdfs:label "ownedLocations"
+	relation EntityPkg_ownedLocations [
+		from EntityPkg
+		to Location
+	]
+
+	@rdfs:label "ownedCommunicationMeans"
+	relation EntityPkg_ownedCommunicationMeans [
+		from EntityPkg
+		to CommunicationMean
+	]
+
+	@rdfs:label "Entity"
+	concept Entity < AbstractConceptItem, common.data.core:InformationsExchanger, core.data.capellacore:InvolvedElement
+
+	@rdfs:label "organisationalUnitMemberships"
+	relation Entity_organisationalUnitMemberships [
+		from Entity
+		to OrganisationalUnitComposition
+	]
+
+	@rdfs:label "actualLocation"
+	relation Entity_actualLocation [
+		from Entity
+		to Location
+		functional
+	]
+
+	@rdfs:label "subEntities"
+	relation Entity_subEntities [
+		from Entity
+		to Entity
+	]
+
+	@rdfs:label "ownedEntities"
+	relation Entity_ownedEntities [
+		from Entity
+		to Entity
+	]
+
+	@rdfs:label "ownedCommunicationMeans"
+	relation Entity_ownedCommunicationMeans [
+		from Entity
+		to CommunicationMean
+	]
+
+	@rdfs:label "ownedRoleAllocations"
+	relation Entity_ownedRoleAllocations [
+		from Entity
+		to RoleAllocation
+	]
+
+	@rdfs:label "allocatedRoles"
+	relation Entity_allocatedRoles [
+		from Entity
+		to Role
+	]
+
+	@rdfs:label "involvingOperationalCapabilities"
+	relation Entity_involvingOperationalCapabilities [
+		from Entity
+		to OperationalCapability
+	]
+
+	@rdfs:label "realizingSystemComponents"
+	relation Entity_realizingSystemComponents [
+		from Entity
+		to core.data.ctx:SystemComponent
+	]
+
+	@rdfs:label "ConceptPkg"
+	concept ConceptPkg < core.data.capellacore:Structure
+
+	@rdfs:label "ownedConceptPkgs"
+	relation ConceptPkg_ownedConceptPkgs [
+		from ConceptPkg
+		to ConceptPkg
+	]
+
+	@rdfs:label "ownedConcepts"
+	relation ConceptPkg_ownedConcepts [
+		from ConceptPkg
+		to Concept
+	]
+
+	@rdfs:label "Concept"
+	concept Concept < core.data.capellacore:NamedElement
+
+	@rdfs:label "compliances"
+	relation Concept_compliances [
+		from Concept
+		to ConceptCompliance
+	]
+
+	@rdfs:label "compositeLinks"
+	relation Concept_compositeLinks [
+		from Concept
+		to ItemInConcept
+	]
+
+	@rdfs:label "ConceptCompliance"
+	concept ConceptCompliance < core.data.capellacore:Relationship [
+		restricts ConceptCompliance_complyWithConcept to exactly 1
+		restricts ConceptCompliance_compliantCapability to exactly 1
+	]
+
+	@rdfs:label "complyWithConcept"
+	relation ConceptCompliance_complyWithConcept [
+		from ConceptCompliance
+		to Concept
+		functional
+	]
+
+	@rdfs:label "compliantCapability"
+	relation ConceptCompliance_compliantCapability [
+		from ConceptCompliance
+		to OperationalCapability
+		functional
+	]
+
+	@rdfs:label "ItemInConcept"
+	concept ItemInConcept < core.data.capellacore:NamedElement [
+		restricts ItemInConcept_concept to exactly 1
+		restricts ItemInConcept_item to exactly 1
+	]
+
+	@rdfs:label "concept"
+	relation ItemInConcept_concept [
+		from ItemInConcept
+		to Concept
+		functional
+	]
+
+	@rdfs:label "item"
+	relation ItemInConcept_item [
+		from ItemInConcept
+		to AbstractConceptItem
+		functional
+	]
+
+	@rdfs:label "AbstractConceptItem"
+	aspect AbstractConceptItem < core.data.cs:Component
+
+	@rdfs:label "composingLinks"
+	relation AbstractConceptItem_composingLinks [
+		from AbstractConceptItem
+		to ItemInConcept
+	]
+
+	@rdfs:label "CommunityOfInterest"
+	concept CommunityOfInterest < core.data.capellacore:NamedElement
+
+	@rdfs:label "communityOfInterestCompositions"
+	relation CommunityOfInterest_communityOfInterestCompositions [
+		from CommunityOfInterest
+		to CommunityOfInterestComposition
+	]
+
+	@rdfs:label "CommunityOfInterestComposition"
+	concept CommunityOfInterestComposition < core.data.capellacore:NamedElement
+
+	@rdfs:label "communityOfInterest"
+	relation CommunityOfInterestComposition_communityOfInterest [
+		from CommunityOfInterestComposition
+		to CommunityOfInterest
+		functional
+	]
+
+	@rdfs:label "interestedOrganisationUnit"
+	relation CommunityOfInterestComposition_interestedOrganisationUnit [
+		from CommunityOfInterestComposition
+		to OrganisationalUnit
+		functional
+	]
+
+	@rdfs:label "OrganisationalUnit"
+	concept OrganisationalUnit < core.data.capellacore:NamedElement
+
+	@rdfs:label "organisationalUnitCompositions"
+	relation OrganisationalUnit_organisationalUnitCompositions [
+		from OrganisationalUnit
+		to OrganisationalUnitComposition
+	]
+
+	@rdfs:label "communityOfInterestMemberships"
+	relation OrganisationalUnit_communityOfInterestMemberships [
+		from OrganisationalUnit
+		to CommunityOfInterestComposition
+	]
+
+	@rdfs:label "OrganisationalUnitComposition"
+	concept OrganisationalUnitComposition < core.data.capellacore:NamedElement
+
+	@rdfs:label "organisationalUnit"
+	relation OrganisationalUnitComposition_organisationalUnit [
+		from OrganisationalUnitComposition
+		to OrganisationalUnit
+		functional
+	]
+
+	@rdfs:label "participatingEntity"
+	relation OrganisationalUnitComposition_participatingEntity [
+		from OrganisationalUnitComposition
+		to Entity
+		functional
+	]
+
+	@rdfs:label "Location"
+	concept Location < AbstractConceptItem
+
+	@rdfs:label "locationDescription"
+	scalar property Location_locationDescription [
+		domain Location
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "locatedEntities"
+	relation Location_locatedEntities [
+		from Location
+		to Entity
+	]
+
+	@rdfs:label "CapabilityConfiguration"
+	concept CapabilityConfiguration < AbstractConceptItem
+
+	@rdfs:label "configuredCapability"
+	relation CapabilityConfiguration_configuredCapability [
+		from CapabilityConfiguration
+		to OperationalCapability
+		functional
+	]
+
+	@rdfs:label "CommunicationMean"
+	concept CommunicationMean < core.data.capellacore:NamedRelationship, core.data.fa:ComponentExchange
+
+	@rdfs:label "sourceEntity"
+	relation CommunicationMean_sourceEntity [
+		from CommunicationMean
+		to Entity
+		functional
+	]
+
+	@rdfs:label "targetEntity"
+	relation CommunicationMean_targetEntity [
+		from CommunicationMean
+		to Entity
+		functional
+	]
+
+	@rdfs:label "EntityOperationalCapabilityInvolvement"
+	concept EntityOperationalCapabilityInvolvement < core.data.capellacore:Involvement [
+		restricts EntityOperationalCapabilityInvolvement_entity to exactly 1
+		restricts EntityOperationalCapabilityInvolvement_capability to exactly 1
+	]
+
+	@rdfs:label "entity"
+	relation EntityOperationalCapabilityInvolvement_entity [
+		from EntityOperationalCapabilityInvolvement
+		to Entity
+		functional
+	]
+
+	@rdfs:label "capability"
+	relation EntityOperationalCapabilityInvolvement_capability [
+		from EntityOperationalCapabilityInvolvement
+		to OperationalCapability
+		functional
+	]
+}

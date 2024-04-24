@@ -1,0 +1,132 @@
+vocabulary <http://www.polarsys.org/capella/core/requirement/6.0.0#> as core.data.requirement {
+
+	extends <http://www.polarsys.org/capella/core/core/6.0.0#> as core.data.capellacore
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	extends <http://www.polarsys.org/capella/common/core/6.0.0#> as common.data.core
+
+	@rdfs:label "RequirementsPkg"
+	concept RequirementsPkg < core.data.capellacore:Structure
+
+	@rdfs:label "additionalInformation"
+	scalar property RequirementsPkg_additionalInformation [
+		domain RequirementsPkg
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "level"
+	scalar property RequirementsPkg_level [
+		domain RequirementsPkg
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "ownedRequirements"
+	relation RequirementsPkg_ownedRequirements [
+		from RequirementsPkg
+		to Requirement
+	]
+
+	@rdfs:label "ownedRequirementPkgs"
+	relation RequirementsPkg_ownedRequirementPkgs [
+		from RequirementsPkg
+		to RequirementsPkg
+	]
+
+	@rdfs:label "RequirementsTrace"
+	concept RequirementsTrace < core.data.capellacore:Trace [
+		restricts RequirementsTrace_source to exactly 1
+		restricts RequirementsTrace_target to exactly 1
+	]
+
+	@rdfs:label "source"
+	relation RequirementsTrace_source [
+		from RequirementsTrace
+		to common.data.core:TraceableElement
+		functional
+	]
+
+	@rdfs:label "target"
+	relation RequirementsTrace_target [
+		from RequirementsTrace
+		to common.data.core:TraceableElement
+		functional
+	]
+
+	@rdfs:label "Requirement"
+	aspect Requirement < core.data.capellacore:Namespace
+
+	@rdfs:label "isObsolete"
+	scalar property Requirement_isObsolete [
+		domain Requirement
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "requirementId"
+	scalar property Requirement_requirementId [
+		domain Requirement
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "additionalInformation"
+	scalar property Requirement_additionalInformation [
+		domain Requirement
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "verificationMethod"
+	scalar property Requirement_verificationMethod [
+		domain Requirement
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "verificationPhase"
+	scalar property Requirement_verificationPhase [
+		domain Requirement
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "implementationVersion"
+	scalar property Requirement_implementationVersion [
+		domain Requirement
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "feature"
+	scalar property Requirement_feature [
+		domain Requirement
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "relatedCapellaElements"
+	relation Requirement_relatedCapellaElements [
+		from Requirement
+		to core.data.capellacore:CapellaElement
+	]
+
+	@rdfs:label "SystemFunctionalInterfaceRequirement"
+	concept SystemFunctionalInterfaceRequirement < Requirement
+
+	@rdfs:label "SystemFunctionalRequirement"
+	concept SystemFunctionalRequirement < Requirement
+
+	@rdfs:label "SystemNonFunctionalInterfaceRequirement"
+	concept SystemNonFunctionalInterfaceRequirement < Requirement
+
+	@rdfs:label "SystemNonFunctionalRequirement"
+	concept SystemNonFunctionalRequirement < Requirement
+
+	@rdfs:label "SystemUserRequirement"
+	concept SystemUserRequirement < Requirement
+}

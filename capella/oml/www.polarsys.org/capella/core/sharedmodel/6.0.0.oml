@@ -1,0 +1,42 @@
+vocabulary <http://www.polarsys.org/capella/core/sharedmodel/6.0.0#> as core.data.sharedmodel {
+
+	extends <http://www.polarsys.org/capella/core/core/6.0.0#> as core.data.capellacore
+
+	extends <http://www.polarsys.org/capella/core/modeller/6.0.0#> as core.data.capellamodeller
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.polarsys.org/capella/core/information/6.0.0#> as core.data.information
+
+	@rdfs:label "SharedPkg"
+	concept SharedPkg < core.data.capellacore:ReuseableStructure, core.data.capellamodeller:ModelRoot
+
+	@rdfs:label "ownedDataPkg"
+	relation SharedPkg_ownedDataPkg [
+		from SharedPkg
+		to core.data.information:DataPkg
+		functional
+	]
+
+	@rdfs:label "ownedGenericPkg"
+	relation SharedPkg_ownedGenericPkg [
+		from SharedPkg
+		to GenericPkg
+		functional
+	]
+
+	@rdfs:label "GenericPkg"
+	concept GenericPkg < core.data.capellacore:Structure
+
+	@rdfs:label "subGenericPkgs"
+	relation GenericPkg_subGenericPkgs [
+		from GenericPkg
+		to GenericPkg
+	]
+
+	@rdfs:label "capellaElements"
+	relation GenericPkg_capellaElements [
+		from GenericPkg
+		to core.data.capellacore:CapellaElement
+	]
+}

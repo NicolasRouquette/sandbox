@@ -1,0 +1,108 @@
+vocabulary <http://www.polarsys.org/capella/core/modeller/6.0.0#> as core.data.capellamodeller {
+
+	extends <http://www.polarsys.org/capella/core/core/6.0.0#> as core.data.capellacore
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.polarsys.org/capella/core/oa/6.0.0#> as core.data.oa
+
+	extends <http://www.polarsys.org/capella/core/ctx/6.0.0#> as core.data.ctx
+
+	extends <http://www.polarsys.org/capella/core/la/6.0.0#> as core.data.la
+
+	extends <http://www.polarsys.org/capella/core/pa/6.0.0#> as core.data.pa
+
+	extends <http://www.polarsys.org/capella/core/epbs/6.0.0#> as core.data.epbs
+
+	extends <http://www.polarsys.org/capella/core/sharedmodel/6.0.0#> as core.data.sharedmodel
+
+	@rdfs:label "Project"
+	concept Project < core.data.capellacore:Structure
+
+	@rdfs:label "keyValuePairs"
+	relation Project_keyValuePairs [
+		from Project
+		to core.data.capellacore:KeyValue
+	]
+
+	@rdfs:label "ownedFolders"
+	relation Project_ownedFolders [
+		from Project
+		to Folder
+	]
+
+	@rdfs:label "ownedModelRoots"
+	relation Project_ownedModelRoots [
+		from Project
+		to ModelRoot
+	]
+
+	@rdfs:label "Folder"
+	concept Folder < core.data.capellacore:Structure
+
+	@rdfs:label "ownedFolders"
+	relation Folder_ownedFolders [
+		from Folder
+		to Folder
+	]
+
+	@rdfs:label "ownedModelRoots"
+	relation Folder_ownedModelRoots [
+		from Folder
+		to ModelRoot
+	]
+
+	@rdfs:label "ModelRoot"
+	aspect ModelRoot < core.data.capellacore:CapellaElement
+
+	@rdfs:label "SystemEngineering"
+	concept SystemEngineering < core.data.capellacore:AbstractModellingStructure, ModelRoot
+
+	@rdfs:label "containedOperationalAnalysis"
+	relation SystemEngineering_containedOperationalAnalysis [
+		from SystemEngineering
+		to core.data.oa:OperationalAnalysis
+	]
+
+	@rdfs:label "containedSystemAnalysis"
+	relation SystemEngineering_containedSystemAnalysis [
+		from SystemEngineering
+		to core.data.ctx:SystemAnalysis
+	]
+
+	@rdfs:label "containedLogicalArchitectures"
+	relation SystemEngineering_containedLogicalArchitectures [
+		from SystemEngineering
+		to core.data.la:LogicalArchitecture
+	]
+
+	@rdfs:label "containedPhysicalArchitectures"
+	relation SystemEngineering_containedPhysicalArchitectures [
+		from SystemEngineering
+		to core.data.pa:PhysicalArchitecture
+	]
+
+	@rdfs:label "containedEPBSArchitectures"
+	relation SystemEngineering_containedEPBSArchitectures [
+		from SystemEngineering
+		to core.data.epbs:EPBSArchitecture
+	]
+
+	@rdfs:label "containedSharedPkgs"
+	relation SystemEngineering_containedSharedPkgs [
+		from SystemEngineering
+		to core.data.sharedmodel:SharedPkg
+	]
+
+	@rdfs:label "SystemEngineeringPkg"
+	concept SystemEngineeringPkg < core.data.capellacore:Structure, ModelRoot
+
+	@rdfs:label "ownedSystemEngineerings"
+	relation SystemEngineeringPkg_ownedSystemEngineerings [
+		from SystemEngineeringPkg
+		to SystemEngineering
+	]
+
+	@rdfs:label "Library"
+	concept Library < Project
+}

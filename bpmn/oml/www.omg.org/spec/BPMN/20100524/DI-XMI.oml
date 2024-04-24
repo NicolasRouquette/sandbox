@@ -1,0 +1,169 @@
+vocabulary <http://www.omg.org/spec/BPMN/20100524/DI-XMI#> as bpmndi {
+
+	extends <http://www.omg.org/spec/DD/20100524/DI-XMI#> as di
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.omg.org/spec/BPMN/20100524/MODEL-XMI#> as bpmn2
+
+	extends <http://www.omg.org/spec/DD/20100524/DC-XMI#> as dc
+
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	@rdfs:label "BPMNDiagram"
+	concept BPMNDiagram < di:Diagram [
+		restricts BPMNDiagram_plane to exactly 1
+	]
+
+	@rdfs:label "plane"
+	relation BPMNDiagram_plane [
+		from BPMNDiagram
+		to BPMNPlane
+		functional
+	]
+
+	@rdfs:label "labelStyle"
+	relation BPMNDiagram_labelStyle [
+		from BPMNDiagram
+		to BPMNLabelStyle
+	]
+
+	@rdfs:label "BPMNEdge"
+	concept BPMNEdge < di:LabeledEdge
+
+	@rdfs:label "label"
+	relation BPMNEdge_label [
+		from BPMNEdge
+		to BPMNLabel
+		functional
+	]
+
+	@rdfs:label "bpmnElement"
+	relation BPMNEdge_bpmnElement [
+		from BPMNEdge
+		to bpmn2:BaseElement
+		functional
+	]
+
+	@rdfs:label "messageVisibleKind"
+	scalar property BPMNEdge_messageVisibleKind [
+		domain BPMNEdge
+		range MessageVisibleKind
+		functional
+	]
+
+	@rdfs:label "sourceElement"
+	relation BPMNEdge_sourceElement [
+		from BPMNEdge
+		to di:DiagramElement
+		functional
+	]
+
+	@rdfs:label "targetElement"
+	relation BPMNEdge_targetElement [
+		from BPMNEdge
+		to di:DiagramElement
+		functional
+	]
+
+	@rdfs:label "BPMNLabel"
+	concept BPMNLabel < di:Label
+
+	@rdfs:label "labelStyle"
+	relation BPMNLabel_labelStyle [
+		from BPMNLabel
+		to BPMNLabelStyle
+		functional
+	]
+
+	@rdfs:label "BPMNLabelStyle"
+	concept BPMNLabelStyle < di:Style [
+		restricts BPMNLabelStyle_font to exactly 1
+	]
+
+	@rdfs:label "font"
+	relation BPMNLabelStyle_font [
+		from BPMNLabelStyle
+		to dc:Font
+		functional
+	]
+
+	@rdfs:label "BPMNPlane"
+	concept BPMNPlane < di:Plane
+
+	@rdfs:label "bpmnElement"
+	relation BPMNPlane_bpmnElement [
+		from BPMNPlane
+		to bpmn2:BaseElement
+		functional
+	]
+
+	@rdfs:label "BPMNShape"
+	concept BPMNShape < di:LabeledShape
+
+	@rdfs:label "label"
+	relation BPMNShape_label [
+		from BPMNShape
+		to BPMNLabel
+		functional
+	]
+
+	@rdfs:label "bpmnElement"
+	relation BPMNShape_bpmnElement [
+		from BPMNShape
+		to bpmn2:BaseElement
+		functional
+	]
+
+	@rdfs:label "choreographyActivityShape"
+	relation BPMNShape_choreographyActivityShape [
+		from BPMNShape
+		to BPMNShape
+		functional
+	]
+
+	@rdfs:label "isExpanded"
+	scalar property BPMNShape_isExpanded [
+		domain BPMNShape
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "isHorizontal"
+	scalar property BPMNShape_isHorizontal [
+		domain BPMNShape
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "isMarkerVisible"
+	scalar property BPMNShape_isMarkerVisible [
+		domain BPMNShape
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "isMessageVisible"
+	scalar property BPMNShape_isMessageVisible [
+		domain BPMNShape
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "participantBandKind"
+	scalar property BPMNShape_participantBandKind [
+		domain BPMNShape
+		range ParticipantBandKind
+		functional
+	]
+
+	@rdfs:label "MessageVisibleKind"
+	scalar MessageVisibleKind [
+		oneOf "initiating", "non_initiating"
+	]
+
+	@rdfs:label "ParticipantBandKind"
+	scalar ParticipantBandKind [
+		oneOf "top_initiating", "middle_initiating", "bottom_initiating", "top_non_initiating", "middle_non_initiating", "bottom_non_initiating"
+	]
+}

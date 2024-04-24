@@ -1,0 +1,338 @@
+vocabulary <http://www.polarsys.org/capella/core/information/datavalue/6.0.0#> as core.data.information.datavalue {
+
+	extends <http://www.polarsys.org/capella/core/core/6.0.0#> as core.data.capellacore
+
+	extends <http://www.polarsys.org/capella/common/core/6.0.0#> as common.data.core
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	extends <http://www.polarsys.org/capella/core/information/datatype/6.0.0#> as core.data.information.datatype
+
+	extends <http://www.polarsys.org/capella/core/information/6.0.0#> as core.data.information
+
+	@rdfs:label "DataValue"
+	aspect DataValue < core.data.capellacore:NamedElement, common.data.core:ValueSpecification
+
+	@rdfs:label "abstract"
+	scalar property DataValue_abstract [
+		domain DataValue
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "type"
+	relation DataValue_type [
+		from DataValue
+		to core.data.capellacore:Type
+		functional
+	]
+
+	@rdfs:label "DataValueContainer"
+	aspect DataValueContainer < core.data.capellacore:Structure
+
+	@rdfs:label "ownedDataValues"
+	relation DataValueContainer_ownedDataValues [
+		from DataValueContainer
+		to DataValue
+	]
+
+	@rdfs:label "AbstractBooleanValue"
+	aspect AbstractBooleanValue < DataValue
+
+	@rdfs:label "booleanType"
+	relation AbstractBooleanValue_booleanType [
+		from AbstractBooleanValue
+		to core.data.information.datatype:BooleanType
+		functional
+	]
+
+	@rdfs:label "LiteralBooleanValue"
+	concept LiteralBooleanValue < AbstractBooleanValue
+
+	@rdfs:label "value"
+	scalar property LiteralBooleanValue_value [
+		domain LiteralBooleanValue
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "BooleanReference"
+	concept BooleanReference < AbstractBooleanValue
+
+	@rdfs:label "referencedValue"
+	relation BooleanReference_referencedValue [
+		from BooleanReference
+		to AbstractBooleanValue
+		functional
+	]
+
+	@rdfs:label "referencedProperty"
+	relation BooleanReference_referencedProperty [
+		from BooleanReference
+		to core.data.information:Property
+		functional
+	]
+
+	@rdfs:label "AbstractEnumerationValue"
+	aspect AbstractEnumerationValue < DataValue
+
+	@rdfs:label "enumerationType"
+	relation AbstractEnumerationValue_enumerationType [
+		from AbstractEnumerationValue
+		to core.data.information.datatype:Enumeration
+		functional
+	]
+
+	@rdfs:label "EnumerationLiteral"
+	concept EnumerationLiteral < AbstractEnumerationValue
+
+	@rdfs:label "domainValue"
+	relation EnumerationLiteral_domainValue [
+		from EnumerationLiteral
+		to DataValue
+		functional
+	]
+
+	@rdfs:label "EnumerationReference"
+	concept EnumerationReference < AbstractEnumerationValue
+
+	@rdfs:label "referencedValue"
+	relation EnumerationReference_referencedValue [
+		from EnumerationReference
+		to AbstractEnumerationValue
+		functional
+	]
+
+	@rdfs:label "referencedProperty"
+	relation EnumerationReference_referencedProperty [
+		from EnumerationReference
+		to core.data.information:Property
+		functional
+	]
+
+	@rdfs:label "AbstractStringValue"
+	aspect AbstractStringValue < DataValue
+
+	@rdfs:label "stringType"
+	relation AbstractStringValue_stringType [
+		from AbstractStringValue
+		to core.data.information.datatype:StringType
+		functional
+	]
+
+	@rdfs:label "LiteralStringValue"
+	concept LiteralStringValue < AbstractStringValue
+
+	@rdfs:label "value"
+	scalar property LiteralStringValue_value [
+		domain LiteralStringValue
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "StringReference"
+	concept StringReference < AbstractStringValue
+
+	@rdfs:label "referencedValue"
+	relation StringReference_referencedValue [
+		from StringReference
+		to AbstractStringValue
+		functional
+	]
+
+	@rdfs:label "referencedProperty"
+	relation StringReference_referencedProperty [
+		from StringReference
+		to core.data.information:Property
+		functional
+	]
+
+	@rdfs:label "NumericValue"
+	aspect NumericValue < DataValue
+
+	@rdfs:label "unit"
+	relation NumericValue_unit [
+		from NumericValue
+		to core.data.information:Unit
+		functional
+	]
+
+	@rdfs:label "numericType"
+	relation NumericValue_numericType [
+		from NumericValue
+		to core.data.information.datatype:NumericType
+		functional
+	]
+
+	@rdfs:label "LiteralNumericValue"
+	concept LiteralNumericValue < NumericValue
+
+	@rdfs:label "value"
+	scalar property LiteralNumericValue_value [
+		domain LiteralNumericValue
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "NumericReference"
+	concept NumericReference < NumericValue
+
+	@rdfs:label "referencedValue"
+	relation NumericReference_referencedValue [
+		from NumericReference
+		to NumericValue
+		functional
+	]
+
+	@rdfs:label "referencedProperty"
+	relation NumericReference_referencedProperty [
+		from NumericReference
+		to core.data.information:Property
+		functional
+	]
+
+	@rdfs:label "AbstractComplexValue"
+	aspect AbstractComplexValue < DataValue
+
+	@rdfs:label "complexType"
+	relation AbstractComplexValue_complexType [
+		from AbstractComplexValue
+		to core.data.capellacore:Classifier
+		functional
+	]
+
+	@rdfs:label "ComplexValue"
+	concept ComplexValue < AbstractComplexValue
+
+	@rdfs:label "ownedParts"
+	relation ComplexValue_ownedParts [
+		from ComplexValue
+		to ValuePart
+	]
+
+	@rdfs:label "ComplexValueReference"
+	concept ComplexValueReference < AbstractComplexValue
+
+	@rdfs:label "referencedValue"
+	relation ComplexValueReference_referencedValue [
+		from ComplexValueReference
+		to AbstractComplexValue
+		functional
+	]
+
+	@rdfs:label "referencedProperty"
+	relation ComplexValueReference_referencedProperty [
+		from ComplexValueReference
+		to core.data.information:Property
+		functional
+	]
+
+	@rdfs:label "ValuePart"
+	concept ValuePart < core.data.capellacore:CapellaElement
+
+	@rdfs:label "referencedProperty"
+	relation ValuePart_referencedProperty [
+		from ValuePart
+		to core.data.information:Property
+		functional
+	]
+
+	@rdfs:label "ownedValue"
+	relation ValuePart_ownedValue [
+		from ValuePart
+		to DataValue
+		functional
+	]
+
+	@rdfs:label "AbstractExpressionValue"
+	aspect AbstractExpressionValue < AbstractBooleanValue, AbstractComplexValue, AbstractEnumerationValue, NumericValue, AbstractStringValue
+
+	@rdfs:label "expression"
+	scalar property AbstractExpressionValue_expression [
+		domain AbstractExpressionValue
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "unparsedExpression"
+	scalar property AbstractExpressionValue_unparsedExpression [
+		domain AbstractExpressionValue
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "expressionType"
+	relation AbstractExpressionValue_expressionType [
+		from AbstractExpressionValue
+		to core.data.information.datatype:DataType
+		functional
+	]
+
+	@rdfs:label "BinaryExpression"
+	concept BinaryExpression < AbstractExpressionValue
+
+	@rdfs:label "operator"
+	scalar property BinaryExpression_operator [
+		domain BinaryExpression
+		range BinaryOperator
+		functional
+	]
+
+	@rdfs:label "ownedLeftOperand"
+	relation BinaryExpression_ownedLeftOperand [
+		from BinaryExpression
+		to DataValue
+		functional
+	]
+
+	@rdfs:label "ownedRightOperand"
+	relation BinaryExpression_ownedRightOperand [
+		from BinaryExpression
+		to DataValue
+		functional
+	]
+
+	@rdfs:label "UnaryExpression"
+	concept UnaryExpression < AbstractExpressionValue
+
+	@rdfs:label "operator"
+	scalar property UnaryExpression_operator [
+		domain UnaryExpression
+		range UnaryOperator
+		functional
+	]
+
+	@rdfs:label "ownedOperand"
+	relation UnaryExpression_ownedOperand [
+		from UnaryExpression
+		to DataValue
+		functional
+	]
+
+	@rdfs:label "BinaryOperator"
+	scalar BinaryOperator [
+		oneOf "UNSET", "ADD", "MUL", "SUB", "DIV", "POW", "MIN", "MAX", "EQU", "IOR", "XOR", "AND"
+	]
+
+	@rdfs:label "UnaryOperator"
+	scalar UnaryOperator [
+		oneOf "UNSET", "NOT", "POS", "VAL", "SUC", "PRE"
+	]
+
+	@rdfs:label "OpaqueExpression"
+	concept OpaqueExpression < core.data.capellacore:CapellaElement, common.data.core:ValueSpecification
+
+	@rdfs:label "bodies"
+	scalar property OpaqueExpression_bodies [
+		domain OpaqueExpression
+		range xsd:string
+	]
+
+	@rdfs:label "languages"
+	scalar property OpaqueExpression_languages [
+		domain OpaqueExpression
+		range xsd:string
+	]
+}

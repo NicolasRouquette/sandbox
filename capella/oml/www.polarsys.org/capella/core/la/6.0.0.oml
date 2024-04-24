@@ -1,0 +1,245 @@
+vocabulary <http://www.polarsys.org/capella/core/la/6.0.0#> as core.data.la {
+
+	extends <http://www.polarsys.org/capella/core/cs/6.0.0#> as core.data.cs
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.polarsys.org/capella/core/ctx/6.0.0#> as core.data.ctx
+
+	extends <http://www.polarsys.org/capella/core/pa/6.0.0#> as core.data.pa
+
+	extends <http://www.polarsys.org/capella/core/fa/6.0.0#> as core.data.fa
+
+	extends <http://www.polarsys.org/capella/core/common/6.0.0#> as core.data.capellacommon
+
+	extends <http://www.polarsys.org/capella/core/interaction/6.0.0#> as core.data.interaction
+
+	@rdfs:label "LogicalArchitecturePkg"
+	concept LogicalArchitecturePkg < core.data.cs:BlockArchitecturePkg
+
+	@rdfs:label "ownedLogicalArchitectures"
+	relation LogicalArchitecturePkg_ownedLogicalArchitectures [
+		from LogicalArchitecturePkg
+		to LogicalArchitecture
+	]
+
+	@rdfs:label "LogicalArchitecture"
+	concept LogicalArchitecture < core.data.cs:ComponentArchitecture
+
+	@rdfs:label "ownedLogicalComponentPkg"
+	relation LogicalArchitecture_ownedLogicalComponentPkg [
+		from LogicalArchitecture
+		to LogicalComponentPkg
+		functional
+	]
+
+	@rdfs:label "containedCapabilityRealizationPkg"
+	relation LogicalArchitecture_containedCapabilityRealizationPkg [
+		from LogicalArchitecture
+		to CapabilityRealizationPkg
+		functional
+	]
+
+	@rdfs:label "containedLogicalFunctionPkg"
+	relation LogicalArchitecture_containedLogicalFunctionPkg [
+		from LogicalArchitecture
+		to LogicalFunctionPkg
+		functional
+	]
+
+	@rdfs:label "ownedSystemAnalysisRealizations"
+	relation LogicalArchitecture_ownedSystemAnalysisRealizations [
+		from LogicalArchitecture
+		to SystemAnalysisRealization
+	]
+
+	@rdfs:label "allocatedSystemAnalysisRealizations"
+	relation LogicalArchitecture_allocatedSystemAnalysisRealizations [
+		from LogicalArchitecture
+		to SystemAnalysisRealization
+	]
+
+	@rdfs:label "allocatedSystemAnalyses"
+	relation LogicalArchitecture_allocatedSystemAnalyses [
+		from LogicalArchitecture
+		to core.data.ctx:SystemAnalysis
+		@rdfs:label "allocatingLogicalArchitectures"
+		reverse SystemAnalysis_allocatingLogicalArchitectures
+	]
+
+	@rdfs:label "allocatingPhysicalArchitectures"
+	relation LogicalArchitecture_allocatingPhysicalArchitectures [
+		from LogicalArchitecture
+		to core.data.pa:PhysicalArchitecture
+		@rdfs:label "allocatedLogicalArchitectures"
+		reverse PhysicalArchitecture_allocatedLogicalArchitectures
+	]
+
+	@rdfs:label "LogicalFunction"
+	concept LogicalFunction < core.data.fa:AbstractFunction
+
+	@rdfs:label "ownedLogicalFunctionPkgs"
+	relation LogicalFunction_ownedLogicalFunctionPkgs [
+		from LogicalFunction
+		to LogicalFunctionPkg
+	]
+
+	@rdfs:label "allocatingLogicalComponents"
+	relation LogicalFunction_allocatingLogicalComponents [
+		from LogicalFunction
+		to LogicalComponent
+		@rdfs:label "allocatedLogicalFunctions"
+		reverse LogicalComponent_allocatedLogicalFunctions
+	]
+
+	@rdfs:label "realizedSystemFunctions"
+	relation LogicalFunction_realizedSystemFunctions [
+		from LogicalFunction
+		to core.data.ctx:SystemFunction
+		@rdfs:label "realizingLogicalFunctions"
+		reverse SystemFunction_realizingLogicalFunctions
+	]
+
+	@rdfs:label "realizingPhysicalFunctions"
+	relation LogicalFunction_realizingPhysicalFunctions [
+		from LogicalFunction
+		to core.data.pa:PhysicalFunction
+		@rdfs:label "realizedLogicalFunctions"
+		reverse PhysicalFunction_realizedLogicalFunctions
+	]
+
+	@rdfs:label "containedLogicalFunctions"
+	relation LogicalFunction_containedLogicalFunctions [
+		from LogicalFunction
+		to LogicalFunction
+	]
+
+	@rdfs:label "childrenLogicalFunctions"
+	relation LogicalFunction_childrenLogicalFunctions [
+		from LogicalFunction
+		to LogicalFunction
+	]
+
+	@rdfs:label "LogicalFunctionPkg"
+	concept LogicalFunctionPkg < core.data.fa:FunctionPkg
+
+	@rdfs:label "ownedLogicalFunctions"
+	relation LogicalFunctionPkg_ownedLogicalFunctions [
+		from LogicalFunctionPkg
+		to LogicalFunction
+	]
+
+	@rdfs:label "ownedLogicalFunctionPkgs"
+	relation LogicalFunctionPkg_ownedLogicalFunctionPkgs [
+		from LogicalFunctionPkg
+		to LogicalFunctionPkg
+	]
+
+	@rdfs:label "LogicalComponent"
+	concept LogicalComponent < core.data.cs:Component, core.data.capellacommon:CapabilityRealizationInvolvedElement
+
+	@rdfs:label "ownedLogicalComponents"
+	relation LogicalComponent_ownedLogicalComponents [
+		from LogicalComponent
+		to LogicalComponent
+	]
+
+	@rdfs:label "ownedLogicalArchitectures"
+	relation LogicalComponent_ownedLogicalArchitectures [
+		from LogicalComponent
+		to LogicalArchitecture
+	]
+
+	@rdfs:label "ownedLogicalComponentPkgs"
+	relation LogicalComponent_ownedLogicalComponentPkgs [
+		from LogicalComponent
+		to LogicalComponentPkg
+	]
+
+	@rdfs:label "subLogicalComponents"
+	relation LogicalComponent_subLogicalComponents [
+		from LogicalComponent
+		to LogicalComponent
+	]
+
+	@rdfs:label "realizedSystemComponents"
+	relation LogicalComponent_realizedSystemComponents [
+		from LogicalComponent
+		to core.data.ctx:SystemComponent
+	]
+
+	@rdfs:label "realizingPhysicalComponents"
+	relation LogicalComponent_realizingPhysicalComponents [
+		from LogicalComponent
+		to core.data.pa:PhysicalComponent
+		@rdfs:label "realizedLogicalComponents"
+		reverse PhysicalComponent_realizedLogicalComponents
+	]
+
+	@rdfs:label "LogicalComponentPkg"
+	concept LogicalComponentPkg < core.data.cs:ComponentPkg
+
+	@rdfs:label "ownedLogicalComponents"
+	relation LogicalComponentPkg_ownedLogicalComponents [
+		from LogicalComponentPkg
+		to LogicalComponent
+	]
+
+	@rdfs:label "ownedLogicalComponentPkgs"
+	relation LogicalComponentPkg_ownedLogicalComponentPkgs [
+		from LogicalComponentPkg
+		to LogicalComponentPkg
+	]
+
+	@rdfs:label "CapabilityRealization"
+	concept CapabilityRealization < core.data.interaction:AbstractCapability
+
+	@rdfs:label "ownedCapabilityRealizationInvolvements"
+	relation CapabilityRealization_ownedCapabilityRealizationInvolvements [
+		from CapabilityRealization
+		to core.data.capellacommon:CapabilityRealizationInvolvement
+	]
+
+	@rdfs:label "involvedComponents"
+	relation CapabilityRealization_involvedComponents [
+		from CapabilityRealization
+		to core.data.capellacommon:CapabilityRealizationInvolvedElement
+	]
+
+	@rdfs:label "realizedCapabilities"
+	relation CapabilityRealization_realizedCapabilities [
+		from CapabilityRealization
+		to core.data.ctx:Capability
+		@rdfs:label "realizingCapabilityRealizations"
+		reverse Capability_realizingCapabilityRealizations
+	]
+
+	@rdfs:label "realizedCapabilityRealizations"
+	relation CapabilityRealization_realizedCapabilityRealizations [
+		from CapabilityRealization
+		to CapabilityRealization
+		@rdfs:label "realizingCapabilityRealizations"
+		reverse CapabilityRealization_realizingCapabilityRealizations
+	]
+
+	@rdfs:label "CapabilityRealizationPkg"
+	concept CapabilityRealizationPkg < core.data.capellacommon:AbstractCapabilityPkg
+
+	@rdfs:label "ownedCapabilityRealizations"
+	relation CapabilityRealizationPkg_ownedCapabilityRealizations [
+		from CapabilityRealizationPkg
+		to CapabilityRealization
+	]
+
+	@rdfs:label "ownedCapabilityRealizationPkgs"
+	relation CapabilityRealizationPkg_ownedCapabilityRealizationPkgs [
+		from CapabilityRealizationPkg
+		to CapabilityRealizationPkg
+	]
+
+	@rdfs:label "SystemAnalysisRealization"
+	concept SystemAnalysisRealization < core.data.cs:ArchitectureAllocation
+
+	@rdfs:label "ContextInterfaceRealization"
+	concept ContextInterfaceRealization < core.data.cs:InterfaceAllocation
+}

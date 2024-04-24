@@ -1,0 +1,11 @@
+@dc:description "The is the vocabulary bundle of Capella."
+@dc:title "capella bundle"
+vocabulary bundle <http://www.polarsys.org/capella/bundle#> as capella-bundle {
+
+	includes <http://purl.org/dc/elements/1.1/> as dc
+	
+	includes <http://www.polarsys.org/capella/core/modeller/6.0.0#>
+	
+	includes <http://www.polarsys.org/capella/core/pa/deployment/6.0.0#>
+
+}

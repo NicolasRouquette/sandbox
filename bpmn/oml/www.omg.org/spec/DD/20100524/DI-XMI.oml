@@ -1,0 +1,177 @@
+vocabulary <http://www.omg.org/spec/DD/20100524/DI-XMI#> as di {
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	extends <http://www.eclipse.org/emf/2002/Ecore#> as ecore
+
+	extends <http://www.omg.org/spec/DD/20100524/DC-XMI#> as dc
+
+	@rdfs:label "Diagram"
+	aspect Diagram < [
+		restricts Diagram_rootElement to exactly 1
+	]
+
+	@rdfs:label "documentation"
+	scalar property Diagram_documentation [
+		domain Diagram
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "ownedStyle"
+	relation Diagram_ownedStyle [
+		from Diagram
+		to Style
+	]
+
+	@rdfs:label "rootElement"
+	relation Diagram_rootElement [
+		from Diagram
+		to DiagramElement
+		@rdfs:label "owningDiagram"
+		reverse DiagramElement_owningDiagram
+		functional
+	]
+
+	@rdfs:label "id"
+	scalar property Diagram_id [
+		domain Diagram
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "name"
+	scalar property Diagram_name [
+		domain Diagram
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "resolution"
+	scalar property Diagram_resolution [
+		domain Diagram
+		range xsd:float
+		functional
+	]
+
+	@rdfs:label "DiagramElement"
+	concept DiagramElement
+
+	@rdfs:label "ownedElement"
+	relation DiagramElement_ownedElement [
+		from DiagramElement
+		to DiagramElement
+		@rdfs:label "owningElement"
+		reverse DiagramElement_owningElement
+	]
+
+	@rdfs:label "modelElement"
+	relation DiagramElement_modelElement [
+		from DiagramElement
+		to ecore:EObject
+		functional
+	]
+
+	@rdfs:label "style"
+	relation DiagramElement_style [
+		from DiagramElement
+		to Style
+		functional
+	]
+
+	@rdfs:label "id"
+	scalar property DiagramElement_id [
+		domain DiagramElement
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "Edge"
+	concept Edge < DiagramElement [
+		restricts Edge_waypoint to min 2
+	]
+
+	@rdfs:label "source"
+	relation Edge_source [
+		from Edge
+		to DiagramElement
+		functional
+	]
+
+	@rdfs:label "target"
+	relation Edge_target [
+		from Edge
+		to DiagramElement
+		functional
+	]
+
+	@rdfs:label "waypoint"
+	relation Edge_waypoint [
+		from Edge
+		to dc:Point
+	]
+
+	@rdfs:label "Label"
+	concept Label < Node
+
+	@rdfs:label "bounds"
+	relation Label_bounds [
+		from Label
+		to dc:Bounds
+		functional
+	]
+
+	@rdfs:label "LabeledEdge"
+	concept LabeledEdge < Edge
+
+	@rdfs:label "ownedLabel"
+	relation LabeledEdge_ownedLabel [
+		from LabeledEdge
+		to Label
+	]
+
+	@rdfs:label "LabeledShape"
+	concept LabeledShape < Shape
+
+	@rdfs:label "ownedLabel"
+	relation LabeledShape_ownedLabel [
+		from LabeledShape
+		to Label
+	]
+
+	@rdfs:label "Node"
+	concept Node < DiagramElement
+
+	@rdfs:label "Plane"
+	concept Plane < Node
+
+	@rdfs:label "planeElement"
+	relation Plane_planeElement [
+		from Plane
+		to DiagramElement
+	]
+
+	@rdfs:label "Shape"
+	concept Shape < Node [
+		restricts Shape_bounds to exactly 1
+	]
+
+	@rdfs:label "bounds"
+	relation Shape_bounds [
+		from Shape
+		to dc:Bounds
+		functional
+	]
+
+	@rdfs:label "Style"
+	aspect Style
+
+	@rdfs:label "id"
+	scalar property Style_id [
+		domain Style
+		range xsd:string
+		functional
+	]
+}

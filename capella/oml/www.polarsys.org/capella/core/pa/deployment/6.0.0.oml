@@ -1,0 +1,119 @@
+vocabulary <http://www.polarsys.org/capella/core/pa/deployment/6.0.0#> as core.data.pa.deployment {
+
+	extends <http://www.polarsys.org/capella/core/cs/6.0.0#> as core.data.cs
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.polarsys.org/capella/core/pa/6.0.0#> as core.data.pa
+
+	extends <http://www.polarsys.org/capella/core/fa/6.0.0#> as core.data.fa
+
+	extends <http://www.polarsys.org/capella/core/core/6.0.0#> as core.data.capellacore
+
+	@rdfs:label "ComponentInstance"
+	concept ComponentInstance < AbstractPhysicalInstance, core.data.cs:DeployableElement, core.data.cs:DeploymentTarget
+
+	@rdfs:label "portInstances"
+	relation ComponentInstance_portInstances [
+		from ComponentInstance
+		to PortInstance
+	]
+
+	@rdfs:label "ownedAbstractPhysicalInstances"
+	relation ComponentInstance_ownedAbstractPhysicalInstances [
+		from ComponentInstance
+		to AbstractPhysicalInstance
+	]
+
+	@rdfs:label "ownedInstanceDeploymentLinks"
+	relation ComponentInstance_ownedInstanceDeploymentLinks [
+		from ComponentInstance
+		to InstanceDeploymentLink
+	]
+
+	@rdfs:label "type"
+	relation ComponentInstance_type [
+		from ComponentInstance
+		to core.data.pa:PhysicalComponent
+		functional
+	]
+
+	@rdfs:label "ConnectionInstance"
+	concept ConnectionInstance < AbstractPhysicalInstance
+
+	@rdfs:label "connectionEnds"
+	relation ConnectionInstance_connectionEnds [
+		from ConnectionInstance
+		to PortInstance
+		@rdfs:label "connections"
+		reverse PortInstance_connections
+	]
+
+	@rdfs:label "type"
+	relation ConnectionInstance_type [
+		from ConnectionInstance
+		to core.data.fa:ComponentExchange
+		functional
+	]
+
+	@rdfs:label "DeploymentAspect"
+	concept DeploymentAspect < core.data.capellacore:Structure
+
+	@rdfs:label "ownedConfigurations"
+	relation DeploymentAspect_ownedConfigurations [
+		from DeploymentAspect
+		to DeploymentConfiguration
+	]
+
+	@rdfs:label "ownedDeploymentAspects"
+	relation DeploymentAspect_ownedDeploymentAspects [
+		from DeploymentAspect
+		to DeploymentAspect
+	]
+
+	@rdfs:label "DeploymentConfiguration"
+	concept DeploymentConfiguration < core.data.capellacore:NamedElement
+
+	@rdfs:label "ownedDeploymentLinks"
+	relation DeploymentConfiguration_ownedDeploymentLinks [
+		from DeploymentConfiguration
+		to core.data.cs:AbstractDeploymentLink
+	]
+
+	@rdfs:label "ownedPhysicalInstances"
+	relation DeploymentConfiguration_ownedPhysicalInstances [
+		from DeploymentConfiguration
+		to AbstractPhysicalInstance
+	]
+
+	@rdfs:label "InstanceDeploymentLink"
+	concept InstanceDeploymentLink < core.data.cs:AbstractDeploymentLink
+
+	@rdfs:label "PartDeploymentLink"
+	concept PartDeploymentLink < core.data.cs:AbstractDeploymentLink
+
+	@rdfs:label "AbstractPhysicalInstance"
+	aspect AbstractPhysicalInstance < core.data.capellacore:CapellaElement
+
+	@rdfs:label "PortInstance"
+	concept PortInstance < AbstractPhysicalInstance [
+		restricts PortInstance_component to exactly 1
+	]
+
+	@rdfs:label "component"
+	relation PortInstance_component [
+		from PortInstance
+		to ComponentInstance
+		functional
+	]
+
+	@rdfs:label "type"
+	relation PortInstance_type [
+		from PortInstance
+		to core.data.fa:ComponentPort
+		functional
+	]
+
+	@rdfs:label "TypeDeploymentLink"
+	concept TypeDeploymentLink < core.data.cs:AbstractDeploymentLink
+}

@@ -1,0 +1,825 @@
+vocabulary <http://www.polarsys.org/capella/core/interaction/6.0.0#> as core.data.interaction {
+
+	extends <http://www.polarsys.org/capella/core/core/6.0.0#> as core.data.capellacore
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.polarsys.org/capella/core/information/6.0.0#> as core.data.information
+
+	extends <http://www.polarsys.org/capella/core/cs/6.0.0#> as core.data.cs
+
+	extends <http://www.polarsys.org/capella/core/fa/6.0.0#> as core.data.fa
+
+	extends <http://www.polarsys.org/capella/common/behavior/6.0.0#> as common.data.behavior
+
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	extends <http://www.polarsys.org/capella/core/common/6.0.0#> as core.data.capellacommon
+
+	extends <http://www.polarsys.org/capella/common/core/6.0.0#> as common.data.core
+
+	@rdfs:label "SequenceMessage"
+	concept SequenceMessage < core.data.capellacore:NamedElement
+
+	@rdfs:label "kind"
+	scalar property SequenceMessage_kind [
+		domain SequenceMessage
+		range MessageKind
+		functional
+	]
+
+	@rdfs:label "exchangeContext"
+	relation SequenceMessage_exchangeContext [
+		from SequenceMessage
+		to core.data.capellacore:Constraint
+		functional
+	]
+
+	@rdfs:label "sendingEnd"
+	relation SequenceMessage_sendingEnd [
+		from SequenceMessage
+		to MessageEnd
+		functional
+	]
+
+	@rdfs:label "receivingEnd"
+	relation SequenceMessage_receivingEnd [
+		from SequenceMessage
+		to MessageEnd
+		functional
+	]
+
+	@rdfs:label "invokedOperation"
+	relation SequenceMessage_invokedOperation [
+		from SequenceMessage
+		to core.data.information:AbstractEventOperation
+		functional
+	]
+
+	@rdfs:label "exchangedItems"
+	relation SequenceMessage_exchangedItems [
+		from SequenceMessage
+		to core.data.information:ExchangeItem
+	]
+
+	@rdfs:label "sendingPart"
+	relation SequenceMessage_sendingPart [
+		from SequenceMessage
+		to core.data.cs:Part
+		functional
+	]
+
+	@rdfs:label "receivingPart"
+	relation SequenceMessage_receivingPart [
+		from SequenceMessage
+		to core.data.cs:Part
+		functional
+	]
+
+	@rdfs:label "sendingFunction"
+	relation SequenceMessage_sendingFunction [
+		from SequenceMessage
+		to core.data.fa:AbstractFunction
+		functional
+	]
+
+	@rdfs:label "receivingFunction"
+	relation SequenceMessage_receivingFunction [
+		from SequenceMessage
+		to core.data.fa:AbstractFunction
+		functional
+	]
+
+	@rdfs:label "ownedSequenceMessageValuations"
+	relation SequenceMessage_ownedSequenceMessageValuations [
+		from SequenceMessage
+		to SequenceMessageValuation
+	]
+
+	@rdfs:label "Scenario"
+	concept Scenario < core.data.capellacore:Namespace, common.data.behavior:AbstractBehavior
+
+	@rdfs:label "kind"
+	scalar property Scenario_kind [
+		domain Scenario
+		range ScenarioKind
+		functional
+	]
+
+	@rdfs:label "merged"
+	scalar property Scenario_merged [
+		domain Scenario
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "preCondition"
+	relation Scenario_preCondition [
+		from Scenario
+		to core.data.capellacore:Constraint
+		functional
+	]
+
+	@rdfs:label "postCondition"
+	relation Scenario_postCondition [
+		from Scenario
+		to core.data.capellacore:Constraint
+		functional
+	]
+
+	@rdfs:label "ownedInstanceRoles"
+	relation Scenario_ownedInstanceRoles [
+		from Scenario
+		to InstanceRole
+	]
+
+	@rdfs:label "ownedMessages"
+	relation Scenario_ownedMessages [
+		from Scenario
+		to SequenceMessage
+	]
+
+	@rdfs:label "ownedInteractionFragments"
+	relation Scenario_ownedInteractionFragments [
+		from Scenario
+		to InteractionFragment
+	]
+
+	@rdfs:label "ownedTimeLapses"
+	relation Scenario_ownedTimeLapses [
+		from Scenario
+		to TimeLapse
+	]
+
+	@rdfs:label "ownedEvents"
+	relation Scenario_ownedEvents [
+		from Scenario
+		to Event
+	]
+
+	@rdfs:label "ownedFormalGates"
+	relation Scenario_ownedFormalGates [
+		from Scenario
+		to Gate
+	]
+
+	@rdfs:label "ownedScenarioRealization"
+	relation Scenario_ownedScenarioRealization [
+		from Scenario
+		to ScenarioRealization
+	]
+
+	@rdfs:label "ownedConstraintDurations"
+	relation Scenario_ownedConstraintDurations [
+		from Scenario
+		to ConstraintDuration
+	]
+
+	@rdfs:label "containedFunctions"
+	relation Scenario_containedFunctions [
+		from Scenario
+		to core.data.fa:AbstractFunction
+	]
+
+	@rdfs:label "containedParts"
+	relation Scenario_containedParts [
+		from Scenario
+		to core.data.cs:Part
+	]
+
+	@rdfs:label "referencedScenarios"
+	relation Scenario_referencedScenarios [
+		from Scenario
+		to Scenario
+	]
+
+	@rdfs:label "realizedScenarios"
+	relation Scenario_realizedScenarios [
+		from Scenario
+		to Scenario
+		@rdfs:label "realizingScenarios"
+		reverse Scenario_realizingScenarios
+	]
+
+	@rdfs:label "MessageEnd"
+	concept MessageEnd < AbstractEnd [
+		restricts MessageEnd_message to exactly 1
+	]
+
+	@rdfs:label "message"
+	relation MessageEnd_message [
+		from MessageEnd
+		to SequenceMessage
+		functional
+	]
+
+	@rdfs:label "Execution"
+	concept Execution < TimeLapse [
+		restricts Execution_covered to exactly 1
+	]
+
+	@rdfs:label "covered"
+	relation Execution_covered [
+		from Execution
+		to InstanceRole
+		functional
+	]
+
+	@rdfs:label "ExecutionEnd"
+	concept ExecutionEnd < AbstractEnd [
+		restricts ExecutionEnd_execution to exactly 1
+	]
+
+	@rdfs:label "execution"
+	relation ExecutionEnd_execution [
+		from ExecutionEnd
+		to Execution
+		functional
+	]
+
+	@rdfs:label "CreationEvent"
+	concept CreationEvent < Event
+
+	@rdfs:label "DestructionEvent"
+	concept DestructionEvent < Event
+
+	@rdfs:label "ExecutionEvent"
+	concept ExecutionEvent < Event
+
+	@rdfs:label "InstanceRole"
+	concept InstanceRole < core.data.capellacore:NamedElement [
+		restricts InstanceRole_representedInstance to exactly 1
+	]
+
+	@rdfs:label "abstractEnds"
+	relation InstanceRole_abstractEnds [
+		from InstanceRole
+		to AbstractEnd
+		@rdfs:label "covered"
+		reverse AbstractEnd_covered
+		inverse functional
+	]
+
+	@rdfs:label "representedInstance"
+	relation InstanceRole_representedInstance [
+		from InstanceRole
+		to core.data.information:AbstractInstance
+		functional
+	]
+
+	@rdfs:label "AbstractEnd"
+	aspect AbstractEnd < InteractionFragment [
+		restricts AbstractEnd_covered to exactly 1
+		restricts AbstractEnd_event to exactly 1
+	]
+
+	@rdfs:label "event"
+	relation AbstractEnd_event [
+		from AbstractEnd
+		to Event
+		functional
+	]
+
+	@rdfs:label "MessageKind"
+	scalar MessageKind [
+		oneOf "UNSET", "ASYNCHRONOUS_CALL", "SYNCHRONOUS_CALL", "REPLY", "DELETE", "CREATE", "TIMER"
+	]
+
+	@rdfs:label "Event"
+	aspect Event < core.data.capellacore:NamedElement, common.data.behavior:AbstractEvent
+
+	@rdfs:label "EventReceiptOperation"
+	concept EventReceiptOperation < Event
+
+	@rdfs:label "operation"
+	relation EventReceiptOperation_operation [
+		from EventReceiptOperation
+		to core.data.information:AbstractEventOperation
+		functional
+	]
+
+	@rdfs:label "EventSentOperation"
+	concept EventSentOperation < Event
+
+	@rdfs:label "operation"
+	relation EventSentOperation_operation [
+		from EventSentOperation
+		to core.data.information:AbstractEventOperation
+		functional
+	]
+
+	@rdfs:label "MergeLink"
+	concept MergeLink < core.data.capellacore:Trace
+
+	@rdfs:label "RefinementLink"
+	concept RefinementLink < core.data.capellacore:Trace
+
+	@rdfs:label "AbstractCapabilityRealization"
+	concept AbstractCapabilityRealization < core.data.capellacore:Allocation [
+		restricts AbstractCapabilityRealization_realizedCapability to exactly 1
+		restricts AbstractCapabilityRealization_realizingCapability to exactly 1
+	]
+
+	@rdfs:label "incomingCapabilityAllocation"
+	relation AbstractCapability_incomingCapabilityAllocation [
+		from AbstractCapability
+		to AbstractCapabilityRealization
+		@rdfs:label "realizedCapability"
+		reverse AbstractCapabilityRealization_realizedCapability
+		inverse functional
+	]
+
+	@rdfs:label "outgoingCapabilityAllocation"
+	relation AbstractCapability_outgoingCapabilityAllocation [
+		from AbstractCapability
+		to AbstractCapabilityRealization
+		@rdfs:label "realizingCapability"
+		reverse AbstractCapabilityRealization_realizingCapability
+		inverse functional
+	]
+
+	@rdfs:label "AbstractCapability"
+	aspect AbstractCapability < core.data.capellacore:Structure, core.data.capellacore:InvolverElement, core.data.fa:AbstractFunctionalChainContainer
+
+	@rdfs:label "preCondition"
+	relation AbstractCapability_preCondition [
+		from AbstractCapability
+		to core.data.capellacore:Constraint
+		functional
+	]
+
+	@rdfs:label "postCondition"
+	relation AbstractCapability_postCondition [
+		from AbstractCapability
+		to core.data.capellacore:Constraint
+		functional
+	]
+
+	@rdfs:label "ownedScenarios"
+	relation AbstractCapability_ownedScenarios [
+		from AbstractCapability
+		to Scenario
+	]
+
+	@rdfs:label "extends"
+	relation AbstractCapability_extends [
+		from AbstractCapability
+		to AbstractCapabilityExtend
+	]
+
+	@rdfs:label "extending"
+	relation AbstractCapability_extending [
+		from AbstractCapability
+		to AbstractCapabilityExtend
+	]
+
+	@rdfs:label "abstractCapabilityExtensionPoints"
+	relation AbstractCapability_abstractCapabilityExtensionPoints [
+		from AbstractCapability
+		to AbstractCapabilityExtensionPoint
+	]
+
+	@rdfs:label "superGeneralizations"
+	relation AbstractCapability_superGeneralizations [
+		from AbstractCapability
+		to AbstractCapabilityGeneralization
+	]
+
+	@rdfs:label "subGeneralizations"
+	relation AbstractCapability_subGeneralizations [
+		from AbstractCapability
+		to AbstractCapabilityGeneralization
+	]
+
+	@rdfs:label "includes"
+	relation AbstractCapability_includes [
+		from AbstractCapability
+		to AbstractCapabilityInclude
+	]
+
+	@rdfs:label "including"
+	relation AbstractCapability_including [
+		from AbstractCapability
+		to AbstractCapabilityInclude
+	]
+
+	@rdfs:label "super"
+	relation AbstractCapability_super [
+		from AbstractCapability
+		to AbstractCapability
+	]
+
+	@rdfs:label "sub"
+	relation AbstractCapability_sub [
+		from AbstractCapability
+		to AbstractCapability
+	]
+
+	@rdfs:label "includedAbstractCapabilities"
+	relation AbstractCapability_includedAbstractCapabilities [
+		from AbstractCapability
+		to AbstractCapability
+	]
+
+	@rdfs:label "includingAbstractCapabilities"
+	relation AbstractCapability_includingAbstractCapabilities [
+		from AbstractCapability
+		to AbstractCapability
+	]
+
+	@rdfs:label "extendedAbstractCapabilities"
+	relation AbstractCapability_extendedAbstractCapabilities [
+		from AbstractCapability
+		to AbstractCapability
+	]
+
+	@rdfs:label "extendingAbstractCapabilities"
+	relation AbstractCapability_extendingAbstractCapabilities [
+		from AbstractCapability
+		to AbstractCapability
+	]
+
+	@rdfs:label "ownedFunctionalChainAbstractCapabilityInvolvements"
+	relation AbstractCapability_ownedFunctionalChainAbstractCapabilityInvolvements [
+		from AbstractCapability
+		to FunctionalChainAbstractCapabilityInvolvement
+	]
+
+	@rdfs:label "ownedAbstractFunctionAbstractCapabilityInvolvements"
+	relation AbstractCapability_ownedAbstractFunctionAbstractCapabilityInvolvements [
+		from AbstractCapability
+		to AbstractFunctionAbstractCapabilityInvolvement
+	]
+
+	@rdfs:label "availableInStates"
+	relation AbstractCapability_availableInStates [
+		from AbstractCapability
+		to core.data.capellacommon:State
+	]
+
+	@rdfs:label "ownedAbstractCapabilityRealizations"
+	relation AbstractCapability_ownedAbstractCapabilityRealizations [
+		from AbstractCapability
+		to AbstractCapabilityRealization
+	]
+
+	@rdfs:label "involvedAbstractFunctions"
+	relation AbstractCapability_involvedAbstractFunctions [
+		from AbstractCapability
+		to core.data.fa:AbstractFunction
+	]
+
+	@rdfs:label "involvedFunctionalChains"
+	relation AbstractCapability_involvedFunctionalChains [
+		from AbstractCapability
+		to core.data.fa:FunctionalChain
+	]
+
+	@rdfs:label "AbstractCapabilityExtend"
+	concept AbstractCapabilityExtend < core.data.capellacore:Relationship [
+		restricts AbstractCapabilityExtend_extended to exactly 1
+		restricts AbstractCapabilityExtend_extension to exactly 1
+	]
+
+	@rdfs:label "extended"
+	relation AbstractCapabilityExtend_extended [
+		from AbstractCapabilityExtend
+		to AbstractCapability
+		functional
+	]
+
+	@rdfs:label "extension"
+	relation AbstractCapabilityExtend_extension [
+		from AbstractCapabilityExtend
+		to AbstractCapability
+		functional
+	]
+
+	@rdfs:label "extendLinks"
+	relation AbstractCapabilityExtensionPoint_extendLinks [
+		from AbstractCapabilityExtensionPoint
+		to AbstractCapabilityExtend
+		@rdfs:label "extensionLocation"
+		reverse AbstractCapabilityExtend_extensionLocation
+	]
+
+	@rdfs:label "AbstractCapabilityExtensionPoint"
+	concept AbstractCapabilityExtensionPoint < core.data.capellacore:NamedRelationship [
+		restricts AbstractCapabilityExtensionPoint_abstractCapability to exactly 1
+	]
+
+	@rdfs:label "abstractCapability"
+	relation AbstractCapabilityExtensionPoint_abstractCapability [
+		from AbstractCapabilityExtensionPoint
+		to AbstractCapability
+		functional
+	]
+
+	@rdfs:label "AbstractCapabilityGeneralization"
+	concept AbstractCapabilityGeneralization < core.data.capellacore:Relationship [
+		restricts AbstractCapabilityGeneralization_super to exactly 1
+		restricts AbstractCapabilityGeneralization_sub to exactly 1
+	]
+
+	@rdfs:label "super"
+	relation AbstractCapabilityGeneralization_super [
+		from AbstractCapabilityGeneralization
+		to AbstractCapability
+		functional
+	]
+
+	@rdfs:label "sub"
+	relation AbstractCapabilityGeneralization_sub [
+		from AbstractCapabilityGeneralization
+		to AbstractCapability
+		functional
+	]
+
+	@rdfs:label "AbstractCapabilityInclude"
+	concept AbstractCapabilityInclude < core.data.capellacore:Relationship [
+		restricts AbstractCapabilityInclude_included to exactly 1
+		restricts AbstractCapabilityInclude_inclusion to exactly 1
+	]
+
+	@rdfs:label "included"
+	relation AbstractCapabilityInclude_included [
+		from AbstractCapabilityInclude
+		to AbstractCapability
+		functional
+	]
+
+	@rdfs:label "inclusion"
+	relation AbstractCapabilityInclude_inclusion [
+		from AbstractCapabilityInclude
+		to AbstractCapability
+		functional
+	]
+
+	@rdfs:label "ScenarioKind"
+	scalar ScenarioKind [
+		oneOf "UNSET", "INTERFACE", "DATA_FLOW", "INTERACTION", "FUNCTIONAL"
+	]
+
+	@rdfs:label "InteractionFragment"
+	aspect InteractionFragment < core.data.capellacore:NamedElement [
+		restricts InteractionFragment_coveredInstanceRoles to min 1
+	]
+
+	@rdfs:label "coveredInstanceRoles"
+	relation InteractionFragment_coveredInstanceRoles [
+		from InteractionFragment
+		to InstanceRole
+	]
+
+	@rdfs:label "InteractionState"
+	concept InteractionState < InteractionFragment [
+		restricts InteractionState_covered to exactly 1
+	]
+
+	@rdfs:label "relatedAbstractState"
+	@rdfs:comment "@deprecated : relatedAbstractState shall not be used anymore"
+	relation InteractionState_relatedAbstractState [
+		from InteractionState
+		to core.data.capellacommon:AbstractState
+		functional
+	]
+
+	@rdfs:label "relatedAbstractFunction"
+	@rdfs:comment "@deprecated : relatedAbstractFunction shall not be used anymore"
+	relation InteractionState_relatedAbstractFunction [
+		from InteractionState
+		to core.data.fa:AbstractFunction
+		functional
+	]
+
+	@rdfs:label "covered"
+	relation InteractionState_covered [
+		from InteractionState
+		to InstanceRole
+		functional
+	]
+
+	@rdfs:label "InteractionUse"
+	concept InteractionUse < AbstractFragment
+
+	@rdfs:label "referencedScenario"
+	relation InteractionUse_referencedScenario [
+		from InteractionUse
+		to Scenario
+		functional
+	]
+
+	@rdfs:label "actualGates"
+	relation InteractionUse_actualGates [
+		from InteractionUse
+		to Gate
+	]
+
+	@rdfs:label "CombinedFragment"
+	concept CombinedFragment < AbstractFragment
+
+	@rdfs:label "operator"
+	scalar property CombinedFragment_operator [
+		domain CombinedFragment
+		range InteractionOperatorKind
+		functional
+	]
+
+	@rdfs:label "referencedOperands"
+	relation CombinedFragment_referencedOperands [
+		from CombinedFragment
+		to InteractionOperand
+	]
+
+	@rdfs:label "expressionGates"
+	relation CombinedFragment_expressionGates [
+		from CombinedFragment
+		to Gate
+	]
+
+	@rdfs:label "Gate"
+	concept Gate < MessageEnd
+
+	@rdfs:label "InteractionOperand"
+	concept InteractionOperand < InteractionFragment
+
+	@rdfs:label "referencedInteractionFragments"
+	relation InteractionOperand_referencedInteractionFragments [
+		from InteractionOperand
+		to InteractionFragment
+	]
+
+	@rdfs:label "guard"
+	relation InteractionOperand_guard [
+		from InteractionOperand
+		to core.data.capellacore:Constraint
+		functional
+	]
+
+	@rdfs:label "InteractionOperatorKind"
+	scalar InteractionOperatorKind [
+		oneOf "UNSET", "ALT", "OPT", "PAR", "LOOP", "CRITICAL", "NEG", "ASSERT", "STRICT", "SEQ", "IGNORE", "CONSIDER"
+	]
+
+	@rdfs:label "TimeLapse"
+	aspect TimeLapse < core.data.capellacore:NamedElement [
+		restricts TimeLapse_start to exactly 1
+		restricts TimeLapse_finish to exactly 1
+	]
+
+	@rdfs:label "start"
+	relation TimeLapse_start [
+		from TimeLapse
+		to InteractionFragment
+		functional
+	]
+
+	@rdfs:label "finish"
+	relation TimeLapse_finish [
+		from TimeLapse
+		to InteractionFragment
+		functional
+	]
+
+	@rdfs:label "AbstractFragment"
+	aspect AbstractFragment < TimeLapse
+
+	@rdfs:label "ownedGates"
+	relation AbstractFragment_ownedGates [
+		from AbstractFragment
+		to Gate
+	]
+
+	@rdfs:label "FragmentEnd"
+	concept FragmentEnd < InteractionFragment [
+		restricts FragmentEnd_abstractFragment to exactly 1
+	]
+
+	@rdfs:label "abstractFragment"
+	relation FragmentEnd_abstractFragment [
+		from FragmentEnd
+		to AbstractFragment
+		functional
+	]
+
+	@rdfs:label "FunctionalChainAbstractCapabilityInvolvement"
+	concept FunctionalChainAbstractCapabilityInvolvement < core.data.capellacore:Involvement [
+		restricts FunctionalChainAbstractCapabilityInvolvement_capability to exactly 1
+		restricts FunctionalChainAbstractCapabilityInvolvement_functionalChain to exactly 1
+	]
+
+	@rdfs:label "capability"
+	relation FunctionalChainAbstractCapabilityInvolvement_capability [
+		from FunctionalChainAbstractCapabilityInvolvement
+		to AbstractCapability
+		functional
+	]
+
+	@rdfs:label "functionalChain"
+	relation FunctionalChainAbstractCapabilityInvolvement_functionalChain [
+		from FunctionalChainAbstractCapabilityInvolvement
+		to core.data.fa:FunctionalChain
+		functional
+	]
+
+	@rdfs:label "AbstractFunctionAbstractCapabilityInvolvement"
+	concept AbstractFunctionAbstractCapabilityInvolvement < core.data.capellacore:Involvement [
+		restricts AbstractFunctionAbstractCapabilityInvolvement_capability to exactly 1
+		restricts AbstractFunctionAbstractCapabilityInvolvement_function to exactly 1
+	]
+
+	@rdfs:label "capability"
+	relation AbstractFunctionAbstractCapabilityInvolvement_capability [
+		from AbstractFunctionAbstractCapabilityInvolvement
+		to AbstractCapability
+		functional
+	]
+
+	@rdfs:label "function"
+	relation AbstractFunctionAbstractCapabilityInvolvement_function [
+		from AbstractFunctionAbstractCapabilityInvolvement
+		to core.data.fa:AbstractFunction
+		functional
+	]
+
+	@rdfs:label "ScenarioRealization"
+	concept ScenarioRealization < core.data.capellacore:Allocation
+
+	@rdfs:label "realizedScenario"
+	relation ScenarioRealization_realizedScenario [
+		from ScenarioRealization
+		to Scenario
+		functional
+	]
+
+	@rdfs:label "realizingScenario"
+	relation ScenarioRealization_realizingScenario [
+		from ScenarioRealization
+		to Scenario
+		functional
+	]
+
+	@rdfs:label "StateFragment"
+	concept StateFragment < TimeLapse
+
+	@rdfs:label "relatedAbstractState"
+	relation StateFragment_relatedAbstractState [
+		from StateFragment
+		to core.data.capellacommon:AbstractState
+		functional
+	]
+
+	@rdfs:label "relatedAbstractFunction"
+	relation StateFragment_relatedAbstractFunction [
+		from StateFragment
+		to core.data.fa:AbstractFunction
+		functional
+	]
+
+	@rdfs:label "ArmTimerEvent"
+	concept ArmTimerEvent < Event
+
+	@rdfs:label "CancelTimerEvent"
+	concept CancelTimerEvent < Event
+
+	@rdfs:label "ConstraintDuration"
+	concept ConstraintDuration < core.data.capellacore:NamedElement
+
+	@rdfs:label "duration"
+	scalar property ConstraintDuration_duration [
+		domain ConstraintDuration
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "start"
+	relation ConstraintDuration_start [
+		from ConstraintDuration
+		to InteractionFragment
+		functional
+	]
+
+	@rdfs:label "finish"
+	relation ConstraintDuration_finish [
+		from ConstraintDuration
+		to InteractionFragment
+		functional
+	]
+
+	@rdfs:label "SequenceMessageValuation"
+	concept SequenceMessageValuation < core.data.capellacore:CapellaElement
+
+	@rdfs:label "exchangeItemElement"
+	relation SequenceMessageValuation_exchangeItemElement [
+		from SequenceMessageValuation
+		to core.data.information:ExchangeItemElement
+		functional
+	]
+
+	@rdfs:label "value"
+	relation SequenceMessageValuation_value [
+		from SequenceMessageValuation
+		to common.data.core:ValueSpecification
+		functional
+	]
+}

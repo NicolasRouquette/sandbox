@@ -1,0 +1,87 @@
+vocabulary <http://www.polarsys.org/capella/common/behavior/6.0.0#> as common.data.behavior {
+
+	extends <http://www.polarsys.org/capella/common/core/6.0.0#> as common.data.core
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	@rdfs:label "AbstractBehavior"
+	aspect AbstractBehavior < common.data.core:AbstractNamedElement
+
+	@rdfs:label "isControlOperator"
+	scalar property AbstractBehavior_isControlOperator [
+		domain AbstractBehavior
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "ownedParameterSet"
+	relation AbstractBehavior_ownedParameterSet [
+		from AbstractBehavior
+		to common.data.core:AbstractParameterSet
+	]
+
+	@rdfs:label "ownedParameter"
+	relation AbstractBehavior_ownedParameter [
+		from AbstractBehavior
+		to common.data.core:AbstractParameter
+	]
+
+	@rdfs:label "AbstractSignal"
+	aspect AbstractSignal < common.data.core:AbstractType
+
+	@rdfs:label "AbstractEvent"
+	aspect AbstractEvent < common.data.core:AbstractType
+
+	@rdfs:label "AbstractTimeEvent"
+	aspect AbstractTimeEvent < AbstractEvent [
+		restricts AbstractTimeEvent_when to exactly 1
+	]
+
+	@rdfs:label "isRelative"
+	scalar property AbstractTimeEvent_isRelative [
+		domain AbstractTimeEvent
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "when"
+	relation AbstractTimeEvent_when [
+		from AbstractTimeEvent
+		to TimeExpression
+		functional
+	]
+
+	@rdfs:label "AbstractMessageEvent"
+	aspect AbstractMessageEvent < AbstractEvent
+
+	@rdfs:label "AbstractSignalEvent"
+	aspect AbstractSignalEvent < AbstractMessageEvent [
+		restricts AbstractSignalEvent_signal to exactly 1
+	]
+
+	@rdfs:label "signal"
+	relation AbstractSignalEvent_signal [
+		from AbstractSignalEvent
+		to AbstractSignal
+		functional
+	]
+
+	@rdfs:label "TimeExpression"
+	aspect TimeExpression < common.data.core:ValueSpecification
+
+	@rdfs:label "observations"
+	relation TimeExpression_observations [
+		from TimeExpression
+		to common.data.core:AbstractNamedElement
+		functional
+	]
+
+	@rdfs:label "expression"
+	relation TimeExpression_expression [
+		from TimeExpression
+		to common.data.core:ValueSpecification
+		functional
+	]
+}

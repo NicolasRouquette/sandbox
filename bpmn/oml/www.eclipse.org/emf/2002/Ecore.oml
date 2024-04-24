@@ -1,0 +1,672 @@
+vocabulary <http://www.eclipse.org/emf/2002/Ecore#> as ecore {
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	@rdfs:label "EAttribute"
+	concept EAttribute < EStructuralFeature [
+		restricts EAttribute_eAttributeType to exactly 1
+	]
+
+	@rdfs:label "iD"
+	scalar property EAttribute_iD [
+		domain EAttribute
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "eAttributeType"
+	relation EAttribute_eAttributeType [
+		from EAttribute
+		to EDataType
+		functional
+	]
+
+	@rdfs:label "EAnnotation"
+	concept EAnnotation < EModelElement
+
+	@rdfs:label "source"
+	scalar property EAnnotation_source [
+		domain EAnnotation
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "details"
+	relation EAnnotation_details [
+		from EAnnotation
+		to EStringToStringMapEntry
+	]
+
+	@rdfs:label "eAnnotations"
+	relation EModelElement_eAnnotations [
+		from EModelElement
+		to EAnnotation
+		@rdfs:label "eModelElement"
+		reverse EAnnotation_eModelElement
+	]
+
+	@rdfs:label "contents"
+	relation EAnnotation_contents [
+		from EAnnotation
+		to EObject
+	]
+
+	@rdfs:label "references"
+	relation EAnnotation_references [
+		from EAnnotation
+		to EObject
+	]
+
+	@rdfs:label "EClass"
+	concept EClass < EClassifier
+
+	@rdfs:label "abstract"
+	scalar property EClass_abstract [
+		domain EClass
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "interface"
+	scalar property EClass_interface [
+		domain EClass
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "eSuperTypes"
+	relation EClass_eSuperTypes [
+		from EClass
+		to EClass
+	]
+
+	@rdfs:label "eOperations"
+	relation EClass_eOperations [
+		from EClass
+		to EOperation
+		@rdfs:label "eContainingClass"
+		reverse EOperation_eContainingClass
+	]
+
+	@rdfs:label "eAllAttributes"
+	relation EClass_eAllAttributes [
+		from EClass
+		to EAttribute
+	]
+
+	@rdfs:label "eAllReferences"
+	relation EClass_eAllReferences [
+		from EClass
+		to EReference
+	]
+
+	@rdfs:label "eReferences"
+	relation EClass_eReferences [
+		from EClass
+		to EReference
+	]
+
+	@rdfs:label "eAttributes"
+	relation EClass_eAttributes [
+		from EClass
+		to EAttribute
+	]
+
+	@rdfs:label "eAllContainments"
+	relation EClass_eAllContainments [
+		from EClass
+		to EReference
+	]
+
+	@rdfs:label "eAllOperations"
+	relation EClass_eAllOperations [
+		from EClass
+		to EOperation
+	]
+
+	@rdfs:label "eAllStructuralFeatures"
+	relation EClass_eAllStructuralFeatures [
+		from EClass
+		to EStructuralFeature
+	]
+
+	@rdfs:label "eAllSuperTypes"
+	relation EClass_eAllSuperTypes [
+		from EClass
+		to EClass
+	]
+
+	@rdfs:label "eIDAttribute"
+	relation EClass_eIDAttribute [
+		from EClass
+		to EAttribute
+		functional
+	]
+
+	@rdfs:label "eStructuralFeatures"
+	relation EClass_eStructuralFeatures [
+		from EClass
+		to EStructuralFeature
+		@rdfs:label "eContainingClass"
+		reverse EStructuralFeature_eContainingClass
+	]
+
+	@rdfs:label "eGenericSuperTypes"
+	relation EClass_eGenericSuperTypes [
+		from EClass
+		to EGenericType
+	]
+
+	@rdfs:label "eAllGenericSuperTypes"
+	relation EClass_eAllGenericSuperTypes [
+		from EClass
+		to EGenericType
+	]
+
+	@rdfs:label "EClassifier"
+	aspect EClassifier < ENamedElement
+
+	@rdfs:label "instanceClassName"
+	scalar property EClassifier_instanceClassName [
+		domain EClassifier
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "instanceClass"
+	scalar property EClassifier_instanceClass [
+		domain EClassifier
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "defaultValue"
+	scalar property EClassifier_defaultValue [
+		domain EClassifier
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "instanceTypeName"
+	scalar property EClassifier_instanceTypeName [
+		domain EClassifier
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "eClassifiers"
+	relation EPackage_eClassifiers [
+		from EPackage
+		to EClassifier
+		@rdfs:label "ePackage"
+		reverse EClassifier_ePackage
+	]
+
+	@rdfs:label "eTypeParameters"
+	relation EClassifier_eTypeParameters [
+		from EClassifier
+		to ETypeParameter
+	]
+
+	@rdfs:label "EDataType"
+	concept EDataType < EClassifier
+
+	@rdfs:label "serializable"
+	scalar property EDataType_serializable [
+		domain EDataType
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "EEnum"
+	concept EEnum < EDataType
+
+	@rdfs:label "eLiterals"
+	relation EEnum_eLiterals [
+		from EEnum
+		to EEnumLiteral
+		@rdfs:label "eEnum"
+		reverse EEnumLiteral_eEnum
+	]
+
+	@rdfs:label "EEnumLiteral"
+	concept EEnumLiteral < ENamedElement
+
+	@rdfs:label "value"
+	scalar property EEnumLiteral_value [
+		domain EEnumLiteral
+		range xsd:int
+		functional
+	]
+
+	@rdfs:label "instance"
+	scalar property EEnumLiteral_instance [
+		domain EEnumLiteral
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "literal"
+	scalar property EEnumLiteral_literal [
+		domain EEnumLiteral
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "EFactory"
+	concept EFactory < EModelElement [
+		restricts EFactory_ePackage to exactly 1
+	]
+
+	@rdfs:label "ePackage"
+	relation EFactory_ePackage [
+		from EFactory
+		to EPackage
+		@rdfs:label "eFactoryInstance"
+		reverse EPackage_eFactoryInstance
+		functional
+		inverse functional
+	]
+
+	@rdfs:label "EModelElement"
+	aspect EModelElement
+
+	@rdfs:label "ENamedElement"
+	aspect ENamedElement < EModelElement
+
+	@rdfs:label "name"
+	scalar property ENamedElement_name [
+		domain ENamedElement
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "EObject"
+	concept EObject
+
+	@rdfs:label "EOperation"
+	concept EOperation < ETypedElement
+
+	@rdfs:label "eTypeParameters"
+	relation EOperation_eTypeParameters [
+		from EOperation
+		to ETypeParameter
+	]
+
+	@rdfs:label "eParameters"
+	relation EOperation_eParameters [
+		from EOperation
+		to EParameter
+		@rdfs:label "eOperation"
+		reverse EParameter_eOperation
+	]
+
+	@rdfs:label "eExceptions"
+	relation EOperation_eExceptions [
+		from EOperation
+		to EClassifier
+	]
+
+	@rdfs:label "eGenericExceptions"
+	relation EOperation_eGenericExceptions [
+		from EOperation
+		to EGenericType
+	]
+
+	@rdfs:label "EPackage"
+	concept EPackage < ENamedElement [
+		restricts EPackage_eFactoryInstance to exactly 1
+	]
+
+	@rdfs:label "nsURI"
+	scalar property EPackage_nsURI [
+		domain EPackage
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "nsPrefix"
+	scalar property EPackage_nsPrefix [
+		domain EPackage
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "eSubpackages"
+	relation EPackage_eSubpackages [
+		from EPackage
+		to EPackage
+		@rdfs:label "eSuperPackage"
+		reverse EPackage_eSuperPackage
+	]
+
+	@rdfs:label "EParameter"
+	concept EParameter < ETypedElement
+
+	@rdfs:label "EReference"
+	concept EReference < EStructuralFeature [
+		restricts EReference_eReferenceType to exactly 1
+	]
+
+	@rdfs:label "containment"
+	scalar property EReference_containment [
+		domain EReference
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "container"
+	scalar property EReference_container [
+		domain EReference
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "resolveProxies"
+	scalar property EReference_resolveProxies [
+		domain EReference
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "eOpposite"
+	relation EReference_eOpposite [
+		from EReference
+		to EReference
+		functional
+	]
+
+	@rdfs:label "eReferenceType"
+	relation EReference_eReferenceType [
+		from EReference
+		to EClass
+		functional
+	]
+
+	@rdfs:label "eKeys"
+	relation EReference_eKeys [
+		from EReference
+		to EAttribute
+	]
+
+	@rdfs:label "EStructuralFeature"
+	aspect EStructuralFeature < ETypedElement
+
+	@rdfs:label "changeable"
+	scalar property EStructuralFeature_changeable [
+		domain EStructuralFeature
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "volatile"
+	scalar property EStructuralFeature_volatile [
+		domain EStructuralFeature
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "transient"
+	scalar property EStructuralFeature_transient [
+		domain EStructuralFeature
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "defaultValueLiteral"
+	scalar property EStructuralFeature_defaultValueLiteral [
+		domain EStructuralFeature
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "defaultValue"
+	scalar property EStructuralFeature_defaultValue [
+		domain EStructuralFeature
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "unsettable"
+	scalar property EStructuralFeature_unsettable [
+		domain EStructuralFeature
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "derived"
+	scalar property EStructuralFeature_derived [
+		domain EStructuralFeature
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "ETypedElement"
+	aspect ETypedElement < ENamedElement
+
+	@rdfs:label "ordered"
+	scalar property ETypedElement_ordered [
+		domain ETypedElement
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "unique"
+	scalar property ETypedElement_unique [
+		domain ETypedElement
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "lowerBound"
+	scalar property ETypedElement_lowerBound [
+		domain ETypedElement
+		range xsd:int
+		functional
+	]
+
+	@rdfs:label "upperBound"
+	scalar property ETypedElement_upperBound [
+		domain ETypedElement
+		range xsd:int
+		functional
+	]
+
+	@rdfs:label "many"
+	scalar property ETypedElement_many [
+		domain ETypedElement
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "required"
+	scalar property ETypedElement_required [
+		domain ETypedElement
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "eType"
+	relation ETypedElement_eType [
+		from ETypedElement
+		to EClassifier
+		functional
+	]
+
+	@rdfs:label "eGenericType"
+	relation ETypedElement_eGenericType [
+		from ETypedElement
+		to EGenericType
+		functional
+	]
+
+	@rdfs:label "EStringToStringMapEntry"
+	concept EStringToStringMapEntry
+
+	@rdfs:label "key"
+	scalar property EStringToStringMapEntry_key [
+		domain EStringToStringMapEntry
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "value"
+	scalar property EStringToStringMapEntry_value [
+		domain EStringToStringMapEntry
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "EGenericType"
+	concept EGenericType < [
+		restricts EGenericType_eRawType to exactly 1
+	]
+
+	@rdfs:label "eUpperBound"
+	relation EGenericType_eUpperBound [
+		from EGenericType
+		to EGenericType
+		functional
+	]
+
+	@rdfs:label "eTypeArguments"
+	relation EGenericType_eTypeArguments [
+		from EGenericType
+		to EGenericType
+	]
+
+	@rdfs:label "eRawType"
+	relation EGenericType_eRawType [
+		from EGenericType
+		to EClassifier
+		functional
+	]
+
+	@rdfs:label "eLowerBound"
+	relation EGenericType_eLowerBound [
+		from EGenericType
+		to EGenericType
+		functional
+	]
+
+	@rdfs:label "eTypeParameter"
+	relation EGenericType_eTypeParameter [
+		from EGenericType
+		to ETypeParameter
+		functional
+	]
+
+	@rdfs:label "eClassifier"
+	relation EGenericType_eClassifier [
+		from EGenericType
+		to EClassifier
+		functional
+	]
+
+	@rdfs:label "ETypeParameter"
+	concept ETypeParameter < ENamedElement
+
+	@rdfs:label "eBounds"
+	relation ETypeParameter_eBounds [
+		from ETypeParameter
+		to EGenericType
+	]
+
+	@rdfs:label "EBigDecimal"
+	scalar EBigDecimal = xsd:decimal
+
+	@rdfs:label "EBigInteger"
+	scalar EBigInteger = xsd:integer
+
+	@rdfs:label "EBoolean"
+	scalar EBoolean = xsd:boolean
+
+	@rdfs:label "EBooleanObject"
+	scalar EBooleanObject = xsd:boolean
+
+	@rdfs:label "EByte"
+	scalar EByte = xsd:byte
+
+	@rdfs:label "EByteArray"
+	scalar EByteArray = xsd:hexBinary
+
+	@rdfs:label "EByteObject"
+	scalar EByteObject = xsd:byte
+
+	@rdfs:label "EChar"
+	scalar EChar = xsd:string
+
+	@rdfs:label "ECharacterObject"
+	scalar ECharacterObject = xsd:string
+
+	@rdfs:label "EDate"
+	scalar EDate = xsd:dateTime
+
+	@rdfs:label "EDiagnosticChain"
+	scalar EDiagnosticChain = xsd:string
+
+	@rdfs:label "EDouble"
+	scalar EDouble = xsd:double
+
+	@rdfs:label "EDoubleObject"
+	scalar EDoubleObject = xsd:double
+
+	@rdfs:label "EEList"
+	scalar EEList = xsd:string
+
+	@rdfs:label "EFeatureMap"
+	scalar EFeatureMap = xsd:string
+
+	@rdfs:label "EFeatureMapEntry"
+	scalar EFeatureMapEntry = xsd:string
+
+	@rdfs:label "EFloat"
+	scalar EFloat = xsd:float
+
+	@rdfs:label "EFloatObject"
+	scalar EFloatObject = xsd:float
+
+	@rdfs:label "EInt"
+	scalar EInt = xsd:int
+
+	@rdfs:label "EIntegerObject"
+	scalar EIntegerObject = xsd:int
+
+	@rdfs:label "EJavaClass"
+	scalar EJavaClass = xsd:string
+
+	@rdfs:label "EJavaObject"
+	scalar EJavaObject = xsd:string
+
+	@rdfs:label "ELong"
+	scalar ELong = xsd:long
+
+	@rdfs:label "ELongObject"
+	scalar ELongObject = xsd:long
+
+	@rdfs:label "EMap"
+	scalar EMap = xsd:string
+
+	@rdfs:label "EResource"
+	scalar EResource = xsd:string
+
+	@rdfs:label "EResourceSet"
+	scalar EResourceSet = xsd:string
+
+	@rdfs:label "EShort"
+	scalar EShort = xsd:short
+
+	@rdfs:label "EShortObject"
+	scalar EShortObject = xsd:short
+
+	@rdfs:label "EString"
+	scalar EString = xsd:string
+
+	@rdfs:label "ETreeIterator"
+	scalar ETreeIterator = xsd:string
+
+	@rdfs:label "EInvocationTargetException"
+	scalar EInvocationTargetException = xsd:string
+}

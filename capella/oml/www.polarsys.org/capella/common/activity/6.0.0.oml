@@ -1,0 +1,509 @@
+vocabulary <http://www.polarsys.org/capella/common/activity/6.0.0#> as common.data.activity {
+
+	extends <http://www.polarsys.org/capella/common/behavior/6.0.0#> as common.data.behavior
+
+	extends <http://www.polarsys.org/capella/common/core/6.0.0#> as common.data.core
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	@rdfs:label "AbstractActivity"
+	aspect AbstractActivity < common.data.behavior:AbstractBehavior, common.data.core:TraceableElement
+
+	@rdfs:label "isReadOnly"
+	scalar property AbstractActivity_isReadOnly [
+		domain AbstractActivity
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "isSingleExecution"
+	scalar property AbstractActivity_isSingleExecution [
+		domain AbstractActivity
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "ownedNodes"
+	relation AbstractActivity_ownedNodes [
+		from AbstractActivity
+		to ActivityNode
+	]
+
+	@rdfs:label "ownedEdges"
+	relation AbstractActivity_ownedEdges [
+		from AbstractActivity
+		to ActivityEdge
+	]
+
+	@rdfs:label "ownedGroups"
+	relation AbstractActivity_ownedGroups [
+		from AbstractActivity
+		to ActivityGroup
+	]
+
+	@rdfs:label "ownedStructuredNodes"
+	relation AbstractActivity_ownedStructuredNodes [
+		from AbstractActivity
+		to StructuredActivityNode
+	]
+
+	@rdfs:label "ExceptionHandler"
+	aspect ExceptionHandler < common.data.core:ModelElement [
+		restricts ExceptionHandler_protectedNode to exactly 1
+		restricts ExceptionHandler_handlerBody to exactly 1
+		restricts ExceptionHandler_exceptionInput to exactly 1
+		restricts ExceptionHandler_exceptionTypes to min 1
+	]
+
+	@rdfs:label "ownedHandlers"
+	relation ExecutableNode_ownedHandlers [
+		from ExecutableNode
+		to ExceptionHandler
+		@rdfs:label "protectedNode"
+		reverse ExceptionHandler_protectedNode
+		inverse functional
+	]
+
+	@rdfs:label "handlerBody"
+	relation ExceptionHandler_handlerBody [
+		from ExceptionHandler
+		to ExecutableNode
+		functional
+	]
+
+	@rdfs:label "exceptionInput"
+	relation ExceptionHandler_exceptionInput [
+		from ExceptionHandler
+		to ObjectNode
+		functional
+	]
+
+	@rdfs:label "exceptionTypes"
+	relation ExceptionHandler_exceptionTypes [
+		from ExceptionHandler
+		to common.data.core:AbstractType
+	]
+
+	@rdfs:label "ActivityGroup"
+	aspect ActivityGroup < common.data.core:ModelElement
+
+	@rdfs:label "subGroups"
+	relation ActivityGroup_subGroups [
+		from ActivityGroup
+		to ActivityGroup
+		@rdfs:label "superGroup"
+		reverse ActivityGroup_superGroup
+	]
+
+	@rdfs:label "ownedNodes"
+	relation ActivityGroup_ownedNodes [
+		from ActivityGroup
+		to ActivityNode
+	]
+
+	@rdfs:label "ownedEdges"
+	relation ActivityGroup_ownedEdges [
+		from ActivityGroup
+		to ActivityEdge
+	]
+
+	@rdfs:label "InterruptibleActivityRegion"
+	aspect InterruptibleActivityRegion < ActivityGroup
+
+	@rdfs:label "interruptingEdges"
+	relation InterruptibleActivityRegion_interruptingEdges [
+		from InterruptibleActivityRegion
+		to ActivityEdge
+		@rdfs:label "interrupts"
+		reverse ActivityEdge_interrupts
+	]
+
+	@rdfs:label "ObjectNodeOrderingKind"
+	scalar ObjectNodeOrderingKind [
+		oneOf "FIFO", "LIFO", "ordered", "unordered"
+	]
+
+	@rdfs:label "ObjectNodeKind"
+	scalar ObjectNodeKind [
+		oneOf "Unspecified", "NoBuffer", "Overwrite"
+	]
+
+	@rdfs:label "ActivityEdge"
+	aspect ActivityEdge < common.data.core:AbstractRelationship [
+		restricts ActivityEdge_target to exactly 1
+		restricts ActivityEdge_source to exactly 1
+	]
+
+	@rdfs:label "kindOfRate"
+	scalar property ActivityEdge_kindOfRate [
+		domain ActivityEdge
+		range common.data.core:RateKind
+		functional
+	]
+
+	@rdfs:label "inActivityPartition"
+	relation ActivityEdge_inActivityPartition [
+		from ActivityEdge
+		to ActivityPartition
+		functional
+	]
+
+	@rdfs:label "inInterruptibleRegion"
+	relation ActivityEdge_inInterruptibleRegion [
+		from ActivityEdge
+		to InterruptibleActivityRegion
+		functional
+	]
+
+	@rdfs:label "inStructuredNode"
+	relation ActivityEdge_inStructuredNode [
+		from ActivityEdge
+		to StructuredActivityNode
+		functional
+	]
+
+	@rdfs:label "rate"
+	relation ActivityEdge_rate [
+		from ActivityEdge
+		to common.data.core:ValueSpecification
+		functional
+	]
+
+	@rdfs:label "probability"
+	relation ActivityEdge_probability [
+		from ActivityEdge
+		to common.data.core:ValueSpecification
+		functional
+	]
+
+	@rdfs:label "target"
+	relation ActivityEdge_target [
+		from ActivityEdge
+		to ActivityNode
+		functional
+	]
+
+	@rdfs:label "source"
+	relation ActivityEdge_source [
+		from ActivityEdge
+		to ActivityNode
+		functional
+	]
+
+	@rdfs:label "guard"
+	relation ActivityEdge_guard [
+		from ActivityEdge
+		to common.data.core:ValueSpecification
+		functional
+	]
+
+	@rdfs:label "weight"
+	relation ActivityEdge_weight [
+		from ActivityEdge
+		to common.data.core:ValueSpecification
+		functional
+	]
+
+	@rdfs:label "ControlFlow"
+	aspect ControlFlow < ActivityEdge
+
+	@rdfs:label "ObjectFlow"
+	aspect ObjectFlow < ActivityEdge
+
+	@rdfs:label "isMulticast"
+	scalar property ObjectFlow_isMulticast [
+		domain ObjectFlow
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "isMultireceive"
+	scalar property ObjectFlow_isMultireceive [
+		domain ObjectFlow
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "transformation"
+	relation ObjectFlow_transformation [
+		from ObjectFlow
+		to common.data.behavior:AbstractBehavior
+		functional
+	]
+
+	@rdfs:label "selection"
+	relation ObjectFlow_selection [
+		from ObjectFlow
+		to common.data.behavior:AbstractBehavior
+		functional
+	]
+
+	@rdfs:label "ActivityPartition"
+	aspect ActivityPartition < ActivityGroup, common.data.core:AbstractNamedElement
+
+	@rdfs:label "isDimension"
+	scalar property ActivityPartition_isDimension [
+		domain ActivityPartition
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "isExternal"
+	scalar property ActivityPartition_isExternal [
+		domain ActivityPartition
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "representedElement"
+	relation ActivityPartition_representedElement [
+		from ActivityPartition
+		to common.data.core:AbstractType
+		functional
+	]
+
+	@rdfs:label "superPartition"
+	relation ActivityPartition_superPartition [
+		from ActivityPartition
+		to ActivityPartition
+		functional
+	]
+
+	@rdfs:label "subPartitions"
+	relation ActivityPartition_subPartitions [
+		from ActivityPartition
+		to ActivityPartition
+	]
+
+	@rdfs:label "ActivityExchange"
+	aspect ActivityExchange < common.data.core:AbstractInformationFlow
+
+	@rdfs:label "realizingActivityFlows"
+	relation ActivityExchange_realizingActivityFlows [
+		from ActivityExchange
+		to ActivityEdge
+	]
+
+	@rdfs:label "ActivityNode"
+	aspect ActivityNode < common.data.core:AbstractNamedElement
+
+	@rdfs:label "inActivityPartition"
+	relation ActivityNode_inActivityPartition [
+		from ActivityNode
+		to ActivityPartition
+		functional
+	]
+
+	@rdfs:label "inInterruptibleRegion"
+	relation ActivityNode_inInterruptibleRegion [
+		from ActivityNode
+		to InterruptibleActivityRegion
+		functional
+	]
+
+	@rdfs:label "inStructuredNode"
+	relation ActivityNode_inStructuredNode [
+		from ActivityNode
+		to InterruptibleActivityRegion
+		functional
+	]
+
+	@rdfs:label "outgoing"
+	relation ActivityNode_outgoing [
+		from ActivityNode
+		to ActivityEdge
+	]
+
+	@rdfs:label "incoming"
+	relation ActivityNode_incoming [
+		from ActivityNode
+		to ActivityEdge
+	]
+
+	@rdfs:label "ExecutableNode"
+	aspect ExecutableNode < ActivityNode
+
+	@rdfs:label "StructuredActivityNode"
+	aspect StructuredActivityNode < ActivityGroup, AbstractAction
+
+	@rdfs:label "AbstractAction"
+	aspect AbstractAction < ExecutableNode, common.data.core:AbstractNamedElement
+
+	@rdfs:label "localPrecondition"
+	relation AbstractAction_localPrecondition [
+		from AbstractAction
+		to common.data.core:AbstractConstraint
+		functional
+	]
+
+	@rdfs:label "localPostcondition"
+	relation AbstractAction_localPostcondition [
+		from AbstractAction
+		to common.data.core:AbstractConstraint
+		functional
+	]
+
+	@rdfs:label "context"
+	relation AbstractAction_context [
+		from AbstractAction
+		to common.data.core:AbstractType
+		functional
+	]
+
+	@rdfs:label "inputs"
+	relation AbstractAction_inputs [
+		from AbstractAction
+		to InputPin
+	]
+
+	@rdfs:label "outputs"
+	relation AbstractAction_outputs [
+		from AbstractAction
+		to OutputPin
+	]
+
+	@rdfs:label "AcceptEventAction"
+	aspect AcceptEventAction < AbstractAction
+
+	@rdfs:label "isUnmarshall"
+	scalar property AcceptEventAction_isUnmarshall [
+		domain AcceptEventAction
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "result"
+	relation AcceptEventAction_result [
+		from AcceptEventAction
+		to OutputPin
+	]
+
+	@rdfs:label "InvocationAction"
+	aspect InvocationAction < AbstractAction
+
+	@rdfs:label "arguments"
+	relation InvocationAction_arguments [
+		from InvocationAction
+		to InputPin
+	]
+
+	@rdfs:label "SendSignalAction"
+	aspect SendSignalAction < InvocationAction [
+		restricts SendSignalAction_target to exactly 1
+		restricts SendSignalAction_signal to exactly 1
+	]
+
+	@rdfs:label "target"
+	relation SendSignalAction_target [
+		from SendSignalAction
+		to InputPin
+		functional
+	]
+
+	@rdfs:label "signal"
+	relation SendSignalAction_signal [
+		from SendSignalAction
+		to common.data.behavior:AbstractSignal
+		functional
+	]
+
+	@rdfs:label "CallAction"
+	aspect CallAction < InvocationAction
+
+	@rdfs:label "results"
+	relation CallAction_results [
+		from CallAction
+		to OutputPin
+	]
+
+	@rdfs:label "CallBehaviorAction"
+	aspect CallBehaviorAction < CallAction
+
+	@rdfs:label "behavior"
+	relation CallBehaviorAction_behavior [
+		from CallBehaviorAction
+		to common.data.behavior:AbstractBehavior
+		functional
+	]
+
+	@rdfs:label "ObjectNode"
+	aspect ObjectNode < ActivityNode, common.data.core:AbstractTypedElement
+
+	@rdfs:label "isControlType"
+	scalar property ObjectNode_isControlType [
+		domain ObjectNode
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "kindOfNode"
+	scalar property ObjectNode_kindOfNode [
+		domain ObjectNode
+		range ObjectNodeKind
+		functional
+	]
+
+	@rdfs:label "ordering"
+	scalar property ObjectNode_ordering [
+		domain ObjectNode
+		range ObjectNodeOrderingKind
+		functional
+	]
+
+	@rdfs:label "upperBound"
+	relation ObjectNode_upperBound [
+		from ObjectNode
+		to common.data.core:ValueSpecification
+		functional
+	]
+
+	@rdfs:label "inState"
+	relation ObjectNode_inState [
+		from ObjectNode
+		to common.data.core:IState
+	]
+
+	@rdfs:label "selection"
+	relation ObjectNode_selection [
+		from ObjectNode
+		to common.data.behavior:AbstractBehavior
+		functional
+	]
+
+	@rdfs:label "Pin"
+	aspect Pin < ObjectNode
+
+	@rdfs:label "isControl"
+	scalar property Pin_isControl [
+		domain Pin
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "InputPin"
+	aspect InputPin < Pin
+
+	@rdfs:label "inputEvaluationAction"
+	relation InputPin_inputEvaluationAction [
+		from InputPin
+		to AbstractAction
+		functional
+	]
+
+	@rdfs:label "ValuePin"
+	aspect ValuePin < InputPin [
+		restricts ValuePin_value to exactly 1
+	]
+
+	@rdfs:label "value"
+	relation ValuePin_value [
+		from ValuePin
+		to common.data.core:ValueSpecification
+		functional
+	]
+
+	@rdfs:label "OutputPin"
+	aspect OutputPin < Pin
+}

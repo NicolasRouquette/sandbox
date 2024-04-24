@@ -1,0 +1,2638 @@
+vocabulary <http://www.omg.org/spec/BPMN/20100524/MODEL-XMI#> as bpmn2 {
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	extends <http://www.omg.org/spec/BPMN/20100524/DI-XMI#> as bpmndi
+
+	extends <http://www.eclipse.org/emf/2002/Ecore#> as ecore
+
+	@rdfs:label "Activity"
+	concept Activity < FlowNode
+
+	@rdfs:label "ioSpecification"
+	relation Activity_ioSpecification [
+		from Activity
+		to InputOutputSpecification
+		functional
+	]
+
+	@rdfs:label "boundaryEventRefs"
+	relation Activity_boundaryEventRefs [
+		from Activity
+		to BoundaryEvent
+		@rdfs:label "attachedToRef"
+		reverse BoundaryEvent_attachedToRef
+		inverse functional
+	]
+
+	@rdfs:label "properties"
+	relation Activity_properties [
+		from Activity
+		to Property
+	]
+
+	@rdfs:label "dataInputAssociations"
+	relation Activity_dataInputAssociations [
+		from Activity
+		to DataInputAssociation
+	]
+
+	@rdfs:label "dataOutputAssociations"
+	relation Activity_dataOutputAssociations [
+		from Activity
+		to DataOutputAssociation
+	]
+
+	@rdfs:label "resources"
+	relation Activity_resources [
+		from Activity
+		to ResourceRole
+	]
+
+	@rdfs:label "loopCharacteristics"
+	relation Activity_loopCharacteristics [
+		from Activity
+		to LoopCharacteristics
+		functional
+	]
+
+	@rdfs:label "completionQuantity"
+	scalar property Activity_completionQuantity [
+		domain Activity
+		range xsd:int
+		functional
+	]
+
+	@rdfs:label "default"
+	relation Activity_default [
+		from Activity
+		to SequenceFlow
+		functional
+	]
+
+	@rdfs:label "isForCompensation"
+	scalar property Activity_isForCompensation [
+		domain Activity
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "startQuantity"
+	scalar property Activity_startQuantity [
+		domain Activity
+		range xsd:int
+		functional
+	]
+
+	@rdfs:label "AdHocOrdering"
+	scalar AdHocOrdering [
+		oneOf "Parallel", "Sequential"
+	]
+
+	@rdfs:label "AdHocSubProcess"
+	concept AdHocSubProcess < SubProcess [
+		restricts AdHocSubProcess_completionCondition to exactly 1
+	]
+
+	@rdfs:label "completionCondition"
+	relation AdHocSubProcess_completionCondition [
+		from AdHocSubProcess
+		to Expression
+		functional
+	]
+
+	@rdfs:label "cancelRemainingInstances"
+	scalar property AdHocSubProcess_cancelRemainingInstances [
+		domain AdHocSubProcess
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "ordering"
+	scalar property AdHocSubProcess_ordering [
+		domain AdHocSubProcess
+		range AdHocOrdering
+		functional
+	]
+
+	@rdfs:label "Artifact"
+	concept Artifact < BaseElement
+
+	@rdfs:label "Assignment"
+	concept Assignment < BaseElement [
+		restricts Assignment_from to exactly 1
+		restricts Assignment_to to exactly 1
+	]
+
+	@rdfs:label "from"
+	relation Assignment_from [
+		from Assignment
+		to Expression
+		functional
+	]
+
+	@rdfs:label "to"
+	relation Assignment_to [
+		from Assignment
+		to Expression
+		functional
+	]
+
+	@rdfs:label "Association"
+	concept Association < Artifact [
+		restricts Association_sourceRef to exactly 1
+		restricts Association_targetRef to exactly 1
+	]
+
+	@rdfs:label "associationDirection"
+	scalar property Association_associationDirection [
+		domain Association
+		range AssociationDirection
+		functional
+	]
+
+	@rdfs:label "sourceRef"
+	relation Association_sourceRef [
+		from Association
+		to BaseElement
+		functional
+	]
+
+	@rdfs:label "targetRef"
+	relation Association_targetRef [
+		from Association
+		to BaseElement
+		functional
+	]
+
+	@rdfs:label "AssociationDirection"
+	scalar AssociationDirection [
+		oneOf "None", "One", "Both"
+	]
+
+	@rdfs:label "Auditing"
+	concept Auditing < BaseElement
+
+	@rdfs:label "BaseElement"
+	concept BaseElement
+
+	@rdfs:label "extensionValues"
+	relation BaseElement_extensionValues [
+		from BaseElement
+		to ExtensionAttributeValue
+	]
+
+	@rdfs:label "documentation"
+	relation BaseElement_documentation [
+		from BaseElement
+		to Documentation
+	]
+
+	@rdfs:label "extensionDefinitions"
+	relation BaseElement_extensionDefinitions [
+		from BaseElement
+		to ExtensionDefinition
+	]
+
+	@rdfs:label "id"
+	scalar property BaseElement_id [
+		domain BaseElement
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "BoundaryEvent"
+	concept BoundaryEvent < CatchEvent [
+		restricts BoundaryEvent_attachedToRef to exactly 1
+	]
+
+	@rdfs:label "cancelActivity"
+	scalar property BoundaryEvent_cancelActivity [
+		domain BoundaryEvent
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "BusinessRuleTask"
+	concept BusinessRuleTask < Task
+
+	@rdfs:label "implementation"
+	scalar property BusinessRuleTask_implementation [
+		domain BusinessRuleTask
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "CallActivity"
+	concept CallActivity < Activity, InteractionNode
+
+	@rdfs:label "calledElementRef"
+	relation CallActivity_calledElementRef [
+		from CallActivity
+		to CallableElement
+		functional
+	]
+
+	@rdfs:label "CallChoreography"
+	concept CallChoreography < ChoreographyActivity
+
+	@rdfs:label "participantAssociations"
+	relation CallChoreography_participantAssociations [
+		from CallChoreography
+		to ParticipantAssociation
+	]
+
+	@rdfs:label "calledChoreographyRef"
+	relation CallChoreography_calledChoreographyRef [
+		from CallChoreography
+		to Choreography
+		functional
+	]
+
+	@rdfs:label "CallConversation"
+	concept CallConversation < ConversationNode
+
+	@rdfs:label "participantAssociations"
+	relation CallConversation_participantAssociations [
+		from CallConversation
+		to ParticipantAssociation
+	]
+
+	@rdfs:label "calledCollaborationRef"
+	relation CallConversation_calledCollaborationRef [
+		from CallConversation
+		to Collaboration
+		functional
+	]
+
+	@rdfs:label "CallableElement"
+	concept CallableElement < RootElement
+
+	@rdfs:label "supportedInterfaceRefs"
+	relation CallableElement_supportedInterfaceRefs [
+		from CallableElement
+		to Interface
+	]
+
+	@rdfs:label "ioSpecification"
+	relation CallableElement_ioSpecification [
+		from CallableElement
+		to InputOutputSpecification
+		functional
+	]
+
+	@rdfs:label "ioBinding"
+	relation CallableElement_ioBinding [
+		from CallableElement
+		to InputOutputBinding
+	]
+
+	@rdfs:label "name"
+	scalar property CallableElement_name [
+		domain CallableElement
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "CancelEventDefinition"
+	concept CancelEventDefinition < EventDefinition
+
+	@rdfs:label "CatchEvent"
+	concept CatchEvent < Event
+
+	@rdfs:label "dataOutputs"
+	relation CatchEvent_dataOutputs [
+		from CatchEvent
+		to DataOutput
+	]
+
+	@rdfs:label "dataOutputAssociation"
+	relation CatchEvent_dataOutputAssociation [
+		from CatchEvent
+		to DataOutputAssociation
+	]
+
+	@rdfs:label "outputSet"
+	relation CatchEvent_outputSet [
+		from CatchEvent
+		to OutputSet
+		functional
+	]
+
+	@rdfs:label "eventDefinitions"
+	relation CatchEvent_eventDefinitions [
+		from CatchEvent
+		to EventDefinition
+	]
+
+	@rdfs:label "eventDefinitionRefs"
+	relation CatchEvent_eventDefinitionRefs [
+		from CatchEvent
+		to EventDefinition
+	]
+
+	@rdfs:label "parallelMultiple"
+	scalar property CatchEvent_parallelMultiple [
+		domain CatchEvent
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "Category"
+	concept Category < RootElement
+
+	@rdfs:label "categoryValue"
+	relation Category_categoryValue [
+		from Category
+		to CategoryValue
+	]
+
+	@rdfs:label "name"
+	scalar property Category_name [
+		domain Category
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "CategoryValue"
+	concept CategoryValue < BaseElement
+
+	@rdfs:label "value"
+	scalar property CategoryValue_value [
+		domain CategoryValue
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "categorizedFlowElements"
+	relation CategoryValue_categorizedFlowElements [
+		from CategoryValue
+		to FlowElement
+	]
+
+	@rdfs:label "Choreography"
+	concept Choreography < Collaboration, FlowElementsContainer
+
+	@rdfs:label "ChoreographyActivity"
+	concept ChoreographyActivity < FlowNode [
+		restricts ChoreographyActivity_participantRefs to min 2
+		restricts ChoreographyActivity_initiatingParticipantRef to exactly 1
+	]
+
+	@rdfs:label "participantRefs"
+	relation ChoreographyActivity_participantRefs [
+		from ChoreographyActivity
+		to Participant
+	]
+
+	@rdfs:label "correlationKeys"
+	relation ChoreographyActivity_correlationKeys [
+		from ChoreographyActivity
+		to CorrelationKey
+	]
+
+	@rdfs:label "initiatingParticipantRef"
+	relation ChoreographyActivity_initiatingParticipantRef [
+		from ChoreographyActivity
+		to Participant
+		functional
+	]
+
+	@rdfs:label "loopType"
+	scalar property ChoreographyActivity_loopType [
+		domain ChoreographyActivity
+		range ChoreographyLoopType
+		functional
+	]
+
+	@rdfs:label "ChoreographyLoopType"
+	scalar ChoreographyLoopType [
+		oneOf "None", "Standard", "MultiInstanceSequential", "MultiInstanceParallel"
+	]
+
+	@rdfs:label "ChoreographyTask"
+	concept ChoreographyTask < ChoreographyActivity [
+		restricts ChoreographyTask_messageFlowRef to min 1
+		restricts ChoreographyTask_messageFlowRef to max 2
+	]
+
+	@rdfs:label "messageFlowRef"
+	relation ChoreographyTask_messageFlowRef [
+		from ChoreographyTask
+		to MessageFlow
+	]
+
+	@rdfs:label "Collaboration"
+	concept Collaboration < RootElement
+
+	@rdfs:label "participants"
+	relation Collaboration_participants [
+		from Collaboration
+		to Participant
+	]
+
+	@rdfs:label "messageFlows"
+	relation Collaboration_messageFlows [
+		from Collaboration
+		to MessageFlow
+	]
+
+	@rdfs:label "artifacts"
+	relation Collaboration_artifacts [
+		from Collaboration
+		to Artifact
+	]
+
+	@rdfs:label "conversations"
+	relation Collaboration_conversations [
+		from Collaboration
+		to ConversationNode
+	]
+
+	@rdfs:label "conversationAssociations"
+	relation Collaboration_conversationAssociations [
+		from Collaboration
+		to ConversationAssociation
+	]
+
+	@rdfs:label "participantAssociations"
+	relation Collaboration_participantAssociations [
+		from Collaboration
+		to ParticipantAssociation
+	]
+
+	@rdfs:label "messageFlowAssociations"
+	relation Collaboration_messageFlowAssociations [
+		from Collaboration
+		to MessageFlowAssociation
+	]
+
+	@rdfs:label "correlationKeys"
+	relation Collaboration_correlationKeys [
+		from Collaboration
+		to CorrelationKey
+	]
+
+	@rdfs:label "choreographyRef"
+	relation Collaboration_choreographyRef [
+		from Collaboration
+		to Choreography
+	]
+
+	@rdfs:label "conversationLinks"
+	relation Collaboration_conversationLinks [
+		from Collaboration
+		to ConversationLink
+	]
+
+	@rdfs:label "isClosed"
+	scalar property Collaboration_isClosed [
+		domain Collaboration
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "name"
+	scalar property Collaboration_name [
+		domain Collaboration
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "CompensateEventDefinition"
+	concept CompensateEventDefinition < EventDefinition
+
+	@rdfs:label "activityRef"
+	relation CompensateEventDefinition_activityRef [
+		from CompensateEventDefinition
+		to Activity
+		functional
+	]
+
+	@rdfs:label "waitForCompletion"
+	scalar property CompensateEventDefinition_waitForCompletion [
+		domain CompensateEventDefinition
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "ComplexBehaviorDefinition"
+	concept ComplexBehaviorDefinition < BaseElement [
+		restricts ComplexBehaviorDefinition_condition to exactly 1
+	]
+
+	@rdfs:label "condition"
+	relation ComplexBehaviorDefinition_condition [
+		from ComplexBehaviorDefinition
+		to FormalExpression
+		functional
+	]
+
+	@rdfs:label "event"
+	relation ComplexBehaviorDefinition_event [
+		from ComplexBehaviorDefinition
+		to ImplicitThrowEvent
+		functional
+	]
+
+	@rdfs:label "ComplexGateway"
+	concept ComplexGateway < Gateway
+
+	@rdfs:label "activationCondition"
+	relation ComplexGateway_activationCondition [
+		from ComplexGateway
+		to Expression
+		functional
+	]
+
+	@rdfs:label "default"
+	relation ComplexGateway_default [
+		from ComplexGateway
+		to SequenceFlow
+		functional
+	]
+
+	@rdfs:label "ConditionalEventDefinition"
+	concept ConditionalEventDefinition < EventDefinition [
+		restricts ConditionalEventDefinition_condition to exactly 1
+	]
+
+	@rdfs:label "condition"
+	relation ConditionalEventDefinition_condition [
+		from ConditionalEventDefinition
+		to Expression
+		functional
+	]
+
+	@rdfs:label "Conversation"
+	concept Conversation < ConversationNode
+
+	@rdfs:label "ConversationAssociation"
+	concept ConversationAssociation < BaseElement [
+		restricts ConversationAssociation_innerConversationNodeRef to exactly 1
+		restricts ConversationAssociation_outerConversationNodeRef to exactly 1
+	]
+
+	@rdfs:label "innerConversationNodeRef"
+	relation ConversationAssociation_innerConversationNodeRef [
+		from ConversationAssociation
+		to ConversationNode
+		functional
+	]
+
+	@rdfs:label "outerConversationNodeRef"
+	relation ConversationAssociation_outerConversationNodeRef [
+		from ConversationAssociation
+		to ConversationNode
+		functional
+	]
+
+	@rdfs:label "ConversationLink"
+	concept ConversationLink < BaseElement [
+		restricts ConversationLink_sourceRef to exactly 1
+		restricts ConversationLink_targetRef to exactly 1
+	]
+
+	@rdfs:label "name"
+	scalar property ConversationLink_name [
+		domain ConversationLink
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "sourceRef"
+	relation ConversationLink_sourceRef [
+		from ConversationLink
+		to InteractionNode
+		functional
+	]
+
+	@rdfs:label "targetRef"
+	relation ConversationLink_targetRef [
+		from ConversationLink
+		to InteractionNode
+		functional
+	]
+
+	@rdfs:label "ConversationNode"
+	concept ConversationNode < BaseElement, InteractionNode [
+		restricts ConversationNode_participantRefs to min 2
+	]
+
+	@rdfs:label "participantRefs"
+	relation ConversationNode_participantRefs [
+		from ConversationNode
+		to Participant
+	]
+
+	@rdfs:label "messageFlowRefs"
+	relation ConversationNode_messageFlowRefs [
+		from ConversationNode
+		to MessageFlow
+	]
+
+	@rdfs:label "correlationKeys"
+	relation ConversationNode_correlationKeys [
+		from ConversationNode
+		to CorrelationKey
+	]
+
+	@rdfs:label "name"
+	scalar property ConversationNode_name [
+		domain ConversationNode
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "CorrelationKey"
+	concept CorrelationKey < BaseElement
+
+	@rdfs:label "correlationPropertyRef"
+	relation CorrelationKey_correlationPropertyRef [
+		from CorrelationKey
+		to CorrelationProperty
+	]
+
+	@rdfs:label "name"
+	scalar property CorrelationKey_name [
+		domain CorrelationKey
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "CorrelationProperty"
+	concept CorrelationProperty < RootElement [
+		restricts CorrelationProperty_correlationPropertyRetrievalExpression to min 1
+	]
+
+	@rdfs:label "correlationPropertyRetrievalExpression"
+	relation CorrelationProperty_correlationPropertyRetrievalExpression [
+		from CorrelationProperty
+		to CorrelationPropertyRetrievalExpression
+	]
+
+	@rdfs:label "name"
+	scalar property CorrelationProperty_name [
+		domain CorrelationProperty
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "type"
+	relation CorrelationProperty_type [
+		from CorrelationProperty
+		to ItemDefinition
+		functional
+	]
+
+	@rdfs:label "CorrelationPropertyBinding"
+	concept CorrelationPropertyBinding < BaseElement [
+		restricts CorrelationPropertyBinding_dataPath to exactly 1
+		restricts CorrelationPropertyBinding_correlationPropertyRef to exactly 1
+	]
+
+	@rdfs:label "dataPath"
+	relation CorrelationPropertyBinding_dataPath [
+		from CorrelationPropertyBinding
+		to FormalExpression
+		functional
+	]
+
+	@rdfs:label "correlationPropertyRef"
+	relation CorrelationPropertyBinding_correlationPropertyRef [
+		from CorrelationPropertyBinding
+		to CorrelationProperty
+		functional
+	]
+
+	@rdfs:label "CorrelationPropertyRetrievalExpression"
+	concept CorrelationPropertyRetrievalExpression < BaseElement [
+		restricts CorrelationPropertyRetrievalExpression_messagePath to exactly 1
+		restricts CorrelationPropertyRetrievalExpression_messageRef to exactly 1
+	]
+
+	@rdfs:label "messagePath"
+	relation CorrelationPropertyRetrievalExpression_messagePath [
+		from CorrelationPropertyRetrievalExpression
+		to FormalExpression
+		functional
+	]
+
+	@rdfs:label "messageRef"
+	relation CorrelationPropertyRetrievalExpression_messageRef [
+		from CorrelationPropertyRetrievalExpression
+		to Message
+		functional
+	]
+
+	@rdfs:label "CorrelationSubscription"
+	concept CorrelationSubscription < BaseElement [
+		restricts CorrelationSubscription_correlationKeyRef to exactly 1
+	]
+
+	@rdfs:label "correlationPropertyBinding"
+	relation CorrelationSubscription_correlationPropertyBinding [
+		from CorrelationSubscription
+		to CorrelationPropertyBinding
+	]
+
+	@rdfs:label "correlationKeyRef"
+	relation CorrelationSubscription_correlationKeyRef [
+		from CorrelationSubscription
+		to CorrelationKey
+		functional
+	]
+
+	@rdfs:label "DataAssociation"
+	concept DataAssociation < BaseElement [
+		restricts DataAssociation_targetRef to exactly 1
+	]
+
+	@rdfs:label "sourceRef"
+	relation DataAssociation_sourceRef [
+		from DataAssociation
+		to ItemAwareElement
+	]
+
+	@rdfs:label "targetRef"
+	relation DataAssociation_targetRef [
+		from DataAssociation
+		to ItemAwareElement
+		functional
+	]
+
+	@rdfs:label "transformation"
+	relation DataAssociation_transformation [
+		from DataAssociation
+		to FormalExpression
+		functional
+	]
+
+	@rdfs:label "assignment"
+	relation DataAssociation_assignment [
+		from DataAssociation
+		to Assignment
+	]
+
+	@rdfs:label "DataInput"
+	concept DataInput < ItemAwareElement [
+		restricts DataInput_inputSetRefs to min 1
+	]
+
+	@rdfs:label "inputSetWithOptional"
+	relation DataInput_inputSetWithOptional [
+		from DataInput
+		to InputSet
+		@rdfs:label "optionalInputRefs"
+		reverse InputSet_optionalInputRefs
+	]
+
+	@rdfs:label "inputSetWithWhileExecuting"
+	relation DataInput_inputSetWithWhileExecuting [
+		from DataInput
+		to InputSet
+		@rdfs:label "whileExecutingInputRefs"
+		reverse InputSet_whileExecutingInputRefs
+	]
+
+	@rdfs:label "inputSetRefs"
+	relation DataInput_inputSetRefs [
+		from DataInput
+		to InputSet
+		@rdfs:label "dataInputRefs"
+		reverse InputSet_dataInputRefs
+	]
+
+	@rdfs:label "isCollection"
+	scalar property DataInput_isCollection [
+		domain DataInput
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "name"
+	scalar property DataInput_name [
+		domain DataInput
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "DataInputAssociation"
+	concept DataInputAssociation < DataAssociation
+
+	@rdfs:label "DataObject"
+	concept DataObject < FlowElement, ItemAwareElement
+
+	@rdfs:label "isCollection"
+	scalar property DataObject_isCollection [
+		domain DataObject
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "DataObjectReference"
+	concept DataObjectReference < FlowElement, ItemAwareElement [
+		restricts DataObjectReference_dataObjectRef to exactly 1
+	]
+
+	@rdfs:label "dataObjectRef"
+	relation DataObjectReference_dataObjectRef [
+		from DataObjectReference
+		to DataObject
+		functional
+	]
+
+	@rdfs:label "DataOutput"
+	concept DataOutput < ItemAwareElement [
+		restricts DataOutput_outputSetRefs to min 1
+	]
+
+	@rdfs:label "outputSetWithOptional"
+	relation DataOutput_outputSetWithOptional [
+		from DataOutput
+		to OutputSet
+		@rdfs:label "optionalOutputRefs"
+		reverse OutputSet_optionalOutputRefs
+	]
+
+	@rdfs:label "outputSetWithWhileExecuting"
+	relation DataOutput_outputSetWithWhileExecuting [
+		from DataOutput
+		to OutputSet
+		@rdfs:label "whileExecutingOutputRefs"
+		reverse OutputSet_whileExecutingOutputRefs
+	]
+
+	@rdfs:label "outputSetRefs"
+	relation DataOutput_outputSetRefs [
+		from DataOutput
+		to OutputSet
+		@rdfs:label "dataOutputRefs"
+		reverse OutputSet_dataOutputRefs
+	]
+
+	@rdfs:label "isCollection"
+	scalar property DataOutput_isCollection [
+		domain DataOutput
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "name"
+	scalar property DataOutput_name [
+		domain DataOutput
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "DataOutputAssociation"
+	concept DataOutputAssociation < DataAssociation
+
+	@rdfs:label "DataState"
+	concept DataState < BaseElement
+
+	@rdfs:label "name"
+	scalar property DataState_name [
+		domain DataState
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "DataStore"
+	concept DataStore < ItemAwareElement, RootElement
+
+	@rdfs:label "capacity"
+	scalar property DataStore_capacity [
+		domain DataStore
+		range xsd:int
+		functional
+	]
+
+	@rdfs:label "isUnlimited"
+	scalar property DataStore_isUnlimited [
+		domain DataStore
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "name"
+	scalar property DataStore_name [
+		domain DataStore
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "DataStoreReference"
+	concept DataStoreReference < FlowElement, ItemAwareElement
+
+	@rdfs:label "dataStoreRef"
+	relation DataStoreReference_dataStoreRef [
+		from DataStoreReference
+		to DataStore
+		functional
+	]
+
+	@rdfs:label "Definitions"
+	concept Definitions < BaseElement [
+		restricts Definitions_targetNamespace to exactly 1
+	]
+
+	@rdfs:label "imports"
+	relation Definitions_imports [
+		from Definitions
+		to Import
+	]
+
+	@rdfs:label "extensions"
+	relation Definitions_extensions [
+		from Definitions
+		to Extension
+	]
+
+	@rdfs:label "rootElements"
+	relation Definitions_rootElements [
+		from Definitions
+		to RootElement
+	]
+
+	@rdfs:label "diagrams"
+	relation Definitions_diagrams [
+		from Definitions
+		to bpmndi:BPMNDiagram
+	]
+
+	@rdfs:label "relationships"
+	relation Definitions_relationships [
+		from Definitions
+		to Relationship
+	]
+
+	@rdfs:label "exporter"
+	scalar property Definitions_exporter [
+		domain Definitions
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "exporterVersion"
+	scalar property Definitions_exporterVersion [
+		domain Definitions
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "expressionLanguage"
+	scalar property Definitions_expressionLanguage [
+		domain Definitions
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "name"
+	scalar property Definitions_name [
+		domain Definitions
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "targetNamespace"
+	scalar property Definitions_targetNamespace [
+		domain Definitions
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "typeLanguage"
+	scalar property Definitions_typeLanguage [
+		domain Definitions
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "Documentation"
+	concept Documentation < BaseElement [
+		restricts Documentation_text to exactly 1
+	]
+
+	@rdfs:label "text"
+	scalar property Documentation_text [
+		domain Documentation
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "textFormat"
+	scalar property Documentation_textFormat [
+		domain Documentation
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "EndEvent"
+	concept EndEvent < ThrowEvent
+
+	@rdfs:label "EndPoint"
+	concept EndPoint < RootElement
+
+	@rdfs:label "Error"
+	concept Error < RootElement
+
+	@rdfs:label "errorCode"
+	scalar property Error_errorCode [
+		domain Error
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "name"
+	scalar property Error_name [
+		domain Error
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "structureRef"
+	relation Error_structureRef [
+		from Error
+		to ItemDefinition
+		functional
+	]
+
+	@rdfs:label "ErrorEventDefinition"
+	concept ErrorEventDefinition < EventDefinition
+
+	@rdfs:label "errorRef"
+	relation ErrorEventDefinition_errorRef [
+		from ErrorEventDefinition
+		to Error
+		functional
+	]
+
+	@rdfs:label "Escalation"
+	concept Escalation < RootElement
+
+	@rdfs:label "escalationCode"
+	scalar property Escalation_escalationCode [
+		domain Escalation
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "name"
+	scalar property Escalation_name [
+		domain Escalation
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "structureRef"
+	relation Escalation_structureRef [
+		from Escalation
+		to ItemDefinition
+		functional
+	]
+
+	@rdfs:label "EscalationEventDefinition"
+	concept EscalationEventDefinition < EventDefinition
+
+	@rdfs:label "escalationRef"
+	relation EscalationEventDefinition_escalationRef [
+		from EscalationEventDefinition
+		to Escalation
+		functional
+	]
+
+	@rdfs:label "Event"
+	concept Event < FlowNode, InteractionNode
+
+	@rdfs:label "properties"
+	relation Event_properties [
+		from Event
+		to Property
+	]
+
+	@rdfs:label "EventBasedGateway"
+	concept EventBasedGateway < Gateway
+
+	@rdfs:label "eventGatewayType"
+	scalar property EventBasedGateway_eventGatewayType [
+		domain EventBasedGateway
+		range EventBasedGatewayType
+		functional
+	]
+
+	@rdfs:label "instantiate"
+	scalar property EventBasedGateway_instantiate [
+		domain EventBasedGateway
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "EventBasedGatewayType"
+	scalar EventBasedGatewayType [
+		oneOf "Parallel", "Exclusive"
+	]
+
+	@rdfs:label "EventDefinition"
+	concept EventDefinition < RootElement
+
+	@rdfs:label "ExclusiveGateway"
+	concept ExclusiveGateway < Gateway
+
+	@rdfs:label "default"
+	relation ExclusiveGateway_default [
+		from ExclusiveGateway
+		to SequenceFlow
+		functional
+	]
+
+	@rdfs:label "Expression"
+	concept Expression < BaseElement
+
+	@rdfs:label "Extension"
+	concept Extension < [
+		restricts Extension_definition to exactly 1
+	]
+
+	@rdfs:label "definition"
+	relation Extension_definition [
+		from Extension
+		to ExtensionDefinition
+		functional
+	]
+
+	@rdfs:label "mustUnderstand"
+	scalar property Extension_mustUnderstand [
+		domain Extension
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "xsdDefinition"
+	scalar property Extension_xsdDefinition [
+		domain Extension
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "ExtensionAttributeDefinition"
+	concept ExtensionAttributeDefinition < [
+		restricts ExtensionAttributeDefinition_name to exactly 1
+		restricts ExtensionAttributeDefinition_type to exactly 1
+		restricts ExtensionAttributeDefinition_isReference to exactly 1
+		restricts ExtensionAttributeDefinition_extensionDefinition to exactly 1
+	]
+
+	@rdfs:label "name"
+	scalar property ExtensionAttributeDefinition_name [
+		domain ExtensionAttributeDefinition
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "type"
+	scalar property ExtensionAttributeDefinition_type [
+		domain ExtensionAttributeDefinition
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "isReference"
+	scalar property ExtensionAttributeDefinition_isReference [
+		domain ExtensionAttributeDefinition
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "extensionAttributeDefinitions"
+	relation ExtensionDefinition_extensionAttributeDefinitions [
+		from ExtensionDefinition
+		to ExtensionAttributeDefinition
+		@rdfs:label "extensionDefinition"
+		reverse ExtensionAttributeDefinition_extensionDefinition
+		inverse functional
+	]
+
+	@rdfs:label "ExtensionAttributeValue"
+	concept ExtensionAttributeValue < [
+		restricts ExtensionAttributeValue_extensionAttributeDefinition to exactly 1
+	]
+
+	@rdfs:label "valueRef"
+	relation ExtensionAttributeValue_valueRef [
+		from ExtensionAttributeValue
+		to ecore:EObject
+		functional
+	]
+
+	@rdfs:label "extensionAttributeDefinition"
+	relation ExtensionAttributeValue_extensionAttributeDefinition [
+		from ExtensionAttributeValue
+		to ExtensionAttributeDefinition
+		functional
+	]
+
+	@rdfs:label "ExtensionDefinition"
+	concept ExtensionDefinition < [
+		restricts ExtensionDefinition_name to exactly 1
+	]
+
+	@rdfs:label "name"
+	scalar property ExtensionDefinition_name [
+		domain ExtensionDefinition
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "FlowElement"
+	concept FlowElement < BaseElement
+
+	@rdfs:label "auditing"
+	relation FlowElement_auditing [
+		from FlowElement
+		to Auditing
+		functional
+	]
+
+	@rdfs:label "monitoring"
+	relation FlowElement_monitoring [
+		from FlowElement
+		to Monitoring
+		functional
+	]
+
+	@rdfs:label "categoryValueRef"
+	relation FlowElement_categoryValueRef [
+		from FlowElement
+		to CategoryValue
+	]
+
+	@rdfs:label "name"
+	scalar property FlowElement_name [
+		domain FlowElement
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "FlowElementsContainer"
+	concept FlowElementsContainer < BaseElement
+
+	@rdfs:label "laneSets"
+	relation FlowElementsContainer_laneSets [
+		from FlowElementsContainer
+		to LaneSet
+	]
+
+	@rdfs:label "flowElements"
+	relation FlowElementsContainer_flowElements [
+		from FlowElementsContainer
+		to FlowElement
+	]
+
+	@rdfs:label "FlowNode"
+	concept FlowNode < FlowElement
+
+	@rdfs:label "incoming"
+	relation FlowNode_incoming [
+		from FlowNode
+		to SequenceFlow
+		@rdfs:label "targetRef"
+		reverse SequenceFlow_targetRef
+		inverse functional
+	]
+
+	@rdfs:label "lanes"
+	relation FlowNode_lanes [
+		from FlowNode
+		to Lane
+		@rdfs:label "flowNodeRefs"
+		reverse Lane_flowNodeRefs
+	]
+
+	@rdfs:label "outgoing"
+	relation FlowNode_outgoing [
+		from FlowNode
+		to SequenceFlow
+		@rdfs:label "sourceRef"
+		reverse SequenceFlow_sourceRef
+		inverse functional
+	]
+
+	@rdfs:label "FormalExpression"
+	concept FormalExpression < Expression [
+		restricts FormalExpression_body to exactly 1
+		restricts FormalExpression_evaluatesToTypeRef to exactly 1
+	]
+
+	@rdfs:label "body"
+	scalar property FormalExpression_body [
+		domain FormalExpression
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "evaluatesToTypeRef"
+	relation FormalExpression_evaluatesToTypeRef [
+		from FormalExpression
+		to ItemDefinition
+		functional
+	]
+
+	@rdfs:label "language"
+	scalar property FormalExpression_language [
+		domain FormalExpression
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "Gateway"
+	concept Gateway < FlowNode
+
+	@rdfs:label "gatewayDirection"
+	scalar property Gateway_gatewayDirection [
+		domain Gateway
+		range GatewayDirection
+		functional
+	]
+
+	@rdfs:label "GatewayDirection"
+	scalar GatewayDirection [
+		oneOf "Unspecified", "Converging", "Diverging", "Mixed"
+	]
+
+	@rdfs:label "GlobalBusinessRuleTask"
+	concept GlobalBusinessRuleTask < GlobalTask
+
+	@rdfs:label "implementation"
+	scalar property GlobalBusinessRuleTask_implementation [
+		domain GlobalBusinessRuleTask
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "GlobalChoreographyTask"
+	concept GlobalChoreographyTask < Choreography [
+		restricts GlobalChoreographyTask_initiatingParticipantRef to exactly 1
+	]
+
+	@rdfs:label "initiatingParticipantRef"
+	relation GlobalChoreographyTask_initiatingParticipantRef [
+		from GlobalChoreographyTask
+		to Participant
+		functional
+	]
+
+	@rdfs:label "GlobalConversation"
+	concept GlobalConversation < Collaboration
+
+	@rdfs:label "GlobalManualTask"
+	concept GlobalManualTask < GlobalTask
+
+	@rdfs:label "GlobalScriptTask"
+	concept GlobalScriptTask < GlobalTask [
+		restricts GlobalScriptTask_script to exactly 1
+	]
+
+	@rdfs:label "script"
+	scalar property GlobalScriptTask_script [
+		domain GlobalScriptTask
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "scriptLanguage"
+	scalar property GlobalScriptTask_scriptLanguage [
+		domain GlobalScriptTask
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "GlobalTask"
+	concept GlobalTask < CallableElement
+
+	@rdfs:label "resources"
+	relation GlobalTask_resources [
+		from GlobalTask
+		to ResourceRole
+	]
+
+	@rdfs:label "GlobalUserTask"
+	concept GlobalUserTask < GlobalTask
+
+	@rdfs:label "renderings"
+	relation GlobalUserTask_renderings [
+		from GlobalUserTask
+		to Rendering
+	]
+
+	@rdfs:label "implementation"
+	scalar property GlobalUserTask_implementation [
+		domain GlobalUserTask
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "Group"
+	concept Group < Artifact
+
+	@rdfs:label "categoryValueRef"
+	relation Group_categoryValueRef [
+		from Group
+		to CategoryValue
+		functional
+	]
+
+	@rdfs:label "HumanPerformer"
+	concept HumanPerformer < Performer
+
+	@rdfs:label "ImplicitThrowEvent"
+	concept ImplicitThrowEvent < ThrowEvent
+
+	@rdfs:label "Import"
+	concept Import < [
+		restricts Import_importType to exactly 1
+		restricts Import_location to exactly 1
+		restricts Import_namespace to exactly 1
+	]
+
+	@rdfs:label "importType"
+	scalar property Import_importType [
+		domain Import
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "location"
+	scalar property Import_location [
+		domain Import
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "namespace"
+	scalar property Import_namespace [
+		domain Import
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "InclusiveGateway"
+	concept InclusiveGateway < Gateway
+
+	@rdfs:label "default"
+	relation InclusiveGateway_default [
+		from InclusiveGateway
+		to SequenceFlow
+		functional
+	]
+
+	@rdfs:label "InputOutputBinding"
+	concept InputOutputBinding < BaseElement [
+		restricts InputOutputBinding_inputDataRef to exactly 1
+		restricts InputOutputBinding_operationRef to exactly 1
+		restricts InputOutputBinding_outputDataRef to exactly 1
+	]
+
+	@rdfs:label "inputDataRef"
+	relation InputOutputBinding_inputDataRef [
+		from InputOutputBinding
+		to InputSet
+		functional
+	]
+
+	@rdfs:label "operationRef"
+	relation InputOutputBinding_operationRef [
+		from InputOutputBinding
+		to Operation
+		functional
+	]
+
+	@rdfs:label "outputDataRef"
+	relation InputOutputBinding_outputDataRef [
+		from InputOutputBinding
+		to OutputSet
+		functional
+	]
+
+	@rdfs:label "InputOutputSpecification"
+	concept InputOutputSpecification < BaseElement [
+		restricts InputOutputSpecification_inputSets to min 1
+		restricts InputOutputSpecification_outputSets to min 1
+	]
+
+	@rdfs:label "dataInputs"
+	relation InputOutputSpecification_dataInputs [
+		from InputOutputSpecification
+		to DataInput
+	]
+
+	@rdfs:label "dataOutputs"
+	relation InputOutputSpecification_dataOutputs [
+		from InputOutputSpecification
+		to DataOutput
+	]
+
+	@rdfs:label "inputSets"
+	relation InputOutputSpecification_inputSets [
+		from InputOutputSpecification
+		to InputSet
+	]
+
+	@rdfs:label "outputSets"
+	relation InputOutputSpecification_outputSets [
+		from InputOutputSpecification
+		to OutputSet
+	]
+
+	@rdfs:label "InputSet"
+	concept InputSet < BaseElement
+
+	@rdfs:label "outputSetRefs"
+	relation InputSet_outputSetRefs [
+		from InputSet
+		to OutputSet
+		@rdfs:label "inputSetRefs"
+		reverse OutputSet_inputSetRefs
+	]
+
+	@rdfs:label "name"
+	scalar property InputSet_name [
+		domain InputSet
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "InteractionNode"
+	concept InteractionNode
+
+	@rdfs:label "incomingConversationLinks"
+	relation InteractionNode_incomingConversationLinks [
+		from InteractionNode
+		to ConversationLink
+	]
+
+	@rdfs:label "outgoingConversationLinks"
+	relation InteractionNode_outgoingConversationLinks [
+		from InteractionNode
+		to ConversationLink
+	]
+
+	@rdfs:label "Interface"
+	concept Interface < RootElement [
+		restricts Interface_operations to min 1
+		restricts Interface_name to exactly 1
+	]
+
+	@rdfs:label "operations"
+	relation Interface_operations [
+		from Interface
+		to Operation
+	]
+
+	@rdfs:label "implementationRef"
+	relation Interface_implementationRef [
+		from Interface
+		to ecore:EObject
+		functional
+	]
+
+	@rdfs:label "name"
+	scalar property Interface_name [
+		domain Interface
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "IntermediateCatchEvent"
+	concept IntermediateCatchEvent < CatchEvent
+
+	@rdfs:label "IntermediateThrowEvent"
+	concept IntermediateThrowEvent < ThrowEvent
+
+	@rdfs:label "ItemAwareElement"
+	concept ItemAwareElement < BaseElement
+
+	@rdfs:label "dataState"
+	relation ItemAwareElement_dataState [
+		from ItemAwareElement
+		to DataState
+		functional
+	]
+
+	@rdfs:label "itemSubjectRef"
+	relation ItemAwareElement_itemSubjectRef [
+		from ItemAwareElement
+		to ItemDefinition
+		functional
+	]
+
+	@rdfs:label "ItemDefinition"
+	concept ItemDefinition < RootElement
+
+	@rdfs:label "isCollection"
+	scalar property ItemDefinition_isCollection [
+		domain ItemDefinition
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "import"
+	relation ItemDefinition_import [
+		from ItemDefinition
+		to Import
+		functional
+	]
+
+	@rdfs:label "itemKind"
+	scalar property ItemDefinition_itemKind [
+		domain ItemDefinition
+		range ItemKind
+		functional
+	]
+
+	@rdfs:label "structureRef"
+	relation ItemDefinition_structureRef [
+		from ItemDefinition
+		to ecore:EObject
+		functional
+	]
+
+	@rdfs:label "ItemKind"
+	scalar ItemKind [
+		oneOf "Physical", "Information"
+	]
+
+	@rdfs:label "Lane"
+	concept Lane < BaseElement
+
+	@rdfs:label "partitionElement"
+	relation Lane_partitionElement [
+		from Lane
+		to BaseElement
+		functional
+	]
+
+	@rdfs:label "childLaneSet"
+	relation Lane_childLaneSet [
+		from Lane
+		to LaneSet
+		functional
+	]
+
+	@rdfs:label "name"
+	scalar property Lane_name [
+		domain Lane
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "partitionElementRef"
+	relation Lane_partitionElementRef [
+		from Lane
+		to BaseElement
+		functional
+	]
+
+	@rdfs:label "LaneSet"
+	concept LaneSet < BaseElement
+
+	@rdfs:label "lanes"
+	relation LaneSet_lanes [
+		from LaneSet
+		to Lane
+	]
+
+	@rdfs:label "name"
+	scalar property LaneSet_name [
+		domain LaneSet
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "LinkEventDefinition"
+	concept LinkEventDefinition < EventDefinition [
+		restricts LinkEventDefinition_name to exactly 1
+	]
+
+	@rdfs:label "source"
+	relation LinkEventDefinition_source [
+		from LinkEventDefinition
+		to LinkEventDefinition
+		@rdfs:label "target"
+		reverse LinkEventDefinition_target
+	]
+
+	@rdfs:label "name"
+	scalar property LinkEventDefinition_name [
+		domain LinkEventDefinition
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "LoopCharacteristics"
+	concept LoopCharacteristics < BaseElement
+
+	@rdfs:label "ManualTask"
+	concept ManualTask < Task
+
+	@rdfs:label "Message"
+	concept Message < RootElement
+
+	@rdfs:label "itemRef"
+	relation Message_itemRef [
+		from Message
+		to ItemDefinition
+		functional
+	]
+
+	@rdfs:label "name"
+	scalar property Message_name [
+		domain Message
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "MessageEventDefinition"
+	concept MessageEventDefinition < EventDefinition
+
+	@rdfs:label "operationRef"
+	relation MessageEventDefinition_operationRef [
+		from MessageEventDefinition
+		to Operation
+		functional
+	]
+
+	@rdfs:label "messageRef"
+	relation MessageEventDefinition_messageRef [
+		from MessageEventDefinition
+		to Message
+		functional
+	]
+
+	@rdfs:label "MessageFlow"
+	concept MessageFlow < BaseElement [
+		restricts MessageFlow_sourceRef to exactly 1
+		restricts MessageFlow_targetRef to exactly 1
+	]
+
+	@rdfs:label "messageRef"
+	relation MessageFlow_messageRef [
+		from MessageFlow
+		to Message
+		functional
+	]
+
+	@rdfs:label "name"
+	scalar property MessageFlow_name [
+		domain MessageFlow
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "sourceRef"
+	relation MessageFlow_sourceRef [
+		from MessageFlow
+		to InteractionNode
+		functional
+	]
+
+	@rdfs:label "targetRef"
+	relation MessageFlow_targetRef [
+		from MessageFlow
+		to InteractionNode
+		functional
+	]
+
+	@rdfs:label "MessageFlowAssociation"
+	concept MessageFlowAssociation < BaseElement [
+		restricts MessageFlowAssociation_innerMessageFlowRef to exactly 1
+		restricts MessageFlowAssociation_outerMessageFlowRef to exactly 1
+	]
+
+	@rdfs:label "innerMessageFlowRef"
+	relation MessageFlowAssociation_innerMessageFlowRef [
+		from MessageFlowAssociation
+		to MessageFlow
+		functional
+	]
+
+	@rdfs:label "outerMessageFlowRef"
+	relation MessageFlowAssociation_outerMessageFlowRef [
+		from MessageFlowAssociation
+		to MessageFlow
+		functional
+	]
+
+	@rdfs:label "Monitoring"
+	concept Monitoring < BaseElement
+
+	@rdfs:label "MultiInstanceBehavior"
+	scalar MultiInstanceBehavior [
+		oneOf "None", "One", "All", "Complex"
+	]
+
+	@rdfs:label "MultiInstanceLoopCharacteristics"
+	concept MultiInstanceLoopCharacteristics < LoopCharacteristics
+
+	@rdfs:label "loopCardinality"
+	relation MultiInstanceLoopCharacteristics_loopCardinality [
+		from MultiInstanceLoopCharacteristics
+		to Expression
+		functional
+	]
+
+	@rdfs:label "loopDataInputRef"
+	relation MultiInstanceLoopCharacteristics_loopDataInputRef [
+		from MultiInstanceLoopCharacteristics
+		to ItemAwareElement
+		functional
+	]
+
+	@rdfs:label "loopDataOutputRef"
+	relation MultiInstanceLoopCharacteristics_loopDataOutputRef [
+		from MultiInstanceLoopCharacteristics
+		to ItemAwareElement
+		functional
+	]
+
+	@rdfs:label "inputDataItem"
+	relation MultiInstanceLoopCharacteristics_inputDataItem [
+		from MultiInstanceLoopCharacteristics
+		to DataInput
+		functional
+	]
+
+	@rdfs:label "outputDataItem"
+	relation MultiInstanceLoopCharacteristics_outputDataItem [
+		from MultiInstanceLoopCharacteristics
+		to DataOutput
+		functional
+	]
+
+	@rdfs:label "complexBehaviorDefinition"
+	relation MultiInstanceLoopCharacteristics_complexBehaviorDefinition [
+		from MultiInstanceLoopCharacteristics
+		to ComplexBehaviorDefinition
+	]
+
+	@rdfs:label "completionCondition"
+	relation MultiInstanceLoopCharacteristics_completionCondition [
+		from MultiInstanceLoopCharacteristics
+		to Expression
+		functional
+	]
+
+	@rdfs:label "behavior"
+	scalar property MultiInstanceLoopCharacteristics_behavior [
+		domain MultiInstanceLoopCharacteristics
+		range MultiInstanceBehavior
+		functional
+	]
+
+	@rdfs:label "isSequential"
+	scalar property MultiInstanceLoopCharacteristics_isSequential [
+		domain MultiInstanceLoopCharacteristics
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "noneBehaviorEventRef"
+	relation MultiInstanceLoopCharacteristics_noneBehaviorEventRef [
+		from MultiInstanceLoopCharacteristics
+		to EventDefinition
+		functional
+	]
+
+	@rdfs:label "oneBehaviorEventRef"
+	relation MultiInstanceLoopCharacteristics_oneBehaviorEventRef [
+		from MultiInstanceLoopCharacteristics
+		to EventDefinition
+		functional
+	]
+
+	@rdfs:label "Operation"
+	concept Operation < BaseElement [
+		restricts Operation_inMessageRef to exactly 1
+		restricts Operation_name to exactly 1
+	]
+
+	@rdfs:label "inMessageRef"
+	relation Operation_inMessageRef [
+		from Operation
+		to Message
+		functional
+	]
+
+	@rdfs:label "outMessageRef"
+	relation Operation_outMessageRef [
+		from Operation
+		to Message
+		functional
+	]
+
+	@rdfs:label "errorRefs"
+	relation Operation_errorRefs [
+		from Operation
+		to Error
+	]
+
+	@rdfs:label "implementationRef"
+	relation Operation_implementationRef [
+		from Operation
+		to ecore:EObject
+		functional
+	]
+
+	@rdfs:label "name"
+	scalar property Operation_name [
+		domain Operation
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "OutputSet"
+	concept OutputSet < BaseElement
+
+	@rdfs:label "name"
+	scalar property OutputSet_name [
+		domain OutputSet
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "ParallelGateway"
+	concept ParallelGateway < Gateway
+
+	@rdfs:label "Participant"
+	concept Participant < BaseElement, InteractionNode
+
+	@rdfs:label "interfaceRefs"
+	relation Participant_interfaceRefs [
+		from Participant
+		to Interface
+	]
+
+	@rdfs:label "endPointRefs"
+	relation Participant_endPointRefs [
+		from Participant
+		to EndPoint
+	]
+
+	@rdfs:label "participantMultiplicity"
+	relation Participant_participantMultiplicity [
+		from Participant
+		to ParticipantMultiplicity
+		functional
+	]
+
+	@rdfs:label "name"
+	scalar property Participant_name [
+		domain Participant
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "processRef"
+	relation Participant_processRef [
+		from Participant
+		to Process
+		functional
+	]
+
+	@rdfs:label "ParticipantAssociation"
+	concept ParticipantAssociation < BaseElement [
+		restricts ParticipantAssociation_innerParticipantRef to exactly 1
+		restricts ParticipantAssociation_outerParticipantRef to exactly 1
+	]
+
+	@rdfs:label "innerParticipantRef"
+	relation ParticipantAssociation_innerParticipantRef [
+		from ParticipantAssociation
+		to Participant
+		functional
+	]
+
+	@rdfs:label "outerParticipantRef"
+	relation ParticipantAssociation_outerParticipantRef [
+		from ParticipantAssociation
+		to Participant
+		functional
+	]
+
+	@rdfs:label "ParticipantMultiplicity"
+	concept ParticipantMultiplicity < BaseElement
+
+	@rdfs:label "maximum"
+	scalar property ParticipantMultiplicity_maximum [
+		domain ParticipantMultiplicity
+		range xsd:int
+		functional
+	]
+
+	@rdfs:label "minimum"
+	scalar property ParticipantMultiplicity_minimum [
+		domain ParticipantMultiplicity
+		range xsd:int
+		functional
+	]
+
+	@rdfs:label "PartnerEntity"
+	concept PartnerEntity < RootElement
+
+	@rdfs:label "participantRef"
+	relation PartnerEntity_participantRef [
+		from PartnerEntity
+		to Participant
+	]
+
+	@rdfs:label "name"
+	scalar property PartnerEntity_name [
+		domain PartnerEntity
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "PartnerRole"
+	concept PartnerRole < RootElement
+
+	@rdfs:label "participantRef"
+	relation PartnerRole_participantRef [
+		from PartnerRole
+		to Participant
+	]
+
+	@rdfs:label "name"
+	scalar property PartnerRole_name [
+		domain PartnerRole
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "Performer"
+	concept Performer < ResourceRole
+
+	@rdfs:label "PotentialOwner"
+	concept PotentialOwner < HumanPerformer
+
+	@rdfs:label "Process"
+	concept Process < CallableElement, FlowElementsContainer
+
+	@rdfs:label "auditing"
+	relation Process_auditing [
+		from Process
+		to Auditing
+		functional
+	]
+
+	@rdfs:label "monitoring"
+	relation Process_monitoring [
+		from Process
+		to Monitoring
+		functional
+	]
+
+	@rdfs:label "properties"
+	relation Process_properties [
+		from Process
+		to Property
+	]
+
+	@rdfs:label "artifacts"
+	relation Process_artifacts [
+		from Process
+		to Artifact
+	]
+
+	@rdfs:label "resources"
+	relation Process_resources [
+		from Process
+		to ResourceRole
+	]
+
+	@rdfs:label "correlationSubscriptions"
+	relation Process_correlationSubscriptions [
+		from Process
+		to CorrelationSubscription
+	]
+
+	@rdfs:label "supports"
+	relation Process_supports [
+		from Process
+		to Process
+	]
+
+	@rdfs:label "definitionalCollaborationRef"
+	relation Process_definitionalCollaborationRef [
+		from Process
+		to Collaboration
+		functional
+	]
+
+	@rdfs:label "isClosed"
+	scalar property Process_isClosed [
+		domain Process
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "isExecutable"
+	scalar property Process_isExecutable [
+		domain Process
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "processType"
+	scalar property Process_processType [
+		domain Process
+		range ProcessType
+		functional
+	]
+
+	@rdfs:label "ProcessType"
+	scalar ProcessType [
+		oneOf "None", "Public", "Private"
+	]
+
+	@rdfs:label "Property"
+	concept Property < ItemAwareElement
+
+	@rdfs:label "name"
+	scalar property Property_name [
+		domain Property
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "ReceiveTask"
+	concept ReceiveTask < Task
+
+	@rdfs:label "implementation"
+	scalar property ReceiveTask_implementation [
+		domain ReceiveTask
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "instantiate"
+	scalar property ReceiveTask_instantiate [
+		domain ReceiveTask
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "messageRef"
+	relation ReceiveTask_messageRef [
+		from ReceiveTask
+		to Message
+		functional
+	]
+
+	@rdfs:label "operationRef"
+	relation ReceiveTask_operationRef [
+		from ReceiveTask
+		to Operation
+		functional
+	]
+
+	@rdfs:label "Relationship"
+	concept Relationship < BaseElement [
+		restricts Relationship_sources to min 1
+		restricts Relationship_targets to min 1
+		restricts Relationship_type to exactly 1
+	]
+
+	@rdfs:label "sources"
+	relation Relationship_sources [
+		from Relationship
+		to ecore:EObject
+	]
+
+	@rdfs:label "targets"
+	relation Relationship_targets [
+		from Relationship
+		to ecore:EObject
+	]
+
+	@rdfs:label "direction"
+	scalar property Relationship_direction [
+		domain Relationship
+		range RelationshipDirection
+		functional
+	]
+
+	@rdfs:label "type"
+	scalar property Relationship_type [
+		domain Relationship
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "RelationshipDirection"
+	scalar RelationshipDirection [
+		oneOf "None", "Forward", "Backward", "Both"
+	]
+
+	@rdfs:label "Rendering"
+	concept Rendering < BaseElement
+
+	@rdfs:label "Resource"
+	concept Resource < RootElement [
+		restricts Resource_name to exactly 1
+	]
+
+	@rdfs:label "resourceParameters"
+	relation Resource_resourceParameters [
+		from Resource
+		to ResourceParameter
+	]
+
+	@rdfs:label "name"
+	scalar property Resource_name [
+		domain Resource
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "ResourceAssignmentExpression"
+	concept ResourceAssignmentExpression < BaseElement [
+		restricts ResourceAssignmentExpression_expression to exactly 1
+	]
+
+	@rdfs:label "expression"
+	relation ResourceAssignmentExpression_expression [
+		from ResourceAssignmentExpression
+		to Expression
+		functional
+	]
+
+	@rdfs:label "ResourceParameter"
+	concept ResourceParameter < BaseElement
+
+	@rdfs:label "isRequired"
+	scalar property ResourceParameter_isRequired [
+		domain ResourceParameter
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "name"
+	scalar property ResourceParameter_name [
+		domain ResourceParameter
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "type"
+	relation ResourceParameter_type [
+		from ResourceParameter
+		to ItemDefinition
+		functional
+	]
+
+	@rdfs:label "ResourceParameterBinding"
+	concept ResourceParameterBinding < BaseElement [
+		restricts ResourceParameterBinding_expression to exactly 1
+		restricts ResourceParameterBinding_parameterRef to exactly 1
+	]
+
+	@rdfs:label "expression"
+	relation ResourceParameterBinding_expression [
+		from ResourceParameterBinding
+		to Expression
+		functional
+	]
+
+	@rdfs:label "parameterRef"
+	relation ResourceParameterBinding_parameterRef [
+		from ResourceParameterBinding
+		to ResourceParameter
+		functional
+	]
+
+	@rdfs:label "ResourceRole"
+	concept ResourceRole < BaseElement
+
+	@rdfs:label "resourceRef"
+	relation ResourceRole_resourceRef [
+		from ResourceRole
+		to Resource
+		functional
+	]
+
+	@rdfs:label "resourceParameterBindings"
+	relation ResourceRole_resourceParameterBindings [
+		from ResourceRole
+		to ResourceParameterBinding
+	]
+
+	@rdfs:label "resourceAssignmentExpression"
+	relation ResourceRole_resourceAssignmentExpression [
+		from ResourceRole
+		to ResourceAssignmentExpression
+		functional
+	]
+
+	@rdfs:label "name"
+	scalar property ResourceRole_name [
+		domain ResourceRole
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "RootElement"
+	concept RootElement < BaseElement
+
+	@rdfs:label "ScriptTask"
+	concept ScriptTask < Task [
+		restricts ScriptTask_script to exactly 1
+	]
+
+	@rdfs:label "script"
+	scalar property ScriptTask_script [
+		domain ScriptTask
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "scriptFormat"
+	scalar property ScriptTask_scriptFormat [
+		domain ScriptTask
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "SendTask"
+	concept SendTask < Task
+
+	@rdfs:label "implementation"
+	scalar property SendTask_implementation [
+		domain SendTask
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "messageRef"
+	relation SendTask_messageRef [
+		from SendTask
+		to Message
+		functional
+	]
+
+	@rdfs:label "operationRef"
+	relation SendTask_operationRef [
+		from SendTask
+		to Operation
+		functional
+	]
+
+	@rdfs:label "SequenceFlow"
+	concept SequenceFlow < FlowElement [
+		restricts SequenceFlow_targetRef to exactly 1
+		restricts SequenceFlow_sourceRef to exactly 1
+	]
+
+	@rdfs:label "conditionExpression"
+	relation SequenceFlow_conditionExpression [
+		from SequenceFlow
+		to Expression
+		functional
+	]
+
+	@rdfs:label "isImmediate"
+	scalar property SequenceFlow_isImmediate [
+		domain SequenceFlow
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "ServiceTask"
+	concept ServiceTask < Task
+
+	@rdfs:label "implementation"
+	scalar property ServiceTask_implementation [
+		domain ServiceTask
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "operationRef"
+	relation ServiceTask_operationRef [
+		from ServiceTask
+		to Operation
+		functional
+	]
+
+	@rdfs:label "Signal"
+	concept Signal < RootElement
+
+	@rdfs:label "name"
+	scalar property Signal_name [
+		domain Signal
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "structureRef"
+	relation Signal_structureRef [
+		from Signal
+		to ItemDefinition
+		functional
+	]
+
+	@rdfs:label "SignalEventDefinition"
+	concept SignalEventDefinition < EventDefinition
+
+	@rdfs:label "signalRef"
+	relation SignalEventDefinition_signalRef [
+		from SignalEventDefinition
+		to Signal
+		functional
+	]
+
+	@rdfs:label "StandardLoopCharacteristics"
+	concept StandardLoopCharacteristics < LoopCharacteristics
+
+	@rdfs:label "loopCondition"
+	relation StandardLoopCharacteristics_loopCondition [
+		from StandardLoopCharacteristics
+		to Expression
+		functional
+	]
+
+	@rdfs:label "loopMaximum"
+	scalar property StandardLoopCharacteristics_loopMaximum [
+		domain StandardLoopCharacteristics
+		range xsd:int
+		functional
+	]
+
+	@rdfs:label "testBefore"
+	scalar property StandardLoopCharacteristics_testBefore [
+		domain StandardLoopCharacteristics
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "StartEvent"
+	concept StartEvent < CatchEvent
+
+	@rdfs:label "isInterrupting"
+	scalar property StartEvent_isInterrupting [
+		domain StartEvent
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "SubChoreography"
+	concept SubChoreography < ChoreographyActivity, FlowElementsContainer
+
+	@rdfs:label "artifacts"
+	relation SubChoreography_artifacts [
+		from SubChoreography
+		to Artifact
+	]
+
+	@rdfs:label "SubConversation"
+	concept SubConversation < ConversationNode
+
+	@rdfs:label "conversationNodes"
+	relation SubConversation_conversationNodes [
+		from SubConversation
+		to ConversationNode
+	]
+
+	@rdfs:label "SubProcess"
+	concept SubProcess < Activity, FlowElementsContainer, InteractionNode
+
+	@rdfs:label "artifacts"
+	relation SubProcess_artifacts [
+		from SubProcess
+		to Artifact
+	]
+
+	@rdfs:label "triggeredByEvent"
+	scalar property SubProcess_triggeredByEvent [
+		domain SubProcess
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "Task"
+	concept Task < Activity, InteractionNode
+
+	@rdfs:label "TerminateEventDefinition"
+	concept TerminateEventDefinition < EventDefinition
+
+	@rdfs:label "TextAnnotation"
+	concept TextAnnotation < Artifact [
+		restricts TextAnnotation_text to exactly 1
+	]
+
+	@rdfs:label "text"
+	scalar property TextAnnotation_text [
+		domain TextAnnotation
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "textFormat"
+	scalar property TextAnnotation_textFormat [
+		domain TextAnnotation
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "ThrowEvent"
+	concept ThrowEvent < Event
+
+	@rdfs:label "dataInputs"
+	relation ThrowEvent_dataInputs [
+		from ThrowEvent
+		to DataInput
+	]
+
+	@rdfs:label "dataInputAssociation"
+	relation ThrowEvent_dataInputAssociation [
+		from ThrowEvent
+		to DataInputAssociation
+	]
+
+	@rdfs:label "inputSet"
+	relation ThrowEvent_inputSet [
+		from ThrowEvent
+		to InputSet
+		functional
+	]
+
+	@rdfs:label "eventDefinitions"
+	relation ThrowEvent_eventDefinitions [
+		from ThrowEvent
+		to EventDefinition
+	]
+
+	@rdfs:label "eventDefinitionRefs"
+	relation ThrowEvent_eventDefinitionRefs [
+		from ThrowEvent
+		to EventDefinition
+	]
+
+	@rdfs:label "TimerEventDefinition"
+	concept TimerEventDefinition < EventDefinition
+
+	@rdfs:label "timeDate"
+	relation TimerEventDefinition_timeDate [
+		from TimerEventDefinition
+		to Expression
+		functional
+	]
+
+	@rdfs:label "timeDuration"
+	relation TimerEventDefinition_timeDuration [
+		from TimerEventDefinition
+		to Expression
+		functional
+	]
+
+	@rdfs:label "timeCycle"
+	relation TimerEventDefinition_timeCycle [
+		from TimerEventDefinition
+		to Expression
+		functional
+	]
+
+	@rdfs:label "Transaction"
+	concept Transaction < SubProcess
+
+	@rdfs:label "protocol"
+	scalar property Transaction_protocol [
+		domain Transaction
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "method"
+	scalar property Transaction_method [
+		domain Transaction
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "UserTask"
+	concept UserTask < Task
+
+	@rdfs:label "renderings"
+	relation UserTask_renderings [
+		from UserTask
+		to Rendering
+	]
+
+	@rdfs:label "implementation"
+	scalar property UserTask_implementation [
+		domain UserTask
+		range xsd:string
+		functional
+	]
+}

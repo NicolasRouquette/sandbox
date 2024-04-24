@@ -1,0 +1,323 @@
+vocabulary <http://www.polarsys.org/capella/common/core/6.0.0#> as common.data.core {
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	@rdfs:label "ModelElement"
+	aspect ModelElement < [
+		restricts ModelElement_id to exactly 1
+	]
+
+	@rdfs:label "id"
+	scalar property ModelElement_id [
+		domain ModelElement
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "sid"
+	scalar property ModelElement_sid [
+		domain ModelElement
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "constraints"
+	relation ModelElement_constraints [
+		from ModelElement
+		to AbstractConstraint
+	]
+
+	@rdfs:label "ownedConstraints"
+	relation ModelElement_ownedConstraints [
+		from ModelElement
+		to AbstractConstraint
+	]
+
+	@rdfs:label "ownedMigratedElements"
+	relation ModelElement_ownedMigratedElements [
+		from ModelElement
+		to ModelElement
+	]
+
+	@rdfs:label "AbstractRelationship"
+	aspect AbstractRelationship < ModelElement
+
+	@rdfs:label "realizations"
+	relation AbstractInformationFlow_realizations [
+		from AbstractInformationFlow
+		to AbstractRelationship
+		@rdfs:label "realizedFlow"
+		reverse AbstractRelationship_realizedFlow
+	]
+
+	@rdfs:label "AbstractNamedElement"
+	aspect AbstractNamedElement < ModelElement
+
+	@rdfs:label "name"
+	scalar property AbstractNamedElement_name [
+		domain AbstractNamedElement
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "InformationsExchanger"
+	aspect InformationsExchanger < ModelElement
+
+	@rdfs:label "incomingInformationFlows"
+	relation InformationsExchanger_incomingInformationFlows [
+		from InformationsExchanger
+		to AbstractInformationFlow
+	]
+
+	@rdfs:label "outgoingInformationFlows"
+	relation InformationsExchanger_outgoingInformationFlows [
+		from InformationsExchanger
+		to AbstractInformationFlow
+	]
+
+	@rdfs:label "informationFlows"
+	relation InformationsExchanger_informationFlows [
+		from InformationsExchanger
+		to AbstractInformationFlow
+	]
+
+	@rdfs:label "TraceableElement"
+	aspect TraceableElement < ModelElement
+
+	@rdfs:label "incomingTraces"
+	relation TraceableElement_incomingTraces [
+		from TraceableElement
+		to AbstractTrace
+	]
+
+	@rdfs:label "outgoingTraces"
+	relation TraceableElement_outgoingTraces [
+		from TraceableElement
+		to AbstractTrace
+	]
+
+	@rdfs:label "FinalizableElement"
+	aspect FinalizableElement < ModelElement
+
+	@rdfs:label "final"
+	scalar property FinalizableElement_final [
+		domain FinalizableElement
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "PublishableElement"
+	aspect PublishableElement < ModelElement
+
+	@rdfs:label "visibleInDoc"
+	scalar property PublishableElement_visibleInDoc [
+		domain PublishableElement
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "visibleInLM"
+	scalar property PublishableElement_visibleInLM [
+		domain PublishableElement
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "AbstractType"
+	aspect AbstractType < AbstractNamedElement
+
+	@rdfs:label "abstractTypedElements"
+	relation AbstractType_abstractTypedElements [
+		from AbstractType
+		to AbstractTypedElement
+	]
+
+	@rdfs:label "AbstractTypedElement"
+	aspect AbstractTypedElement < AbstractNamedElement
+
+	@rdfs:label "abstractType"
+	relation AbstractTypedElement_abstractType [
+		from AbstractTypedElement
+		to AbstractType
+		functional
+	]
+
+	@rdfs:label "AbstractTrace"
+	aspect AbstractTrace < TraceableElement [
+		restricts AbstractTrace_targetElement to exactly 1
+		restricts AbstractTrace_sourceElement to exactly 1
+	]
+
+	@rdfs:label "targetElement"
+	relation AbstractTrace_targetElement [
+		from AbstractTrace
+		to TraceableElement
+		functional
+	]
+
+	@rdfs:label "sourceElement"
+	relation AbstractTrace_sourceElement [
+		from AbstractTrace
+		to TraceableElement
+		functional
+	]
+
+	@rdfs:label "AbstractConstraint"
+	aspect AbstractConstraint < ModelElement
+
+	@rdfs:label "constrainedElements"
+	relation AbstractConstraint_constrainedElements [
+		from AbstractConstraint
+		to ModelElement
+	]
+
+	@rdfs:label "ownedSpecification"
+	relation AbstractConstraint_ownedSpecification [
+		from AbstractConstraint
+		to ValueSpecification
+		functional
+	]
+
+	@rdfs:label "context"
+	relation AbstractConstraint_context [
+		from AbstractConstraint
+		to ModelElement
+		functional
+	]
+
+	@rdfs:label "ValueSpecification"
+	aspect ValueSpecification < AbstractTypedElement
+
+	@rdfs:label "AbstractParameter"
+	aspect AbstractParameter < AbstractTypedElement
+
+	@rdfs:label "isException"
+	scalar property AbstractParameter_isException [
+		domain AbstractParameter
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "isStream"
+	scalar property AbstractParameter_isStream [
+		domain AbstractParameter
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "isOptional"
+	scalar property AbstractParameter_isOptional [
+		domain AbstractParameter
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "kindOfRate"
+	scalar property AbstractParameter_kindOfRate [
+		domain AbstractParameter
+		range RateKind
+		functional
+	]
+
+	@rdfs:label "effect"
+	scalar property AbstractParameter_effect [
+		domain AbstractParameter
+		range ParameterEffectKind
+		functional
+	]
+
+	@rdfs:label "rate"
+	relation AbstractParameter_rate [
+		from AbstractParameter
+		to ValueSpecification
+		functional
+	]
+
+	@rdfs:label "probability"
+	relation AbstractParameter_probability [
+		from AbstractParameter
+		to ValueSpecification
+		functional
+	]
+
+	@rdfs:label "parameterSet"
+	relation AbstractParameter_parameterSet [
+		from AbstractParameter
+		to AbstractParameterSet
+		@rdfs:label "parameters"
+		reverse AbstractParameterSet_parameters
+		inverse functional
+	]
+
+	@rdfs:label "ParameterEffectKind"
+	scalar ParameterEffectKind [
+		oneOf "create", "read", "update", "delete"
+	]
+
+	@rdfs:label "AbstractParameterSet"
+	aspect AbstractParameterSet < AbstractNamedElement
+
+	@rdfs:label "ownedConditions"
+	relation AbstractParameterSet_ownedConditions [
+		from AbstractParameterSet
+		to AbstractConstraint
+	]
+
+	@rdfs:label "probability"
+	relation AbstractParameterSet_probability [
+		from AbstractParameterSet
+		to ValueSpecification
+		functional
+	]
+
+	@rdfs:label "RateKind"
+	scalar RateKind [
+		oneOf "Unspecified", "Continuous", "Discrete"
+	]
+
+	@rdfs:label "AbstractInformationFlow"
+	aspect AbstractInformationFlow < AbstractNamedElement, AbstractRelationship [
+		restricts AbstractInformationFlow_source to exactly 1
+		restricts AbstractInformationFlow_target to exactly 1
+	]
+
+	@rdfs:label "convoyedInformations"
+	relation AbstractInformationFlow_convoyedInformations [
+		from AbstractInformationFlow
+		to AbstractExchangeItem
+	]
+
+	@rdfs:label "source"
+	relation AbstractInformationFlow_source [
+		from AbstractInformationFlow
+		to InformationsExchanger
+		functional
+	]
+
+	@rdfs:label "target"
+	relation AbstractInformationFlow_target [
+		from AbstractInformationFlow
+		to InformationsExchanger
+		functional
+	]
+
+	@rdfs:label "AbstractExchangeItem"
+	aspect AbstractExchangeItem < AbstractType
+
+	@rdfs:label "IState"
+	aspect IState < AbstractNamedElement
+
+	@rdfs:label "referencedStates"
+	relation IState_referencedStates [
+		from IState
+		to IState
+	]
+
+	@rdfs:label "exploitedStates"
+	relation IState_exploitedStates [
+		from IState
+		to IState
+	]
+}

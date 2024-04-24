@@ -1,0 +1,107 @@
+vocabulary <http://www.omg.org/spec/DD/20100524/DC-XMI#> as dc {
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	@rdfs:label "Bounds"
+	concept Bounds < [
+		restricts Bounds_height to exactly 1
+		restricts Bounds_width to exactly 1
+		restricts Bounds_x to exactly 1
+		restricts Bounds_y to exactly 1
+	]
+
+	@rdfs:label "height"
+	scalar property Bounds_height [
+		domain Bounds
+		range xsd:float
+		functional
+	]
+
+	@rdfs:label "width"
+	scalar property Bounds_width [
+		domain Bounds
+		range xsd:float
+		functional
+	]
+
+	@rdfs:label "x"
+	scalar property Bounds_x [
+		domain Bounds
+		range xsd:float
+		functional
+	]
+
+	@rdfs:label "y"
+	scalar property Bounds_y [
+		domain Bounds
+		range xsd:float
+		functional
+	]
+
+	@rdfs:label "Font"
+	concept Font
+
+	@rdfs:label "isBold"
+	scalar property Font_isBold [
+		domain Font
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "isItalic"
+	scalar property Font_isItalic [
+		domain Font
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "isStrikeThrough"
+	scalar property Font_isStrikeThrough [
+		domain Font
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "isUnderline"
+	scalar property Font_isUnderline [
+		domain Font
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "name"
+	scalar property Font_name [
+		domain Font
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "size"
+	scalar property Font_size [
+		domain Font
+		range xsd:float
+		functional
+	]
+
+	@rdfs:label "Point"
+	concept Point < [
+		restricts Point_x to exactly 1
+		restricts Point_y to exactly 1
+	]
+
+	@rdfs:label "x"
+	scalar property Point_x [
+		domain Point
+		range xsd:float
+		functional
+	]
+
+	@rdfs:label "y"
+	scalar property Point_y [
+		domain Point
+		range xsd:float
+		functional
+	]
+}

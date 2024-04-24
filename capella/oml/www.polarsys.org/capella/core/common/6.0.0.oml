@@ -1,0 +1,431 @@
+vocabulary <http://www.polarsys.org/capella/core/common/6.0.0#> as core.data.capellacommon {
+
+	extends <http://www.polarsys.org/capella/core/core/6.0.0#> as core.data.capellacore
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.polarsys.org/capella/common/core/6.0.0#> as common.data.core
+
+	extends <http://www.polarsys.org/capella/core/la/6.0.0#> as core.data.la
+
+	extends <http://www.polarsys.org/capella/common/behavior/6.0.0#> as common.data.behavior
+
+	extends <http://www.polarsys.org/capella/core/fa/6.0.0#> as core.data.fa
+
+	extends <http://www.polarsys.org/capella/core/interaction/6.0.0#> as core.data.interaction
+
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	@rdfs:label "AbstractCapabilityPkg"
+	aspect AbstractCapabilityPkg < core.data.capellacore:Structure
+
+	@rdfs:label "GenericTrace"
+	concept GenericTrace < core.data.capellacore:Trace [
+		restricts GenericTrace_source to exactly 1
+		restricts GenericTrace_target to exactly 1
+	]
+
+	@rdfs:label "keyValuePairs"
+	relation GenericTrace_keyValuePairs [
+		from GenericTrace
+		to core.data.capellacore:KeyValue
+	]
+
+	@rdfs:label "source"
+	relation GenericTrace_source [
+		from GenericTrace
+		to common.data.core:TraceableElement
+		functional
+	]
+
+	@rdfs:label "target"
+	relation GenericTrace_target [
+		from GenericTrace
+		to common.data.core:TraceableElement
+		functional
+	]
+
+	@rdfs:label "TransfoLink"
+	concept TransfoLink < GenericTrace
+
+	@rdfs:label "JustificationLink"
+	concept JustificationLink < GenericTrace
+
+	@rdfs:label "CapabilityRealizationInvolvement"
+	concept CapabilityRealizationInvolvement < core.data.capellacore:Involvement [
+		restricts CapabilityRealizationInvolvement_involvedCapabilityRealizationInvolvedElement to exactly 1
+	]
+
+	@rdfs:label "involvedCapabilityRealizationInvolvedElement"
+	relation CapabilityRealizationInvolvement_involvedCapabilityRealizationInvolvedElement [
+		from CapabilityRealizationInvolvement
+		to CapabilityRealizationInvolvedElement
+		functional
+	]
+
+	@rdfs:label "CapabilityRealizationInvolvedElement"
+	aspect CapabilityRealizationInvolvedElement < core.data.capellacore:InvolvedElement
+
+	@rdfs:label "capabilityRealizationInvolvements"
+	relation CapabilityRealizationInvolvedElement_capabilityRealizationInvolvements [
+		from CapabilityRealizationInvolvedElement
+		to CapabilityRealizationInvolvement
+	]
+
+	@rdfs:label "involvingCapabilityRealizations"
+	relation CapabilityRealizationInvolvedElement_involvingCapabilityRealizations [
+		from CapabilityRealizationInvolvedElement
+		to core.data.la:CapabilityRealization
+	]
+
+	@rdfs:label "StateMachine"
+	concept StateMachine < core.data.capellacore:CapellaElement, common.data.behavior:AbstractBehavior
+
+	@rdfs:label "ownedRegions"
+	relation StateMachine_ownedRegions [
+		from StateMachine
+		to Region
+	]
+
+	@rdfs:label "ownedConnectionPoints"
+	relation StateMachine_ownedConnectionPoints [
+		from StateMachine
+		to Pseudostate
+	]
+
+	@rdfs:label "Region"
+	concept Region < core.data.capellacore:NamedElement
+
+	@rdfs:label "ownedStates"
+	relation Region_ownedStates [
+		from Region
+		to AbstractState
+	]
+
+	@rdfs:label "ownedTransitions"
+	relation Region_ownedTransitions [
+		from Region
+		to StateTransition
+	]
+
+	@rdfs:label "involvedStates"
+	relation Region_involvedStates [
+		from Region
+		to AbstractState
+	]
+
+	@rdfs:label "State"
+	concept State < AbstractState
+
+	@rdfs:label "ownedRegions"
+	relation State_ownedRegions [
+		from State
+		to Region
+	]
+
+	@rdfs:label "ownedConnectionPoints"
+	relation State_ownedConnectionPoints [
+		from State
+		to Pseudostate
+	]
+
+	@rdfs:label "availableAbstractFunctions"
+	relation State_availableAbstractFunctions [
+		from State
+		to core.data.fa:AbstractFunction
+	]
+
+	@rdfs:label "availableFunctionalChains"
+	relation State_availableFunctionalChains [
+		from State
+		to core.data.fa:FunctionalChain
+	]
+
+	@rdfs:label "availableAbstractCapabilities"
+	relation State_availableAbstractCapabilities [
+		from State
+		to core.data.interaction:AbstractCapability
+	]
+
+	@rdfs:label "entry"
+	relation State_entry [
+		from State
+		to common.data.behavior:AbstractEvent
+	]
+
+	@rdfs:label "doActivity"
+	relation State_doActivity [
+		from State
+		to common.data.behavior:AbstractEvent
+	]
+
+	@rdfs:label "exit"
+	relation State_exit [
+		from State
+		to common.data.behavior:AbstractEvent
+	]
+
+	@rdfs:label "stateInvariant"
+	relation State_stateInvariant [
+		from State
+		to common.data.core:AbstractConstraint
+		functional
+	]
+
+	@rdfs:label "Mode"
+	concept Mode < State
+
+	@rdfs:label "FinalState"
+	concept FinalState < State
+
+	@rdfs:label "AbstractState"
+	aspect AbstractState < core.data.capellacore:NamedElement, common.data.core:IState
+
+	@rdfs:label "ownedAbstractStateRealizations"
+	relation AbstractState_ownedAbstractStateRealizations [
+		from AbstractState
+		to AbstractStateRealization
+	]
+
+	@rdfs:label "realizedAbstractStates"
+	relation AbstractState_realizedAbstractStates [
+		from AbstractState
+		to AbstractState
+	]
+
+	@rdfs:label "realizingAbstractStates"
+	relation AbstractState_realizingAbstractStates [
+		from AbstractState
+		to AbstractState
+	]
+
+	@rdfs:label "outgoing"
+	relation AbstractState_outgoing [
+		from AbstractState
+		to StateTransition
+	]
+
+	@rdfs:label "incoming"
+	relation AbstractState_incoming [
+		from AbstractState
+		to StateTransition
+	]
+
+	@rdfs:label "involverRegions"
+	relation AbstractState_involverRegions [
+		from AbstractState
+		to Region
+	]
+
+	@rdfs:label "StateTransition"
+	concept StateTransition < core.data.capellacore:NamedElement, core.data.capellacore:Relationship [
+		restricts StateTransition_source to exactly 1
+		restricts StateTransition_target to exactly 1
+	]
+
+	@rdfs:label "kind"
+	scalar property StateTransition_kind [
+		domain StateTransition
+		range TransitionKind
+		functional
+	]
+
+	@rdfs:label "triggerDescription"
+	scalar property StateTransition_triggerDescription [
+		domain StateTransition
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "guard"
+	relation StateTransition_guard [
+		from StateTransition
+		to core.data.capellacore:Constraint
+		functional
+	]
+
+	@rdfs:label "source"
+	relation StateTransition_source [
+		from StateTransition
+		to AbstractState
+		functional
+	]
+
+	@rdfs:label "target"
+	relation StateTransition_target [
+		from StateTransition
+		to AbstractState
+		functional
+	]
+
+	@rdfs:label "effect"
+	relation StateTransition_effect [
+		from StateTransition
+		to common.data.behavior:AbstractEvent
+	]
+
+	@rdfs:label "triggers"
+	relation StateTransition_triggers [
+		from StateTransition
+		to common.data.behavior:AbstractEvent
+	]
+
+	@rdfs:label "ownedStateTransitionRealizations"
+	relation StateTransition_ownedStateTransitionRealizations [
+		from StateTransition
+		to StateTransitionRealization
+	]
+
+	@rdfs:label "realizedStateTransitions"
+	relation StateTransition_realizedStateTransitions [
+		from StateTransition
+		to StateTransition
+	]
+
+	@rdfs:label "realizingStateTransitions"
+	relation StateTransition_realizingStateTransitions [
+		from StateTransition
+		to StateTransition
+	]
+
+	@rdfs:label "Pseudostate"
+	aspect Pseudostate < AbstractState
+
+	@rdfs:label "InitialPseudoState"
+	concept InitialPseudoState < Pseudostate
+
+	@rdfs:label "JoinPseudoState"
+	concept JoinPseudoState < Pseudostate
+
+	@rdfs:label "ForkPseudoState"
+	concept ForkPseudoState < Pseudostate
+
+	@rdfs:label "ChoicePseudoState"
+	concept ChoicePseudoState < Pseudostate
+
+	@rdfs:label "TerminatePseudoState"
+	concept TerminatePseudoState < Pseudostate
+
+	@rdfs:label "AbstractStateRealization"
+	concept AbstractStateRealization < core.data.capellacore:Allocation [
+		restricts AbstractStateRealization_realizedAbstractState to exactly 1
+		restricts AbstractStateRealization_realizingAbstractState to exactly 1
+	]
+
+	@rdfs:label "realizedAbstractState"
+	relation AbstractStateRealization_realizedAbstractState [
+		from AbstractStateRealization
+		to AbstractState
+		functional
+	]
+
+	@rdfs:label "realizingAbstractState"
+	relation AbstractStateRealization_realizingAbstractState [
+		from AbstractStateRealization
+		to AbstractState
+		functional
+	]
+
+	@rdfs:label "StateTransitionRealization"
+	concept StateTransitionRealization < core.data.capellacore:Allocation [
+		restricts StateTransitionRealization_realizedStateTransition to exactly 1
+		restricts StateTransitionRealization_realizingStateTransition to exactly 1
+	]
+
+	@rdfs:label "realizedStateTransition"
+	relation StateTransitionRealization_realizedStateTransition [
+		from StateTransitionRealization
+		to StateTransition
+		functional
+	]
+
+	@rdfs:label "realizingStateTransition"
+	relation StateTransitionRealization_realizingStateTransition [
+		from StateTransitionRealization
+		to StateTransition
+		functional
+	]
+
+	@rdfs:label "TransitionKind"
+	scalar TransitionKind [
+		oneOf "internal", "local", "external"
+	]
+
+	@rdfs:label "ShallowHistoryPseudoState"
+	concept ShallowHistoryPseudoState < Pseudostate
+
+	@rdfs:label "DeepHistoryPseudoState"
+	concept DeepHistoryPseudoState < Pseudostate
+
+	@rdfs:label "EntryPointPseudoState"
+	concept EntryPointPseudoState < Pseudostate
+
+	@rdfs:label "ExitPointPseudoState"
+	concept ExitPointPseudoState < Pseudostate
+
+	@rdfs:label "StateEventRealization"
+	concept StateEventRealization < core.data.capellacore:Allocation [
+		restricts StateEventRealization_realizedEvent to exactly 1
+		restricts StateEventRealization_realizingEvent to exactly 1
+	]
+
+	@rdfs:label "realizedEvent"
+	relation StateEventRealization_realizedEvent [
+		from StateEventRealization
+		to StateEvent
+		functional
+	]
+
+	@rdfs:label "realizingEvent"
+	relation StateEventRealization_realizingEvent [
+		from StateEventRealization
+		to StateEvent
+		functional
+	]
+
+	@rdfs:label "StateEvent"
+	aspect StateEvent < core.data.capellacore:NamedElement, common.data.behavior:AbstractEvent
+
+	@rdfs:label "expression"
+	relation StateEvent_expression [
+		from StateEvent
+		to core.data.capellacore:Constraint
+		functional
+	]
+
+	@rdfs:label "ownedStateEventRealizations"
+	relation StateEvent_ownedStateEventRealizations [
+		from StateEvent
+		to StateEventRealization
+	]
+
+	@rdfs:label "ChangeEvent"
+	concept ChangeEvent < StateEvent
+
+	@rdfs:label "kind"
+	scalar property ChangeEvent_kind [
+		domain ChangeEvent
+		range ChangeEventKind
+		functional
+	]
+
+	@rdfs:label "TimeEvent"
+	concept TimeEvent < StateEvent
+
+	@rdfs:label "kind"
+	scalar property TimeEvent_kind [
+		domain TimeEvent
+		range TimeEventKind
+		functional
+	]
+
+	@rdfs:label "TimeEventKind"
+	scalar TimeEventKind [
+		oneOf "AT", "AFTER"
+	]
+
+	@rdfs:label "ChangeEventKind"
+	scalar ChangeEventKind [
+		oneOf "WHEN"
+	]
+}

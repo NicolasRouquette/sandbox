@@ -1,0 +1,539 @@
+vocabulary <http://www.polarsys.org/capella/core/core/6.0.0#> as core.data.capellacore {
+
+	extends <http://www.polarsys.org/capella/common/core/6.0.0#> as common.data.core
+
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	extends <http://www.polarsys.org/capella/core/requirement/6.0.0#> as core.data.requirement
+
+	extends <http://www.polarsys.org/capella/core/common/6.0.0#> as core.data.capellacommon
+
+	extends <http://www.polarsys.org/capella/core/information/6.0.0#> as core.data.information
+
+	@rdfs:label "CapellaElement"
+	aspect CapellaElement < common.data.core:TraceableElement, common.data.core:PublishableElement
+
+	@rdfs:label "summary"
+	scalar property CapellaElement_summary [
+		domain CapellaElement
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "description"
+	scalar property CapellaElement_description [
+		domain CapellaElement
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "review"
+	scalar property CapellaElement_review [
+		domain CapellaElement
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "ownedPropertyValues"
+	relation CapellaElement_ownedPropertyValues [
+		from CapellaElement
+		to AbstractPropertyValue
+	]
+
+	@rdfs:label "ownedEnumerationPropertyTypes"
+	relation CapellaElement_ownedEnumerationPropertyTypes [
+		from CapellaElement
+		to EnumerationPropertyType
+	]
+
+	@rdfs:label "appliedPropertyValues"
+	relation CapellaElement_appliedPropertyValues [
+		from CapellaElement
+		to AbstractPropertyValue
+	]
+
+	@rdfs:label "ownedPropertyValueGroups"
+	relation CapellaElement_ownedPropertyValueGroups [
+		from CapellaElement
+		to PropertyValueGroup
+	]
+
+	@rdfs:label "appliedPropertyValueGroups"
+	relation CapellaElement_appliedPropertyValueGroups [
+		from CapellaElement
+		to PropertyValueGroup
+	]
+
+	@rdfs:label "status"
+	relation CapellaElement_status [
+		from CapellaElement
+		to EnumerationPropertyLiteral
+		functional
+	]
+
+	@rdfs:label "features"
+	relation CapellaElement_features [
+		from CapellaElement
+		to EnumerationPropertyLiteral
+	]
+
+	@rdfs:label "appliedRequirements"
+	relation CapellaElement_appliedRequirements [
+		from CapellaElement
+		to core.data.requirement:Requirement
+	]
+
+	@rdfs:label "NamedElement"
+	aspect NamedElement < common.data.core:AbstractNamedElement, CapellaElement
+
+	@rdfs:label "Relationship"
+	aspect Relationship < common.data.core:AbstractRelationship, CapellaElement
+
+	@rdfs:label "Namespace"
+	aspect Namespace < NamedElement
+
+	@rdfs:label "ownedTraces"
+	relation Namespace_ownedTraces [
+		from Namespace
+		to Trace
+	]
+
+	@rdfs:label "containedGenericTraces"
+	relation Namespace_containedGenericTraces [
+		from Namespace
+		to core.data.capellacommon:GenericTrace
+	]
+
+	@rdfs:label "containedRequirementsTraces"
+	relation Namespace_containedRequirementsTraces [
+		from Namespace
+		to core.data.requirement:RequirementsTrace
+	]
+
+	@rdfs:label "namingRules"
+	relation Namespace_namingRules [
+		from Namespace
+		to NamingRule
+	]
+
+	@rdfs:label "NamedRelationship"
+	aspect NamedRelationship < Relationship, NamedElement
+
+	@rdfs:label "namingRules"
+	relation NamedRelationship_namingRules [
+		from NamedRelationship
+		to NamingRule
+	]
+
+	@rdfs:label "Structure"
+	aspect Structure < Namespace
+
+	@rdfs:label "ownedPropertyValuePkgs"
+	relation Structure_ownedPropertyValuePkgs [
+		from Structure
+		to PropertyValuePkg
+	]
+
+	@rdfs:label "AbstractModellingStructure"
+	aspect AbstractModellingStructure < ReuserStructure
+
+	@rdfs:label "ownedArchitectures"
+	relation AbstractModellingStructure_ownedArchitectures [
+		from AbstractModellingStructure
+		to ModellingArchitecture
+	]
+
+	@rdfs:label "ownedArchitecturePkgs"
+	relation AbstractModellingStructure_ownedArchitecturePkgs [
+		from AbstractModellingStructure
+		to ModellingArchitecturePkg
+	]
+
+	@rdfs:label "ModellingBlock"
+	aspect ModellingBlock < Type
+
+	@rdfs:label "ModellingArchitecture"
+	aspect ModellingArchitecture < Structure
+
+	@rdfs:label "ModellingArchitecturePkg"
+	aspect ModellingArchitecturePkg < Structure
+
+	@rdfs:label "Type"
+	aspect Type < common.data.core:AbstractType, Namespace
+
+	@rdfs:label "typedElements"
+	relation Type_typedElements [
+		from Type
+		to TypedElement
+	]
+
+	@rdfs:label "TypedElement"
+	aspect TypedElement < common.data.core:AbstractTypedElement, NamedElement
+
+	@rdfs:label "type"
+	relation TypedElement_type [
+		from TypedElement
+		to Type
+		functional
+	]
+
+	@rdfs:label "Trace"
+	aspect Trace < Relationship, common.data.core:AbstractTrace
+
+	@rdfs:label "AbstractAnnotation"
+	aspect AbstractAnnotation < CapellaElement
+
+	@rdfs:label "content"
+	scalar property AbstractAnnotation_content [
+		domain AbstractAnnotation
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "NamingRule"
+	concept NamingRule < AbstractAnnotation
+
+	@rdfs:label "targetType"
+	scalar property NamingRule_targetType [
+		domain NamingRule
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "Constraint"
+	concept Constraint < NamedElement, common.data.core:AbstractConstraint
+
+	@rdfs:label "KeyValue"
+	concept KeyValue < CapellaElement
+
+	@rdfs:label "key"
+	scalar property KeyValue_key [
+		domain KeyValue
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "value"
+	scalar property KeyValue_value [
+		domain KeyValue
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "ReuseLink"
+	concept ReuseLink < Relationship [
+		restricts ReuseLink_reused to exactly 1
+		restricts ReuseLink_reuser to exactly 1
+	]
+
+	@rdfs:label "reused"
+	relation ReuseLink_reused [
+		from ReuseLink
+		to ReuseableStructure
+		functional
+	]
+
+	@rdfs:label "reuser"
+	relation ReuseLink_reuser [
+		from ReuseLink
+		to ReuserStructure
+		functional
+	]
+
+	@rdfs:label "ReuseableStructure"
+	aspect ReuseableStructure < Structure
+
+	@rdfs:label "reuseLinks"
+	relation ReuseableStructure_reuseLinks [
+		from ReuseableStructure
+		to ReuseLink
+	]
+
+	@rdfs:label "ReuserStructure"
+	aspect ReuserStructure < Structure
+
+	@rdfs:label "reuseLinks"
+	relation ReuserStructure_reuseLinks [
+		from ReuserStructure
+		to ReuseLink
+	]
+
+	@rdfs:label "ownedReuseLinks"
+	relation ReuserStructure_ownedReuseLinks [
+		from ReuserStructure
+		to ReuseLink
+	]
+
+	@rdfs:label "GeneralizableElement"
+	aspect GeneralizableElement < Type
+
+	@rdfs:label "abstract"
+	scalar property GeneralizableElement_abstract [
+		domain GeneralizableElement
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "ownedGeneralizations"
+	relation GeneralizableElement_ownedGeneralizations [
+		from GeneralizableElement
+		to Generalization
+	]
+
+	@rdfs:label "superGeneralizations"
+	relation GeneralizableElement_superGeneralizations [
+		from GeneralizableElement
+		to Generalization
+	]
+
+	@rdfs:label "subGeneralizations"
+	relation GeneralizableElement_subGeneralizations [
+		from GeneralizableElement
+		to Generalization
+	]
+
+	@rdfs:label "super"
+	relation GeneralizableElement_super [
+		from GeneralizableElement
+		to GeneralizableElement
+		@rdfs:label "sub"
+		reverse GeneralizableElement_sub
+	]
+
+	@rdfs:label "Classifier"
+	aspect Classifier < GeneralizableElement
+
+	@rdfs:label "ownedFeatures"
+	relation Classifier_ownedFeatures [
+		from Classifier
+		to Feature
+	]
+
+	@rdfs:label "containedProperties"
+	relation Classifier_containedProperties [
+		from Classifier
+		to core.data.information:Property
+	]
+
+	@rdfs:label "GeneralClass"
+	aspect GeneralClass < Classifier, common.data.core:FinalizableElement
+
+	@rdfs:label "visibility"
+	scalar property GeneralClass_visibility [
+		domain GeneralClass
+		range VisibilityKind
+		functional
+	]
+
+	@rdfs:label "containedOperations"
+	relation GeneralClass_containedOperations [
+		from GeneralClass
+		to core.data.information:Operation
+	]
+
+	@rdfs:label "nestedGeneralClasses"
+	relation GeneralClass_nestedGeneralClasses [
+		from GeneralClass
+		to GeneralClass
+	]
+
+	@rdfs:label "Generalization"
+	concept Generalization < Relationship [
+		restricts Generalization_super to exactly 1
+		restricts Generalization_sub to exactly 1
+	]
+
+	@rdfs:label "super"
+	relation Generalization_super [
+		from Generalization
+		to GeneralizableElement
+		functional
+	]
+
+	@rdfs:label "sub"
+	relation Generalization_sub [
+		from Generalization
+		to GeneralizableElement
+		functional
+	]
+
+	@rdfs:label "Feature"
+	aspect Feature < NamedElement
+
+	@rdfs:label "isAbstract"
+	scalar property Feature_isAbstract [
+		domain Feature
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "isStatic"
+	scalar property Feature_isStatic [
+		domain Feature
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "visibility"
+	scalar property Feature_visibility [
+		domain Feature
+		range VisibilityKind
+		functional
+	]
+
+	@rdfs:label "AbstractExchangeItemPkg"
+	aspect AbstractExchangeItemPkg < Structure
+
+	@rdfs:label "ownedExchangeItems"
+	relation AbstractExchangeItemPkg_ownedExchangeItems [
+		from AbstractExchangeItemPkg
+		to core.data.information:ExchangeItem
+	]
+
+	@rdfs:label "Allocation"
+	aspect Allocation < Relationship, common.data.core:AbstractTrace
+
+	@rdfs:label "Involvement"
+	aspect Involvement < Relationship [
+		restricts Involvement_involver to exactly 1
+		restricts Involvement_involved to exactly 1
+	]
+
+	@rdfs:label "involver"
+	relation Involvement_involver [
+		from Involvement
+		to InvolverElement
+		functional
+	]
+
+	@rdfs:label "involved"
+	relation Involvement_involved [
+		from Involvement
+		to InvolvedElement
+		functional
+	]
+
+	@rdfs:label "InvolverElement"
+	aspect InvolverElement < CapellaElement
+
+	@rdfs:label "involvedInvolvements"
+	relation InvolverElement_involvedInvolvements [
+		from InvolverElement
+		to Involvement
+	]
+
+	@rdfs:label "InvolvedElement"
+	aspect InvolvedElement < CapellaElement
+
+	@rdfs:label "involvingInvolvements"
+	relation InvolvedElement_involvingInvolvements [
+		from InvolvedElement
+		to Involvement
+	]
+
+	@rdfs:label "AbstractPropertyValue"
+	aspect AbstractPropertyValue < NamedElement
+
+	@rdfs:label "involvedElements"
+	relation AbstractPropertyValue_involvedElements [
+		from AbstractPropertyValue
+		to CapellaElement
+	]
+
+	@rdfs:label "valuedElements"
+	relation AbstractPropertyValue_valuedElements [
+		from AbstractPropertyValue
+		to CapellaElement
+	]
+
+	@rdfs:label "StringPropertyValue"
+	concept StringPropertyValue < AbstractPropertyValue
+
+	@rdfs:label "value"
+	scalar property StringPropertyValue_value [
+		domain StringPropertyValue
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "IntegerPropertyValue"
+	concept IntegerPropertyValue < AbstractPropertyValue
+
+	@rdfs:label "value"
+	scalar property IntegerPropertyValue_value [
+		domain IntegerPropertyValue
+		range xsd:int
+		functional
+	]
+
+	@rdfs:label "BooleanPropertyValue"
+	concept BooleanPropertyValue < AbstractPropertyValue
+
+	@rdfs:label "value"
+	scalar property BooleanPropertyValue_value [
+		domain BooleanPropertyValue
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "FloatPropertyValue"
+	concept FloatPropertyValue < AbstractPropertyValue
+
+	@rdfs:label "value"
+	scalar property FloatPropertyValue_value [
+		domain FloatPropertyValue
+		range xsd:float
+		functional
+	]
+
+	@rdfs:label "EnumerationPropertyValue"
+	concept EnumerationPropertyValue < AbstractPropertyValue
+
+	@rdfs:label "type"
+	relation EnumerationPropertyValue_type [
+		from EnumerationPropertyValue
+		to EnumerationPropertyType
+		functional
+	]
+
+	@rdfs:label "value"
+	relation EnumerationPropertyValue_value [
+		from EnumerationPropertyValue
+		to EnumerationPropertyLiteral
+		functional
+	]
+
+	@rdfs:label "EnumerationPropertyType"
+	concept EnumerationPropertyType < NamedElement
+
+	@rdfs:label "ownedLiterals"
+	relation EnumerationPropertyType_ownedLiterals [
+		from EnumerationPropertyType
+		to EnumerationPropertyLiteral
+	]
+
+	@rdfs:label "EnumerationPropertyLiteral"
+	concept EnumerationPropertyLiteral < NamedElement
+
+	@rdfs:label "PropertyValueGroup"
+	concept PropertyValueGroup < Namespace
+
+	@rdfs:label "valuedElements"
+	relation PropertyValueGroup_valuedElements [
+		from PropertyValueGroup
+		to CapellaElement
+	]
+
+	@rdfs:label "PropertyValuePkg"
+	concept PropertyValuePkg < Structure
+
+	@rdfs:label "AbstractDependenciesPkg"
+	aspect AbstractDependenciesPkg < Structure
+
+	@rdfs:label "VisibilityKind"
+	scalar VisibilityKind [
+		oneOf "UNSET", "PUBLIC", "PROTECTED", "PRIVATE", "PACKAGE"
+	]
+}
