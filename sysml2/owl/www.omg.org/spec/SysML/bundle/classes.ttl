@@ -1,0 +1,1940 @@
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.omg.org/spec/SysML/20230201#ReferenceSubsetting_referencingFeature>
+        rdf:type  owl:InverseFunctionalProperty , owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Step>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Step> .
+
+<https://www.omg.org/spec/SysML/20230201#Element_isImpliedIncluded>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Membership_membershipOwningNamespace>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedCalculation>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ForkNode>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#ControlNode> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#ActionUsage> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#ForkNode> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Step> .
+
+<https://www.omg.org/spec/SysML/20230201#Type_isAbstract>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Unioning_typeUnioned>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Subclassification>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Specialization> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Subclassification> .
+
+<https://www.omg.org/spec/SysML/20230201#ReturnParameterMembership>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#FeatureMembership> , <https://www.omg.org/spec/SysML/20230201#ParameterMembership> , <https://www.omg.org/spec/SysML/20230201#OwningMembership> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Membership> , <https://www.omg.org/spec/SysML/20230201#Featuring> , <https://www.omg.org/spec/SysML/20230201#ReturnParameterMembership> , <https://www.omg.org/spec/SysML/20230201#Relationship> .
+
+<https://www.omg.org/spec/SysML/20230201#ConjugatedPortDefinition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition> , <https://www.omg.org/spec/SysML/20230201#Definition> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#PortDefinition> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#ConjugatedPortDefinition> , <https://www.omg.org/spec/SysML/20230201#Structure> .
+
+<https://www.omg.org/spec/SysML/20230201#CaseUsage_subjectParameter>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#AnalysisCaseUsage_resultExpression>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ObjectiveMembership>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Membership> , <https://www.omg.org/spec/SysML/20230201#OwningMembership> , <https://www.omg.org/spec/SysML/20230201#FeatureMembership> , <https://www.omg.org/spec/SysML/20230201#Featuring> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#ObjectiveMembership> .
+
+<https://www.omg.org/spec/SysML/20230201#Import_isRecursive>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#FeatureTyping_type>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#BindingConnectorAsUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#ConnectorAsUsage> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#BindingConnector> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#BindingConnectorAsUsage> , <https://www.omg.org/spec/SysML/20230201#Connector> .
+
+<https://www.omg.org/spec/SysML/20230201#Import_isImportAll>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#FeatureTyping>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Specialization> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#FeatureTyping> .
+
+<https://www.omg.org/spec/SysML/20230201#PartUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#ItemUsage> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#PartUsage> .
+
+<https://www.omg.org/spec/SysML/20230201#StakeholderMembership>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#FeatureMembership> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Membership> , <https://www.omg.org/spec/SysML/20230201#Featuring> , <https://www.omg.org/spec/SysML/20230201#OwningMembership> , <https://www.omg.org/spec/SysML/20230201#StakeholderMembership> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#ParameterMembership> .
+
+<https://www.omg.org/spec/SysML/20230201#FeatureInverting>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#FeatureInverting> .
+
+<https://www.omg.org/spec/SysML/20230201#Metaclass>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Structure> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Metaclass> .
+
+<https://www.omg.org/spec/SysML/20230201#PortDefinition_conjugatedPortDefinition>
+        rdf:type  owl:InverseFunctionalProperty , owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ViewRenderingMembership_referencedRendering>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ViewRenderingMembership_ownedRendering>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ControlNode>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#ControlNode> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#ActionUsage> .
+
+<https://www.omg.org/spec/SysML/20230201#Differencing_typeDifferenced>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#AnalysisCaseDefinition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#ActionDefinition> , <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Definition> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#AnalysisCaseDefinition> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#Function> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Behavior> , <https://www.omg.org/spec/SysML/20230201#CalculationDefinition> , <https://www.omg.org/spec/SysML/20230201#CaseDefinition> , <https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition> .
+
+<https://www.omg.org/spec/SysML/20230201#ConnectorAsUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#ConnectorAsUsage> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Connector> , <https://www.omg.org/spec/SysML/20230201#Type> .
+
+<https://www.omg.org/spec/SysML/20230201#OwningMembership_ownedMemberElementId>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ConjugatedPortDefinition_ownedPortConjugator>
+        rdf:type  owl:InverseFunctionalProperty , owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#EndFeatureMembership>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Membership> , <https://www.omg.org/spec/SysML/20230201#OwningMembership> , <https://www.omg.org/spec/SysML/20230201#FeatureMembership> , <https://www.omg.org/spec/SysML/20230201#Featuring> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#EndFeatureMembership> .
+
+<https://www.omg.org/spec/SysML/20230201#Expose>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Import> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Expose> .
+
+<https://www.omg.org/spec/SysML/20230201#Feature_ownedFeatureChaining>
+        rdf:type  owl:InverseFunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Step_behavior>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Type_ownedFeatureMembership>
+        rdf:type  owl:InverseFunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_directedUsage>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Connector_association>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Namespace_ownedMember>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Namespace>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Namespace> .
+
+<https://www.omg.org/spec/SysML/20230201#UseCaseUsage_useCaseDefinition>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ViewpointDefinition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#ConstraintDefinition> , <https://www.omg.org/spec/SysML/20230201#Predicate> , <https://www.omg.org/spec/SysML/20230201#Function> , <https://www.omg.org/spec/SysML/20230201#ViewpointDefinition> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Definition> , <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#RequirementDefinition> , <https://www.omg.org/spec/SysML/20230201#Behavior> .
+
+<https://www.omg.org/spec/SysML/20230201#BindingConnector>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Connector> , <https://www.omg.org/spec/SysML/20230201#BindingConnector> .
+
+<https://www.omg.org/spec/SysML/20230201#LiteralBoolean>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Expression> , <https://www.omg.org/spec/SysML/20230201#LiteralBoolean> , <https://www.omg.org/spec/SysML/20230201#LiteralExpression> .
+
+<https://www.omg.org/spec/SysML/20230201#MetadataFeature>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#AnnotatingElement> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#MetadataFeature> .
+
+<https://www.omg.org/spec/SysML/20230201#FlowConnectionUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#ItemUsage> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Connector> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#ConnectionUsage> , <https://www.omg.org/spec/SysML/20230201#ItemFlow> , <https://www.omg.org/spec/SysML/20230201#PartUsage> , <https://www.omg.org/spec/SysML/20230201#ActionUsage> , <https://www.omg.org/spec/SysML/20230201#FlowConnectionUsage> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#ConnectorAsUsage> .
+
+<https://www.omg.org/spec/SysML/20230201#AttributeDefinition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#DataType> , <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Definition> , <https://www.omg.org/spec/SysML/20230201#AttributeDefinition> .
+
+<https://www.omg.org/spec/SysML/20230201#OwningMembership_ownedMemberName>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedUseCase>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedPart>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ConnectionDefinition_connectionEnd>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedAction>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ActorMembership>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#OwningMembership> , <https://www.omg.org/spec/SysML/20230201#Membership> , <https://www.omg.org/spec/SysML/20230201#ActorMembership> , <https://www.omg.org/spec/SysML/20230201#ParameterMembership> , <https://www.omg.org/spec/SysML/20230201#FeatureMembership> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Featuring> .
+
+<https://www.omg.org/spec/SysML/20230201#VariantMembership>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Membership> , <https://www.omg.org/spec/SysML/20230201#OwningMembership> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#VariantMembership> .
+
+<https://www.omg.org/spec/SysML/20230201#Element_owningNamespace>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#RequirementDefinition_assumedConstraint>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Type_featureMembership>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Relationship_target>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Unioning>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Unioning> .
+
+<https://www.omg.org/spec/SysML/20230201#WhileLoopActionUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#LoopActionUsage> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#WhileLoopActionUsage> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#ActionUsage> , <https://www.omg.org/spec/SysML/20230201#Type> .
+
+<https://www.omg.org/spec/SysML/20230201#Feature_ownedRedefinition>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedEnumeration>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#RequirementUsage_actorParameter>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#LiteralRational>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#LiteralRational> , <https://www.omg.org/spec/SysML/20230201#LiteralExpression> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Expression> .
+
+<https://www.omg.org/spec/SysML/20230201#PartDefinition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#PartDefinition> , <https://www.omg.org/spec/SysML/20230201#Structure> , <https://www.omg.org/spec/SysML/20230201#Definition> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#ItemDefinition> , <https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition> .
+
+<https://www.omg.org/spec/SysML/20230201#AnalysisCaseUsage_analysisAction>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Type_multiplicity>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Element_isLibraryElement>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Classifier_ownedSubclassification>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Type_isConjugated>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#AssociationStructure>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Structure> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Association> , <https://www.omg.org/spec/SysML/20230201#AssociationStructure> , <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Type> .
+
+<https://www.omg.org/spec/SysML/20230201#Structure>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Structure> .
+
+<https://www.omg.org/spec/SysML/20230201#OwningMembership_ownedMemberShortName>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedItem>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Feature_isOrdered>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#FeatureMembership_ownedMemberFeature>
+        rdf:type  owl:InverseFunctionalProperty , owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#PerformActionUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#EventOccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#PerformActionUsage> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#ActionUsage> , <https://www.omg.org/spec/SysML/20230201#Step> .
+
+<https://www.omg.org/spec/SysML/20230201#Connector>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Connector> .
+
+<https://www.omg.org/spec/SysML/20230201#ViewDefinition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Structure> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#PartDefinition> , <https://www.omg.org/spec/SysML/20230201#ViewDefinition> , <https://www.omg.org/spec/SysML/20230201#ItemDefinition> , <https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Definition> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Element> .
+
+<https://www.omg.org/spec/SysML/20230201#OwningMembership>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Membership> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#OwningMembership> .
+
+<https://www.omg.org/spec/SysML/20230201#Behavior_step>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#TextualRepresentation_language>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#RequirementDefinition_framedConcern>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#OccurrenceUsage_portionKind>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#SubjectMembership>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#ParameterMembership> , <https://www.omg.org/spec/SysML/20230201#SubjectMembership> , <https://www.omg.org/spec/SysML/20230201#Membership> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#OwningMembership> , <https://www.omg.org/spec/SysML/20230201#FeatureMembership> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Featuring> .
+
+<https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#ConnectionUsage> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#ItemUsage> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#ConnectorAsUsage> , <https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage> , <https://www.omg.org/spec/SysML/20230201#ActionUsage> , <https://www.omg.org/spec/SysML/20230201#ItemFlow> , <https://www.omg.org/spec/SysML/20230201#FlowConnectionUsage> , <https://www.omg.org/spec/SysML/20230201#Succession> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Connector> , <https://www.omg.org/spec/SysML/20230201#SuccessionItemFlow> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#PartUsage> , <https://www.omg.org/spec/SysML/20230201#Relationship> .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedRendering>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Namespace_ownedMembership>
+        rdf:type  owl:InverseFunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#NamespaceImport_importedNamespace>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ItemUsage_itemDefinition>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Import_visibility>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_variantMembership>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#StateUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#ActionUsage> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#StateUsage> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Step> .
+
+<https://www.omg.org/spec/SysML/20230201#VariantMembership_ownedVariantUsage>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ViewUsage_viewCondition>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#AllocationUsage_allocationDefinition>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Type_endFeature>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedInterface>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#TransitionUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#ActionUsage> , <https://www.omg.org/spec/SysML/20230201#TransitionUsage> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Usage> .
+
+<https://www.omg.org/spec/SysML/20230201#Redefinition_redefinedFeature>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ConjugatedPortTyping>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#FeatureTyping> , <https://www.omg.org/spec/SysML/20230201#Specialization> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#ConjugatedPortTyping> .
+
+<https://www.omg.org/spec/SysML/20230201#PortUsage_portDefinition>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedVerificationCase>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Element_owningMembership>
+        rdf:type  owl:InverseFunctionalProperty , owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#InvocationExpression>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Expression> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#InvocationExpression> .
+
+<https://www.omg.org/spec/SysML/20230201#SatisfyRequirementUsage_satisfyingFeature>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Expression_function>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Feature_chainingFeature>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_definition>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedAttribute>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#TransitionFeatureMembership_kind>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#FeatureValue_value>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ParameterMembership_ownedMemberParameter>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition_lifeClass>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_usage>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#CaseDefinition_actorParameter>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#SendActionUsage_senderArgument>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Documentation_documentedElement>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#PortConjugation_conjugatedPortDefinition>
+        rdf:type  owl:InverseFunctionalProperty , owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ViewpointUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#RequirementUsage> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#ConstraintUsage> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Expression> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#ViewpointUsage> , <https://www.omg.org/spec/SysML/20230201#BooleanExpression> .
+
+owl:topObjectProperty
+        rdf:type  owl:SymmetricProperty , owl:TransitiveProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#TransitionFeatureMembership_transitionFeature>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#TypeFeaturing_featuringType>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Documentation>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Comment> , <https://www.omg.org/spec/SysML/20230201#AnnotatingElement> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Documentation> .
+
+<https://www.omg.org/spec/SysML/20230201#Predicate>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Predicate> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#Behavior> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Function> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> .
+
+<https://www.omg.org/spec/SysML/20230201#RequirementDefinition_text>
+        rdf:type  owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Expression_result>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Type_ownedIntersecting>
+        rdf:type  owl:InverseFunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#RequirementConstraintMembership_referencedConstraint>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Differencing>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Differencing> .
+
+<https://www.omg.org/spec/SysML/20230201#MultiplicityRange>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Multiplicity> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#MultiplicityRange> .
+
+<https://www.omg.org/spec/SysML/20230201#AcceptActionUsage_receiverArgument>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Subsetting_owningFeature>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ViewDefinition_view>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#AssignmentActionUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#AssignmentActionUsage> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#ActionUsage> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Namespace> .
+
+<https://www.omg.org/spec/SysML/20230201#Featuring_feature>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Type_differencingType>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Dependency_client>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#MembershipImport_importedMembership>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedCalculation>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#RequirementUsage_requirementDefinition>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Element_ownedElement>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#OwningMembership_ownedMemberElement>
+        rdf:type  owl:InverseFunctionalProperty , owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#NamespaceExpose>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#NamespaceImport> , <https://www.omg.org/spec/SysML/20230201#Expose> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Import> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#NamespaceExpose> .
+
+<https://www.omg.org/spec/SysML/20230201#Element_textualRepresentation>
+        rdf:type  owl:InverseFunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#TransitionFeatureMembership>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Membership> , <https://www.omg.org/spec/SysML/20230201#OwningMembership> , <https://www.omg.org/spec/SysML/20230201#FeatureMembership> , <https://www.omg.org/spec/SysML/20230201#Featuring> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#TransitionFeatureMembership> .
+
+<https://www.omg.org/spec/SysML/20230201#CaseUsage_actorParameter>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_variantMembership>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ConnectionUsage_connectionDefinition>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Type_ownedSpecialization>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Association_relatedType>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#AnnotatingElement_annotation>
+        rdf:type  owl:InverseFunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Type_ownedFeature>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#RequirementVerificationMembership_verifiedRequirement>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ReferenceSubsetting_referencedFeature>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#AnnotatingElement>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#AnnotatingElement> .
+
+<https://www.omg.org/spec/SysML/20230201#MetadataFeature_metaclass>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#RenderingUsage_renderingDefinition>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#TransitionUsage_succession>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#CaseDefinition_objectiveRequirement>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#UseCaseUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#ActionUsage> , <https://www.omg.org/spec/SysML/20230201#UseCaseUsage> , <https://www.omg.org/spec/SysML/20230201#CaseUsage> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Expression> , <https://www.omg.org/spec/SysML/20230201#CalculationUsage> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Usage> .
+
+<https://www.omg.org/spec/SysML/20230201#AnalysisCaseDefinition_analysisAction>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Association>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Association> .
+
+<https://www.omg.org/spec/SysML/20230201#RequirementUsage_assumedConstraint>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Subsetting>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Specialization> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Subsetting> .
+
+<https://www.omg.org/spec/SysML/20230201#ConstraintUsage_constraintDefinition>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#FeatureInverting_featureInverted>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#LiteralInfinity>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Expression> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#LiteralExpression> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#LiteralInfinity> .
+
+<https://www.omg.org/spec/SysML/20230201#Conjugation_conjugatedType>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#RequirementDefinition_subjectParameter>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#AllocationDefinition_allocation>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#OperatorExpression_operand>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#LibraryPackage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Package> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#LibraryPackage> .
+
+<https://www.omg.org/spec/SysML/20230201#CaseDefinition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Function> , <https://www.omg.org/spec/SysML/20230201#CaseDefinition> , <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Definition> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition> , <https://www.omg.org/spec/SysML/20230201#CalculationDefinition> , <https://www.omg.org/spec/SysML/20230201#Behavior> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#ActionDefinition> .
+
+<https://www.omg.org/spec/SysML/bundle/classes>
+        rdf:type         owl:Ontology ;
+        rdfs:comment     "Generated by Owl Reason 2.6.0" ;
+        owl:imports      <https://www.omg.org/spec/SysML/bundle> ;
+        owl:versionInfo  "1693858786" .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_usage>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#RequirementDefinition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Function> , <https://www.omg.org/spec/SysML/20230201#Predicate> , <https://www.omg.org/spec/SysML/20230201#Behavior> , <https://www.omg.org/spec/SysML/20230201#Definition> , <https://www.omg.org/spec/SysML/20230201#RequirementDefinition> , <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#ConstraintDefinition> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition> , <https://www.omg.org/spec/SysML/20230201#Class> .
+
+<https://www.omg.org/spec/SysML/20230201#LiteralString_value>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Disjoining_owningType>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedConcern>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ViewpointUsage_viewpointStakeholder>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#StateUsage_stateDefinition>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#StateSubactionMembership>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Membership> , <https://www.omg.org/spec/SysML/20230201#OwningMembership> , <https://www.omg.org/spec/SysML/20230201#FeatureMembership> , <https://www.omg.org/spec/SysML/20230201#Featuring> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#StateSubactionMembership> .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedRendering>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Association_sourceType>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Subsetting_subsettedFeature>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#FeatureMembership>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Membership> , <https://www.omg.org/spec/SysML/20230201#OwningMembership> , <https://www.omg.org/spec/SysML/20230201#Featuring> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#FeatureMembership> .
+
+<https://www.omg.org/spec/SysML/20230201#StateDefinition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#StateDefinition> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#ActionDefinition> , <https://www.omg.org/spec/SysML/20230201#Behavior> , <https://www.omg.org/spec/SysML/20230201#Definition> .
+
+<https://www.omg.org/spec/SysML/20230201#Import_importOwningNamespace>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Subclassification_subclassifier>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#IfActionUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#IfActionUsage> , <https://www.omg.org/spec/SysML/20230201#ActionUsage> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Step> .
+
+<https://www.omg.org/spec/SysML/20230201#Type_ownedEndFeature>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Element_qualifiedName>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#LibraryPackage_isStandard>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ItemFeature>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#ItemFeature> .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedConstraint>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Succession_effectStep>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#LifeClass>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#LifeClass> .
+
+<https://www.omg.org/spec/SysML/20230201#ItemUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#ItemUsage> .
+
+<https://www.omg.org/spec/SysML/20230201#ElementFilterMembership_condition>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#AttributeUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#AttributeUsage> .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedItem>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#RequirementDefinition_stakeholderParameter>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#RequirementUsage_text>
+        rdf:type  owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedCase>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#CaseUsage_caseDefinition>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+owl:Thing  rdf:type  owl:Class .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedPort>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Relationship>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> .
+
+<https://www.omg.org/spec/SysML/20230201#TypeFeaturing_owningFeatureOfType>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Connector_targetFeature>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#SuccessionItemFlow>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Succession> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#SuccessionItemFlow> , <https://www.omg.org/spec/SysML/20230201#ItemFlow> , <https://www.omg.org/spec/SysML/20230201#Connector> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Relationship> .
+
+<https://www.omg.org/spec/SysML/20230201#AnalysisCaseUsage_analysisCaseDefinition>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#DecisionNode>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#ControlNode> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#ActionUsage> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#DecisionNode> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Feature> .
+
+<https://www.omg.org/spec/SysML/20230201#UseCaseUsage_includedUseCase>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#MetadataAccessExpression_referencedElement>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_variant>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Feature_direction>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedViewpoint>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedAttribute>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Definition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Definition> .
+
+<https://www.omg.org/spec/SysML/20230201#ViewDefinition_viewCondition>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Class>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Class> .
+
+<https://www.omg.org/spec/SysML/20230201#ViewUsage_exposedElement>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Type_inheritedMembership>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Annotation_annotatedElement>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Element>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> .
+
+<https://www.omg.org/spec/SysML/20230201#IfActionUsage_elseAction>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ViewUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#PartUsage> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#ViewUsage> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#ItemUsage> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> .
+
+<https://www.omg.org/spec/SysML/20230201#Type_intersectingType>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Invariant_isNegated>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#InterfaceDefinition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#PartDefinition> , <https://www.omg.org/spec/SysML/20230201#ItemDefinition> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition> , <https://www.omg.org/spec/SysML/20230201#Association> , <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#InterfaceDefinition> , <https://www.omg.org/spec/SysML/20230201#ConnectionDefinition> , <https://www.omg.org/spec/SysML/20230201#Structure> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Definition> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#AssociationStructure> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#Namespace> .
+
+<https://www.omg.org/spec/SysML/20230201#BooleanExpression>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Expression> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#BooleanExpression> .
+
+<https://www.omg.org/spec/SysML/20230201#LiteralInteger_value>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#NamespaceImport>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Import> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#NamespaceImport> .
+
+<https://www.omg.org/spec/SysML/20230201#StateSubactionMembership_kind>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Specialization_general>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#FeatureValue_featureWithValue>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#OccurrenceUsage_individualDefinition>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Behavior_parameter>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ConstraintDefinition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Function> , <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#Behavior> , <https://www.omg.org/spec/SysML/20230201#ConstraintDefinition> , <https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition> , <https://www.omg.org/spec/SysML/20230201#Definition> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Predicate> , <https://www.omg.org/spec/SysML/20230201#Type> .
+
+<https://www.omg.org/spec/SysML/20230201#Annotation_owningAnnotatedElement>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Type_output>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ViewDefinition_satisfiedViewpoint>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ViewpointDefinition_viewpointStakeholder>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#WhileLoopActionUsage_untilArgument>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_directedUsage>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#MultiplicityRange_bound>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Disjoining_disjoiningType>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#TextualRepresentation_body>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ExhibitStateUsage_exhibitedState>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#AllocationUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#ConnectorAsUsage> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Connector> , <https://www.omg.org/spec/SysML/20230201#AllocationUsage> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#PartUsage> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#ItemUsage> , <https://www.omg.org/spec/SysML/20230201#ConnectionUsage> .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedConnection>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ActionUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#ActionUsage> , <https://www.omg.org/spec/SysML/20230201#Feature> .
+
+<https://www.omg.org/spec/SysML/20230201#RequirementVerificationMembership>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Membership> , <https://www.omg.org/spec/SysML/20230201#RequirementVerificationMembership> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#FeatureMembership> , <https://www.omg.org/spec/SysML/20230201#RequirementConstraintMembership> , <https://www.omg.org/spec/SysML/20230201#Featuring> , <https://www.omg.org/spec/SysML/20230201#OwningMembership> .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedRequirement>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Feature_ownedTypeFeaturing>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Import>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Import> .
+
+<https://www.omg.org/spec/SysML/20230201#StateDefinition_doAction>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#RenderingUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#PartUsage> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#RenderingUsage> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#ItemUsage> .
+
+<https://www.omg.org/spec/SysML/20230201#Subsetting_subsettingFeature>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ItemFlow_sourceOutputFeature>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#WhileLoopActionUsage_whileArgument>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Step_parameter>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Feature_owningType>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Type_ownedDifferencing>
+        rdf:type  owl:InverseFunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Function_isModelLevelEvaluable>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Element_declaredShortName>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ItemDefinition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition> , <https://www.omg.org/spec/SysML/20230201#ItemDefinition> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#Definition> , <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Structure> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Type> .
+
+<https://www.omg.org/spec/SysML/20230201#FramedConcernMembership_referencedConcern>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedConstraint>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Association_associationEnd>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#InterfaceUsage_interfaceDefinition>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ResultExpressionMembership_ownedResultExpression>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Membership_memberName>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ReferenceSubsetting>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Specialization> , <https://www.omg.org/spec/SysML/20230201#Subsetting> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#ReferenceSubsetting> .
+
+<https://www.omg.org/spec/SysML/20230201#EnumerationUsage_enumerationDefinition>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#RequirementUsage_subjectParameter>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#PortConjugation>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Conjugation> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#PortConjugation> .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedView>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Type_ownedConjugator>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#LiteralBoolean_value>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#FeatureChainExpression_targetFeature>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#RequirementConstraintMembership>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Membership> , <https://www.omg.org/spec/SysML/20230201#OwningMembership> , <https://www.omg.org/spec/SysML/20230201#FeatureMembership> , <https://www.omg.org/spec/SysML/20230201#Featuring> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#RequirementConstraintMembership> .
+
+<https://www.omg.org/spec/SysML/20230201#AllocationDefinition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#ItemDefinition> , <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Definition> , <https://www.omg.org/spec/SysML/20230201#Association> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#AllocationDefinition> , <https://www.omg.org/spec/SysML/20230201#PartDefinition> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#AssociationStructure> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#ConnectionDefinition> , <https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition> , <https://www.omg.org/spec/SysML/20230201#Structure> .
+
+<https://www.omg.org/spec/SysML/20230201#Membership>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Membership> .
+
+<https://www.omg.org/spec/SysML/20230201#ActionDefinition_action>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ConcernDefinition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Definition> , <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Behavior> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Function> , <https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition> , <https://www.omg.org/spec/SysML/20230201#ConstraintDefinition> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#ConcernDefinition> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Predicate> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#RequirementDefinition> .
+
+<https://www.omg.org/spec/SysML/20230201#AssignmentActionUsage_referent>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#TriggerInvocationExpression_kind>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_isVariation>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#FeatureInverting_invertingFeature>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Unioning_unioningType>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedFlow>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Behavior> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Definition> , <https://www.omg.org/spec/SysML/20230201#PartDefinition> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#AssociationStructure> , <https://www.omg.org/spec/SysML/20230201#ItemDefinition> , <https://www.omg.org/spec/SysML/20230201#Structure> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#ConnectionDefinition> , <https://www.omg.org/spec/SysML/20230201#ActionDefinition> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Association> , <https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition> , <https://www.omg.org/spec/SysML/20230201#Interaction> .
+
+<https://www.omg.org/spec/SysML/20230201#MetadataUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#ItemUsage> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#MetadataFeature> , <https://www.omg.org/spec/SysML/20230201#MetadataUsage> , <https://www.omg.org/spec/SysML/20230201#AnnotatingElement> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Usage> .
+
+<https://www.omg.org/spec/SysML/20230201#RequirementUsage_stakeholderParameter>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedMetadata>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedAction>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ConjugatedPortTyping_portDefinition>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Succession_guardExpression>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#FeatureChaining_chainingFeature>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Feature_owningFeatureMembership>
+        rdf:type  owl:InverseFunctionalProperty , owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#StateUsage_isParallel>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#TypeFeaturing>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Featuring> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#TypeFeaturing> .
+
+<https://www.omg.org/spec/SysML/20230201#Behavior>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Behavior> .
+
+<https://www.omg.org/spec/SysML/20230201#OccurrenceUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> .
+
+<https://www.omg.org/spec/SysML/20230201#FeatureValue_isInitial>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Subclassification_owningClassifier>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_isReference>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedVerificationCase>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#InterfaceDefinition_interfaceEnd>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Connector_connectorEnd>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#FeatureChainExpression>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#FeatureChainExpression> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Expression> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#OperatorExpression> , <https://www.omg.org/spec/SysML/20230201#InvocationExpression> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Element> .
+
+<https://www.omg.org/spec/SysML/20230201#JoinNode>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#ControlNode> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#ActionUsage> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#JoinNode> .
+
+<https://www.omg.org/spec/SysML/20230201#RequirementUsage_framedConcern>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Type_input>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#MultiplicityRange_lowerBound>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ItemFlow_targetInputFeature>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ObjectiveMembership_ownedObjectiveRequirement>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#TransitionUsage_triggerAction>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#SatisfyRequirementUsage_satisfiedRequirement>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#RequirementDefinition_reqId>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Element_ownedAnnotation>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ItemFlow_itemFeature>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ActorMembership_ownedActorParameter>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#TransitionUsage_target>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#MetadataAccessExpression>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Expression> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#MetadataAccessExpression> .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedOccurrence>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#CalculationUsage_calculationDefinition>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#VerificationCaseUsage_verifiedRequirement>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedConnection>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#AnalysisCaseUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#ActionUsage> , <https://www.omg.org/spec/SysML/20230201#AnalysisCaseUsage> , <https://www.omg.org/spec/SysML/20230201#CaseUsage> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#CalculationUsage> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Expression> .
+
+<https://www.omg.org/spec/SysML/20230201#ItemFlowEnd>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#ItemFlowEnd> .
+
+<https://www.omg.org/spec/SysML/20230201#Feature_endOwningType>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Namespace_ownedImport>
+        rdf:type  owl:InverseFunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#PortUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#PortUsage> .
+
+<https://www.omg.org/spec/SysML/20230201#RequirementVerificationMembership_ownedRequirement>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Connector_relatedFeature>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#LoopActionUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#LoopActionUsage> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#ActionUsage> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Type> .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedEnumeration>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#CollectExpression>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#CollectExpression> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Expression> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#OperatorExpression> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#InvocationExpression> .
+
+<https://www.omg.org/spec/SysML/20230201#Intersecting_typeIntersected>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#TextualRepresentation>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#AnnotatingElement> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#TextualRepresentation> .
+
+<https://www.omg.org/spec/SysML/20230201#RequirementDefinition_actorParameter>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#CalculationDefinition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition> , <https://www.omg.org/spec/SysML/20230201#Definition> , <https://www.omg.org/spec/SysML/20230201#Behavior> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#ActionDefinition> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Function> , <https://www.omg.org/spec/SysML/20230201#CalculationDefinition> , <https://www.omg.org/spec/SysML/20230201#Classifier> .
+
+<https://www.omg.org/spec/SysML/20230201#AnalysisCaseDefinition_resultExpression>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#AssertConstraintUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#ConstraintUsage> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Expression> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Invariant> , <https://www.omg.org/spec/SysML/20230201#BooleanExpression> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#AssertConstraintUsage> .
+
+<https://www.omg.org/spec/SysML/20230201#ConnectionDefinition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#AssociationStructure> , <https://www.omg.org/spec/SysML/20230201#Association> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition> , <https://www.omg.org/spec/SysML/20230201#Structure> , <https://www.omg.org/spec/SysML/20230201#PartDefinition> , <https://www.omg.org/spec/SysML/20230201#Definition> , <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#ConnectionDefinition> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#ItemDefinition> .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedViewpoint>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Feature>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Feature> .
+
+<https://www.omg.org/spec/SysML/20230201#Specialization>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Specialization> .
+
+<https://www.omg.org/spec/SysML/20230201#ViewUsage_satisfiedViewpoint>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Membership_memberElementId>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#RequirementUsage_requiredConstraint>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#SuccessionAsUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Connector> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#ConnectorAsUsage> , <https://www.omg.org/spec/SysML/20230201#Succession> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#SuccessionAsUsage> .
+
+<https://www.omg.org/spec/SysML/20230201#Interaction>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Association> , <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#Interaction> , <https://www.omg.org/spec/SysML/20230201#Behavior> , <https://www.omg.org/spec/SysML/20230201#Relationship> .
+
+<https://www.omg.org/spec/SysML/20230201#Feature_isNonunique>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#OccurrenceUsage_isIndividual>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Import_importedElement>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#OperatorExpression_operator>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_isVariation>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#StateDefinition_state>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Specialization_owningType>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Subclassification_superclassifier>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#LiteralString>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Expression> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#LiteralExpression> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#LiteralString> .
+
+<https://www.omg.org/spec/SysML/20230201#Element_documentation>
+        rdf:type  owl:InverseFunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#SelectExpression>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Expression> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#SelectExpression> , <https://www.omg.org/spec/SysML/20230201#InvocationExpression> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#OperatorExpression> , <https://www.omg.org/spec/SysML/20230201#Namespace> .
+
+<https://www.omg.org/spec/SysML/20230201#AcceptActionUsage_payloadArgument>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#MultiplicityRange_upperBound>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#IfActionUsage_ifArgument>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#AssertConstraintUsage_assertedConstraint>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ActionUsage_actionDefinition>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Feature_isUnique>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Element_owner>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ViewDefinition_viewRendering>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#InterfaceUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#ConnectorAsUsage> , <https://www.omg.org/spec/SysML/20230201#Connector> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#InterfaceUsage> , <https://www.omg.org/spec/SysML/20230201#PartUsage> , <https://www.omg.org/spec/SysML/20230201#ItemUsage> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#ConnectionUsage> .
+
+<https://www.omg.org/spec/SysML/20230201#SubjectMembership_ownedSubjectParameter>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Feature_ownedTyping>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#EnumerationDefinition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#DataType> , <https://www.omg.org/spec/SysML/20230201#EnumerationDefinition> , <https://www.omg.org/spec/SysML/20230201#Definition> , <https://www.omg.org/spec/SysML/20230201#AttributeDefinition> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Type> .
+
+<https://www.omg.org/spec/SysML/20230201#Type_ownedUnioning>
+        rdf:type  owl:InverseFunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ViewUsage_viewRendering>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Comment_locale>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#SendActionUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#SendActionUsage> , <https://www.omg.org/spec/SysML/20230201#ActionUsage> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Feature> .
+
+<https://www.omg.org/spec/SysML/20230201#TypeFeaturing_featureOfType>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#MetadataUsage_metadataDefinition>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#LiteralExpression>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Expression> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#LiteralExpression> .
+
+<https://www.omg.org/spec/SysML/20230201#VerificationCaseDefinition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#VerificationCaseDefinition> , <https://www.omg.org/spec/SysML/20230201#Definition> , <https://www.omg.org/spec/SysML/20230201#CaseDefinition> , <https://www.omg.org/spec/SysML/20230201#Behavior> , <https://www.omg.org/spec/SysML/20230201#ActionDefinition> , <https://www.omg.org/spec/SysML/20230201#Function> , <https://www.omg.org/spec/SysML/20230201#CalculationDefinition> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition> , <https://www.omg.org/spec/SysML/20230201#Classifier> .
+
+<https://www.omg.org/spec/SysML/20230201#ReferenceUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#ReferenceUsage> .
+
+<https://www.omg.org/spec/SysML/20230201#Conjugation>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Conjugation> .
+
+<https://www.omg.org/spec/SysML/20230201#FlowConnectionUsage_flowConnectionDefinition>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Membership_memberShortName>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedConcern>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#RequirementConstraintMembership_kind>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ParameterMembership>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Membership> , <https://www.omg.org/spec/SysML/20230201#OwningMembership> , <https://www.omg.org/spec/SysML/20230201#FeatureMembership> , <https://www.omg.org/spec/SysML/20230201#Featuring> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#ParameterMembership> .
+
+<https://www.omg.org/spec/SysML/20230201#EventOccurrenceUsage_eventOccurrence>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Element_ownedRelationship>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Function>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Behavior> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Function> .
+
+<https://www.omg.org/spec/SysML/20230201#Connector_sourceFeature>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ConjugatedPortDefinition_originalPortDefinition>
+        rdf:type  owl:InverseFunctionalProperty , owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Package_filterCondition>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#DataType>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#DataType> .
+
+<https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Definition> , <https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition> .
+
+<https://www.omg.org/spec/SysML/20230201#RequirementDefinition_requiredConstraint>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#EnumerationDefinition_enumeratedValue>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ViewRenderingMembership>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Membership> , <https://www.omg.org/spec/SysML/20230201#OwningMembership> , <https://www.omg.org/spec/SysML/20230201#FeatureMembership> , <https://www.omg.org/spec/SysML/20230201#Featuring> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#ViewRenderingMembership> .
+
+<https://www.omg.org/spec/SysML/20230201#VerificationCaseUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#CaseUsage> , <https://www.omg.org/spec/SysML/20230201#ActionUsage> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#VerificationCaseUsage> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#CalculationUsage> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Expression> , <https://www.omg.org/spec/SysML/20230201#Type> .
+
+<https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition_isIndividual>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#SatisfyRequirementUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#ConstraintUsage> , <https://www.omg.org/spec/SysML/20230201#BooleanExpression> , <https://www.omg.org/spec/SysML/20230201#Expression> , <https://www.omg.org/spec/SysML/20230201#RequirementUsage> , <https://www.omg.org/spec/SysML/20230201#AssertConstraintUsage> , <https://www.omg.org/spec/SysML/20230201#SatisfyRequirementUsage> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Invariant> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Usage> .
+
+<https://www.omg.org/spec/SysML/20230201#Element_shortName>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Relationship_isImplied>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#FeatureReferenceExpression_referent>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#OccurrenceUsage_occurrenceDefinition>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#StateDefinition_entryAction>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#EventOccurrenceUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#EventOccurrenceUsage> .
+
+<https://www.omg.org/spec/SysML/20230201#TextualRepresentation_representedElement>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Feature_type>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#StateUsage_exitAction>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedAllocation>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Comment_body>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#VerificationCaseUsage_verificationCaseDefinition>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedOccurrence>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#CalculationUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Expression> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#ActionUsage> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#CalculationUsage> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Feature> .
+
+<https://www.omg.org/spec/SysML/20230201#ElementFilterMembership>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Membership> , <https://www.omg.org/spec/SysML/20230201#OwningMembership> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#ElementFilterMembership> .
+
+<https://www.omg.org/spec/SysML/20230201#Element_owningRelationship>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#TriggerInvocationExpression>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#InvocationExpression> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#TriggerInvocationExpression> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Expression> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Namespace> .
+
+<https://www.omg.org/spec/SysML/20230201#CaseUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Expression> , <https://www.omg.org/spec/SysML/20230201#CaseUsage> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#ActionUsage> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#CalculationUsage> , <https://www.omg.org/spec/SysML/20230201#Element> .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedTransition>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Comment>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#AnnotatingElement> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Comment> .
+
+<https://www.omg.org/spec/SysML/20230201#ActionDefinition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Definition> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#ActionDefinition> , <https://www.omg.org/spec/SysML/20230201#Behavior> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition> .
+
+<https://www.omg.org/spec/SysML/20230201#AssignmentActionUsage_targetArgument>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#LoopActionUsage_bodyAction>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Relationship_relatedElement>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Element_declaredName>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#RequirementConstraintMembership_ownedConstraint>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Membership_visibility>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_variant>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Relationship_ownedRelatedElement>
+        rdf:type  owl:InverseFunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#FramedConcernMembership_ownedConcern>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#AttributeUsage_attributeDefinition>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#StakeholderMembership_ownedStakeholderParameter>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Disjoining_typeDisjoined>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#FramedConcernMembership>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#FramedConcernMembership> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#OwningMembership> , <https://www.omg.org/spec/SysML/20230201#Featuring> , <https://www.omg.org/spec/SysML/20230201#FeatureMembership> , <https://www.omg.org/spec/SysML/20230201#Membership> , <https://www.omg.org/spec/SysML/20230201#RequirementConstraintMembership> .
+
+<https://www.omg.org/spec/SysML/20230201#Relationship_source>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#FeatureReferenceExpression>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Expression> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#FeatureReferenceExpression> .
+
+<https://www.omg.org/spec/SysML/20230201#StateUsage_doAction>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Feature_isEnd>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedReference>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Disjoining>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Disjoining> .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedUseCase>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedView>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ItemFlow_itemType>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ItemFlow>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#ItemFlow> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Connector> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Element> .
+
+<https://www.omg.org/spec/SysML/20230201#CalculationDefinition_calculation>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Annotation_annotatingElement>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Feature_ownedSubsetting>
+        rdf:type  owl:InverseFunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Expression_isModelLevelEvaluable>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Type_isSufficient>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#PerformActionUsage_performedAction>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#PortDefinition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Structure> , <https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#PortDefinition> , <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Definition> .
+
+<https://www.omg.org/spec/SysML/20230201#AcceptActionUsage_payloadParameter>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Type_unioningType>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Usage> .
+
+<https://www.omg.org/spec/SysML/20230201#Specialization_specific>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedFlow>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#OperatorExpression>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#InvocationExpression> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#OperatorExpression> , <https://www.omg.org/spec/SysML/20230201#Expression> .
+
+<https://www.omg.org/spec/SysML/20230201#StateDefinition_isParallel>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Invariant>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Expression> , <https://www.omg.org/spec/SysML/20230201#BooleanExpression> , <https://www.omg.org/spec/SysML/20230201#Invariant> , <https://www.omg.org/spec/SysML/20230201#Type> .
+
+<https://www.omg.org/spec/SysML/20230201#Membership_memberElement>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#LiteralInteger>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#LiteralExpression> , <https://www.omg.org/spec/SysML/20230201#LiteralInteger> , <https://www.omg.org/spec/SysML/20230201#Expression> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Element> .
+
+<https://www.omg.org/spec/SysML/20230201#Connector_isDirected>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ViewpointUsage_viewpointDefinition>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ItemFlow_itemFlowEnd>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Dependency>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Dependency> .
+
+<https://www.omg.org/spec/SysML/20230201#FeatureValue>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Membership> , <https://www.omg.org/spec/SysML/20230201#OwningMembership> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#FeatureValue> .
+
+<https://www.omg.org/spec/SysML/20230201#RequirementUsage_reqId>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#AnnotatingElement_annotatedElement>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Type_inheritedFeature>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Differencing_differencingType>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Package>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Package> .
+
+<https://www.omg.org/spec/SysML/20230201#Featuring_type>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#FeatureValue_isDefault>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Feature_ownedReferenceSubsetting>
+        rdf:type  owl:InverseFunctionalProperty , owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#RenderingDefinition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#ItemDefinition> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#PartDefinition> , <https://www.omg.org/spec/SysML/20230201#Structure> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Definition> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#RenderingDefinition> , <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition> .
+
+<https://www.omg.org/spec/SysML/20230201#ViewUsage_viewDefinition>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#FeatureInverting_owningFeature>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Namespace_membership>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Type_directedFeature>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#PortConjugation_originalPortDefinition>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#MembershipExpose>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#MembershipImport> , <https://www.omg.org/spec/SysML/20230201#Expose> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Import> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#MembershipExpose> .
+
+<https://www.omg.org/spec/SysML/20230201#Element_name>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#VerificationCaseDefinition_verifiedRequirement>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Multiplicity>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Multiplicity> .
+
+<https://www.omg.org/spec/SysML/20230201#ConstraintUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Expression> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#ConstraintUsage> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#BooleanExpression> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Usage> .
+
+<https://www.omg.org/spec/SysML/20230201#ItemFlow_interaction>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedPart>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ConjugatedPortTyping_conjugatedPortDefinition>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedTransition>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedAllocation>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ConcernUsage_concernDefinition>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Redefinition_redefiningFeature>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedState>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Feature_ownedFeatureInverting>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ForLoopActionUsage_seqArgument>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Succession_triggerStep>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#InvocationExpression_argument>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#FeatureChaining_featureChained>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Conjugation_originalType>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#EnumerationUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#AttributeUsage> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#EnumerationUsage> .
+
+owl:topDataProperty  rdf:type  owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Intersecting_intersectingType>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ConcernUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#ConcernUsage> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Expression> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#BooleanExpression> , <https://www.omg.org/spec/SysML/20230201#RequirementUsage> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#ConstraintUsage> .
+
+<https://www.omg.org/spec/SysML/20230201#Namespace_importedMembership>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#SendActionUsage_receiverArgument>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedAnalysisCase>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Feature_featuringType>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedUsage>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#AssignmentActionUsage_valueExpression>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#CaseUsage_objectiveRequirement>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedCase>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Feature_isReadOnly>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#FeatureTyping_owningFeature>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#TransitionUsage_effectAction>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ForLoopActionUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#LoopActionUsage> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#ForLoopActionUsage> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#ActionUsage> .
+
+<https://www.omg.org/spec/SysML/20230201#MetadataDefinition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#ItemDefinition> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#MetadataDefinition> , <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Structure> , <https://www.omg.org/spec/SysML/20230201#Metaclass> , <https://www.omg.org/spec/SysML/20230201#Definition> .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedPort>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#UseCaseDefinition_includedUseCase>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#StateUsage_entryAction>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#LiteralRational_value>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#CaseDefinition_subjectParameter>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#BooleanExpression_predicate>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Feature_isComposite>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Element_elementId>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Type_feature>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ResultExpressionMembership>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Membership> , <https://www.omg.org/spec/SysML/20230201#OwningMembership> , <https://www.omg.org/spec/SysML/20230201#FeatureMembership> , <https://www.omg.org/spec/SysML/20230201#Featuring> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#ResultExpressionMembership> .
+
+<https://www.omg.org/spec/SysML/20230201#TransitionUsage_guardExpression>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#MergeNode>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#ActionUsage> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#MergeNode> , <https://www.omg.org/spec/SysML/20230201#ControlNode> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> .
+
+<https://www.omg.org/spec/SysML/20230201#RequirementUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#RequirementUsage> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Expression> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#BooleanExpression> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#ConstraintUsage> .
+
+<https://www.omg.org/spec/SysML/20230201#PartUsage_partDefinition>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#FeatureChaining>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#FeatureChaining> .
+
+<https://www.omg.org/spec/SysML/20230201#Succession_transitionStep>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_owningUsage>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedMetadata>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#IfActionUsage_thenAction>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ConnectionUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#PartUsage> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#ConnectorAsUsage> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Connector> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#ConnectionUsage> , <https://www.omg.org/spec/SysML/20230201#ItemUsage> , <https://www.omg.org/spec/SysML/20230201#Element> .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_owningDefinition>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Annotation>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Annotation> .
+
+<https://www.omg.org/spec/SysML/20230201#UseCaseDefinition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Behavior> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition> , <https://www.omg.org/spec/SysML/20230201#Classifier> , <https://www.omg.org/spec/SysML/20230201#Definition> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Class> , <https://www.omg.org/spec/SysML/20230201#ActionDefinition> , <https://www.omg.org/spec/SysML/20230201#Function> , <https://www.omg.org/spec/SysML/20230201#UseCaseDefinition> , <https://www.omg.org/spec/SysML/20230201#CalculationDefinition> , <https://www.omg.org/spec/SysML/20230201#CaseDefinition> .
+
+<https://www.omg.org/spec/SysML/20230201#Succession>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Connector> , <https://www.omg.org/spec/SysML/20230201#Succession> .
+
+<https://www.omg.org/spec/SysML/20230201#FeatureTyping_typedFeature>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+owl:Nothing  rdf:type  owl:Class .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedAnalysisCase>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedState>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Conjugation_owningType>
+        rdf:type  owl:InverseFunctionalProperty , owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#SendActionUsage_payloadArgument>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#NullExpression>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Expression> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#NullExpression> .
+
+<https://www.omg.org/spec/SysML/20230201#StateDefinition_exitAction>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Function_result>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedReference>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#AcceptActionUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#AcceptActionUsage> , <https://www.omg.org/spec/SysML/20230201#ActionUsage> , <https://www.omg.org/spec/SysML/20230201#Type> .
+
+<https://www.omg.org/spec/SysML/20230201#Feature_isDerived>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedUsage>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Definition_ownedInterface>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Relationship_owningRelatedElement>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Redefinition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Specialization> , <https://www.omg.org/spec/SysML/20230201#Subsetting> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Redefinition> .
+
+<https://www.omg.org/spec/SysML/20230201#FeatureMembership_owningType>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Featuring>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Featuring> .
+
+<https://www.omg.org/spec/SysML/20230201#Classifier>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Classifier> .
+
+<https://www.omg.org/spec/SysML/20230201#StateSubactionMembership_action>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Type_ownedDisjoining>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#ForLoopActionUsage_loopVariable>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#TransitionUsage_source>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Usage_nestedRequirement>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Feature_isPortion>
+        rdf:type  owl:FunctionalProperty , owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Intersecting>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#Intersecting> .
+
+<https://www.omg.org/spec/SysML/20230201#IncludeUseCaseUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#EventOccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#ActionUsage> , <https://www.omg.org/spec/SysML/20230201#UseCaseUsage> , <https://www.omg.org/spec/SysML/20230201#CaseUsage> , <https://www.omg.org/spec/SysML/20230201#CalculationUsage> , <https://www.omg.org/spec/SysML/20230201#IncludeUseCaseUsage> , <https://www.omg.org/spec/SysML/20230201#Expression> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#PerformActionUsage> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Element> .
+
+<https://www.omg.org/spec/SysML/20230201#ExhibitStateUsage>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#ActionUsage> , <https://www.omg.org/spec/SysML/20230201#StateUsage> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#PerformActionUsage> , <https://www.omg.org/spec/SysML/20230201#EventOccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Usage> , <https://www.omg.org/spec/SysML/20230201#OccurrenceUsage> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#ExhibitStateUsage> .
+
+<https://www.omg.org/spec/SysML/20230201#Function_expression>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Namespace_member>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Expression>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Feature> , <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Type> , <https://www.omg.org/spec/SysML/20230201#Step> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Expression> .
+
+<https://www.omg.org/spec/SysML/20230201#MembershipImport>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Import> , <https://www.omg.org/spec/SysML/20230201#Relationship> , <https://www.omg.org/spec/SysML/20230201#MembershipImport> .
+
+<https://www.omg.org/spec/SysML/20230201#Dependency_supplier>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Element_aliasIds>
+        rdf:type  owl:DatatypeProperty .
+
+<https://www.omg.org/spec/SysML/20230201#IncludeUseCaseUsage_useCaseIncluded>
+        rdf:type  owl:FunctionalProperty , owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Type>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <https://www.omg.org/spec/SysML/20230201#Namespace> , <https://www.omg.org/spec/SysML/20230201#Element> , <https://www.omg.org/spec/SysML/20230201#Type> .
+
+<https://www.omg.org/spec/SysML/20230201#RenderingDefinition_rendering>
+        rdf:type  owl:ObjectProperty .
+
+<https://www.omg.org/spec/SysML/20230201#Association_targetType>
+        rdf:type  owl:ObjectProperty .

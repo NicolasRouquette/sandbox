@@ -1,0 +1,1596 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://www.omg.org/spec/SysML/bundle#"
+     xml:base="https://www.omg.org/spec/SysML/bundle"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:sysml-bundle="https://www.omg.org/spec/SysML/bundle#">
+    <owl:Ontology rdf:about="https://www.omg.org/spec/SysML/bundle">
+        <owl:imports rdf:resource="https://www.omg.org/spec/SysML/20230201"/>
+        <dc:type rdf:resource="http://opencaesar.io/oml#VocabularyBundle"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://www.omg.org/spec/SysML/20230201#AllocationDefinition -->
+
+
+    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#AllocationDefinition">
+        <owl:disjointWith rdf:resource="https://www.omg.org/spec/SysML/20230201#InterfaceDefinition"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://www.omg.org/spec/SysML/20230201#AllocationUsage -->
+
+
+    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#AllocationUsage">
+        <owl:disjointWith rdf:resource="https://www.omg.org/spec/SysML/20230201#InterfaceUsage"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://www.omg.org/spec/SysML/20230201#Comment -->
+
+
+    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Comment">
+        <owl:disjointWith rdf:resource="https://www.omg.org/spec/SysML/20230201#TextualRepresentation"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://www.omg.org/spec/SysML/20230201#ConcernDefinition -->
+
+
+    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConcernDefinition">
+        <owl:disjointWith rdf:resource="https://www.omg.org/spec/SysML/20230201#ViewpointDefinition"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://www.omg.org/spec/SysML/20230201#ConcernUsage -->
+
+
+    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConcernUsage">
+        <owl:disjointWith rdf:resource="https://www.omg.org/spec/SysML/20230201#ViewpointUsage"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://www.omg.org/spec/SysML/20230201#ConstraintDefinition -->
+
+
+    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConstraintDefinition">
+        <owl:disjointWith>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Function"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#CalculationDefinition"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConstraintDefinition"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:disjointWith>
+    </rdf:Description>
+    
+
+
+    <!-- https://www.omg.org/spec/SysML/20230201#ForLoopActionUsage -->
+
+
+    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ForLoopActionUsage">
+        <owl:disjointWith rdf:resource="https://www.omg.org/spec/SysML/20230201#WhileLoopActionUsage"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://www.omg.org/spec/SysML/20230201#FramedConcernMembership -->
+
+
+    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FramedConcernMembership">
+        <owl:disjointWith rdf:resource="https://www.omg.org/spec/SysML/20230201#RequirementVerificationMembership"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://www.omg.org/spec/SysML/20230201#IncludeUseCaseUsage -->
+
+
+    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#IncludeUseCaseUsage">
+        <owl:disjointWith>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#CaseUsage"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#IncludeUseCaseUsage"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:disjointWith>
+    </rdf:Description>
+    
+
+
+    <!-- https://www.omg.org/spec/SysML/20230201#OperatorExpression -->
+
+
+    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#OperatorExpression">
+        <owl:disjointWith rdf:resource="https://www.omg.org/spec/SysML/20230201#TriggerInvocationExpression"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://www.omg.org/spec/SysML/20230201#Package -->
+
+
+    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Package">
+        <owl:disjointWith rdf:resource="https://www.omg.org/spec/SysML/20230201#Type"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://www.omg.org/spec/SysML/20230201#Redefinition -->
+
+
+    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Redefinition">
+        <owl:disjointWith rdf:resource="https://www.omg.org/spec/SysML/20230201#ReferenceSubsetting"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://www.omg.org/spec/SysML/20230201#RenderingDefinition -->
+
+
+    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#RenderingDefinition">
+        <owl:disjointWith rdf:resource="https://www.omg.org/spec/SysML/20230201#ViewDefinition"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://www.omg.org/spec/SysML/20230201#RenderingUsage -->
+
+
+    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#RenderingUsage">
+        <owl:disjointWith rdf:resource="https://www.omg.org/spec/SysML/20230201#ViewUsage"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#AcceptActionUsage"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#AssignmentActionUsage"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ControlNode"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#IfActionUsage"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#LoopActionUsage"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SendActionUsage"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#TransitionUsage"/>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#StateUsage"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#ExhibitStateUsage"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ActorMembership"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ReturnParameterMembership"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#StakeholderMembership"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SubjectMembership"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#AnalysisCaseDefinition"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#UseCaseDefinition"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#VerificationCaseDefinition"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#AnalysisCaseUsage"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#VerificationCaseUsage"/>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#UseCaseUsage"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#IncludeUseCaseUsage"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Annotation"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Conjugation"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Dependency"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Differencing"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Disjoining"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FeatureChaining"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FeatureInverting"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Intersecting"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Membership"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#MembershipImport"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Namespace"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#NamespaceImport"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Specialization"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#TypeFeaturing"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Unioning"/>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#AnnotatingElement"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#MetadataUsage"/>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#MetadataFeature"/>
+                                            <owl:Class>
+                                                <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#MetadataUsage"/>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#AttributeDefinition"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#CalculationDefinition"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#MetadataDefinition"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#PortDefinition"/>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ActionDefinition"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#CalculationDefinition"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Association"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectionDefinition"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#AssociationStructure"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectionDefinition"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Interaction"/>
+                                            <owl:Class>
+                                                <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Class"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#CalculationDefinition"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#MetadataDefinition"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#PortDefinition"/>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ActionDefinition"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#CalculationDefinition"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectionDefinition"/>
+                                            <owl:Class>
+                                                <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ItemDefinition"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectionDefinition"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#MetadataDefinition"/>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#CalculationDefinition"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConstraintDefinition"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#MetadataDefinition"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#PortDefinition"/>
+                                                            <owl:Class>
+                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ActionDefinition"/>
+                                                                    <owl:Class>
+                                                                        <owl:complementOf>
+                                                                            <owl:Class>
+                                                                                <owl:unionOf rdf:parseType="Collection">
+                                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#CalculationDefinition"/>
+                                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                                                                </owl:unionOf>
+                                                                            </owl:Class>
+                                                                        </owl:complementOf>
+                                                                    </owl:Class>
+                                                                </owl:intersectionOf>
+                                                            </owl:Class>
+                                                            <owl:Class>
+                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectionDefinition"/>
+                                                                    <owl:Class>
+                                                                        <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                                                    </owl:Class>
+                                                                </owl:intersectionOf>
+                                                            </owl:Class>
+                                                            <owl:Class>
+                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ItemDefinition"/>
+                                                                    <owl:Class>
+                                                                        <owl:complementOf>
+                                                                            <owl:Class>
+                                                                                <owl:unionOf rdf:parseType="Collection">
+                                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectionDefinition"/>
+                                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#MetadataDefinition"/>
+                                                                                </owl:unionOf>
+                                                                            </owl:Class>
+                                                                        </owl:complementOf>
+                                                                    </owl:Class>
+                                                                </owl:intersectionOf>
+                                                            </owl:Class>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectionDefinition"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#DataType"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#AttributeDefinition"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Definition"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#AttributeDefinition"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#CalculationDefinition"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConstraintDefinition"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#MetadataDefinition"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#PortDefinition"/>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ActionDefinition"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#CalculationDefinition"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectionDefinition"/>
+                                            <owl:Class>
+                                                <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ItemDefinition"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectionDefinition"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#MetadataDefinition"/>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#CalculationDefinition"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConstraintDefinition"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#MetadataDefinition"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#PortDefinition"/>
+                                                            <owl:Class>
+                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ActionDefinition"/>
+                                                                    <owl:Class>
+                                                                        <owl:complementOf>
+                                                                            <owl:Class>
+                                                                                <owl:unionOf rdf:parseType="Collection">
+                                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#CalculationDefinition"/>
+                                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                                                                </owl:unionOf>
+                                                                            </owl:Class>
+                                                                        </owl:complementOf>
+                                                                    </owl:Class>
+                                                                </owl:intersectionOf>
+                                                            </owl:Class>
+                                                            <owl:Class>
+                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectionDefinition"/>
+                                                                    <owl:Class>
+                                                                        <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                                                    </owl:Class>
+                                                                </owl:intersectionOf>
+                                                            </owl:Class>
+                                                            <owl:Class>
+                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ItemDefinition"/>
+                                                                    <owl:Class>
+                                                                        <owl:complementOf>
+                                                                            <owl:Class>
+                                                                                <owl:unionOf rdf:parseType="Collection">
+                                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectionDefinition"/>
+                                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#MetadataDefinition"/>
+                                                                                </owl:unionOf>
+                                                                            </owl:Class>
+                                                                        </owl:complementOf>
+                                                                    </owl:Class>
+                                                                </owl:intersectionOf>
+                                                            </owl:Class>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ItemDefinition"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectionDefinition"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#MetadataDefinition"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#OccurrenceDefinition"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#CalculationDefinition"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConstraintDefinition"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#MetadataDefinition"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#PortDefinition"/>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ActionDefinition"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#CalculationDefinition"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectionDefinition"/>
+                                            <owl:Class>
+                                                <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ItemDefinition"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectionDefinition"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#MetadataDefinition"/>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#AttributeUsage"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#CalculationUsage"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ExhibitStateUsage"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#MetadataUsage"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ReferenceUsage"/>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ActionUsage"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#CalculationUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ExhibitStateUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionUsage"/>
+                                            <owl:Class>
+                                                <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#PerformActionUsage"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ExhibitStateUsage"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#IncludeUseCaseUsage"/>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#OccurrenceUsage"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#AssertConstraintUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#CalculationUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ExhibitStateUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#MetadataUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SatisfyRequirementUsage"/>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ActionUsage"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#CalculationUsage"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ExhibitStateUsage"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                                            <owl:Class>
+                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionUsage"/>
+                                                                    <owl:Class>
+                                                                        <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                                                    </owl:Class>
+                                                                </owl:intersectionOf>
+                                                            </owl:Class>
+                                                            <owl:Class>
+                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#PerformActionUsage"/>
+                                                                    <owl:Class>
+                                                                        <owl:complementOf>
+                                                                            <owl:Class>
+                                                                                <owl:unionOf rdf:parseType="Collection">
+                                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ExhibitStateUsage"/>
+                                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#IncludeUseCaseUsage"/>
+                                                                                </owl:unionOf>
+                                                                            </owl:Class>
+                                                                        </owl:complementOf>
+                                                                    </owl:Class>
+                                                                </owl:intersectionOf>
+                                                            </owl:Class>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConstraintUsage"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#AssertConstraintUsage"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SatisfyRequirementUsage"/>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#PerformActionUsage"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ExhibitStateUsage"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#IncludeUseCaseUsage"/>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#PerformActionUsage"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ExhibitStateUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#IncludeUseCaseUsage"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#BindingConnectorAsUsage"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ItemFeature"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ItemFlowEnd"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Multiplicity"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionAsUsage"/>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Connector"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#BindingConnectorAsUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionAsUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectionUsage"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionUsage"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectorAsUsage"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#BindingConnectorAsUsage"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionUsage"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionAsUsage"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                                            <owl:Class>
+                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectionUsage"/>
+                                                                    <owl:Class>
+                                                                        <owl:complementOf>
+                                                                            <owl:Class>
+                                                                                <owl:unionOf rdf:parseType="Collection">
+                                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionUsage"/>
+                                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                                                                </owl:unionOf>
+                                                                            </owl:Class>
+                                                                        </owl:complementOf>
+                                                                    </owl:Class>
+                                                                </owl:intersectionOf>
+                                                            </owl:Class>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionUsage"/>
+                                            <owl:Class>
+                                                <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ItemFlow"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionUsage"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                                            <owl:Class>
+                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionItemFlow"/>
+                                                                    <owl:Class>
+                                                                        <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                                                    </owl:Class>
+                                                                </owl:intersectionOf>
+                                                            </owl:Class>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionItemFlow"/>
+                                            <owl:Class>
+                                                <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectorAsUsage"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#BindingConnectorAsUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionAsUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectionUsage"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionUsage"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ItemFlow"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionItemFlow"/>
+                                            <owl:Class>
+                                                <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Step"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#CalculationUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ExhibitStateUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ActionUsage"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#CalculationUsage"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ExhibitStateUsage"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                                            <owl:Class>
+                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionUsage"/>
+                                                                    <owl:Class>
+                                                                        <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                                                    </owl:Class>
+                                                                </owl:intersectionOf>
+                                                            </owl:Class>
+                                                            <owl:Class>
+                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#PerformActionUsage"/>
+                                                                    <owl:Class>
+                                                                        <owl:complementOf>
+                                                                            <owl:Class>
+                                                                                <owl:unionOf rdf:parseType="Collection">
+                                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ExhibitStateUsage"/>
+                                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#IncludeUseCaseUsage"/>
+                                                                                </owl:unionOf>
+                                                                            </owl:Class>
+                                                                        </owl:complementOf>
+                                                                    </owl:Class>
+                                                                </owl:intersectionOf>
+                                                            </owl:Class>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionUsage"/>
+                                            <owl:Class>
+                                                <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ItemFlow"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionUsage"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                                            <owl:Class>
+                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionItemFlow"/>
+                                                                    <owl:Class>
+                                                                        <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                                                    </owl:Class>
+                                                                </owl:intersectionOf>
+                                                            </owl:Class>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#PerformActionUsage"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ExhibitStateUsage"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#IncludeUseCaseUsage"/>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionItemFlow"/>
+                                            <owl:Class>
+                                                <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionItemFlow"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Usage"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#AssertConstraintUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#BindingConnectorAsUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SatisfyRequirementUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionAsUsage"/>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectorAsUsage"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#BindingConnectorAsUsage"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionUsage"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionAsUsage"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                                            <owl:Class>
+                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectionUsage"/>
+                                                                    <owl:Class>
+                                                                        <owl:complementOf>
+                                                                            <owl:Class>
+                                                                                <owl:unionOf rdf:parseType="Collection">
+                                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionUsage"/>
+                                                                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                                                                </owl:unionOf>
+                                                                            </owl:Class>
+                                                                        </owl:complementOf>
+                                                                    </owl:Class>
+                                                                </owl:intersectionOf>
+                                                            </owl:Class>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConstraintUsage"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#AssertConstraintUsage"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SatisfyRequirementUsage"/>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Classifier"/>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Feature"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#MetadataFeature"/>
+                                    <owl:Class>
+                                        <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#MetadataUsage"/>
+                                    </owl:Class>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#MetadataFeature"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#MetadataUsage"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#CollectExpression"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FeatureChainExpression"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SelectExpression"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#DecisionNode"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ForkNode"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#JoinNode"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#MergeNode"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ElementFilterMembership"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FeatureMembership"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FeatureValue"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#VariantMembership"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#EndFeatureMembership"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ObjectiveMembership"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ParameterMembership"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#RequirementConstraintMembership"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ResultExpressionMembership"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#StateSubactionMembership"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#TransitionFeatureMembership"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ViewRenderingMembership"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FeatureReferenceExpression"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#InvocationExpression"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#LiteralExpression"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#MetadataAccessExpression"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#NullExpression"/>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#BooleanExpression"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#AssertConstraintUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SatisfyRequirementUsage"/>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConstraintUsage"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#AssertConstraintUsage"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SatisfyRequirementUsage"/>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FeatureTyping"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Subclassification"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Subsetting"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#LifeClass"/>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#AssociationStructure"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectionDefinition"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Behavior"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#CalculationDefinition"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Interaction"/>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ActionDefinition"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#CalculationDefinition"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Interaction"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Structure"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#MetadataDefinition"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#PortDefinition"/>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#AssociationStructure"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectionDefinition"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectionDefinition"/>
+                                            <owl:Class>
+                                                <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ItemDefinition"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectionDefinition"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionDefinition"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#MetadataDefinition"/>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#LiteralBoolean"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#LiteralInfinity"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#LiteralInteger"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#LiteralRational"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#LiteralString"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#PortUsage"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectionUsage"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#EventOccurrenceUsage"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ExhibitStateUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#IncludeUseCaseUsage"/>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#PerformActionUsage"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ExhibitStateUsage"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#IncludeUseCaseUsage"/>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionUsage"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ItemUsage"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#MetadataUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConnectionUsage"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionUsage"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#FlowConnectionUsage"/>
+                                            <owl:Class>
+                                                <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SatisfyRequirementUsage"/>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#AssertConstraintUsage"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#SatisfyRequirementUsage"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConstraintUsage"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#AssertConstraintUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SatisfyRequirementUsage"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Expression"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#AssertConstraintUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#CalculationUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SatisfyRequirementUsage"/>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#ConstraintUsage"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Class>
+                                                        <owl:unionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#AssertConstraintUsage"/>
+                                                            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SatisfyRequirementUsage"/>
+                                                        </owl:unionOf>
+                                                    </owl:Class>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:members>
+    </rdf:Description>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#BindingConnector"/>
+            <owl:Class>
+                <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML/20230201#BindingConnectorAsUsage"/>
+            </owl:Class>
+        </owl:intersectionOf>
+        <owl:disjointWith>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#Succession"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionAsUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionFlowConnectionUsage"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML/20230201#SuccessionItemFlow"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:disjointWith>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.17.2020-11-07T15:03:35Z) https://github.com/owlcs/owlapi/ -->
+
+
