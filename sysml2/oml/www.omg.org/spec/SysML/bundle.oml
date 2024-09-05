@@ -1,4 +1,9 @@
+@dc:description "The is the vocabulary bundle of SysML v2."
+@dc:title "sysml v2 bundle"
 vocabulary bundle <https://www.omg.org/spec/SysML/bundle#> as sysml-bundle {
 
-	includes <https://www.omg.org/spec/SysML/20230201#>
+	includes <http://purl.org/dc/elements/1.1/> as dc
+
+	includes <https://www.omg.org/spec/SysML#>
+
 }
