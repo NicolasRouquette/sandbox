@@ -1,8 +1,9 @@
+@rdfs:label "types"
 vocabulary <https://www.omg.org/spec/UML/PrimitiveTypes#> as primitives {
 
-	extends <http://www.w3.org/2001/XMLSchema#> as xsd
-
 	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
 
 	extends <http://www.w3.org/2002/07/owl#> as owl
 
@@ -12,7 +13,7 @@ vocabulary <https://www.omg.org/spec/UML/PrimitiveTypes#> as primitives {
 
 	@rdfs:label "Integer"
 	@rdfs:comment "Integer is a primitive type representing integer values."
-	scalar Integer = xsd:integer
+	scalar Integer = xsd:int
 
 	@rdfs:label "Real"
 	@rdfs:comment "Real is a primitive type representing the mathematical concept of real."
@@ -20,7 +21,7 @@ vocabulary <https://www.omg.org/spec/UML/PrimitiveTypes#> as primitives {
 
 	@rdfs:label "UnlimitedNatural"
 	@rdfs:comment "UnlimitedNatural is a primitive type representing unlimited natural values."
-	scalar UnlimitedNatural = xsd:string
+	scalar UnlimitedNatural = xsd:int
 
 	@rdfs:label "String"
 	@rdfs:comment "String is a sequence of characters in some suitable character set used to display information about the model. Character sets may include non-Roman alphabets and characters."
