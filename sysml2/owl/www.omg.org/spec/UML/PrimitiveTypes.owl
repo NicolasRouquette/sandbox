@@ -7,7 +7,9 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:primitives="https://www.omg.org/spec/UML/PrimitiveTypes#">
-    <owl:Ontology rdf:about="https://www.omg.org/spec/UML/PrimitiveTypes"/>
+    <owl:Ontology rdf:about="https://www.omg.org/spec/UML/PrimitiveTypes">
+        <rdfs:label>types</rdfs:label>
+    </owl:Ontology>
     
 
 
@@ -40,7 +42,7 @@
     <rdfs:Datatype rdf:about="https://www.omg.org/spec/UML/PrimitiveTypes#Integer">
         <rdfs:comment>Integer is a primitive type representing integer values.</rdfs:comment>
         <rdfs:label>Integer</rdfs:label>
-        <owl:equivalentClass rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <owl:equivalentClass rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
     </rdfs:Datatype>
     
 
@@ -73,7 +75,7 @@
     <rdfs:Datatype rdf:about="https://www.omg.org/spec/UML/PrimitiveTypes#UnlimitedNatural">
         <rdfs:comment>UnlimitedNatural is a primitive type representing unlimited natural values.</rdfs:comment>
         <rdfs:label>UnlimitedNatural</rdfs:label>
-        <owl:equivalentClass rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <owl:equivalentClass rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
     </rdfs:Datatype>
 </rdf:RDF>
 

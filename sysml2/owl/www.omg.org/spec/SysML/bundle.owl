@@ -29,6 +29,15 @@
     
 
 
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
     <!-- https://www.omg.org/spec/SysML#AcceptActionUsage -->
 
 
@@ -6183,6 +6192,42 @@
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#Annotation"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#Conjugation"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#Dependency"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#Differencing"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#Disjoining"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#FeatureChaining"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#FeatureInverting"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#Intersecting"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#Membership"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#MembershipImport"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#Namespace"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#NamespaceImport"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#Specialization"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#TypeFeaturing"/>
+            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#Unioning"/>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML#AnnotatingElement"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML#MetadataFeature"/>
+                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML#MetadataUsage"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
             <rdf:Description rdf:about="https://www.omg.org/spec/SysML#AcceptActionUsage"/>
             <rdf:Description rdf:about="https://www.omg.org/spec/SysML#AssignmentActionUsage"/>
             <rdf:Description rdf:about="https://www.omg.org/spec/SysML#ControlNode"/>
@@ -6227,41 +6272,6 @@
                     <rdf:Description rdf:about="https://www.omg.org/spec/SysML#UseCaseUsage"/>
                     <owl:Class>
                         <owl:complementOf rdf:resource="https://www.omg.org/spec/SysML#IncludeUseCaseUsage"/>
-                    </owl:Class>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#Annotation"/>
-            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#Conjugation"/>
-            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#Dependency"/>
-            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#Differencing"/>
-            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#Disjoining"/>
-            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#FeatureChaining"/>
-            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#FeatureInverting"/>
-            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#Intersecting"/>
-            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#Membership"/>
-            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#MembershipImport"/>
-            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#Namespace"/>
-            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#NamespaceImport"/>
-            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#Specialization"/>
-            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#TypeFeaturing"/>
-            <rdf:Description rdf:about="https://www.omg.org/spec/SysML#Unioning"/>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML#AnnotatingElement"/>
-                    <owl:Class>
-                        <owl:complementOf>
-                            <owl:Class>
-                                <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML#MetadataFeature"/>
-                                    <rdf:Description rdf:about="https://www.omg.org/spec/SysML#MetadataUsage"/>
-                                </owl:unionOf>
-                            </owl:Class>
-                        </owl:complementOf>
                     </owl:Class>
                 </owl:intersectionOf>
             </owl:Class>
