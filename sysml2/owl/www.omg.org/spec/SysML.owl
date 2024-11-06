@@ -6,8 +6,10 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:Ecore="http://www.eclipse.org/emf/2002/Ecore#"
      xmlns:sysml="https://www.omg.org/spec/SysML#">
     <owl:Ontology rdf:about="https://www.omg.org/spec/SysML">
+        <owl:imports rdf:resource="http://www.eclipse.org/emf/2002/Ecore"/>
         <rdfs:label>sysml</rdfs:label>
     </owl:Ontology>
     
@@ -305,6 +307,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_usage"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#ActionDefinition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#ActionUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;ActionUsages&lt;/code&gt; that are &lt;code&gt;steps&lt;/code&gt; in this &lt;code&gt;ActionDefinition&lt;/code&gt;, which define the actions that specify the behavior of the &lt;code&gt;ActionDefinition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>action</rdfs:label>
     </owl:ObjectProperty>
@@ -319,6 +322,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Step_behavior"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#ActionUsage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Behavior"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;Behaviors&lt;/code&gt; that are the &lt;code&gt;types&lt;/code&gt; of this &lt;code&gt;ActionUsage&lt;/code&gt;. Nominally, these would be &lt;code&gt;ActionDefinitions&lt;/code&gt;, but other kinds of Kernel &lt;code&gt;Behaviors&lt;/code&gt; are also allowed, to permit use of &lt;code&gt;Behaviors&lt;/code&gt; from the Kernel Model Libraries.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>actionDefinition</rdfs:label>
     </owl:ObjectProperty>
@@ -346,6 +350,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_usage"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#AllocationDefinition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#AllocationUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;AllocationUsages&lt;/code&gt; that refine the allocation mapping defined by this &lt;code&gt;AllocationDefinition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>allocation</rdfs:label>
     </owl:ObjectProperty>
@@ -359,6 +364,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#ConnectionUsage_connectionDefinition"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#AllocationUsage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#AllocationDefinition"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;AllocationDefinitions&lt;/code&gt; that are the types of this &lt;code&gt;AllocationUsage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>allocationDefinition</rdfs:label>
     </owl:ObjectProperty>
@@ -415,6 +421,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#AnnotatingElement"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Element"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;Elements&lt;/code&gt; that are annotated by this &lt;code&gt;AnnotatingElement&lt;/code&gt;. If &lt;code&gt;annotation&lt;/code&gt; is not empty, these are the &lt;code&gt;annotatedElements&lt;/code&gt; of the &lt;code&gt;annotations&lt;/code&gt;. If &lt;code&gt;annotation&lt;/code&gt; is empty, then it is the &lt;code&gt;owningNamespace&lt;/code&gt; of the &lt;code&gt;AnnotatingElement&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>annotatedElement</rdfs:label>
     </owl:ObjectProperty>
@@ -580,6 +587,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Relationship_relatedElement"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Association"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Type"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;types&lt;/code&gt; of the &lt;code&gt;associationEnds&lt;/code&gt; of the &lt;code&gt;Association&lt;/code&gt;, which are the &lt;code&gt;relatedElements&lt;/code&gt; of the &lt;code&gt;Association&lt;/code&gt; considered as a &lt;code&gt;Relationship&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>relatedType</rdfs:label>
     </owl:ObjectProperty>
@@ -622,6 +630,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_definition"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#AttributeUsage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#DataType"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;DataTypes&lt;/code&gt; that are the types of this &lt;code&gt;AttributeUsage&lt;/code&gt;. Nominally, these are &lt;code&gt;AttributeDefinitions&lt;/code&gt;, but other kinds of kernel &lt;code&gt;DataTypes&lt;/code&gt; are also allowed, to permit use of &lt;code&gt;DataTypes&lt;/code&gt; from the Kernel Model Libraries.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>attributeDefinition</rdfs:label>
     </owl:ObjectProperty>
@@ -635,6 +644,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Type_directedFeature"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Behavior"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Feature"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The parameters of this &lt;code&gt;Behavior&lt;/code&gt;, which are defined as its &lt;code&gt;directedFeatures&lt;/code&gt;, whose values are passed into and/or out of a performance of the &lt;code&gt;Behavior&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>parameter</rdfs:label>
     </owl:ObjectProperty>
@@ -677,6 +687,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Function_expression"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#CalculationDefinition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#CalculationUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;actions&lt;/code&gt; of this &lt;code&gt;CalculationDefinition&lt;/code&gt; that are &lt;code&gt;CalculationUsages&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>calculation</rdfs:label>
     </owl:ObjectProperty>
@@ -692,6 +703,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#CalculationUsage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Function"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;ode&gt;Function&lt;/code&gt; that is the &lt;code&gt;type&lt;/code&gt; of this &lt;code&gt;CalculationUsage&lt;/code&gt;. Nominally, this would be a &lt;code&gt;CalculationDefinition&lt;/code&gt;, but a kernel &lt;code&gt;Function&lt;/code&gt; is also allowed, to permit use of &lt;code&gt;Functions&lt;/code&gt; from the Kernel Model Libraries.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>calculationDefinition</rdfs:label>
     </owl:ObjectProperty>
@@ -706,6 +718,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_usage"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#CaseDefinition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#PartUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;parameters&lt;/code&gt; of this &lt;code&gt;CaseDefinition&lt;/code&gt; that represent actors involved in the case.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>actorParameter</rdfs:label>
     </owl:ObjectProperty>
@@ -720,6 +733,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#CaseDefinition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#RequirementUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;RequirementUsage&lt;/code&gt; representing the objective of this &lt;code&gt;CaseDefinition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>objectiveRequirement</rdfs:label>
     </owl:ObjectProperty>
@@ -749,6 +763,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_usage"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#CaseUsage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#PartUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;parameters&lt;/code&gt; of this &lt;code&gt;CaseUsage&lt;/code&gt; that represent actors involved in the case.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>actorParameter</rdfs:label>
     </owl:ObjectProperty>
@@ -777,6 +792,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#CaseUsage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#RequirementUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;RequirementUsage&lt;/code&gt; representing the objective of this &lt;code&gt;CaseUsage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>objectiveRequirement</rdfs:label>
     </owl:ObjectProperty>
@@ -933,6 +949,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Association_associationEnd"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#ConnectionDefinition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;Usages&lt;/code&gt; that define the things related by the &lt;code&gt;ConnectionDefinition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>connectionEnd</rdfs:label>
     </owl:ObjectProperty>
@@ -947,6 +964,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#ItemUsage_itemDefinition"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#ConnectionUsage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#AssociationStructure"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;AssociationStructures&lt;/code&gt; that are the types of this &lt;code&gt;ConnectionUsage&lt;/code&gt;. Nominally, these are , but other kinds of Kernel &lt;code&gt;AssociationStructures&lt;/code&gt; are also allowed, to permit use of &lt;code&gt;AssociationStructures&lt;/code&gt; from the Kernel Model Libraries&lt;/p&gt;</rdfs:comment>
         <rdfs:label>connectionDefinition</rdfs:label>
     </owl:ObjectProperty>
@@ -960,6 +978,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Feature_type"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Connector"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Association"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;Associations&lt;/code&gt; that type the &lt;code&gt;Connector&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>association</rdfs:label>
     </owl:ObjectProperty>
@@ -973,6 +992,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Type_endFeature"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Connector"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Feature"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;endFeatures&lt;/code&gt; of a &lt;code&gt;Connector&lt;/code&gt;, which redefine the &lt;code&gt;endFeatures&lt;/code&gt; of the &lt;code&gt;associations&lt;/code&gt; of the &lt;code&gt;Connector&lt;/code&gt;. The &lt;code&gt;connectorEnds&lt;/code&gt; determine via &lt;code&gt;ReferenceSubsetting&lt;/code&gt; &lt;code&gt;Relationships&lt;/code&gt; which &lt;code&gt;Features&lt;/code&gt; are related by the &lt;code&gt;Connector&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>connectorEnd</rdfs:label>
     </owl:ObjectProperty>
@@ -986,6 +1006,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Relationship_relatedElement"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Connector"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Feature"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;Features&lt;/code&gt; that are related by this &lt;code&gt;Connector&lt;/code&gt; considered as a &lt;code&gt;Relationship&lt;/code&gt; and that restrict the links it identifies, given by the referenced &lt;code&gt;Features&lt;/code&gt; of the &lt;code&gt;connectorEnds&lt;/code&gt; of the &lt;code&gt;Connector&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>relatedFeature</rdfs:label>
     </owl:ObjectProperty>
@@ -1001,6 +1022,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Connector"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Feature"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The source &lt;code&gt;relatedFeature&lt;/code&gt; for this &lt;code&gt;Connector&lt;/code&gt;. It is the first &lt;code&gt;relatedFeature&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>sourceFeature</rdfs:label>
     </owl:ObjectProperty>
@@ -1015,6 +1037,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Relationship_target"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Connector"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Feature"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The target &lt;code&gt;relatedFeatures&lt;/code&gt; for this &lt;code&gt;Connector&lt;/code&gt;. This includes all the &lt;code&gt;relatedFeatures&lt;/code&gt; other than the &lt;code&gt;sourceFeature&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>targetFeature</rdfs:label>
     </owl:ObjectProperty>
@@ -1043,6 +1066,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Type_directedFeature"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Definition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;usages&lt;/code&gt; of this &lt;code&gt;Definition&lt;/code&gt; that are &lt;code&gt;directedFeatures&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>directedUsage</rdfs:label>
     </owl:ObjectProperty>
@@ -1056,6 +1080,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_ownedOccurrence"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Definition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#ActionUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;ActionUsages&lt;/code&gt; that are &lt;code&gt;ownedUsages&lt;/code&gt; of this &lt;code&gt;Definition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedAction</rdfs:label>
     </owl:ObjectProperty>
@@ -1069,6 +1094,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_ownedConnection"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Definition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#AllocationUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;AllocationUsages&lt;/code&gt; that are &lt;code&gt;ownedUsages&lt;/code&gt; of this &lt;code&gt;Definition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedAllocation</rdfs:label>
     </owl:ObjectProperty>
@@ -1082,6 +1108,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_ownedCase"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Definition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#AnalysisCaseUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;AnalysisCaseUsages&lt;/code&gt; that are &lt;code&gt;ownedUsages&lt;/code&gt; of this &lt;code&gt;Definition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedAnalysisCase</rdfs:label>
     </owl:ObjectProperty>
@@ -1095,6 +1122,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_ownedUsage"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Definition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#AttributeUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;AttributeUsages&lt;/code&gt; that are &lt;code&gt;ownedUsages&lt;/code&gt; of this &lt;code&gt;Definition&lt;/code&gt;.&lt;p&gt;</rdfs:comment>
         <rdfs:label>ownedAttribute</rdfs:label>
     </owl:ObjectProperty>
@@ -1108,6 +1136,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_ownedAction"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Definition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#CalculationUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;CalculationUsages&lt;/code&gt; that are &lt;code&gt;ownedUsages&lt;/code&gt; of this &lt;code&gt;Definition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedCalculation</rdfs:label>
     </owl:ObjectProperty>
@@ -1121,6 +1150,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_ownedCalculation"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Definition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#CaseUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The code&gt;CaseUsages&lt;/code&gt; that are &lt;code&gt;ownedUsages&lt;/code&gt; of this &lt;code&gt;Definition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedCase</rdfs:label>
     </owl:ObjectProperty>
@@ -1147,6 +1177,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_ownedPart"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Definition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#ConnectorAsUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;ConnectorAsUsages&lt;/code&gt; that are &lt;code&gt;ownedUsages&lt;/code&gt; of this &lt;code&gt;Definition&lt;/code&gt;. Note that this list includes &lt;code&gt;BindingConnectorAsUsages&lt;/code&gt; and &lt;code&gt;SuccessionAsUsages&lt;/code&gt;, even though these are &lt;code&gt;ConnectorAsUsages&lt;/code&gt; but not &lt;code&gt;ConnectionUsages&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedConnection</rdfs:label>
     </owl:ObjectProperty>
@@ -1160,6 +1191,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_ownedOccurrence"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Definition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#ConstraintUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;ConstraintUsages&lt;/code&gt; that are &lt;code&gt;ownedUsages&lt;/code&gt; of this &lt;code&gt;Definition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedConstraint</rdfs:label>
     </owl:ObjectProperty>
@@ -1173,6 +1205,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_ownedAttribute"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Definition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#EnumerationUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;EnumerationUsages&lt;/code&gt; that are &lt;code&gt;ownedUsages&lt;/code&gt; of this &lt;code&gt;Definition&lt;/code&gt;.&lt;p&gt;</rdfs:comment>
         <rdfs:label>ownedEnumeration</rdfs:label>
     </owl:ObjectProperty>
@@ -1199,6 +1232,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_ownedConnection"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Definition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#InterfaceUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;InterfaceUsages&lt;/code&gt; that are &lt;code&gt;ownedUsages&lt;/code&gt; of this &lt;code&gt;Definition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedInterface</rdfs:label>
     </owl:ObjectProperty>
@@ -1212,6 +1246,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_ownedOccurrence"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Definition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#ItemUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;ItemUsages&lt;/code&gt; that are &lt;code&gt;ownedUsages&lt;/code&gt; of this &lt;code&gt;Definition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedItem</rdfs:label>
     </owl:ObjectProperty>
@@ -1225,6 +1260,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_ownedItem"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Definition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#MetadataUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;MetadataUsages&lt;/code&gt; that are &lt;code&gt;ownedUsages&lt;/code&gt; of this &lt;code&gt;Definition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedMetadata</rdfs:label>
     </owl:ObjectProperty>
@@ -1238,6 +1274,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_ownedUsage"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Definition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#OccurrenceUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;OccurrenceUsages&lt;/code&gt; that are &lt;code&gt;ownedUsages&lt;/code&gt; of this &lt;code&gt;Definition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedOccurrence</rdfs:label>
     </owl:ObjectProperty>
@@ -1251,6 +1288,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_ownedItem"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Definition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#PartUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;PartUsages&lt;/code&gt; that are &lt;code&gt;ownedUsages&lt;/code&gt; of this &lt;code&gt;Definition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedPart</rdfs:label>
     </owl:ObjectProperty>
@@ -1264,6 +1302,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_ownedUsage"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Definition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#PortUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;PortUsages&lt;/code&gt; that are &lt;code&gt;ownedUsages&lt;/code&gt; of this &lt;code&gt;Definition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedPort</rdfs:label>
     </owl:ObjectProperty>
@@ -1277,6 +1316,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_ownedUsage"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Definition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#ReferenceUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;ReferenceUsages&lt;/code&gt; that are &lt;code&gt;ownedUsages&lt;/code&gt; of this &lt;code&gt;Definition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedReference</rdfs:label>
     </owl:ObjectProperty>
@@ -1290,6 +1330,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_ownedPart"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Definition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#RenderingUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;RenderingUsages&lt;/code&gt; that are &lt;code&gt;ownedUsages&lt;/code&gt; of this &lt;code&gt;Definition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedRendering</rdfs:label>
     </owl:ObjectProperty>
@@ -1303,6 +1344,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_ownedConstraint"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Definition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#RequirementUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;RequirementUsages&lt;/code&gt; that are &lt;code&gt;ownedUsages&lt;/code&gt; of this &lt;code&gt;Definition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedRequirement</rdfs:label>
     </owl:ObjectProperty>
@@ -1316,6 +1358,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_ownedAction"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Definition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#StateUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;StateUsages&lt;/code&gt; that are &lt;code&gt;ownedUsages&lt;/code&gt; of this &lt;code&gt;Definition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedState</rdfs:label>
     </owl:ObjectProperty>
@@ -1343,6 +1386,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Type_ownedFeature"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Definition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;Usages&lt;/code&gt; that are &lt;code&gt;ownedFeatures&lt;/code&gt; of this &lt;code&gt;Definition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedUsage</rdfs:label>
     </owl:ObjectProperty>
@@ -1356,6 +1400,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_ownedCase"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Definition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#UseCaseUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;UseCaseUsages&lt;/code&gt; that are &lt;code&gt;ownedUsages&lt;/code&gt; of this &lt;code&gt;Definition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedUseCase</rdfs:label>
     </owl:ObjectProperty>
@@ -1369,6 +1414,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_ownedCase"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Definition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#VerificationCaseUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;VerificationCaseUsages&lt;/code&gt; that are &lt;code&gt;ownedUsages&lt;/code&gt; of this &lt;code&gt;Definition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedVerificationCase</rdfs:label>
     </owl:ObjectProperty>
@@ -1382,6 +1428,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_ownedPart"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Definition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#ViewUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;ViewUsages&lt;/code&gt; that are &lt;code&gt;ownedUsages&lt;/code&gt; of this &lt;code&gt;Definition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedView</rdfs:label>
     </owl:ObjectProperty>
@@ -1395,6 +1442,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_ownedRequirement"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Definition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#ViewpointUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;ViewpointUsages&lt;/code&gt; that are &lt;code&gt;ownedUsages&lt;/code&gt; of this &lt;code&gt;Definition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedViewpoint</rdfs:label>
     </owl:ObjectProperty>
@@ -1408,6 +1456,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Type_feature"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Definition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;Usages&lt;/code&gt; that are &lt;code&gt;features&lt;/code&gt; of this &lt;code&gt;Definition&lt;/code&gt; (not necessarily owned).&lt;/p&gt;</rdfs:comment>
         <rdfs:label>usage</rdfs:label>
     </owl:ObjectProperty>
@@ -1447,6 +1496,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Relationship_source"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Dependency"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Element"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;Element&lt;/code&gt; or &lt;code&gt;Elements&lt;/code&gt; dependent on the &lt;code&gt;supplier&lt;/code&gt; &lt;code&gt;Elements&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>client</rdfs:label>
     </owl:ObjectProperty>
@@ -1460,6 +1510,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Relationship_target"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Dependency"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Element"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;Element&lt;/code&gt; or &lt;code&gt;Elements&lt;/code&gt; on which the &lt;code&gt;client&lt;/code&gt; &lt;code&gt;Elements&lt;/code&gt; depend in some respect.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>supplier</rdfs:label>
     </owl:ObjectProperty>
@@ -1575,6 +1626,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Element"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Documentation"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The Documentation owned by this Element.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>documentation</rdfs:label>
     </owl:ObjectProperty>
@@ -1601,6 +1653,7 @@
     <owl:ObjectProperty rdf:about="https://www.omg.org/spec/SysML#Element_ownedElement">
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Element"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Element"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The Elements owned by this Element, derived as the &lt;tt&gt;ownedRelatedElements&lt;/tt&gt; of the &lt;tt&gt;ownedRelationships&lt;/tt&gt; of this Element.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedElement</rdfs:label>
     </owl:ObjectProperty>
@@ -1682,6 +1735,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Element"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#TextualRepresentation"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;TextualRepresentations&lt;/code&gt; that annotate this &lt;code&gt;Element&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>textualRepresentation</rdfs:label>
     </owl:ObjectProperty>
@@ -1695,6 +1749,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_variant"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#EnumerationDefinition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#EnumerationUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;&lt;code&gt;EnumerationUsages&lt;/code&gt; of this &lt;code&gt;EnumerationDefinition&lt;/code&gt;that have distinct, fixed values. Each &lt;code&gt;enumeratedValue&lt;/code&gt; specifies one of the allowed instances of the &lt;code&gt;EnumerationDefinition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>enumeratedValue</rdfs:label>
     </owl:ObjectProperty>
@@ -1984,6 +2039,7 @@
     <owl:ObjectProperty rdf:about="https://www.omg.org/spec/SysML#Feature_chainingFeature">
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Feature"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Feature"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;Feature&lt;/code&gt; that are chained together to determine the values of this &lt;code&gt;Feature&lt;/code&gt;, derived from the &lt;code&gt;chainingFeatures&lt;/code&gt; of the &lt;code&gt;ownedFeatureChainings&lt;/code&gt; of this &lt;code&gt;Feature&lt;/code&gt;, in the same order. The values of a &lt;code&gt;Feature&lt;/code&gt; with &lt;code&gt;chainingFeatures&lt;/code&gt; are the same as values of the last &lt;code&gt;Feature&lt;/code&gt; in the chain, which can be found by starting with the values of the first &lt;code&gt;Feature&lt;/code&gt; (for each instance of the domain of the original &lt;code&gt;Feature&lt;/code&gt;), then using each of those as domain instances to find the values of the second &lt;code&gt;Feature&lt;/code&gt; in chainingFeatures, and so on, to values of the last &lt;code&gt;Feature&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>chainingFeature</rdfs:label>
     </owl:ObjectProperty>
@@ -2022,6 +2078,7 @@
     <owl:ObjectProperty rdf:about="https://www.omg.org/spec/SysML#Feature_featuringType">
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Feature"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Type"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;&lt;code&gt;Types&lt;/code&gt; that feature this &lt;code&gt;Feature&lt;/code&gt;, such that any instance in the domain of the &lt;code&gt;Feature&lt;/code&gt; must be classified by all of these &lt;code&gt;Types&lt;/code&gt;, including at least all the &lt;code&gt;featuringTypes&lt;/code&gt; of its &lt;code&gt;typeFeaturings&lt;/code&gt;.  If the &lt;code&gt;Feature&lt;/code&gt; is chained, then the &lt;code&gt;featuringTypes&lt;/code&gt; of the first &lt;code&gt;Feature&lt;/code&gt; in the chain are also &lt;code&gt;featuringTypes&lt;/code&gt; of the chained &lt;code&gt;Feature&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>featuringType</rdfs:label>
     </owl:ObjectProperty>
@@ -2159,6 +2216,7 @@
     <owl:ObjectProperty rdf:about="https://www.omg.org/spec/SysML#Feature_type">
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Feature"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Type"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;&lt;code&gt;Types&lt;/code&gt; that restrict the values of this &lt;code&gt;Feature&lt;/code&gt;, such that the values must be instances of all the &lt;code&gt;types&lt;/code&gt;. The types of a &lt;code&gt;Feature&lt;/code&gt; are derived from its &lt;code&gt;typings&lt;/code&gt; and the &lt;code&gt;types&lt;/code&gt; of its &lt;code&gt;subsettings&lt;/code&gt;. If the &lt;code&gt;Feature&lt;/code&gt; is chained, then the &lt;code&gt;types&lt;/code&gt; of the last &lt;code&gt;Feature&lt;/code&gt; in the chain are also &lt;code&gt;types&lt;/code&gt; of the chained &lt;code&gt;Feature&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>type</rdfs:label>
     </owl:ObjectProperty>
@@ -2202,6 +2260,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#ItemFlow_interaction"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#FlowConnectionUsage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Interaction"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;Interactions&lt;/code&gt; that are the &lt;code&gt;types&lt;/code&gt; of this &lt;code&gt;FlowConnectionUsage&lt;/code&gt;. Nominally, these are &lt;code&gt;FlowConnectionDefinitions&lt;/code&gt;, but other kinds of Kernel &lt;code&gt;Interactions&lt;/code&gt; are also allowed, to permit use of Interactions from the Kernel Model Libraries.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>flowConnectionDefinition</rdfs:label>
     </owl:ObjectProperty>
@@ -2382,6 +2441,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#ConnectionDefinition_connectionEnd"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#InterfaceDefinition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#PortUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;PortUsages&lt;/code&gt; that are the &lt;code&gt;connectionEnds&lt;/code&gt; of this &lt;code&gt;InterfaceDefinition&lt;/code&gt;.</rdfs:comment>
         <rdfs:label>interfaceEnd</rdfs:label>
     </owl:ObjectProperty>
@@ -2437,6 +2497,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Type_ownedFeature"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#InvocationExpression"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Expression"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;value&lt;/code&gt; &lt;code&gt;Expressions&lt;/code&gt; of the &lt;code&gt;FeatureValues&lt;/code&gt; of the owned input &lt;code&gt;parameters&lt;/code&gt; of the &lt;code&gt;InvocationExpression&lt;/code&gt;.</rdfs:comment>
         <rdfs:label>argument</rdfs:label>
     </owl:ObjectProperty>
@@ -2449,6 +2510,7 @@
     <owl:ObjectProperty rdf:about="https://www.omg.org/spec/SysML#InvocationExpression_operand">
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#InvocationExpression"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Expression"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:label>operand</rdfs:label>
     </owl:ObjectProperty>
     
@@ -2462,6 +2524,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Step_behavior"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#ItemFlow"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Interaction"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;Interactions&lt;/code&gt; that type this &lt;code&gt;ItemFlow&lt;/code&gt;. &lt;code&gt;Interactions&lt;/code&gt; are both &lt;code&gt;Associations&lt;/code&gt; and &lt;code&gt;Behaviors&lt;/code&gt;, which can type &lt;code&gt;Connectors&lt;/code&gt; and &lt;code&gt;Steps&lt;/code&gt;, respectively.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>interaction</rdfs:label>
     </owl:ObjectProperty>
@@ -2489,6 +2552,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Connector_connectorEnd"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#ItemFlow"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#ItemFlowEnd"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;connectorEnds&lt;/code&gt; of this &lt;code&gt;ItemFlow&lt;/code&gt; that are &lt;code&gt;ItemFlowEnds&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>itemFlowEnd</rdfs:label>
     </owl:ObjectProperty>
@@ -2501,6 +2565,7 @@
     <owl:ObjectProperty rdf:about="https://www.omg.org/spec/SysML#ItemFlow_itemType">
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#ItemFlow"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Classifier"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The type of values transferred, which is the &lt;code&gt;type&lt;/code&gt; of the &lt;code&gt;itemFeature&lt;/code&gt; of the &lt;code&gt;ItemFlow&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>itemType</rdfs:label>
     </owl:ObjectProperty>
@@ -2514,6 +2579,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#ItemFlow"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Feature"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;Feature&lt;/code&gt; that provides the items carried by the &lt;code&gt;ItemFlow&lt;/code&gt;. It must be an owned &lt;code&gt;output&lt;/code&gt; of the &lt;code&gt;source&lt;/code&gt; of the &lt;code&gt;ItemFlow&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>sourceOutputFeature</rdfs:label>
     </owl:ObjectProperty>
@@ -2527,6 +2593,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#ItemFlow"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Feature"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;Feature&lt;/code&gt; that receives the values carried by the &lt;code&gt;ItemFlow&lt;/code&gt;. It must be an owned &lt;code&gt;output&lt;/code&gt; of the target participant of the &lt;code&gt;ItemFlow&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>targetInputFeature</rdfs:label>
     </owl:ObjectProperty>
@@ -2540,6 +2607,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#OccurrenceUsage_occurrenceDefinition"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#ItemUsage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Structure"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The Structures that are the &lt;code&gt;definitions&lt;/code&gt; of this ItemUsage. Nominally, these are ItemDefinitions, but other kinds of Kernel Structures are also allowed, to permit use of Structures from the Kernel Library.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>itemDefinition</rdfs:label>
     </owl:ObjectProperty>
@@ -2651,6 +2719,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Namespace_ownedMember"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#MultiplicityRange"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Expression"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The owned &lt;code&gt;Expressions&lt;/code&gt; of the &lt;code&gt;MultiplicityRange&lt;/code&gt; whose results provide its bounds. These must be the only &lt;code&gt;ownedMembers&lt;/code&gt; of the &lt;code&gt;MultiplicityRange&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>bound</rdfs:label>
     </owl:ObjectProperty>
@@ -2706,6 +2775,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Namespace_membership"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Namespace"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Membership"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;Memberships&lt;/code&gt; in this &lt;code&gt;Namespace&lt;/code&gt; that result from the &lt;code&gt;ownedImports&lt;/code&gt; of this &lt;code&gt;Namespace&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>importedMembership</rdfs:label>
     </owl:ObjectProperty>
@@ -2718,6 +2788,7 @@
     <owl:ObjectProperty rdf:about="https://www.omg.org/spec/SysML#Namespace_member">
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Namespace"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Element"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The set of all member &lt;code&gt;Elements&lt;/code&gt; of this &lt;code&gt;Namespace&lt;/code&gt;, which are the &lt;code&gt;memberElements&lt;/code&gt; of all &lt;code&gt;memberships&lt;/code&gt; of the &lt;code&gt;Namespace&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>member</rdfs:label>
     </owl:ObjectProperty>
@@ -2730,6 +2801,7 @@
     <owl:ObjectProperty rdf:about="https://www.omg.org/spec/SysML#Namespace_membership">
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Namespace"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Membership"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;All &lt;code&gt;Memberships&lt;/code&gt; in this &lt;code&gt;Namespace&lt;/code&gt;, including (at least) the union of &lt;code&gt;ownedMemberships&lt;/code&gt; and &lt;code&gt;importedMemberships&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>membership</rdfs:label>
     </owl:ObjectProperty>
@@ -2757,6 +2829,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Namespace_member"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Namespace"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Element"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The owned &lt;code&gt;members&lt;/code&gt; of this &lt;code&gt;Namespace&lt;/code&gt;, which are the &lt;cpde&gt;&lt;code&gt;ownedMemberElements&lt;/code&gt; of the &lt;code&gt;ownedMemberships&lt;/code&gt; of the &lt;code&gt;Namespace&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedMember</rdfs:label>
     </owl:ObjectProperty>
@@ -2827,6 +2900,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_definition"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#OccurrenceUsage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Class"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;Classes&lt;/code&gt; that are the types of this &lt;code&gt;OccurrenceUsage&lt;/code&gt;. Nominally, these are &lt;code&gt;OccurrenceDefinitions&lt;/code&gt;, but other kinds of kernel &lt;code&gt;Classes&lt;/code&gt; are also allowed, to permit use of &lt;code&gt;Classes&lt;/code&gt; from the Kernel Model Libraries.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>occurrenceDefinition</rdfs:label>
     </owl:ObjectProperty>
@@ -2855,6 +2929,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Namespace_ownedMember"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Package"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Expression"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The model-level evaluable &lt;code&gt;&lt;em&gt;Boolean&lt;/em&gt;&lt;/code&gt;-valued &lt;code&gt;Expression&lt;/code&gt; used to filter the &lt;code&gt;members&lt;/code&gt; of this &lt;code&gt;Package&lt;/code&gt;, which are owned by the &lt;code&gt;Package&lt;/code&gt; are via &lt;code&gt;ElementFilterMemberships&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>filterCondition</rdfs:label>
     </owl:ObjectProperty>
@@ -2882,6 +2957,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#ItemUsage_itemDefinition"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#PartUsage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#PartDefinition"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;itemDefinitions&lt;/code&gt; of this PartUsage that are PartDefinitions.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>partDefinition</rdfs:label>
     </owl:ObjectProperty>
@@ -2953,6 +3029,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#OccurrenceUsage_occurrenceDefinition"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#PortUsage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#PortDefinition"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;occurrenceDefinitions&lt;/code&gt; of this &lt;code&gt;PortUsage&lt;/code&gt;, which must all be &lt;code&gt;PortDefinitions&lt;code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>portDefinition</rdfs:label>
     </owl:ObjectProperty>
@@ -3022,6 +3099,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Relationship_relatedElement"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Relationship"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Element"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;tt&gt;relatedElements&lt;/tt&gt; of this Relationship that are owned by the Relationship.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedRelatedElement</rdfs:label>
     </owl:ObjectProperty>
@@ -3048,6 +3126,7 @@
     <owl:ObjectProperty rdf:about="https://www.omg.org/spec/SysML#Relationship_relatedElement">
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Relationship"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Element"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The Elements that are related by this Relationship, derived as the union of the &lt;code&gt;source&lt;/code&gt; and &lt;code&gt;target&lt;/code&gt; Elements of the Relationship.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>relatedElement</rdfs:label>
     </owl:ObjectProperty>
@@ -3061,6 +3140,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Relationship_relatedElement"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Relationship"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Element"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;relatedElements&lt;/c ode&gt; from which this Relationship is considered to be directed.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>source</rdfs:label>
     </owl:ObjectProperty>
@@ -3074,6 +3154,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Relationship_relatedElement"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Relationship"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Element"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;relatedElements&lt;/code&gt; to which this Relationship is considered to be directed.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>target</rdfs:label>
     </owl:ObjectProperty>
@@ -3087,6 +3168,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_usage"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#RenderingDefinition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#RenderingUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;usages&lt;/code&gt; of a &lt;code&gt;RenderingDefinition&lt;/code&gt; that are &lt;code&gt;RenderingUsages&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>rendering</rdfs:label>
     </owl:ObjectProperty>
@@ -3142,6 +3224,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_usage"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#RequirementDefinition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#PartUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;parameters&lt;/code&gt; of this &lt;code&gt;RequirementDefinition&lt;/code&gt; that represent actors involved in the requirement.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>actorParameter</rdfs:label>
     </owl:ObjectProperty>
@@ -3155,6 +3238,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Type_ownedFeature"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#RequirementDefinition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#ConstraintUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The owned &lt;code&gt;ConstraintUsages&lt;/code&gt; that represent assumptions of this &lt;code&gt;RequirementDefinition&lt;/code&gt;, which are the &lt;code&gt;ownedConstraints&lt;/code&gt; of the &lt;code&gt;RequirementConstraintMemberships&lt;/code&gt; of the &lt;code&gt;RequirementDefinition&lt;/code&gt; with &lt;code&gt;kind = assumption&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>assumedConstraint</rdfs:label>
     </owl:ObjectProperty>
@@ -3168,6 +3252,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#RequirementDefinition_requiredConstraint"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#RequirementDefinition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#ConcernUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;ConcernUsages&lt;/code&gt; framed by this &lt;code&gt;RequirementDefinition&lt;/code&gt;, which are the &lt;code&gt;ownedConcerns&lt;/code&gt; of all &lt;code&gt;FramedConcernMemberships&lt;/code&gt; of the &lt;code&gt;RequirementDefinition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>framedConcern</rdfs:label>
     </owl:ObjectProperty>
@@ -3181,6 +3266,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Type_ownedFeature"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#RequirementDefinition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#ConstraintUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The owned &lt;code&gt;ConstraintUsages&lt;/code&gt; that represent requirements of this &lt;code&gt;RequirementDefinition&lt;/code&gt;, derived as the &lt;code&gt;ownedConstraints&lt;/code&gt; of the &lt;code&gt;RequirementConstraintMemberships&lt;/code&gt; of the &lt;code&gt;RequirementDefinition&lt;/code&gt; with &lt;code&gt;kind&lt;/code&gt; = &lt;code&gt;requirement&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>requiredConstraint</rdfs:label>
     </owl:ObjectProperty>
@@ -3195,6 +3281,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_usage"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#RequirementDefinition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#PartUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;parameters&lt;/code&gt; of this &lt;code&gt;RequirementDefinition&lt;/code&gt; that represent stakeholders for th requirement.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>stakeholderParameter</rdfs:label>
     </owl:ObjectProperty>
@@ -3224,6 +3311,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_usage"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#RequirementUsage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#PartUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;parameters&lt;/code&gt; of this &lt;code&gt;RequirementUsage&lt;/code&gt; that represent actors involved in the requirement.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>actorParameter</rdfs:label>
     </owl:ObjectProperty>
@@ -3237,6 +3325,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Type_ownedFeature"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#RequirementUsage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#ConstraintUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The owned &lt;code&gt;ConstraintUsages&lt;/code&gt; that represent assumptions of this &lt;code&gt;RequirementUsage&lt;/code&gt;, derived as the &lt;code&gt;ownedConstraints&lt;/code&gt; of the &lt;code&gt;RequirementConstraintMemberships&lt;/code&gt; of the &lt;code&gt;RequirementUsage&lt;/code&gt; with &lt;code&gt;kind&lt;/code&gt; = &lt;code&gt;assumption&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>assumedConstraint</rdfs:label>
     </owl:ObjectProperty>
@@ -3250,6 +3339,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#RequirementUsage_requiredConstraint"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#RequirementUsage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#ConcernUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;ConcernUsages&lt;/code&gt; framed by this &lt;code&gt;RequirementUsage&lt;/code&gt;, which are the &lt;code&gt;ownedConcerns&lt;/code&gt; of all &lt;code&gt;FramedConcernMemberships&lt;/code&gt; of the &lt;code&gt;RequirementUsage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>framedConcern</rdfs:label>
     </owl:ObjectProperty>
@@ -3263,6 +3353,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Type_ownedFeature"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#RequirementUsage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#ConstraintUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The owned &lt;code&gt;ConstraintUsages&lt;/code&gt; that represent requirements of this &lt;code&gt;RequirementUsage&lt;/code&gt;, which are the &lt;code&gt;ownedConstraints&lt;/code&gt; of the &lt;code&gt;RequirementConstraintMemberships&lt;/code&gt; of the &lt;code&gt;RequirementUsage&lt;/code&gt; with &lt;code&gt;kind&lt;/code&gt; = &lt;code&gt;requirement&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>requiredConstraint</rdfs:label>
     </owl:ObjectProperty>
@@ -3291,6 +3382,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_usage"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#RequirementUsage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#PartUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;parameters&lt;/code&gt; of this &lt;code&gt;RequirementUsage&lt;/code&gt; that represent stakeholders for the requirement.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>stakeholderParameter</rdfs:label>
     </owl:ObjectProperty>
@@ -3523,6 +3615,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#ActionDefinition_action"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#StateDefinition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#StateUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;StateUsages&lt;/code&gt;, which are &lt;code&gt;actions&lt;/code&gt; in the &lt;code&gt;StateDefinition&lt;/code&gt;, that specify the discrete states in the behavior defined by the &lt;code&gt;StateDefinition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>state</rdfs:label>
     </owl:ObjectProperty>
@@ -3589,6 +3682,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#ActionUsage_actionDefinition"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#StateUsage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Behavior"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;Behaviors&lt;/code&gt; that are the &lt;code&gt;types&lt;/code&gt; of this &lt;code&gt;StateUsage&lt;/code&gt;. Nominally, these would be &lt;code&gt;StateDefinitions&lt;/code&gt;, but kernel &lt;code&gt;Behaviors&lt;/code&gt; are also allowed, to permit use of &lt;code&gt;Behaviors&lt;/code&gt; from the Kernel Model Libraries.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>stateDefinition</rdfs:label>
     </owl:ObjectProperty>
@@ -3602,6 +3696,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Feature_type"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Step"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Behavior"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;Behaviors&lt;/code&gt; that type this &lt;code&gt;Step&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>behavior</rdfs:label>
     </owl:ObjectProperty>
@@ -3615,6 +3710,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Type_directedFeature"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Step"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Feature"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;parameters&lt;/code&gt; of this &lt;code&gt;Step&lt;/code&gt;, which are defined as its &lt;code&gt;directedFeatures&lt;/code&gt;, whose values are passed into and/or out of a performance of the &lt;code&gt;Step&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>parameter</rdfs:label>
     </owl:ObjectProperty>
@@ -3928,6 +4024,7 @@
     <owl:ObjectProperty rdf:about="https://www.omg.org/spec/SysML#Type_differencingType">
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Type"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Type"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The interpretations of a &lt;code&gt;Type&lt;/code&gt; with &lt;code&gt;differencingTypes&lt;/code&gt; are asserted to be those of the first of those &lt;code&gt;Types&lt;/code&gt;, but not including those of the remaining &lt;code&gt;Types&lt;/code&gt;. For example, a &lt;code&gt;Classifier&lt;/code&gt; might be the difference of a &lt;code&gt;Classifier&lt;/code&gt; for people and another for people of a particular nationality, leaving people who are not of that nationality. Similarly, a feature of people might be the difference between a feature for their children and a &lt;code&gt;Classifier&lt;/code&gt; for people of a particular sex, identifying their children not of that sex (because the interpretations of the children &lt;code&gt;Feature&lt;/code&gt; that identify those of that sex are also interpretations of the &lt;code&gt;Classifier&lt;/code&gt; for that sex).&lt;/p&gt;</rdfs:comment>
         <rdfs:label>differencingType</rdfs:label>
     </owl:ObjectProperty>
@@ -3941,6 +4038,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Type_feature"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Type"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Feature"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;features&lt;/code&gt; of this &lt;code&gt;Type&lt;/code&gt; that have a non-null &lt;code&gt;direction&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>directedFeature</rdfs:label>
     </owl:ObjectProperty>
@@ -3954,6 +4052,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Type_feature"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Type"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Feature"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;All &lt;code&gt;features&lt;/code&gt; of this &lt;code&gt;Type&lt;/code&gt; with &lt;code&gt;isEnd = true&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>endFeature</rdfs:label>
     </owl:ObjectProperty>
@@ -3967,6 +4066,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Namespace_member"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Type"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Feature"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;ownedMemberFeatures&lt;/code&gt; of the &lt;code&gt;featureMemberships&lt;/code&gt; of this &lt;code&gt;Type&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>feature</rdfs:label>
     </owl:ObjectProperty>
@@ -3979,6 +4079,7 @@
     <owl:ObjectProperty rdf:about="https://www.omg.org/spec/SysML#Type_featureMembership">
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Type"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#FeatureMembership"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;FeatureMemberships&lt;/code&gt; for &lt;code&gt;features&lt;/code&gt; of this &lt;code&gt;Type&lt;/code&gt;, which include all &lt;code&gt;ownedFeatureMemberships&lt;/code&gt; and those &lt;code&gt;inheritedMemberships&lt;/code&gt; that are &lt;code&gt;FeatureMemberships&lt;/code&gt; (but does &lt;em&gt;not&lt;/em&gt; include any &lt;code&gt;importedMemberships&lt;/code&gt;).&lt;/p&gt;</rdfs:comment>
         <rdfs:label>featureMembership</rdfs:label>
     </owl:ObjectProperty>
@@ -3992,6 +4093,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Type_feature"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Type"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Feature"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;All the &lt;code&gt;memberFeatures&lt;/code&gt; of the &lt;code&gt;inheritedMemberships&lt;/code&gt; of this &lt;code&gt;Type&lt;/code&gt; that are &lt;code&gt;FeatureMemberships&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>inheritedFeature</rdfs:label>
     </owl:ObjectProperty>
@@ -4005,6 +4107,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Namespace_membership"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Type"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Membership"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;All &lt;code&gt;Memberships&lt;/code&gt; inherited by this &lt;code&gt;Type&lt;/code&gt; via &lt;code&gt;Specialization&lt;/code&gt; or &lt;code&gt;Conjugation&lt;/code&gt;. These are included in the derived union for the &lt;code&gt;memberships&lt;/code&gt; of the &lt;code&gt;Type&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>inheritedMembership</rdfs:label>
     </owl:ObjectProperty>
@@ -4018,6 +4121,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Type_directedFeature"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Type"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Feature"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;All &lt;code&gt;features&lt;/code&gt; related to this &lt;code&gt;Type&lt;/code&gt; by &lt;code&gt;FeatureMemberships&lt;/code&gt; that have &lt;code&gt;direction&lt;/code&gt; &lt;code&gt;in&lt;/code&gt; or &lt;code&gt;inout&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>input</rdfs:label>
     </owl:ObjectProperty>
@@ -4030,6 +4134,7 @@
     <owl:ObjectProperty rdf:about="https://www.omg.org/spec/SysML#Type_intersectingType">
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Type"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Type"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The interpretations of a &lt;code&gt;Type&lt;/code&gt; with &lt;code&gt;intersectingTypes&lt;/code&gt; are asserted to be those in common among the &lt;code&gt;intersectingTypes&lt;/code&gt;, which are the &lt;code&gt;Types&lt;/code&gt; derived from the &lt;code&gt;intersectingType&lt;/code&gt; of the &lt;code&gt;ownedIntersectings&lt;/code&gt; of this &lt;code&gt;Type&lt;/code&gt;. For example, a &lt;code&gt;Classifier&lt;/code&gt; might be an intersection of &lt;code&gt;Classifiers&lt;/code&gt; for people of a particular sex and of a particular nationality. Similarly, a feature for people&amp;#39;s children of a particular sex might be the intersection of a &lt;code&gt;Feature&lt;/code&gt; for their children and a &lt;code&gt;Classifier&lt;/code&gt; for people of that sex (because the interpretations of the children &lt;code&gt;Feature&lt;/code&gt; that identify those of that sex are also interpretations of the Classifier for that sex).&lt;/p&gt;</rdfs:comment>
         <rdfs:label>intersectingType</rdfs:label>
     </owl:ObjectProperty>
@@ -4057,6 +4162,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Type_directedFeature"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Type"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Feature"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;All &lt;code&gt;features&lt;/code&gt; related to this &lt;code&gt;Type&lt;/code&gt; by &lt;code&gt;FeatureMemberships&lt;/code&gt; that have &lt;code&gt;direction&lt;/code&gt; &lt;code&gt;out&lt;/code&gt; or &lt;code&gt;inout&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>output</rdfs:label>
     </owl:ObjectProperty>
@@ -4113,6 +4219,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Type_ownedFeature"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Type"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Feature"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;All &lt;code&gt;endFeatures&lt;/code&gt; of this &lt;code&gt;Type&lt;/code&gt; that are &lt;code&gt;ownedFeatures&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedEndFeature</rdfs:label>
     </owl:ObjectProperty>
@@ -4126,6 +4233,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Namespace_ownedMember"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Type"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Feature"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;ownedMemberFeatures&lt;/code&gt; of the &lt;code&gt;ownedFeatureMemberships&lt;/code&gt; of this &lt;code&gt;Type&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>ownedFeature</rdfs:label>
     </owl:ObjectProperty>
@@ -4195,6 +4303,7 @@
     <owl:ObjectProperty rdf:about="https://www.omg.org/spec/SysML#Type_unioningType">
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Type"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Type"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The interpretations of a &lt;code&gt;Type&lt;/code&gt; with &lt;code&gt;unioningTypes&lt;/code&gt; are asserted to be the same as those of all the &lt;code&gt;unioningTypes&lt;/code&gt; together, which are the &lt;code&gt;Types&lt;/code&gt; derived from the &lt;code&gt;unioningType&lt;/code&gt; of the &lt;code&gt;ownedUnionings&lt;/code&gt; of this &lt;code&gt;Type&lt;/code&gt;. For example, a &lt;code&gt;Classifier&lt;/code&gt; for people might be the union of &lt;code&gt;Classifiers&lt;/code&gt; for all the sexes. Similarly, a feature for people&amp;#39;s children might be the union of features dividing them in the same ways as people in general.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>unioningType</rdfs:label>
     </owl:ObjectProperty>
@@ -4237,6 +4346,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Feature_type"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Classifier"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;Classifiers&lt;/code&gt; that are the types of this &lt;code&gt;Usage&lt;/code&gt;. Nominally, these are &lt;code&gt;Definitions&lt;/code&gt;, but other kinds of Kernel &lt;code&gt;Classifiers&lt;/code&gt; are also allowed, to permit use of &lt;code&gt;Classifiers&lt;/code&gt; from the Kernel Model Libraries.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>definition</rdfs:label>
     </owl:ObjectProperty>
@@ -4251,6 +4361,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_usage"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;usages&lt;/code&gt; of this &lt;code&gt;Usage&lt;/code&gt; that are &lt;code&gt;directedFeatures&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>directedUsage</rdfs:label>
     </owl:ObjectProperty>
@@ -4264,6 +4375,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_nestedOccurrence"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#ActionUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;ActionUsages&lt;/code&gt; that are &lt;code&gt;nestedUsages&lt;/code&gt; of this &lt;code&gt;Usage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>nestedAction</rdfs:label>
     </owl:ObjectProperty>
@@ -4277,6 +4389,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_nestedConnection"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#AllocationUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;AllocationUsages&lt;/code&gt; that are &lt;code&gt;nestedUsages&lt;/code&gt; of this &lt;code&gt;Usage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>nestedAllocation</rdfs:label>
     </owl:ObjectProperty>
@@ -4290,6 +4403,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_nestedCase"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#AnalysisCaseUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;AnalysisCaseUsages&lt;/code&gt; that are &lt;code&gt;nestedUsages&lt;/code&gt; of this &lt;code&gt;Usage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>nestedAnalysisCase</rdfs:label>
     </owl:ObjectProperty>
@@ -4303,6 +4417,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_nestedUsage"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#AttributeUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The code&gt;AttributeUsages&lt;/code&gt; that are &lt;code&gt;nestedUsages&lt;/code&gt; of this &lt;code&gt;Usage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>nestedAttribute</rdfs:label>
     </owl:ObjectProperty>
@@ -4316,6 +4431,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_nestedAction"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#CalculationUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;CalculationUsage&lt;/code&gt; that are &lt;code&gt;nestedUsages&lt;/code&gt; of this &lt;code&gt;Usage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>nestedCalculation</rdfs:label>
     </owl:ObjectProperty>
@@ -4329,6 +4445,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_nestedCalculation"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#CaseUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;CaseUsages&lt;/code&gt; that are &lt;code&gt;nestedUsages&lt;/code&gt; of this &lt;code&gt;Usage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>nestedCase</rdfs:label>
     </owl:ObjectProperty>
@@ -4355,6 +4472,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_nestedPart"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#ConnectorAsUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;ConnectorAsUsages&lt;/code&gt; that are &lt;code&gt;nestedUsages&lt;/code&gt; of this &lt;code&gt;Usage&lt;/code&gt;. Note that this list includes &lt;code&gt;BindingConnectorAsUsages&lt;/code&gt; and &lt;code&gt;SuccessionAsUsages&lt;/code&gt;, even though these are &lt;code&gt;ConnectorAsUsages&lt;/code&gt; but not &lt;code&gt;ConnectionUsages&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>nestedConnection</rdfs:label>
     </owl:ObjectProperty>
@@ -4368,6 +4486,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_nestedOccurrence"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#ConstraintUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;ConstraintUsages&lt;/code&gt; that are &lt;code&gt;nestedUsages&lt;/code&gt; of this &lt;code&gt;Usage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>nestedConstraint</rdfs:label>
     </owl:ObjectProperty>
@@ -4381,6 +4500,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_nestedAttribute"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#EnumerationUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The code&gt;EnumerationUsages&lt;/code&gt; that are &lt;code&gt;nestedUsages&lt;/code&gt; of this &lt;code&gt;Usage&lt;/code&gt;.&lt;p&gt;</rdfs:comment>
         <rdfs:label>nestedEnumeration</rdfs:label>
     </owl:ObjectProperty>
@@ -4407,6 +4527,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_nestedConnection"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#InterfaceUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;InterfaceUsages&lt;/code&gt; that are &lt;code&gt;nestedUsages&lt;/code&gt; of this &lt;code&gt;Usage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>nestedInterface</rdfs:label>
     </owl:ObjectProperty>
@@ -4420,6 +4541,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_nestedOccurrence"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#ItemUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;ItemUsages&lt;/code&gt; that are &lt;code&gt;nestedUsages&lt;/code&gt; of this &lt;code&gt;Usage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>nestedItem</rdfs:label>
     </owl:ObjectProperty>
@@ -4433,6 +4555,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_nestedItem"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#MetadataUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;MetadataUsages&lt;/code&gt; that are &lt;code&gt;nestedUsages&lt;/code&gt; of this of this &lt;code&gt;Usage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>nestedMetadata</rdfs:label>
     </owl:ObjectProperty>
@@ -4446,6 +4569,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_nestedUsage"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#OccurrenceUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;OccurrenceUsages&lt;/code&gt; that are &lt;code&gt;nestedUsages&lt;/code&gt; of this &lt;code&gt;Usage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>nestedOccurrence</rdfs:label>
     </owl:ObjectProperty>
@@ -4459,6 +4583,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_nestedItem"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#PartUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;PartUsages&lt;/code&gt; that are &lt;code&gt;nestedUsages&lt;/code&gt; of this &lt;code&gt;Usage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>nestedPart</rdfs:label>
     </owl:ObjectProperty>
@@ -4472,6 +4597,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_nestedUsage"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#PortUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;PortUsages&lt;/code&gt; that are &lt;code&gt;nestedUsages&lt;/code&gt; of this &lt;code&gt;Usage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>nestedPort</rdfs:label>
     </owl:ObjectProperty>
@@ -4485,6 +4611,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_nestedUsage"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#ReferenceUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;ReferenceUsages&lt;/code&gt; that are &lt;code&gt;nestedUsages&lt;/code&gt; of this &lt;code&gt;Usage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>nestedReference</rdfs:label>
     </owl:ObjectProperty>
@@ -4498,6 +4625,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_nestedPart"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#RenderingUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;RenderingUsages&lt;/code&gt; that are &lt;code&gt;nestedUsages&lt;/code&gt; of this &lt;code&gt;Usage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>nestedRendering</rdfs:label>
     </owl:ObjectProperty>
@@ -4511,6 +4639,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_nestedConstraint"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#RequirementUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;RequirementUsages&lt;/code&gt; that are &lt;code&gt;nestedUsages&lt;/code&gt; of this &lt;code&gt;Usage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>nestedRequirement</rdfs:label>
     </owl:ObjectProperty>
@@ -4524,6 +4653,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_nestedAction"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#StateUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;StateUsages&lt;/code&gt; that are &lt;code&gt;nestedUsages&lt;/code&gt; of this &lt;code&gt;Usage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>nestedState</rdfs:label>
     </owl:ObjectProperty>
@@ -4551,6 +4681,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_usage"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;Usages&lt;/code&gt; that are &lt;code&gt;ownedFeatures&lt;/code&gt; of this &lt;code&gt;Usage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>nestedUsage</rdfs:label>
     </owl:ObjectProperty>
@@ -4564,6 +4695,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_nestedCase"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#UseCaseUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;UseCaseUsages&lt;/code&gt; that are &lt;code&gt;nestedUsages&lt;/code&gt; of this &lt;code&gt;Usage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>nestedUseCase</rdfs:label>
     </owl:ObjectProperty>
@@ -4577,6 +4709,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_nestedCase"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#VerificationCaseUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;VerificationCaseUsages&lt;/code&gt; that are &lt;code&gt;nestedUsages&lt;/code&gt; of this &lt;code&gt;Usage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>nestedVerificationCase</rdfs:label>
     </owl:ObjectProperty>
@@ -4590,6 +4723,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_nestedPart"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#ViewUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;ViewUsages&lt;/code&gt; that are &lt;code&gt;nestedUsages&lt;/code&gt; of this &lt;code&gt;Usage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>nestedView</rdfs:label>
     </owl:ObjectProperty>
@@ -4603,6 +4737,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_nestedRequirement"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#ViewpointUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;ViewpointUsages&lt;/code&gt; that are &lt;code&gt;nestedUsages&lt;/code&gt; of this &lt;code&gt;Usage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>nestedViewpoint</rdfs:label>
     </owl:ObjectProperty>
@@ -4642,6 +4777,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Type_feature"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Usage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;Usages&lt;/code&gt; that are &lt;code&gt;features&lt;/code&gt; of this &lt;code&gt;Usage&lt;/code&gt; (not necessarily owned).&lt;/p&gt;</rdfs:comment>
         <rdfs:label>usage</rdfs:label>
     </owl:ObjectProperty>
@@ -4680,6 +4816,7 @@
     <owl:ObjectProperty rdf:about="https://www.omg.org/spec/SysML#UseCaseDefinition_includedUseCase">
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#UseCaseDefinition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#UseCaseUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;UseCaseUsages&lt;/code&gt; that are included by this &lt;code&gt;UseCaseDefinition&lt;/code&gt;, which are the &lt;code&gt;useCaseIncludeds&lt;/code&gt; of the &lt;code&gt;IncludeUseCaseUsages&lt;/code&gt; owned by this &lt;code&gt;UseCaseDefinition&lt;code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>includedUseCase</rdfs:label>
     </owl:ObjectProperty>
@@ -4692,6 +4829,7 @@
     <owl:ObjectProperty rdf:about="https://www.omg.org/spec/SysML#UseCaseUsage_includedUseCase">
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#UseCaseUsage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#UseCaseUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;UseCaseUsages&lt;/code&gt; that are included by this &lt;code&gt;UseCaseUse&lt;/code&gt;, which are the &lt;code&gt;useCaseIncludeds&lt;/code&gt; of the &lt;code&gt;IncludeUseCaseUsages&lt;/code&gt; owned by this &lt;code&gt;UseCaseUsage&lt;code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>includedUseCase</rdfs:label>
     </owl:ObjectProperty>
@@ -4732,6 +4870,7 @@
     <owl:ObjectProperty rdf:about="https://www.omg.org/spec/SysML#VerificationCaseDefinition_verifiedRequirement">
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#VerificationCaseDefinition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#RequirementUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;RequirementUsages&lt;/code&gt; verified by this &lt;code&gt;VerificationCaseDefinition&lt;/code&gt;, which are the &lt;code&gt;verifiedRequirements&lt;/code&gt; of all &lt;code&gt;RequirementVerificationMemberships&lt;/code&gt; of the &lt;code&gt;objectiveRequirement&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>verifiedRequirement</rdfs:label>
     </owl:ObjectProperty>
@@ -4758,6 +4897,7 @@
     <owl:ObjectProperty rdf:about="https://www.omg.org/spec/SysML#VerificationCaseUsage_verifiedRequirement">
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#VerificationCaseUsage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#RequirementUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;RequirementUsages&lt;/code&gt; verified by this &lt;code&gt;VerificationCaseUsage&lt;/code&gt;, which are the &lt;code&gt;verifiedRequirements&lt;/code&gt; of all &lt;code&gt;RequirementVerificationMemberships&lt;/code&gt; of the &lt;code&gt;objectiveRequirement&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>verifiedRequirement</rdfs:label>
     </owl:ObjectProperty>
@@ -4771,6 +4911,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_ownedRequirement"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#ViewDefinition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#ViewpointUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The composite &lt;code&gt;ownedRequirements&lt;/code&gt; of this &lt;code&gt;ViewDefinition&lt;/code&gt; that are &lt;code&gt;ViewpointUsages&lt;/code&gt; for viewpoints satisfied by the &lt;code&gt;ViewDefinition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>satisfiedViewpoint</rdfs:label>
     </owl:ObjectProperty>
@@ -4784,6 +4925,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Definition_usage"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#ViewDefinition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#ViewUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;usages&lt;/code&gt; of this &lt;code&gt;ViewDefinition&lt;/code&gt; that are &lt;code&gt;ViewUsages&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>view</rdfs:label>
     </owl:ObjectProperty>
@@ -4797,6 +4939,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Namespace_ownedMember"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#ViewDefinition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Expression"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;Expressions&lt;/code&gt; related to this &lt;code&gt;ViewDefinition&lt;/code&gt; by &lt;code&gt;ElementFilterMemberships&lt;/code&gt;, which specify conditions on &lt;code&gt;Elements&lt;/code&gt; to be rendered in a view.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>viewCondition</rdfs:label>
     </owl:ObjectProperty>
@@ -4850,6 +4993,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Namespace_member"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#ViewUsage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Element"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;Elements&lt;/code&gt; that are exposed by this &lt;code&gt;ViewUsage&lt;/code&gt;, which are those &lt;code&gt;memberElements&lt;/code&gt; of the imported &lt;code&gt;Memberships&lt;/code&gt; from all the &lt;code&gt;Expose&lt;/code&gt; &lt;code&gt;Relationships&lt;/code&gt; that meet all the owned and inherited &lt;code&gt;viewConditions&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>exposedElement</rdfs:label>
     </owl:ObjectProperty>
@@ -4863,6 +5007,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Usage_nestedRequirement"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#ViewUsage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#ViewpointUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;nestedRequirements&lt;/code&gt; of this &lt;code&gt;ViewUsage&lt;/code&gt; that are &lt;code&gt;ViewpointUsages&lt;/code&gt; for (additional) viewpoints satisfied by the &lt;code&gt;ViewUsage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>satisfiedViewpoint</rdfs:label>
     </owl:ObjectProperty>
@@ -4876,6 +5021,7 @@
         <rdfs:subPropertyOf rdf:resource="https://www.omg.org/spec/SysML#Namespace_ownedMember"/>
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#ViewUsage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#Expression"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;Expressions&lt;/code&gt; related to this &lt;code&gt;ViewUsage&lt;/code&gt; by &lt;code&gt;ElementFilterMemberships&lt;/code&gt;, which specify conditions on &lt;code&gt;Elements&lt;/code&gt; to be rendered in a view.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>viewCondition</rdfs:label>
     </owl:ObjectProperty>
@@ -4915,6 +5061,7 @@
     <owl:ObjectProperty rdf:about="https://www.omg.org/spec/SysML#ViewpointDefinition_viewpointStakeholder">
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#ViewpointDefinition"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#PartUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;PartUsages&lt;/code&gt; that identify the stakeholders with concerns framed by this &lt;code&gt;ViewpointDefinition&lt;/code&gt;, which are the owned and inherited &lt;code&gt;stakeholderParameters&lt;/code&gt; of the &lt;code&gt;framedConcerns&lt;/code&gt; of this &lt;code&gt;ViewpointDefinition&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>viewpointStakeholder</rdfs:label>
     </owl:ObjectProperty>
@@ -4941,6 +5088,7 @@
     <owl:ObjectProperty rdf:about="https://www.omg.org/spec/SysML#ViewpointUsage_viewpointStakeholder">
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#ViewpointUsage"/>
         <rdfs:range rdf:resource="https://www.omg.org/spec/SysML#PartUsage"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;The &lt;code&gt;PartUsages&lt;/code&gt; that identify the stakeholders with concerns framed by this &lt;code&gt;ViewpointUsage&lt;/code&gt;, which are the owned and inherited &lt;code&gt;stakeholderParameters&lt;/code&gt; of the &lt;code&gt;framedConcerns&lt;/code&gt; of this &lt;code&gt;ViewpointUsage&lt;/code&gt;.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>viewpointStakeholder</rdfs:label>
     </owl:ObjectProperty>
@@ -5030,6 +5178,7 @@
     <owl:DatatypeProperty rdf:about="https://www.omg.org/spec/SysML#Element_aliasIds">
         <rdfs:domain rdf:resource="https://www.omg.org/spec/SysML#Element"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <Ecore:isOrdered rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</Ecore:isOrdered>
         <rdfs:comment>&lt;p&gt;Various alternative identifiers for this Element. Generally, these will be set by tools.&lt;/p&gt;</rdfs:comment>
         <rdfs:label>aliasIds</rdfs:label>
     </owl:DatatypeProperty>
