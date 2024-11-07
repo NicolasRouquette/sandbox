@@ -3,6 +3,8 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
 
+	extends <http://www.eclipse.org/emf/2002/Ecore#> as ecore
+
 	extends <http://www.w3.org/2001/XMLSchema#> as xsd
 
 	extends <http://www.w3.org/2002/07/owl#> as owl
@@ -91,6 +93,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedRelatedElement"
 	@rdfs:comment "<p>The <tt>relatedElements</tt> of this Relationship that are owned by the Relationship.</p>"
+	@ecore:isOrdered
 	relation Relationship_ownedRelatedElement [
 		from Relationship
 		to Element
@@ -112,6 +115,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "relatedElement"
 	@rdfs:comment "<p>The Elements that are related by this Relationship, derived as the union of the <code>source</code> and <code>target</code> Elements of the Relationship.</p>"
+	@ecore:isOrdered
 	relation Relationship_relatedElement [
 		from Relationship
 		to Element
@@ -119,6 +123,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "target"
 	@rdfs:comment "<p>The <code>relatedElements</code> to which this Relationship is considered to be directed.</p>"
+	@ecore:isOrdered
 	relation Relationship_target [
 		from Relationship
 		to Element
@@ -126,6 +131,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "source"
 	@rdfs:comment "<p>The <code>relatedElements</c ode> from which this Relationship is considered to be directed.</p>"
+	@ecore:isOrdered
 	relation Relationship_source [
 		from Relationship
 		to Element
@@ -184,6 +190,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedMember"
 	@rdfs:comment "<p>The owned <code>members</code> of this <code>Namespace</code>, which are the <cpde><code>ownedMemberElements</code> of the <code>ownedMemberships</code> of the <code>Namespace</code>.</p>"
+	@ecore:isOrdered
 	relation Namespace_ownedMember [
 		from Namespace
 		to Element
@@ -202,6 +209,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedElement"
 	@rdfs:comment "<p>The Elements owned by this Element, derived as the <tt>ownedRelatedElements</tt> of the <tt>ownedRelationships</tt> of this Element.</p>"
+	@ecore:isOrdered
 	relation Element_ownedElement [
 		from Element
 		to Element
@@ -212,6 +220,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "documentation"
 	@rdfs:comment "<p>The Documentation owned by this Element.</p>"
+	@ecore:isOrdered
 	relation Element_documentation [
 		from Element
 		to Documentation
@@ -234,6 +243,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "textualRepresentation"
 	@rdfs:comment "<p>The <code>TextualRepresentations</code> that annotate this <code>Element</code>.</p>"
+	@ecore:isOrdered
 	relation Element_textualRepresentation [
 		from Element
 		to TextualRepresentation
@@ -245,6 +255,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "aliasIds"
 	@rdfs:comment "<p>Various alternative identifiers for this Element. Generally, these will be set by tools.</p>"
+	@ecore:isOrdered
 	scalar property Element_aliasIds [
 		domain Element
 		range xsd:string
@@ -423,6 +434,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "membership"
 	@rdfs:comment "<p>All <code>Memberships</code> in this <code>Namespace</code>, including (at least) the union of <code>ownedMemberships</code> and <code>importedMemberships</code>.</p>"
+	@ecore:isOrdered
 	relation Namespace_membership [
 		from Namespace
 		to Membership
@@ -441,6 +453,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "member"
 	@rdfs:comment "<p>The set of all member <code>Elements</code> of this <code>Namespace</code>, which are the <code>memberElements</code> of all <code>memberships</code> of the <code>Namespace</code>.</p>"
+	@ecore:isOrdered
 	relation Namespace_member [
 		from Namespace
 		to Element
@@ -448,6 +461,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "importedMembership"
 	@rdfs:comment "<p>The <code>Memberships</code> in this <code>Namespace</code> that result from the <code>ownedImports</code> of this <code>Namespace</code>.</p>"
+	@ecore:isOrdered
 	relation Namespace_importedMembership [
 		from Namespace
 		to Membership
@@ -546,6 +560,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "annotatedElement"
 	@rdfs:comment "<p>The <code>Elements</code> that are annotated by this <code>AnnotatingElement</code>. If <code>annotation</code> is not empty, these are the <code>annotatedElements</code> of the <code>annotations</code>. If <code>annotation</code> is empty, then it is the <code>owningNamespace</code> of the <code>AnnotatingElement</code>.</p>"
+	@ecore:isOrdered
 	relation AnnotatingElement_annotatedElement [
 		from AnnotatingElement
 		to Element
@@ -714,6 +729,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedFeature"
 	@rdfs:comment "<p>The <code>ownedMemberFeatures</code> of the <code>ownedFeatureMemberships</code> of this <code>Type</code>.</p>"
+	@ecore:isOrdered
 	relation Type_ownedFeature [
 		from Type
 		to Feature
@@ -724,6 +740,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedEndFeature"
 	@rdfs:comment "<p>All <code>endFeatures</code> of this <code>Type</code> that are <code>ownedFeatures</code>.</p>"
+	@ecore:isOrdered
 	relation Type_ownedEndFeature [
 		from Type
 		to Feature
@@ -734,6 +751,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "feature"
 	@rdfs:comment "<p>The <code>ownedMemberFeatures</code> of the <code>featureMemberships</code> of this <code>Type</code>.</p>"
+	@ecore:isOrdered
 	relation Type_feature [
 		from Type
 		to Feature
@@ -741,6 +759,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "input"
 	@rdfs:comment "<p>All <code>features</code> related to this <code>Type</code> by <code>FeatureMemberships</code> that have <code>direction</code> <code>in</code> or <code>inout</code>.</p>"
+	@ecore:isOrdered
 	relation Type_input [
 		from Type
 		to Feature
@@ -748,6 +767,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "output"
 	@rdfs:comment "<p>All <code>features</code> related to this <code>Type</code> by <code>FeatureMemberships</code> that have <code>direction</code> <code>out</code> or <code>inout</code>.</p>"
+	@ecore:isOrdered
 	relation Type_output [
 		from Type
 		to Feature
@@ -763,6 +783,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "inheritedMembership"
 	@rdfs:comment "<p>All <code>Memberships</code> inherited by this <code>Type</code> via <code>Specialization</code> or <code>Conjugation</code>. These are included in the derived union for the <code>memberships</code> of the <code>Type</code>.</p>"
+	@ecore:isOrdered
 	relation Type_inheritedMembership [
 		from Type
 		to Membership
@@ -770,6 +791,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "endFeature"
 	@rdfs:comment "<p>All <code>features</code> of this <code>Type</code> with <code>isEnd = true</code>.</p>"
+	@ecore:isOrdered
 	relation Type_endFeature [
 		from Type
 		to Feature
@@ -806,6 +828,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "inheritedFeature"
 	@rdfs:comment "<p>All the <code>memberFeatures</code> of the <code>inheritedMemberships</code> of this <code>Type</code> that are <code>FeatureMemberships</code>.</p>"
+	@ecore:isOrdered
 	relation Type_inheritedFeature [
 		from Type
 		to Feature
@@ -821,6 +844,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "unioningType"
 	@rdfs:comment "<p>The interpretations of a <code>Type</code> with <code>unioningTypes</code> are asserted to be the same as those of all the <code>unioningTypes</code> together, which are the <code>Types</code> derived from the <code>unioningType</code> of the <code>ownedUnionings</code> of this <code>Type</code>. For example, a <code>Classifier</code> for people might be the union of <code>Classifiers</code> for all the sexes. Similarly, a feature for people&#39;s children might be the union of features dividing them in the same ways as people in general.</p>"
+	@ecore:isOrdered
 	relation Type_unioningType [
 		from Type
 		to Type
@@ -839,6 +863,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "intersectingType"
 	@rdfs:comment "<p>The interpretations of a <code>Type</code> with <code>intersectingTypes</code> are asserted to be those in common among the <code>intersectingTypes</code>, which are the <code>Types</code> derived from the <code>intersectingType</code> of the <code>ownedIntersectings</code> of this <code>Type</code>. For example, a <code>Classifier</code> might be an intersection of <code>Classifiers</code> for people of a particular sex and of a particular nationality. Similarly, a feature for people&#39;s children of a particular sex might be the intersection of a <code>Feature</code> for their children and a <code>Classifier</code> for people of that sex (because the interpretations of the children <code>Feature</code> that identify those of that sex are also interpretations of the Classifier for that sex).</p>"
+	@ecore:isOrdered
 	relation Type_intersectingType [
 		from Type
 		to Type
@@ -868,6 +893,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "featureMembership"
 	@rdfs:comment "<p>The <code>FeatureMemberships</code> for <code>features</code> of this <code>Type</code>, which include all <code>ownedFeatureMemberships</code> and those <code>inheritedMemberships</code> that are <code>FeatureMemberships</code> (but does <em>not</em> include any <code>importedMemberships</code>).</p>"
+	@ecore:isOrdered
 	relation Type_featureMembership [
 		from Type
 		to FeatureMembership
@@ -875,6 +901,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "differencingType"
 	@rdfs:comment "<p>The interpretations of a <code>Type</code> with <code>differencingTypes</code> are asserted to be those of the first of those <code>Types</code>, but not including those of the remaining <code>Types</code>. For example, a <code>Classifier</code> might be the difference of a <code>Classifier</code> for people and another for people of a particular nationality, leaving people who are not of that nationality. Similarly, a feature of people might be the difference between a feature for their children and a <code>Classifier</code> for people of a particular sex, identifying their children not of that sex (because the interpretations of the children <code>Feature</code> that identify those of that sex are also interpretations of the <code>Classifier</code> for that sex).</p>"
+	@ecore:isOrdered
 	relation Type_differencingType [
 		from Type
 		to Type
@@ -893,6 +920,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "directedFeature"
 	@rdfs:comment "<p>The <code>features</code> of this <code>Type</code> that have a non-null <code>direction</code>.</p>"
+	@ecore:isOrdered
 	relation Type_directedFeature [
 		from Type
 		to Feature
@@ -1111,6 +1139,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "type"
 	@rdfs:comment "<p><code>Types</code> that restrict the values of this <code>Feature</code>, such that the values must be instances of all the <code>types</code>. The types of a <code>Feature</code> are derived from its <code>typings</code> and the <code>types</code> of its <code>subsettings</code>. If the <code>Feature</code> is chained, then the <code>types</code> of the last <code>Feature</code> in the chain are also <code>types</code> of the chained <code>Feature</code>.</p>"
+	@ecore:isOrdered
 	relation Feature_type [
 		from Feature
 		to Type
@@ -1165,6 +1194,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "featuringType"
 	@rdfs:comment "<p><code>Types</code> that feature this <code>Feature</code>, such that any instance in the domain of the <code>Feature</code> must be classified by all of these <code>Types</code>, including at least all the <code>featuringTypes</code> of its <code>typeFeaturings</code>.  If the <code>Feature</code> is chained, then the <code>featuringTypes</code> of the first <code>Feature</code> in the chain are also <code>featuringTypes</code> of the chained <code>Feature</code>.</p>"
+	@ecore:isOrdered
 	relation Feature_featuringType [
 		from Feature
 		to Type
@@ -1191,6 +1221,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "chainingFeature"
 	@rdfs:comment "<p>The <code>Feature</code> that are chained together to determine the values of this <code>Feature</code>, derived from the <code>chainingFeatures</code> of the <code>ownedFeatureChainings</code> of this <code>Feature</code>, in the same order. The values of a <code>Feature</code> with <code>chainingFeatures</code> are the same as values of the last <code>Feature</code> in the chain, which can be found by starting with the values of the first <code>Feature</code> (for each instance of the domain of the original <code>Feature</code>), then using each of those as domain instances to find the values of the second <code>Feature</code> in chainingFeatures, and so on, to values of the last <code>Feature</code>.</p>"
+	@ecore:isOrdered
 	relation Feature_chainingFeature [
 		from Feature
 		to Feature
@@ -1589,6 +1620,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "filterCondition"
 	@rdfs:comment "<p>The model-level evaluable <code><em>Boolean</em></code>-valued <code>Expression</code> used to filter the <code>members</code> of this <code>Package</code>, which are owned by the <code>Package</code> are via <code>ElementFilterMemberships</code>.</p>"
+	@ecore:isOrdered
 	relation Package_filterCondition [
 		from Package
 		to Expression
@@ -1677,6 +1709,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "behavior"
 	@rdfs:comment "<p>The <code>Behaviors</code> that type this <code>Step</code>.</p>"
+	@ecore:isOrdered
 	relation Step_behavior [
 		from Step
 		to Behavior
@@ -1684,6 +1717,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "parameter"
 	@rdfs:comment "<p>The <code>parameters</code> of this <code>Step</code>, which are defined as its <code>directedFeatures</code>, whose values are passed into and/or out of a performance of the <code>Step</code>.</p>"
+	@ecore:isOrdered
 	relation Step_parameter [
 		from Step
 		to Feature
@@ -1706,6 +1740,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "parameter"
 	@rdfs:comment "<p>The parameters of this <code>Behavior</code>, which are defined as its <code>directedFeatures</code>, whose values are passed into and/or out of a performance of the <code>Behavior</code>.</p>"
+	@ecore:isOrdered
 	relation Behavior_parameter [
 		from Behavior
 		to Feature
@@ -2046,12 +2081,14 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "argument"
 	@rdfs:comment "<p>The <code>value</code> <code>Expressions</code> of the <code>FeatureValues</code> of the owned input <code>parameters</code> of the <code>InvocationExpression</code>."
+	@ecore:isOrdered
 	relation InvocationExpression_argument [
 		from InvocationExpression
 		to Expression
 	] < Type_ownedFeature
 
 	@rdfs:label "operand"
+	@ecore:isOrdered
 	relation InvocationExpression_operand [
 		from InvocationExpression
 		to Expression
@@ -2247,6 +2284,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "relatedFeature"
 	@rdfs:comment "<p>The <code>Features</code> that are related by this <code>Connector</code> considered as a <code>Relationship</code> and that restrict the links it identifies, given by the referenced <code>Features</code> of the <code>connectorEnds</code> of the <code>Connector</code>.</p>"
+	@ecore:isOrdered
 	relation Connector_relatedFeature [
 		from Connector
 		to Feature
@@ -2254,6 +2292,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "association"
 	@rdfs:comment "<p>The <code>Associations</code> that type the <code>Connector</code>.</p>"
+	@ecore:isOrdered
 	relation Connector_association [
 		from Connector
 		to Association
@@ -2261,6 +2300,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "connectorEnd"
 	@rdfs:comment "<p>The <code>endFeatures</code> of a <code>Connector</code>, which redefine the <code>endFeatures</code> of the <code>associations</code> of the <code>Connector</code>. The <code>connectorEnds</code> determine via <code>ReferenceSubsetting</code> <code>Relationships</code> which <code>Features</code> are related by the <code>Connector</code>.</p>"
+	@ecore:isOrdered
 	relation Connector_connectorEnd [
 		from Connector
 		to Feature
@@ -2268,6 +2308,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "sourceFeature"
 	@rdfs:comment "<p>The source <code>relatedFeature</code> for this <code>Connector</code>. It is the first <code>relatedFeature</code>.</p>"
+	@ecore:isOrdered
 	relation Connector_sourceFeature [
 		from Connector
 		to Feature
@@ -2276,6 +2317,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "targetFeature"
 	@rdfs:comment "<p>The target <code>relatedFeatures</code> for this <code>Connector</code>. This includes all the <code>relatedFeatures</code> other than the <code>sourceFeature</code>.</p>"
+	@ecore:isOrdered
 	relation Connector_targetFeature [
 		from Connector
 		to Feature
@@ -2306,6 +2348,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "relatedType"
 	@rdfs:comment "<p>The <code>types</code> of the <code>associationEnds</code> of the <code>Association</code>, which are the <code>relatedElements</code> of the <code>Association</code> considered as a <code>Relationship</code>.</p>"
+	@ecore:isOrdered
 	relation Association_relatedType [
 		from Association
 		to Type
@@ -2371,6 +2414,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "itemType"
 	@rdfs:comment "<p>The type of values transferred, which is the <code>type</code> of the <code>itemFeature</code> of the <code>ItemFlow</code>.</p>"
+	@ecore:isOrdered
 	relation ItemFlow_itemType [
 		from ItemFlow
 		to Classifier
@@ -2378,6 +2422,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "targetInputFeature"
 	@rdfs:comment "<p>The <code>Feature</code> that receives the values carried by the <code>ItemFlow</code>. It must be an owned <code>output</code> of the target participant of the <code>ItemFlow</code>.</p>"
+	@ecore:isOrdered
 	relation ItemFlow_targetInputFeature [
 		from ItemFlow
 		to Feature
@@ -2386,6 +2431,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "sourceOutputFeature"
 	@rdfs:comment "<p>The <code>Feature</code> that provides the items carried by the <code>ItemFlow</code>. It must be an owned <code>output</code> of the <code>source</code> of the <code>ItemFlow</code>.</p>"
+	@ecore:isOrdered
 	relation ItemFlow_sourceOutputFeature [
 		from ItemFlow
 		to Feature
@@ -2394,6 +2440,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "itemFlowEnd"
 	@rdfs:comment "<p>The <code>connectorEnds</code> of this <code>ItemFlow</code> that are <code>ItemFlowEnds</code>.</p>"
+	@ecore:isOrdered
 	relation ItemFlow_itemFlowEnd [
 		from ItemFlow
 		to ItemFlowEnd
@@ -2409,6 +2456,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "interaction"
 	@rdfs:comment "<p>The <code>Interactions</code> that type this <code>ItemFlow</code>. <code>Interactions</code> are both <code>Associations</code> and <code>Behaviors</code>, which can type <code>Connectors</code> and <code>Steps</code>, respectively.</p>"
+	@ecore:isOrdered
 	relation ItemFlow_interaction [
 		from ItemFlow
 		to Interaction
@@ -2479,6 +2527,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "bound"
 	@rdfs:comment "<p>The owned <code>Expressions</code> of the <code>MultiplicityRange</code> whose results provide its bounds. These must be the only <code>ownedMembers</code> of the <code>MultiplicityRange</code>.</p>"
+	@ecore:isOrdered
 	relation MultiplicityRange_bound [
 		from MultiplicityRange
 		to Expression
@@ -2676,6 +2725,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "client"
 	@rdfs:comment "<p>The <code>Element</code> or <code>Elements</code> dependent on the <code>supplier</code> <code>Elements</code>.</p>"
+	@ecore:isOrdered
 	relation Dependency_client [
 		from Dependency
 		to Element
@@ -2683,6 +2733,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "supplier"
 	@rdfs:comment "<p>The <code>Element</code> or <code>Elements</code> on which the <code>client</code> <code>Elements</code> depend in some respect.</p>"
+	@ecore:isOrdered
 	relation Dependency_supplier [
 		from Dependency
 		to Element
@@ -2700,6 +2751,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "itemDefinition"
 	@rdfs:comment "<p>The Structures that are the <code>definitions</code> of this ItemUsage. Nominally, these are ItemDefinitions, but other kinds of Kernel Structures are also allowed, to permit use of Structures from the Kernel Library.</p>"
+	@ecore:isOrdered
 	relation ItemUsage_itemDefinition [
 		from ItemUsage
 		to Structure
@@ -2737,6 +2789,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "occurrenceDefinition"
 	@rdfs:comment "<p>The <code>Classes</code> that are the types of this <code>OccurrenceUsage</code>. Nominally, these are <code>OccurrenceDefinitions</code>, but other kinds of kernel <code>Classes</code> are also allowed, to permit use of <code>Classes</code> from the Kernel Model Libraries.</p>"
+	@ecore:isOrdered
 	relation OccurrenceUsage_occurrenceDefinition [
 		from OccurrenceUsage
 		to Class
@@ -2855,6 +2908,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedUsage"
 	@rdfs:comment "<p>The <code>Usages</code> that are <code>ownedFeatures</code> of this <code>Definition</code>.</p>"
+	@ecore:isOrdered
 	relation Definition_ownedUsage [
 		from Definition
 		to Usage
@@ -2865,6 +2919,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "nestedUsage"
 	@rdfs:comment "<p>The <code>Usages</code> that are <code>ownedFeatures</code> of this <code>Usage</code>.</p>"
+	@ecore:isOrdered
 	relation Usage_nestedUsage [
 		from Usage
 		to Usage
@@ -2875,6 +2930,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "definition"
 	@rdfs:comment "<p>The <code>Classifiers</code> that are the types of this <code>Usage</code>. Nominally, these are <code>Definitions</code>, but other kinds of Kernel <code>Classifiers</code> are also allowed, to permit use of <code>Classifiers</code> from the Kernel Model Libraries.</p>"
+	@ecore:isOrdered
 	relation Usage_definition [
 		from Usage
 		to Classifier
@@ -2882,6 +2938,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "usage"
 	@rdfs:comment "<p>The <code>Usages</code> that are <code>features</code> of this <code>Usage</code> (not necessarily owned).</p>"
+	@ecore:isOrdered
 	relation Usage_usage [
 		from Usage
 		to Usage
@@ -2889,6 +2946,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "directedUsage"
 	@rdfs:comment "<p>The <code>usages</code> of this <code>Usage</code> that are <code>directedFeatures</code>.</p>"
+	@ecore:isOrdered
 	relation Usage_directedUsage [
 		from Usage
 		to Usage
@@ -2896,6 +2954,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "nestedReference"
 	@rdfs:comment "<p>The <code>ReferenceUsages</code> that are <code>nestedUsages</code> of this <code>Usage</code>.</p>"
+	@ecore:isOrdered
 	relation Usage_nestedReference [
 		from Usage
 		to ReferenceUsage
@@ -2903,6 +2962,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "nestedAttribute"
 	@rdfs:comment "<p>The code>AttributeUsages</code> that are <code>nestedUsages</code> of this <code>Usage</code>.</p>"
+	@ecore:isOrdered
 	relation Usage_nestedAttribute [
 		from Usage
 		to AttributeUsage
@@ -2910,6 +2970,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "nestedEnumeration"
 	@rdfs:comment "<p>The code>EnumerationUsages</code> that are <code>nestedUsages</code> of this <code>Usage</code>.<p>"
+	@ecore:isOrdered
 	relation Usage_nestedEnumeration [
 		from Usage
 		to EnumerationUsage
@@ -2917,6 +2978,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "nestedOccurrence"
 	@rdfs:comment "<p>The <code>OccurrenceUsages</code> that are <code>nestedUsages</code> of this <code>Usage</code>.</p>"
+	@ecore:isOrdered
 	relation Usage_nestedOccurrence [
 		from Usage
 		to OccurrenceUsage
@@ -2924,6 +2986,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "nestedItem"
 	@rdfs:comment "<p>The <code>ItemUsages</code> that are <code>nestedUsages</code> of this <code>Usage</code>.</p>"
+	@ecore:isOrdered
 	relation Usage_nestedItem [
 		from Usage
 		to ItemUsage
@@ -2931,6 +2994,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "nestedPart"
 	@rdfs:comment "<p>The <code>PartUsages</code> that are <code>nestedUsages</code> of this <code>Usage</code>.</p>"
+	@ecore:isOrdered
 	relation Usage_nestedPart [
 		from Usage
 		to PartUsage
@@ -2938,6 +3002,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "nestedPort"
 	@rdfs:comment "<p>The <code>PortUsages</code> that are <code>nestedUsages</code> of this <code>Usage</code>.</p>"
+	@ecore:isOrdered
 	relation Usage_nestedPort [
 		from Usage
 		to PortUsage
@@ -2945,6 +3010,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "nestedConnection"
 	@rdfs:comment "<p>The <code>ConnectorAsUsages</code> that are <code>nestedUsages</code> of this <code>Usage</code>. Note that this list includes <code>BindingConnectorAsUsages</code> and <code>SuccessionAsUsages</code>, even though these are <code>ConnectorAsUsages</code> but not <code>ConnectionUsages</code>.</p>"
+	@ecore:isOrdered
 	relation Usage_nestedConnection [
 		from Usage
 		to ConnectorAsUsage
@@ -2959,6 +3025,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "nestedInterface"
 	@rdfs:comment "<p>The <code>InterfaceUsages</code> that are <code>nestedUsages</code> of this <code>Usage</code>.</p>"
+	@ecore:isOrdered
 	relation Usage_nestedInterface [
 		from Usage
 		to InterfaceUsage
@@ -2966,6 +3033,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "nestedAllocation"
 	@rdfs:comment "<p>The <code>AllocationUsages</code> that are <code>nestedUsages</code> of this <code>Usage</code>.</p>"
+	@ecore:isOrdered
 	relation Usage_nestedAllocation [
 		from Usage
 		to AllocationUsage
@@ -2973,6 +3041,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "nestedAction"
 	@rdfs:comment "<p>The <code>ActionUsages</code> that are <code>nestedUsages</code> of this <code>Usage</code>.</p>"
+	@ecore:isOrdered
 	relation Usage_nestedAction [
 		from Usage
 		to ActionUsage
@@ -2980,6 +3049,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "nestedState"
 	@rdfs:comment "<p>The <code>StateUsages</code> that are <code>nestedUsages</code> of this <code>Usage</code>.</p>"
+	@ecore:isOrdered
 	relation Usage_nestedState [
 		from Usage
 		to StateUsage
@@ -2994,6 +3064,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "nestedCalculation"
 	@rdfs:comment "<p>The <code>CalculationUsage</code> that are <code>nestedUsages</code> of this <code>Usage</code>.</p>"
+	@ecore:isOrdered
 	relation Usage_nestedCalculation [
 		from Usage
 		to CalculationUsage
@@ -3001,6 +3072,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "nestedConstraint"
 	@rdfs:comment "<p>The <code>ConstraintUsages</code> that are <code>nestedUsages</code> of this <code>Usage</code>.</p>"
+	@ecore:isOrdered
 	relation Usage_nestedConstraint [
 		from Usage
 		to ConstraintUsage
@@ -3008,6 +3080,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "nestedRequirement"
 	@rdfs:comment "<p>The <code>RequirementUsages</code> that are <code>nestedUsages</code> of this <code>Usage</code>.</p>"
+	@ecore:isOrdered
 	relation Usage_nestedRequirement [
 		from Usage
 		to RequirementUsage
@@ -3022,6 +3095,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "nestedCase"
 	@rdfs:comment "<p>The <code>CaseUsages</code> that are <code>nestedUsages</code> of this <code>Usage</code>.</p>"
+	@ecore:isOrdered
 	relation Usage_nestedCase [
 		from Usage
 		to CaseUsage
@@ -3029,6 +3103,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "nestedAnalysisCase"
 	@rdfs:comment "<p>The <code>AnalysisCaseUsages</code> that are <code>nestedUsages</code> of this <code>Usage</code>.</p>"
+	@ecore:isOrdered
 	relation Usage_nestedAnalysisCase [
 		from Usage
 		to AnalysisCaseUsage
@@ -3036,6 +3111,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "nestedVerificationCase"
 	@rdfs:comment "<p>The <code>VerificationCaseUsages</code> that are <code>nestedUsages</code> of this <code>Usage</code>.</p>"
+	@ecore:isOrdered
 	relation Usage_nestedVerificationCase [
 		from Usage
 		to VerificationCaseUsage
@@ -3043,6 +3119,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "nestedUseCase"
 	@rdfs:comment "<p>The <code>UseCaseUsages</code> that are <code>nestedUsages</code> of this <code>Usage</code>.</p>"
+	@ecore:isOrdered
 	relation Usage_nestedUseCase [
 		from Usage
 		to UseCaseUsage
@@ -3050,6 +3127,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "nestedView"
 	@rdfs:comment "<p>The <code>ViewUsages</code> that are <code>nestedUsages</code> of this <code>Usage</code>.</p>"
+	@ecore:isOrdered
 	relation Usage_nestedView [
 		from Usage
 		to ViewUsage
@@ -3057,6 +3135,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "nestedViewpoint"
 	@rdfs:comment "<p>The <code>ViewpointUsages</code> that are <code>nestedUsages</code> of this <code>Usage</code>.</p>"
+	@ecore:isOrdered
 	relation Usage_nestedViewpoint [
 		from Usage
 		to ViewpointUsage
@@ -3064,6 +3143,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "nestedRendering"
 	@rdfs:comment "<p>The <code>RenderingUsages</code> that are <code>nestedUsages</code> of this <code>Usage</code>.</p>"
+	@ecore:isOrdered
 	relation Usage_nestedRendering [
 		from Usage
 		to RenderingUsage
@@ -3071,6 +3151,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "nestedMetadata"
 	@rdfs:comment "<p>The <code>MetadataUsages</code> that are <code>nestedUsages</code> of this of this <code>Usage</code>.</p>"
+	@ecore:isOrdered
 	relation Usage_nestedMetadata [
 		from Usage
 		to MetadataUsage
@@ -3166,6 +3247,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "usage"
 	@rdfs:comment "<p>The <code>Usages</code> that are <code>features</code> of this <code>Definition</code> (not necessarily owned).</p>"
+	@ecore:isOrdered
 	relation Definition_usage [
 		from Definition
 		to Usage
@@ -3173,6 +3255,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "directedUsage"
 	@rdfs:comment "<p>The <code>usages</code> of this <code>Definition</code> that are <code>directedFeatures</code>.</p>"
+	@ecore:isOrdered
 	relation Definition_directedUsage [
 		from Definition
 		to Usage
@@ -3180,6 +3263,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedReference"
 	@rdfs:comment "<p>The <code>ReferenceUsages</code> that are <code>ownedUsages</code> of this <code>Definition</code>.</p>"
+	@ecore:isOrdered
 	relation Definition_ownedReference [
 		from Definition
 		to ReferenceUsage
@@ -3187,6 +3271,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedAttribute"
 	@rdfs:comment "<p>The <code>AttributeUsages</code> that are <code>ownedUsages</code> of this <code>Definition</code>.<p>"
+	@ecore:isOrdered
 	relation Definition_ownedAttribute [
 		from Definition
 		to AttributeUsage
@@ -3194,6 +3279,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedEnumeration"
 	@rdfs:comment "<p>The <code>EnumerationUsages</code> that are <code>ownedUsages</code> of this <code>Definition</code>.<p>"
+	@ecore:isOrdered
 	relation Definition_ownedEnumeration [
 		from Definition
 		to EnumerationUsage
@@ -3201,6 +3287,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedOccurrence"
 	@rdfs:comment "<p>The <code>OccurrenceUsages</code> that are <code>ownedUsages</code> of this <code>Definition</code>.</p>"
+	@ecore:isOrdered
 	relation Definition_ownedOccurrence [
 		from Definition
 		to OccurrenceUsage
@@ -3208,6 +3295,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedItem"
 	@rdfs:comment "<p>The <code>ItemUsages</code> that are <code>ownedUsages</code> of this <code>Definition</code>.</p>"
+	@ecore:isOrdered
 	relation Definition_ownedItem [
 		from Definition
 		to ItemUsage
@@ -3215,6 +3303,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedPart"
 	@rdfs:comment "<p>The <code>PartUsages</code> that are <code>ownedUsages</code> of this <code>Definition</code>.</p>"
+	@ecore:isOrdered
 	relation Definition_ownedPart [
 		from Definition
 		to PartUsage
@@ -3222,6 +3311,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedPort"
 	@rdfs:comment "<p>The <code>PortUsages</code> that are <code>ownedUsages</code> of this <code>Definition</code>.</p>"
+	@ecore:isOrdered
 	relation Definition_ownedPort [
 		from Definition
 		to PortUsage
@@ -3229,6 +3319,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedConnection"
 	@rdfs:comment "<p>The <code>ConnectorAsUsages</code> that are <code>ownedUsages</code> of this <code>Definition</code>. Note that this list includes <code>BindingConnectorAsUsages</code> and <code>SuccessionAsUsages</code>, even though these are <code>ConnectorAsUsages</code> but not <code>ConnectionUsages</code>.</p>"
+	@ecore:isOrdered
 	relation Definition_ownedConnection [
 		from Definition
 		to ConnectorAsUsage
@@ -3243,6 +3334,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedInterface"
 	@rdfs:comment "<p>The <code>InterfaceUsages</code> that are <code>ownedUsages</code> of this <code>Definition</code>.</p>"
+	@ecore:isOrdered
 	relation Definition_ownedInterface [
 		from Definition
 		to InterfaceUsage
@@ -3250,6 +3342,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedAllocation"
 	@rdfs:comment "<p>The <code>AllocationUsages</code> that are <code>ownedUsages</code> of this <code>Definition</code>.</p>"
+	@ecore:isOrdered
 	relation Definition_ownedAllocation [
 		from Definition
 		to AllocationUsage
@@ -3257,6 +3350,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedAction"
 	@rdfs:comment "<p>The <code>ActionUsages</code> that are <code>ownedUsages</code> of this <code>Definition</code>.</p>"
+	@ecore:isOrdered
 	relation Definition_ownedAction [
 		from Definition
 		to ActionUsage
@@ -3264,6 +3358,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedState"
 	@rdfs:comment "<p>The <code>StateUsages</code> that are <code>ownedUsages</code> of this <code>Definition</code>.</p>"
+	@ecore:isOrdered
 	relation Definition_ownedState [
 		from Definition
 		to StateUsage
@@ -3278,6 +3373,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedCalculation"
 	@rdfs:comment "<p>The <code>CalculationUsages</code> that are <code>ownedUsages</code> of this <code>Definition</code>.</p>"
+	@ecore:isOrdered
 	relation Definition_ownedCalculation [
 		from Definition
 		to CalculationUsage
@@ -3285,6 +3381,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedConstraint"
 	@rdfs:comment "<p>The <code>ConstraintUsages</code> that are <code>ownedUsages</code> of this <code>Definition</code>.</p>"
+	@ecore:isOrdered
 	relation Definition_ownedConstraint [
 		from Definition
 		to ConstraintUsage
@@ -3292,6 +3389,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedRequirement"
 	@rdfs:comment "<p>The <code>RequirementUsages</code> that are <code>ownedUsages</code> of this <code>Definition</code>.</p>"
+	@ecore:isOrdered
 	relation Definition_ownedRequirement [
 		from Definition
 		to RequirementUsage
@@ -3306,6 +3404,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedCase"
 	@rdfs:comment "<p>The code>CaseUsages</code> that are <code>ownedUsages</code> of this <code>Definition</code>.</p>"
+	@ecore:isOrdered
 	relation Definition_ownedCase [
 		from Definition
 		to CaseUsage
@@ -3313,6 +3412,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedAnalysisCase"
 	@rdfs:comment "<p>The <code>AnalysisCaseUsages</code> that are <code>ownedUsages</code> of this <code>Definition</code>.</p>"
+	@ecore:isOrdered
 	relation Definition_ownedAnalysisCase [
 		from Definition
 		to AnalysisCaseUsage
@@ -3320,6 +3420,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedVerificationCase"
 	@rdfs:comment "<p>The <code>VerificationCaseUsages</code> that are <code>ownedUsages</code> of this <code>Definition</code>.</p>"
+	@ecore:isOrdered
 	relation Definition_ownedVerificationCase [
 		from Definition
 		to VerificationCaseUsage
@@ -3327,6 +3428,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedUseCase"
 	@rdfs:comment "<p>The <code>UseCaseUsages</code> that are <code>ownedUsages</code> of this <code>Definition</code>.</p>"
+	@ecore:isOrdered
 	relation Definition_ownedUseCase [
 		from Definition
 		to UseCaseUsage
@@ -3334,6 +3436,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedView"
 	@rdfs:comment "<p>The <code>ViewUsages</code> that are <code>ownedUsages</code> of this <code>Definition</code>.</p>"
+	@ecore:isOrdered
 	relation Definition_ownedView [
 		from Definition
 		to ViewUsage
@@ -3341,6 +3444,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedViewpoint"
 	@rdfs:comment "<p>The <code>ViewpointUsages</code> that are <code>ownedUsages</code> of this <code>Definition</code>.</p>"
+	@ecore:isOrdered
 	relation Definition_ownedViewpoint [
 		from Definition
 		to ViewpointUsage
@@ -3348,6 +3452,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedRendering"
 	@rdfs:comment "<p>The <code>RenderingUsages</code> that are <code>ownedUsages</code> of this <code>Definition</code>.</p>"
+	@ecore:isOrdered
 	relation Definition_ownedRendering [
 		from Definition
 		to RenderingUsage
@@ -3355,6 +3460,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "ownedMetadata"
 	@rdfs:comment "<p>The <code>MetadataUsages</code> that are <code>ownedUsages</code> of this <code>Definition</code>.</p>"
+	@ecore:isOrdered
 	relation Definition_ownedMetadata [
 		from Definition
 		to MetadataUsage
@@ -3376,6 +3482,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "attributeDefinition"
 	@rdfs:comment "<p>The <code>DataTypes</code> that are the types of this <code>AttributeUsage</code>. Nominally, these are <code>AttributeDefinitions</code>, but other kinds of kernel <code>DataTypes</code> are also allowed, to permit use of <code>DataTypes</code> from the Kernel Model Libraries.</p>"
+	@ecore:isOrdered
 	relation AttributeUsage_attributeDefinition [
 		from AttributeUsage
 		to DataType
@@ -3402,6 +3509,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "enumeratedValue"
 	@rdfs:comment "<p><code>EnumerationUsages</code> of this <code>EnumerationDefinition</code>that have distinct, fixed values. Each <code>enumeratedValue</code> specifies one of the allowed instances of the <code>EnumerationDefinition</code>.</p>"
+	@ecore:isOrdered
 	relation EnumerationDefinition_enumeratedValue [
 		from EnumerationDefinition
 		to EnumerationUsage
@@ -3438,6 +3546,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "partDefinition"
 	@rdfs:comment "<p>The <code>itemDefinitions</code> of this PartUsage that are PartDefinitions.</p>"
+	@ecore:isOrdered
 	relation PartUsage_partDefinition [
 		from PartUsage
 		to PartDefinition
@@ -3518,6 +3627,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "portDefinition"
 	@rdfs:comment "<p>The <code>occurrenceDefinitions</code> of this <code>PortUsage</code>, which must all be <code>PortDefinitions<code>.</p>"
+	@ecore:isOrdered
 	relation PortUsage_portDefinition [
 		from PortUsage
 		to PortDefinition
@@ -3607,6 +3717,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "flowConnectionDefinition"
 	@rdfs:comment "<p>The <code>Interactions</code> that are the <code>types</code> of this <code>FlowConnectionUsage</code>. Nominally, these are <code>FlowConnectionDefinitions</code>, but other kinds of Kernel <code>Interactions</code> are also allowed, to permit use of Interactions from the Kernel Model Libraries.</p>"
+	@ecore:isOrdered
 	relation FlowConnectionUsage_flowConnectionDefinition [
 		from FlowConnectionUsage
 		to Interaction
@@ -3621,6 +3732,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "connectionDefinition"
 	@rdfs:comment "<p>The <code>AssociationStructures</code> that are the types of this <code>ConnectionUsage</code>. Nominally, these are , but other kinds of Kernel <code>AssociationStructures</code> are also allowed, to permit use of <code>AssociationStructures</code> from the Kernel Model Libraries</p>"
+	@ecore:isOrdered
 	relation ConnectionUsage_connectionDefinition [
 		from ConnectionUsage
 		to AssociationStructure
@@ -3651,6 +3763,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "actionDefinition"
 	@rdfs:comment "<p>The <code>Behaviors</code> that are the <code>types</code> of this <code>ActionUsage</code>. Nominally, these would be <code>ActionDefinitions</code>, but other kinds of Kernel <code>Behaviors</code> are also allowed, to permit use of <code>Behaviors</code> from the Kernel Model Libraries.</p>"
+	@ecore:isOrdered
 	relation ActionUsage_actionDefinition [
 		from ActionUsage
 		to Behavior
@@ -3679,6 +3792,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "interfaceEnd"
 	@rdfs:comment "<p>The <code>PortUsages</code> that are the <code>connectionEnds</code> of this <code>InterfaceDefinition</code>."
+	@ecore:isOrdered
 	relation InterfaceDefinition_interfaceEnd [
 		from InterfaceDefinition
 		to PortUsage
@@ -3693,6 +3807,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "connectionEnd"
 	@rdfs:comment "<p>The <code>Usages</code> that define the things related by the <code>ConnectionDefinition</code>.</p>"
+	@ecore:isOrdered
 	relation ConnectionDefinition_connectionEnd [
 		from ConnectionDefinition
 		to Usage
@@ -3705,6 +3820,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "allocationDefinition"
 	@rdfs:comment "<p>The <code>AllocationDefinitions</code> that are the types of this <code>AllocationUsage</code>.</p>"
+	@ecore:isOrdered
 	relation AllocationUsage_allocationDefinition [
 		from AllocationUsage
 		to AllocationDefinition
@@ -3718,6 +3834,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "allocation"
 	@rdfs:comment "<p>The <code>AllocationUsages</code> that refine the allocation mapping defined by this <code>AllocationDefinition</code>.</p>"
+	@ecore:isOrdered
 	relation AllocationDefinition_allocation [
 		from AllocationDefinition
 		to AllocationUsage
@@ -3769,6 +3886,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "stateDefinition"
 	@rdfs:comment "<p>The <code>Behaviors</code> that are the <code>types</code> of this <code>StateUsage</code>. Nominally, these would be <code>StateDefinitions</code>, but kernel <code>Behaviors</code> are also allowed, to permit use of <code>Behaviors</code> from the Kernel Model Libraries.</p>"
+	@ecore:isOrdered
 	relation StateUsage_stateDefinition [
 		from StateUsage
 		to Behavior
@@ -3992,6 +4110,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "calculationDefinition"
 	@rdfs:comment "<p>The <ode>Function</code> that is the <code>type</code> of this <code>CalculationUsage</code>. Nominally, this would be a <code>CalculationDefinition</code>, but a kernel <code>Function</code> is also allowed, to permit use of <code>Functions</code> from the Kernel Model Libraries.</p>"
+	@ecore:isOrdered
 	relation CalculationUsage_calculationDefinition [
 		from CalculationUsage
 		to Function
@@ -4097,6 +4216,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "requiredConstraint"
 	@rdfs:comment "<p>The owned <code>ConstraintUsages</code> that represent requirements of this <code>RequirementUsage</code>, which are the <code>ownedConstraints</code> of the <code>RequirementConstraintMemberships</code> of the <code>RequirementUsage</code> with <code>kind</code> = <code>requirement</code>.</p>"
+	@ecore:isOrdered
 	relation RequirementUsage_requiredConstraint [
 		from RequirementUsage
 		to ConstraintUsage
@@ -4104,6 +4224,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "assumedConstraint"
 	@rdfs:comment "<p>The owned <code>ConstraintUsages</code> that represent assumptions of this <code>RequirementUsage</code>, derived as the <code>ownedConstraints</code> of the <code>RequirementConstraintMemberships</code> of the <code>RequirementUsage</code> with <code>kind</code> = <code>assumption</code>.</p>"
+	@ecore:isOrdered
 	relation RequirementUsage_assumedConstraint [
 		from RequirementUsage
 		to ConstraintUsage
@@ -4119,6 +4240,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "framedConcern"
 	@rdfs:comment "<p>The <code>ConcernUsages</code> framed by this <code>RequirementUsage</code>, which are the <code>ownedConcerns</code> of all <code>FramedConcernMemberships</code> of the <code>RequirementUsage</code>.</p>"
+	@ecore:isOrdered
 	relation RequirementUsage_framedConcern [
 		from RequirementUsage
 		to ConcernUsage
@@ -4126,6 +4248,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "actorParameter"
 	@rdfs:comment "<p>The <code>parameters</code> of this <code>RequirementUsage</code> that represent actors involved in the requirement.</p>"
+	@ecore:isOrdered
 	relation RequirementUsage_actorParameter [
 		from RequirementUsage
 		to PartUsage
@@ -4133,6 +4256,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "stakeholderParameter"
 	@rdfs:comment "<p>The <code>parameters</code> of this <code>RequirementUsage</code> that represent stakeholders for the requirement.</p>"
+	@ecore:isOrdered
 	relation RequirementUsage_stakeholderParameter [
 		from RequirementUsage
 		to PartUsage
@@ -4198,6 +4322,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "actorParameter"
 	@rdfs:comment "<p>The <code>parameters</code> of this <code>RequirementDefinition</code> that represent actors involved in the requirement.</p>"
+	@ecore:isOrdered
 	relation RequirementDefinition_actorParameter [
 		from RequirementDefinition
 		to PartUsage
@@ -4205,6 +4330,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "stakeholderParameter"
 	@rdfs:comment "<p>The <code>parameters</code> of this <code>RequirementDefinition</code> that represent stakeholders for th requirement.</p>"
+	@ecore:isOrdered
 	relation RequirementDefinition_stakeholderParameter [
 		from RequirementDefinition
 		to PartUsage
@@ -4212,6 +4338,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "assumedConstraint"
 	@rdfs:comment "<p>The owned <code>ConstraintUsages</code> that represent assumptions of this <code>RequirementDefinition</code>, which are the <code>ownedConstraints</code> of the <code>RequirementConstraintMemberships</code> of the <code>RequirementDefinition</code> with <code>kind = assumption</code>.</p>"
+	@ecore:isOrdered
 	relation RequirementDefinition_assumedConstraint [
 		from RequirementDefinition
 		to ConstraintUsage
@@ -4219,6 +4346,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "requiredConstraint"
 	@rdfs:comment "<p>The owned <code>ConstraintUsages</code> that represent requirements of this <code>RequirementDefinition</code>, derived as the <code>ownedConstraints</code> of the <code>RequirementConstraintMemberships</code> of the <code>RequirementDefinition</code> with <code>kind</code> = <code>requirement</code>.</p>"
+	@ecore:isOrdered
 	relation RequirementDefinition_requiredConstraint [
 		from RequirementDefinition
 		to ConstraintUsage
@@ -4226,6 +4354,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "framedConcern"
 	@rdfs:comment "<p>The <code>ConcernUsages</code> framed by this <code>RequirementDefinition</code>, which are the <code>ownedConcerns</code> of all <code>FramedConcernMemberships</code> of the <code>RequirementDefinition</code>.</p>"
+	@ecore:isOrdered
 	relation RequirementDefinition_framedConcern [
 		from RequirementDefinition
 		to ConcernUsage
@@ -4300,6 +4429,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "objectiveRequirement"
 	@rdfs:comment "<p>The <code>RequirementUsage</code> representing the objective of this <code>CaseUsage</code>.</p>"
+	@ecore:isOrdered
 	relation CaseUsage_objectiveRequirement [
 		from CaseUsage
 		to RequirementUsage
@@ -4324,6 +4454,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "actorParameter"
 	@rdfs:comment "<p>The <code>parameters</code> of this <code>CaseUsage</code> that represent actors involved in the case.</p>"
+	@ecore:isOrdered
 	relation CaseUsage_actorParameter [
 		from CaseUsage
 		to PartUsage
@@ -4360,6 +4491,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "objectiveRequirement"
 	@rdfs:comment "<p>The <code>RequirementUsage</code> representing the objective of this <code>CaseDefinition</code>.</p>"
+	@ecore:isOrdered
 	relation CaseDefinition_objectiveRequirement [
 		from CaseDefinition
 		to RequirementUsage
@@ -4376,6 +4508,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "actorParameter"
 	@rdfs:comment "<p>The <code>parameters</code> of this <code>CaseDefinition</code> that represent actors involved in the case.</p>"
+	@ecore:isOrdered
 	relation CaseDefinition_actorParameter [
 		from CaseDefinition
 		to PartUsage
@@ -4389,6 +4522,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "calculation"
 	@rdfs:comment "<p>The <code>actions</code> of this <code>CalculationDefinition</code> that are <code>CalculationUsages</code>.</p>"
+	@ecore:isOrdered
 	relation CalculationDefinition_calculation [
 		from CalculationDefinition
 		to CalculationUsage
@@ -4402,6 +4536,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "action"
 	@rdfs:comment "<p>The <code>ActionUsages</code> that are <code>steps</code> in this <code>ActionDefinition</code>, which define the actions that specify the behavior of the <code>ActionDefinition</code>.</p>"
+	@ecore:isOrdered
 	relation ActionDefinition_action [
 		from ActionDefinition
 		to ActionUsage
@@ -4485,6 +4620,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "verifiedRequirement"
 	@rdfs:comment "<p>The <code>RequirementUsages</code> verified by this <code>VerificationCaseUsage</code>, which are the <code>verifiedRequirements</code> of all <code>RequirementVerificationMemberships</code> of the <code>objectiveRequirement</code>.</p>"
+	@ecore:isOrdered
 	relation VerificationCaseUsage_verifiedRequirement [
 		from VerificationCaseUsage
 		to RequirementUsage
@@ -4504,6 +4640,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "verifiedRequirement"
 	@rdfs:comment "<p>The <code>RequirementUsages</code> verified by this <code>VerificationCaseDefinition</code>, which are the <code>verifiedRequirements</code> of all <code>RequirementVerificationMemberships</code> of the <code>objectiveRequirement</code>.</p>"
+	@ecore:isOrdered
 	relation VerificationCaseDefinition_verifiedRequirement [
 		from VerificationCaseDefinition
 		to RequirementUsage
@@ -4531,6 +4668,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "includedUseCase"
 	@rdfs:comment "<p>The <code>UseCaseUsages</code> that are included by this <code>UseCaseUse</code>, which are the <code>useCaseIncludeds</code> of the <code>IncludeUseCaseUsages</code> owned by this <code>UseCaseUsage<code>.</p>"
+	@ecore:isOrdered
 	relation UseCaseUsage_includedUseCase [
 		from UseCaseUsage
 		to UseCaseUsage
@@ -4547,6 +4685,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "includedUseCase"
 	@rdfs:comment "<p>The <code>UseCaseUsages</code> that are included by this <code>UseCaseDefinition</code>, which are the <code>useCaseIncludeds</code> of the <code>IncludeUseCaseUsages</code> owned by this <code>UseCaseDefinition<code>.</p>"
+	@ecore:isOrdered
 	relation UseCaseDefinition_includedUseCase [
 		from UseCaseDefinition
 		to UseCaseUsage
@@ -4590,6 +4729,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "satisfiedViewpoint"
 	@rdfs:comment "<p>The <code>nestedRequirements</code> of this <code>ViewUsage</code> that are <code>ViewpointUsages</code> for (additional) viewpoints satisfied by the <code>ViewUsage</code>.</p>"
+	@ecore:isOrdered
 	relation ViewUsage_satisfiedViewpoint [
 		from ViewUsage
 		to ViewpointUsage
@@ -4597,6 +4737,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "exposedElement"
 	@rdfs:comment "<p>The <code>Elements</code> that are exposed by this <code>ViewUsage</code>, which are those <code>memberElements</code> of the imported <code>Memberships</code> from all the <code>Expose</code> <code>Relationships</code> that meet all the owned and inherited <code>viewConditions</code>.</p>"
+	@ecore:isOrdered
 	relation ViewUsage_exposedElement [
 		from ViewUsage
 		to Element
@@ -4612,6 +4753,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "viewCondition"
 	@rdfs:comment "<p>The <code>Expressions</code> related to this <code>ViewUsage</code> by <code>ElementFilterMemberships</code>, which specify conditions on <code>Elements</code> to be rendered in a view.</p>"
+	@ecore:isOrdered
 	relation ViewUsage_viewCondition [
 		from ViewUsage
 		to Expression
@@ -4640,6 +4782,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "view"
 	@rdfs:comment "<p>The <code>usages</code> of this <code>ViewDefinition</code> that are <code>ViewUsages</code>.</p>"
+	@ecore:isOrdered
 	relation ViewDefinition_view [
 		from ViewDefinition
 		to ViewUsage
@@ -4647,6 +4790,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "satisfiedViewpoint"
 	@rdfs:comment "<p>The composite <code>ownedRequirements</code> of this <code>ViewDefinition</code> that are <code>ViewpointUsages</code> for viewpoints satisfied by the <code>ViewDefinition</code>.</p>"
+	@ecore:isOrdered
 	relation ViewDefinition_satisfiedViewpoint [
 		from ViewDefinition
 		to ViewpointUsage
@@ -4662,6 +4806,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "viewCondition"
 	@rdfs:comment "<p>The <code>Expressions</code> related to this <code>ViewDefinition</code> by <code>ElementFilterMemberships</code>, which specify conditions on <code>Elements</code> to be rendered in a view.</p>"
+	@ecore:isOrdered
 	relation ViewDefinition_viewCondition [
 		from ViewDefinition
 		to Expression
@@ -4691,6 +4836,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "viewpointStakeholder"
 	@rdfs:comment "<p>The <code>PartUsages</code> that identify the stakeholders with concerns framed by this <code>ViewpointUsage</code>, which are the owned and inherited <code>stakeholderParameters</code> of the <code>framedConcerns</code> of this <code>ViewpointUsage</code>.</p>"
+	@ecore:isOrdered
 	relation ViewpointUsage_viewpointStakeholder [
 		from ViewpointUsage
 		to PartUsage
@@ -4706,6 +4852,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "viewpointStakeholder"
 	@rdfs:comment "<p>The <code>PartUsages</code> that identify the stakeholders with concerns framed by this <code>ViewpointDefinition</code>, which are the owned and inherited <code>stakeholderParameters</code> of the <code>framedConcerns</code> of this <code>ViewpointDefinition</code>.</p>"
+	@ecore:isOrdered
 	relation ViewpointDefinition_viewpointStakeholder [
 		from ViewpointDefinition
 		to PartUsage
@@ -4741,6 +4888,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "rendering"
 	@rdfs:comment "<p>The <code>usages</code> of a <code>RenderingDefinition</code> that are <code>RenderingUsages</code>.</p>"
+	@ecore:isOrdered
 	relation RenderingDefinition_rendering [
 		from RenderingDefinition
 		to RenderingUsage
@@ -5162,6 +5310,7 @@ vocabulary <https://www.omg.org/spec/SysML#> as sysml {
 
 	@rdfs:label "state"
 	@rdfs:comment "<p>The <code>StateUsages</code>, which are <code>actions</code> in the <code>StateDefinition</code>, that specify the discrete states in the behavior defined by the <code>StateDefinition</code>.</p>"
+	@ecore:isOrdered
 	relation StateDefinition_state [
 		from StateDefinition
 		to StateUsage

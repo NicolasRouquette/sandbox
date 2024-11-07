@@ -1,0 +1,13 @@
+vocabulary <http://www.eclipse.org/emf/2002/Ecore#> as ecore {
+
+	extends <http://www.w3.org/1999/02/22-rdf-syntax-ns#> as rdf
+
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	annotation property isOrdered
+
+	scalar property order [
+		domain rdf:Statement
+		range xsd:int
+	]
+}
