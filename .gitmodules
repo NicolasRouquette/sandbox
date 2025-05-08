@@ -1,0 +1,3 @@
+[submodule "value-and-risk-ontology"]
+	path = value-and-risk-ontology
+	url = https://github.com/NicolasRouquette/value-and-risk-ontology.git
